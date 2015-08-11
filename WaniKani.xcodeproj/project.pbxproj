@@ -13,6 +13,13 @@
 		433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433E280C1B79D5E900BBB45E /* Images.xcassets */; };
 		433E28101B79D5E900BBB45E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433E280E1B79D5E900BBB45E /* LaunchScreen.xib */; };
 		433E281C1B79D5E900BBB45E /* WaniKaniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E281B1B79D5E900BBB45E /* WaniKaniTests.swift */; };
+		43C306731B79D75D00DEB6A4 /* WaniKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C306721B79D75D00DEB6A4 /* WaniKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43C306791B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; };
+		43C306821B79D75D00DEB6A4 /* WaniKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */; };
+		43C306851B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; };
+		43C306861B79D75D00DEB6A4 /* WaniKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		43C3068F1B79D79900DEB6A4 /* WaniApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */; };
+		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,9 +30,47 @@
 			remoteGlobalIDString = 433E27FF1B79D5E900BBB45E;
 			remoteInfo = WaniKani;
 		};
+		43C3067A1B79D75D00DEB6A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43C3066D1B79D75D00DEB6A4;
+			remoteInfo = WaniKit;
+		};
+		43C3067C1B79D75D00DEB6A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 433E27FF1B79D5E900BBB45E;
+			remoteInfo = WaniKani;
+		};
+		43C306831B79D75D00DEB6A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43C3066D1B79D75D00DEB6A4;
+			remoteInfo = WaniKit;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		43C3068C1B79D75D00DEB6A4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				43C306861B79D75D00DEB6A4 /* WaniKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		433E28001B79D5E900BBB45E /* WaniKani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaniKani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433E28041B79D5E900BBB45E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		433E28051B79D5E900BBB45E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +81,13 @@
 		433E28151B79D5E900BBB45E /* WaniKaniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaniKaniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		433E281A1B79D5E900BBB45E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		433E281B1B79D5E900BBB45E /* WaniKaniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaniKaniTests.swift; sourceTree = "<group>"; };
+		43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WaniKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43C306711B79D75D00DEB6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43C306721B79D75D00DEB6A4 /* WaniKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaniKit.h; sourceTree = "<group>"; };
+		43C306781B79D75D00DEB6A4 /* WaniKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaniKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43C306801B79D75D00DEB6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaniKitTests.swift; sourceTree = "<group>"; };
+		43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaniApiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43C306851B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */,
+				6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,15 +107,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		43C3066A1B79D75D00DEB6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43C306751B79D75D00DEB6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43C306791B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2481F23E0E9C1BDFB82D2F93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08CAC6D6A8578DF22EC21F90 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		433E27F71B79D5E900BBB45E = {
 			isa = PBXGroup;
 			children = (
 				433E28021B79D5E900BBB45E /* WaniKani */,
 				433E28181B79D5E900BBB45E /* WaniKaniTests */,
+				43C3066F1B79D75D00DEB6A4 /* WaniKit */,
+				43C3067E1B79D75D00DEB6A4 /* WaniKitTests */,
 				433E28011B79D5E900BBB45E /* Products */,
+				4C7149E8EDAB8FE705410AF3 /* Pods */,
+				2481F23E0E9C1BDFB82D2F93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +151,8 @@
 			children = (
 				433E28001B79D5E900BBB45E /* WaniKani.app */,
 				433E28151B79D5E900BBB45E /* WaniKaniTests.xctest */,
+				43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */,
+				43C306781B79D75D00DEB6A4 /* WaniKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,20 +195,80 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		43C3066F1B79D75D00DEB6A4 /* WaniKit */ = {
+			isa = PBXGroup;
+			children = (
+				43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */,
+				43C306721B79D75D00DEB6A4 /* WaniKit.h */,
+				43C306701B79D75D00DEB6A4 /* Supporting Files */,
+			);
+			path = WaniKit;
+			sourceTree = "<group>";
+		};
+		43C306701B79D75D00DEB6A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43C306711B79D75D00DEB6A4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43C3067E1B79D75D00DEB6A4 /* WaniKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */,
+				43C3067F1B79D75D00DEB6A4 /* Supporting Files */,
+			);
+			path = WaniKitTests;
+			sourceTree = "<group>";
+		};
+		43C3067F1B79D75D00DEB6A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43C306801B79D75D00DEB6A4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C7149E8EDAB8FE705410AF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */,
+				00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		43C3066B1B79D75D00DEB6A4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43C306731B79D75D00DEB6A4 /* WaniKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		433E27FF1B79D5E900BBB45E /* WaniKani */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 433E281F1B79D5E900BBB45E /* Build configuration list for PBXNativeTarget "WaniKani" */;
 			buildPhases = (
+				B7B362596755079541161286 /* Check Pods Manifest.lock */,
 				433E27FC1B79D5E900BBB45E /* Sources */,
 				433E27FD1B79D5E900BBB45E /* Frameworks */,
 				433E27FE1B79D5E900BBB45E /* Resources */,
+				A84150EEB50626DD7E095E66 /* Embed Pods Frameworks */,
+				8A779B57D099C1CAB69D47C0 /* Copy Pods Resources */,
+				43C3068C1B79D75D00DEB6A4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				43C306841B79D75D00DEB6A4 /* PBXTargetDependency */,
 			);
 			name = WaniKani;
 			productName = WaniKani;
@@ -150,6 +293,43 @@
 			productReference = 433E28151B79D5E900BBB45E /* WaniKaniTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		43C3066D1B79D75D00DEB6A4 /* WaniKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43C3068B1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKit" */;
+			buildPhases = (
+				43C306691B79D75D00DEB6A4 /* Sources */,
+				43C3066A1B79D75D00DEB6A4 /* Frameworks */,
+				43C3066B1B79D75D00DEB6A4 /* Headers */,
+				43C3066C1B79D75D00DEB6A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaniKit;
+			productName = WaniKit;
+			productReference = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		43C306771B79D75D00DEB6A4 /* WaniKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43C3068D1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKitTests" */;
+			buildPhases = (
+				43C306741B79D75D00DEB6A4 /* Sources */,
+				43C306751B79D75D00DEB6A4 /* Frameworks */,
+				43C306761B79D75D00DEB6A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				43C3067B1B79D75D00DEB6A4 /* PBXTargetDependency */,
+				43C3067D1B79D75D00DEB6A4 /* PBXTargetDependency */,
+			);
+			name = WaniKitTests;
+			productName = WaniKitTests;
+			productReference = 43C306781B79D75D00DEB6A4 /* WaniKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -163,6 +343,13 @@
 						CreatedOnToolsVersion = 6.4;
 					};
 					433E28141B79D5E900BBB45E = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 433E27FF1B79D5E900BBB45E;
+					};
+					43C3066D1B79D75D00DEB6A4 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					43C306771B79D75D00DEB6A4 = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 433E27FF1B79D5E900BBB45E;
 					};
@@ -183,6 +370,8 @@
 			targets = (
 				433E27FF1B79D5E900BBB45E /* WaniKani */,
 				433E28141B79D5E900BBB45E /* WaniKaniTests */,
+				43C3066D1B79D75D00DEB6A4 /* WaniKit */,
+				43C306771B79D75D00DEB6A4 /* WaniKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -205,7 +394,69 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		43C3066C1B79D75D00DEB6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43C306761B79D75D00DEB6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8A779B57D099C1CAB69D47C0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A84150EEB50626DD7E095E66 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7B362596755079541161286 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		433E27FC1B79D5E900BBB45E /* Sources */ = {
@@ -225,6 +476,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		43C306691B79D75D00DEB6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43C3068F1B79D79900DEB6A4 /* WaniApiManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43C306741B79D75D00DEB6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43C306821B79D75D00DEB6A4 /* WaniKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -232,6 +499,21 @@
 			isa = PBXTargetDependency;
 			target = 433E27FF1B79D5E900BBB45E /* WaniKani */;
 			targetProxy = 433E28161B79D5E900BBB45E /* PBXContainerItemProxy */;
+		};
+		43C3067B1B79D75D00DEB6A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43C3066D1B79D75D00DEB6A4 /* WaniKit */;
+			targetProxy = 43C3067A1B79D75D00DEB6A4 /* PBXContainerItemProxy */;
+		};
+		43C3067D1B79D75D00DEB6A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 433E27FF1B79D5E900BBB45E /* WaniKani */;
+			targetProxy = 43C3067C1B79D75D00DEB6A4 /* PBXContainerItemProxy */;
+		};
+		43C306841B79D75D00DEB6A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43C3066D1B79D75D00DEB6A4 /* WaniKit */;
+			targetProxy = 43C306831B79D75D00DEB6A4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -340,6 +622,7 @@
 		};
 		433E28201B79D5E900BBB45E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WaniKani/Info.plist;
@@ -350,6 +633,7 @@
 		};
 		433E28211B79D5E900BBB45E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WaniKani/Info.plist;
@@ -392,6 +676,78 @@
 			};
 			name = Release;
 		};
+		43C306871B79D75D00DEB6A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WaniKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		43C306881B79D75D00DEB6A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WaniKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		43C306891B79D75D00DEB6A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WaniKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaniKani.app/WaniKani";
+			};
+			name = Debug;
+		};
+		43C3068A1B79D75D00DEB6A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WaniKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaniKani.app/WaniKani";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -411,12 +767,30 @@
 				433E28211B79D5E900BBB45E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		433E28221B79D5E900BBB45E /* Build configuration list for PBXNativeTarget "WaniKaniTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				433E28231B79D5E900BBB45E /* Debug */,
 				433E28241B79D5E900BBB45E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43C3068B1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43C306871B79D75D00DEB6A4 /* Debug */,
+				43C306881B79D75D00DEB6A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		43C3068D1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43C306891B79D75D00DEB6A4 /* Debug */,
+				43C3068A1B79D75D00DEB6A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
