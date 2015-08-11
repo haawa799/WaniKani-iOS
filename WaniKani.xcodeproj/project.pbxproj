@@ -19,6 +19,7 @@
 		43C306851B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; };
 		43C306861B79D75D00DEB6A4 /* WaniKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43C3068F1B79D79900DEB6A4 /* WaniApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */; };
+		62798FF1436B89758C73F9B9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62798FF1436B89758C73F9B9 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +299,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43C3068B1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKit" */;
 			buildPhases = (
+				01B11088131BD1B43DB92643 /* Check Pods Manifest.lock */,
 				43C306691B79D75D00DEB6A4 /* Sources */,
 				43C3066A1B79D75D00DEB6A4 /* Frameworks */,
 				43C3066B1B79D75D00DEB6A4 /* Headers */,
 				43C3066C1B79D75D00DEB6A4 /* Resources */,
+				0BCC4B9FDABEFCD3F142E367 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -411,6 +415,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		01B11088131BD1B43DB92643 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0BCC4B9FDABEFCD3F142E367 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8A779B57D099C1CAB69D47C0 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -586,6 +621,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -625,6 +661,7 @@
 			baseConfigurationReference = 3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -636,6 +673,7 @@
 			baseConfigurationReference = 00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -678,7 +716,9 @@
 		};
 		43C306871B79D75D00DEB6A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -700,7 +740,9 @@
 		};
 		43C306881B79D75D00DEB6A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -785,6 +827,7 @@
 				43C306881B79D75D00DEB6A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43C3068D1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKitTests" */ = {
 			isa = XCConfigurationList;
@@ -793,6 +836,7 @@
 				43C3068A1B79D75D00DEB6A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
