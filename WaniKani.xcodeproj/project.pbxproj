@@ -19,6 +19,7 @@
 		43C306851B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; };
 		43C306861B79D75D00DEB6A4 /* WaniKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43C3068F1B79D79900DEB6A4 /* WaniApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */; };
+		43D824FC1B7A2951003D26BE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D824FB1B7A2951003D26BE /* User.swift */; };
 		62798FF1436B89758C73F9B9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		43C306801B79D75D00DEB6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaniKitTests.swift; sourceTree = "<group>"; };
 		43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaniApiManager.swift; sourceTree = "<group>"; };
+		43D824FB1B7A2951003D26BE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 		43C3066F1B79D75D00DEB6A4 /* WaniKit */ = {
 			isa = PBXGroup;
 			children = (
+				43D824FA1B7A2929003D26BE /* Model */,
 				43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */,
 				43C306721B79D75D00DEB6A4 /* WaniKit.h */,
 				43C306701B79D75D00DEB6A4 /* Supporting Files */,
@@ -230,6 +233,14 @@
 				43C306801B79D75D00DEB6A4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43D824FA1B7A2929003D26BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43D824FB1B7A2951003D26BE /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4C7149E8EDAB8FE705410AF3 /* Pods */ = {
@@ -514,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D824FC1B7A2951003D26BE /* User.swift in Sources */,
 				43C3068F1B79D79900DEB6A4 /* WaniApiManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
