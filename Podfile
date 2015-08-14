@@ -5,3 +5,4 @@ use_frameworks!
 link_with 'WaniKit'
 pod 'Alamofire', '~> 1.3'
 pod 'RealmSwift'
+pod 'PermissionScope', '~> 0.6'

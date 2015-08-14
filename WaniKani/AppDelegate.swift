@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import WaniKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,12 +37,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationDidBecomeActive(application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    fetchStudyQueue()
+  }
+  
+  func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    fetchStudyQueue()
   }
 
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
 
+  private func fetchStudyQueue() {
+    WaniApiManager.sharedInstance.fetchStudyQueue { (user, studyQ) -> () in
+      if let user = user, let studyQ = studyQ {
+        let realm = Realm()
+        
+        user.studyQueue = studyQ
+        
+        realm.write({ () -> Void in
+          realm.add(user, update: true)
+        })
+        
+        let users = realm.objects(User)
+        if let user = users.first, let q = user.studyQueue {
+          
+          let hours = q.nextReviewWaitingString().hours
+          UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(hours + 1))
+          
+          NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
+          UIApplication.sharedApplication().applicationIconBadgeNumber = q.reviewsAvaliable
+        }
+      }
+    }
+  }
 
 }
 

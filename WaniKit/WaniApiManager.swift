@@ -31,16 +31,20 @@ public class WaniApiManager: NSObject {
   private static let userInfoKey = "user_information"
   private static let requestedInfo = "requested_information"
   
-  public func fetchUserInfo(userBlock:(User?)->()) {
+  public func fetchStudyQueue(handler:(User?, StudyQueue?)->()) {
     Alamofire.request(.GET, "https://www.wanikani.com/api/user/c6ce4072cf1bd37b407f2c86d69137e3/study-queue", parameters: nil)
       .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, _, JSON, _) -> Void in
         var user: User? = nil
+        var studyQueue: StudyQueue? = nil
         if let dict = JSON as? NSDictionary {
           if let userInfo = dict[WaniApiManager.userInfoKey] as? NSDictionary {
-            user = User.userFromDictionary(userInfo)
+            user = User.objectFromDictionary(userInfo)
+          }
+          if let studyQueueInfo = dict[WaniApiManager.requestedInfo] as? NSDictionary {
+            studyQueue = StudyQueue.objectFromDictionary(studyQueueInfo)
           }
         }
-        userBlock(user)
+        handler(user, studyQueue)
     }
   }
   
