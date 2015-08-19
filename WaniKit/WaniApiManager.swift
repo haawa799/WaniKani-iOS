@@ -26,13 +26,16 @@ public class WaniApiManager: NSObject {
   public static let sharedInstance = WaniApiManager()
   
   private static let baseURL = "https://www.wanikani.com/api/"
-  private static let myKey = "c6ce4072cf1bd37b407f2c86d69137e3"
+  private let myKey = "c6ce4072cf1bd37b407f2c86d69137e3"
   
   private static let userInfoKey = "user_information"
   private static let requestedInfo = "requested_information"
   
   public func fetchStudyQueue(handler:(User?, StudyQueue?)->()) {
-    Alamofire.request(.GET, "https://www.wanikani.com/api/user/c6ce4072cf1bd37b407f2c86d69137e3/study-queue", parameters: nil)
+    
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    
+    Alamofire.request(.GET, "https://www.wanikani.com/api/user/\(myKey)/study-queue", parameters: nil)
       .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, _, JSON, _) -> Void in
         var user: User? = nil
         var studyQueue: StudyQueue? = nil
@@ -45,6 +48,7 @@ public class WaniApiManager: NSObject {
           }
         }
         handler(user, studyQueue)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
   }
   

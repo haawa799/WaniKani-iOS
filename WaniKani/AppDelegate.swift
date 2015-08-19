@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     return true
   }
 
@@ -63,8 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let user = users.first, let q = user.studyQueue {
           
           let hours = q.nextReviewWaitingString().hours
-          UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(hours + 1))
-          
           NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
           UIApplication.sharedApplication().applicationIconBadgeNumber = q.reviewsAvaliable
         }
