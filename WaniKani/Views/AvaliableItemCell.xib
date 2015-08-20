@@ -17,9 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="401" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="yBC-pz-U1E">
-                                <rect key="frame" x="8" y="28" width="41" height="19.5"/>
+                                <rect key="frame" x="8" y="27" width="40" height="19.5"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>

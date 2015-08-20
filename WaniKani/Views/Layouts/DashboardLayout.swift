@@ -13,22 +13,27 @@ class DashboardLayout: UICollectionViewFlowLayout {
   let defaultCellInset: CGFloat = 7
   let rowsSpacing: CGFloat = 1
   let aspectRatio:CGFloat = 320/50
+  let maxHeight: CGFloat = 60
   
   
   override func collectionViewContentSize() -> CGSize {
-    let contentSize = CGSize(width: collectionView!.bounds.width, height: collectionView!.bounds.height - collectionView!.contentInset.top)
+    let contentSize = super.collectionViewContentSize()
     
-    sectionInset = UIEdgeInsets(top: 0, left: defaultCellInset, bottom: defaultCellInset, right: defaultCellInset)
+    sectionInset = UIEdgeInsets(top: defaultCellInset, left: defaultCellInset, bottom: 50, right: defaultCellInset)
     minimumInteritemSpacing = defaultCellInset
     minimumLineSpacing = rowsSpacing
     
     let width = contentSize.width - (sectionInset.left + sectionInset.right)
-    let height = width / aspectRatio
+    let height = min(width / aspectRatio, maxHeight)
     
     itemSize = CGSize(width: width, height: height)
     headerReferenceSize = CGSize(width: width, height: height * 0.5)
     
     return contentSize
+  }
+  
+  override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    return true
   }
   
 }

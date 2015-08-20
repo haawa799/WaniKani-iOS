@@ -43,7 +43,7 @@ extension StudyQueue: DictionaryConvertable {
 // Dates related
 extension StudyQueue {
   
-  public func nextReviewWaitingString() -> (string: String, hours: Int) {
+  public func nextReviewWaitingData() -> (string: String, hours: Int) {
     let calendar: NSCalendar = NSCalendar.currentCalendar()
     
     let flags = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute

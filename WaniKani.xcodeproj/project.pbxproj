@@ -14,6 +14,7 @@
 		433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E16581B8465D1007B7DE9 /* DashboardLayout.swift */; };
 		433E165C1B84764B007B7DE9 /* DashboardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E165A1B84764B007B7DE9 /* DashboardHeader.swift */; };
 		433E165D1B84764B007B7DE9 /* DashboardHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433E165B1B84764B007B7DE9 /* DashboardHeader.xib */; };
+		433E165F1B84A6D0007B7DE9 /* DataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */; };
 		433E28061B79D5E900BBB45E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E28051B79D5E900BBB45E /* AppDelegate.swift */; };
 		433E280B1B79D5E900BBB45E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433E28091B79D5E900BBB45E /* Main.storyboard */; };
 		433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433E280C1B79D5E900BBB45E /* Images.xcassets */; };
@@ -88,6 +89,7 @@
 		433E16581B8465D1007B7DE9 /* DashboardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardLayout.swift; sourceTree = "<group>"; };
 		433E165A1B84764B007B7DE9 /* DashboardHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardHeader.swift; sourceTree = "<group>"; };
 		433E165B1B84764B007B7DE9 /* DashboardHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardHeader.xib; sourceTree = "<group>"; };
+		433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetchManager.swift; sourceTree = "<group>"; };
 		433E28001B79D5E900BBB45E /* WaniKani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaniKani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433E28041B79D5E900BBB45E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		433E28051B79D5E900BBB45E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		433E164C1B846016007B7DE9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */,
 				433E164D1B846016007B7DE9 /* NotificationManager.swift */,
 			);
 			path = Utils;
@@ -577,6 +580,7 @@
 				433E16551B8460C1007B7DE9 /* AvaliableItemCell.swift in Sources */,
 				433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */,
 				433E28061B79D5E900BBB45E /* AppDelegate.swift in Sources */,
+				433E165F1B84A6D0007B7DE9 /* DataFetchManager.swift in Sources */,
 				433E165C1B84764B007B7DE9 /* DashboardHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -747,6 +751,8 @@
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -759,6 +765,8 @@
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

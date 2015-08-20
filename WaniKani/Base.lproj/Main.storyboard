@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="art0" translatesAutoresizingMaskIntoConstraints="NO" id="YHt-hx-0hG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
                             <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="el3-SF-56c">
@@ -32,7 +32,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rRS-3r-vDf">
-                                <rect key="frame" x="0.0" y="30" width="600" height="521"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hIZ-A7-Vn1" customClass="DashboardLayout" customModule="WaniKani" customModuleProvider="target">
@@ -48,9 +48,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="YHt-hx-0hG" secondAttribute="trailing" id="4Bk-Qx-rup"/>
+                            <constraint firstItem="rRS-3r-vDf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="7zA-OD-BJm"/>
                             <constraint firstItem="YHt-hx-0hG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8WS-id-bCF"/>
                             <constraint firstItem="rRS-3r-vDf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8hC-LI-YAb"/>
                             <constraint firstItem="el3-SF-56c" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BtH-nY-bon"/>
+                            <constraint firstAttribute="bottom" secondItem="YHt-hx-0hG" secondAttribute="bottom" id="FYH-rG-nKZ"/>
                             <constraint firstItem="YHt-hx-0hG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GBQ-Zt-yr7"/>
                             <constraint firstItem="rRS-3r-vDf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="KBr-tE-ABV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="bottom" secondItem="el3-SF-56c" secondAttribute="bottom" id="KHI-Hw-EG5"/>
@@ -58,24 +60,32 @@
                             <constraint firstAttribute="trailing" secondItem="rRS-3r-vDf" secondAttribute="trailing" id="Ndd-bh-YzS"/>
                             <constraint firstAttribute="trailing" secondItem="el3-SF-56c" secondAttribute="trailing" id="OmW-rC-6TZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="bottom" secondItem="YHt-hx-0hG" secondAttribute="bottom" id="SNq-c6-vnS"/>
-                            <constraint firstItem="rRS-3r-vDf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Z7N-Yu-78s"/>
+                            <constraint firstAttribute="bottom" secondItem="rRS-3r-vDf" secondAttribute="bottom" id="TCy-Fq-t66"/>
+                            <constraint firstItem="rRS-3r-vDf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Z7N-Yu-78s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rRS-3r-vDf" secondAttribute="trailing" id="Zq9-WT-E2T"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rRS-3r-vDf" secondAttribute="bottom" id="lfT-26-JJq"/>
                             <constraint firstItem="el3-SF-56c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="mPF-p5-sVP"/>
+                            <constraint firstItem="rRS-3r-vDf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xg3-oi-x88"/>
                             <constraint firstItem="rRS-3r-vDf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xir-R5-SQt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rRS-3r-vDf" secondAttribute="bottom" id="z3N-bx-MsV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="BtH-nY-bon"/>
+                                <exclude reference="7zA-OD-BJm"/>
                                 <exclude reference="KBr-tE-ABV"/>
+                                <exclude reference="Z7N-Yu-78s"/>
                                 <exclude reference="Zq9-WT-E2T"/>
                                 <exclude reference="xir-R5-SQt"/>
+                                <exclude reference="SNq-c6-vnS"/>
+                                <exclude reference="lfT-26-JJq"/>
                                 <exclude reference="z3N-bx-MsV"/>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Fgh-Ta-Ic5"/>
+                    <navigationItem key="navigationItem" id="y2h-GV-Yat">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="z72-IO-rlO"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="blurView" destination="el3-SF-56c" id="VXs-Ot-YvI"/>
                         <outlet property="collectionView" destination="rRS-3r-vDf" id="aCO-jc-ltY"/>
@@ -83,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1176" y="195"/>
+            <point key="canvasLocation" x="1988" y="195"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="l26-QJ-UN3">
@@ -97,12 +107,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="niE-bQ-H4w"/>
+                        <segue destination="PNX-Q4-r4e" kind="relationship" relationship="viewControllers" id="niE-bQ-H4w"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IgZ-XD-MF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="364" y="195"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="5vN-NH-bLs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PNX-Q4-r4e" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Fgh-Ta-Ic5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LYn-Sa-ceU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yWf-TR-1lR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WFv-hM-qe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1176" y="195"/>
         </scene>
     </scenes>
     <resources>
