@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -32,7 +32,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rRS-3r-vDf">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hIZ-A7-Vn1" customClass="DashboardLayout" customModule="WaniKani" customModuleProvider="target">
@@ -65,6 +65,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rRS-3r-vDf" secondAttribute="trailing" id="Zq9-WT-E2T"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rRS-3r-vDf" secondAttribute="bottom" id="lfT-26-JJq"/>
                             <constraint firstItem="el3-SF-56c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="mPF-p5-sVP"/>
+                            <constraint firstItem="rRS-3r-vDf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="rV8-6U-Z72"/>
                             <constraint firstItem="rRS-3r-vDf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xg3-oi-x88"/>
                             <constraint firstItem="rRS-3r-vDf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xir-R5-SQt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rRS-3r-vDf" secondAttribute="bottom" id="z3N-bx-MsV"/>
@@ -76,6 +77,7 @@
                                 <exclude reference="KBr-tE-ABV"/>
                                 <exclude reference="Z7N-Yu-78s"/>
                                 <exclude reference="Zq9-WT-E2T"/>
+                                <exclude reference="xg3-oi-x88"/>
                                 <exclude reference="xir-R5-SQt"/>
                                 <exclude reference="SNq-c6-vnS"/>
                                 <exclude reference="lfT-26-JJq"/>

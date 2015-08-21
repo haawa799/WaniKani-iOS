@@ -31,16 +31,10 @@ class ViewController: UIViewController {
       collectionView?.registerNib(cellNib, forCellWithReuseIdentifier: AvaliableItemCell.identifier)
       let headerNib = UINib(nibName: "DashboardHeader", bundle: nil)
       collectionView?.registerNib(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier)
-
-      let refresh = UIRefreshControl()
-      refresh.tintColor = UIColor.grayColor()
-      refresh.addTarget(self, action: "refershControlAction", forControlEvents: UIControlEvents.ValueChanged)
-      refreshControl = refresh
-      collectionView?.addSubview(refresh)
     }
   }
   
-  @objc private func refershControlAction() {
+  @IBAction private func refresh() {
     
   }
   
@@ -61,6 +55,14 @@ class ViewController: UIViewController {
         self.blurView.alpha = 1
       })
     }
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    let top = self.topLayoutGuide.length
+    let bottom = self.bottomLayoutGuide.length
+    let newInsets = UIEdgeInsets(top: top, left: 0, bottom: bottom, right: 0)
+    self.collectionView.contentInset = newInsets
   }
   
   
