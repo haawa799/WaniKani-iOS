@@ -21,9 +21,15 @@ class AvaliableItemCell: UICollectionViewCell {
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var disclosureButton: UIButton!
   
+  var enabled: Bool = false {
+    didSet {
+      disclosureButton?.hidden = !enabled
+    }
+  }
+  
   func setupWith(text: String, enabled: Bool) {
     titleLabel?.text = text
-    disclosureButton?.hidden = !enabled
+    self.enabled = enabled
   }
   
   override func prepareForReuse() {

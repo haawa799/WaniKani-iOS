@@ -8,7 +8,7 @@
 
 import UIKit
 import WaniKit
-import SafariServices
+import KINWebBrowser
 
 class ApiKeyPickerController: UIViewController {
   
@@ -22,9 +22,18 @@ class ApiKeyPickerController: UIViewController {
   
   @IBAction func getMyKeyPressed(sender: UIButton) {
     if let url = NSURL(string: "https://www.wanikani.com/account") {
-//      UIApplication.sharedApplication().openURL(url)
-//      let svc = SFS
-//      self.presentViewController(svc, animated: true, completion: nil)
+      UIApplication.sharedApplication().openURL(url)
+      /*
+      UINavigationController *webBrowserNavigationController = [KINWebBrowserViewController navigationControllerWithWebBrowser];
+      [self presentViewController:webBrowserNavigationController animated:YES completion:nil];
+      
+      KINWebBrowserViewController *webBrowser = [webBrowserNavigationController rootWebBrowser];
+      [webBrowser loadURLString:@"http://www.example.com"];
+      */
+//      let webBrowserNavigationController = KINWebBrowserViewController.navigationControllerWithWebBrowser()
+//      presentViewController(webBrowserNavigationController, animated: true, completion: nil)
+//      let webBrowser = webBrowserNavigationController.rootWebBrowser()
+//      webBrowser.loadURLString("http://lebara.im/mela2015")
     }
   }
   

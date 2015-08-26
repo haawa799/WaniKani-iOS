@@ -9,16 +9,20 @@
 import UIKit
 import WaniKit
 import RealmSwift
+import KINWebBrowser
 
 class ViewController: UIViewController {
   
-  var studyQueue: StudyQueue? = {
-    let users = Realm().objects(User)
-    if let user = users.first, let q = user.studyQueue {
-      return q
+  private var loadedQueue: StudyQueue?
+  var studyQueue: StudyQueue? {
+    if loadedQueue == nil {
+      let users = Realm().objects(User)
+      if let user = users.first, let q = user.studyQueue {
+        loadedQueue = q
+      }
     }
-    return nil
-    }()
+    return loadedQueue
+  }
   
   @IBOutlet weak var blurView: UIVisualEffectView!
   var refreshControl: UIRefreshControl?
@@ -27,6 +31,7 @@ class ViewController: UIViewController {
     didSet {
       collectionView?.alwaysBounceVertical = true
       collectionView?.dataSource = self
+      collectionView?.delegate = self
       let avaliableCellNib = UINib(nibName: "AvaliableItemCell", bundle: nil)
       collectionView?.registerNib(avaliableCellNib, forCellWithReuseIdentifier: AvaliableItemCell.identifier)
       let reviewCellNib = UINib(nibName: "ReviewCell", bundle: nil)
@@ -37,7 +42,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction private func refresh() {
-    flipVisibleCells()
+    DataFetchManager.sharedInstance.fetchStudyQueue()
   }
   
   func flipVisibleCells() {
@@ -103,11 +108,36 @@ extension ViewController {
   }
   
   func newStudyQueueData() {
+    loadedQueue = nil
+    flipVisibleCells()
     collectionView.reloadData()
-    
-    delay(0.2, { () -> () in
-      self.flipVisibleCells()
-    })
+  }
+  
+}
+
+extension ViewController : UICollectionViewDelegate {
+  
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AvaliableItemCell {
+      if cell.enabled == true {
+        let webBrowser = KINWebBrowserViewController.webBrowser()
+        webBrowser.actionButtonHidden = true
+        webBrowser.showsPageTitleInNavigationBar = true
+        webBrowser.tintColor = navigationController?.navigationBar.tintColor
+        hidesBottomBarWhenPushed = true
+        self.navigationController?.hidesBarsOnSwipe = true
+        self.navigationController?.pushViewController(webBrowser, animated: true)
+        
+        var url = ""
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0): url = "https://www.wanikani.com/lesson/session"
+        case (0, 1): url = "https://www.wanikani.com/review/session"
+        default: break
+        }
+        
+        webBrowser.loadURLString(url)
+      }
+    }
   }
   
 }
