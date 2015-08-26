@@ -18,10 +18,6 @@ class DashboardLayout: UICollectionViewFlowLayout {
   var originalTopIset: CGFloat?
   var originalBotIset: CGFloat?
   
-  override func invalidateLayout() {
-    super.invalidateLayout()
-  }
-  
   override func prepareLayout() {
     
     if originalTopIset == nil {
@@ -34,8 +30,10 @@ class DashboardLayout: UICollectionViewFlowLayout {
     let maxSide = max(collectionView!.bounds.size.width, collectionView!.bounds.size.height)
     let contentSize = CGSize(width: collectionView!.bounds.size.width, height: maxSide - originalTopIset! - originalBotIset!)
     
+    let leftInset = defaultCellInset
+    let rightInset = defaultCellInset
     
-    let width = contentSize.width - (sectionInset.left + sectionInset.right)
+    let width = contentSize.width - (leftInset + rightInset)
     let height = min(width / aspectRatio, maxHeight)
     
     
@@ -55,7 +53,7 @@ class DashboardLayout: UICollectionViewFlowLayout {
       headerReferenceSize = CGSize(width: width, height: headerHeight)
       itemSize = CGSize(width: width, height: height)
       
-      sectionInset = UIEdgeInsets(top: 0, left: defaultCellInset, bottom: freeSpacePerSection, right: defaultCellInset)
+      sectionInset = UIEdgeInsets(top: 0, left: leftInset, bottom: freeSpacePerSection, right: rightInset)
       minimumInteritemSpacing = defaultCellInset
       minimumLineSpacing = rowsSpacing
       

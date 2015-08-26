@@ -27,15 +27,35 @@ class ViewController: UIViewController {
     didSet {
       collectionView?.alwaysBounceVertical = true
       collectionView?.dataSource = self
-      let cellNib = UINib(nibName: "AvaliableItemCell", bundle: nil)
-      collectionView?.registerNib(cellNib, forCellWithReuseIdentifier: AvaliableItemCell.identifier)
+      let avaliableCellNib = UINib(nibName: "AvaliableItemCell", bundle: nil)
+      collectionView?.registerNib(avaliableCellNib, forCellWithReuseIdentifier: AvaliableItemCell.identifier)
+      let reviewCellNib = UINib(nibName: "ReviewCell", bundle: nil)
+      collectionView?.registerNib(reviewCellNib, forCellWithReuseIdentifier: ReviewCell.identifier)
       let headerNib = UINib(nibName: "DashboardHeader", bundle: nil)
       collectionView?.registerNib(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier)
     }
   }
   
   @IBAction private func refresh() {
+    flipVisibleCells()
+  }
+  
+  func flipVisibleCells() {
+    var delayFromFirst:Float = 0.0
+    var deltaTime:Float = 0.1
     
+    var cells = self.collectionView.visibleCells()
+    
+    for cell in cells{
+      if let cell = cell as? UICollectionViewCell {
+        if let indexPath = self.collectionView.indexPathForCell(cell){
+          delayFromFirst += deltaTime
+          
+          (cell as? FlippableCell)?.flip(animations: {
+            }, delay: NSTimeInterval(delayFromFirst))
+        }
+      }
+    }
   }
   
   override func viewWillLayoutSubviews() {
@@ -45,14 +65,23 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "noApiKeyNotification", name: WaniApiManager.noApiKeyNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "newStudyQueueData", name: DataFetchManager.newStudyQueueReceivedNotification, object: nil)
+  }
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
     if blurView.alpha == 0 {
+//      collectionView.alpha = 0
       UIView.animateWithDuration(1, animations: { () -> Void in
         self.blurView.alpha = 1
+//        self.collectionView.alpha = 1
       })
     }
   }
@@ -64,7 +93,22 @@ class ViewController: UIViewController {
     let newInsets = UIEdgeInsets(top: top, left: 0, bottom: bottom, right: 0)
     self.collectionView.contentInset = newInsets
   }
+}
+
+// Notifications
+extension ViewController {
   
+  func noApiKeyNotification() {
+    performSegueWithIdentifier("apiKeyPicker", sender: nil)
+  }
+  
+  func newStudyQueueData() {
+    collectionView.reloadData()
+    
+    delay(0.2, { () -> () in
+      self.flipVisibleCells()
+    })
+  }
   
 }
 
@@ -84,15 +128,23 @@ extension ViewController : UICollectionViewDataSource {
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(AvaliableItemCell.identifier, forIndexPath: indexPath) as! AvaliableItemCell
+    
+    var cell: UICollectionViewCell
+    var identifier: String = ""
+    switch indexPath.section {
+    case 0: identifier = AvaliableItemCell.identifier
+    case 1: identifier = ReviewCell.identifier
+    default: break
+    }
+    cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UICollectionViewCell
     
     if let q = studyQueue {
       switch (indexPath.section, indexPath.row) {
-      case (0, 0): cell.setupWith("\(q.lessonsAvaliable) Lessons", enabled: (q.lessonsAvaliable > 0))
-      case (0, 1): cell.setupWith("\(q.reviewsAvaliable) Reviews", enabled: (q.reviewsAvaliable > 0))
-      case (1, 0): cell.setupWith("Next review \(q.nextReviewWaitingData().string)", enabled: (q.lessonsAvaliable > 0))
-      case (1, 1): cell.setupWith("Next hour - \(q.reviewsNextHour)", enabled: false)
-      case (1, 2): cell.setupWith("Next day - \(q.reviewsNextDay)", enabled: false)
+      case (0, 0): (cell as? AvaliableItemCell)?.setupWith("\(q.lessonsAvaliable) Lessons", enabled: (q.lessonsAvaliable > 0))
+      case (0, 1): (cell as? AvaliableItemCell)?.setupWith("\(q.reviewsAvaliable) Reviews", enabled: (q.reviewsAvaliable > 0))
+      case (1, 0): (cell as? AvaliableItemCell)?.setupWith("Next review \(q.nextReviewWaitingData().string)", enabled: (q.lessonsAvaliable > 0))
+      case (1, 1): (cell as? ReviewCell)?.setupWith("Next hour", numberText: "\(q.reviewsNextHour)")
+      case (1, 2): (cell as? ReviewCell)?.setupWith("Next day", numberText: "\(q.reviewsNextDay)")
       default: break
       }
     }

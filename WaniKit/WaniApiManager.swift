@@ -26,29 +26,54 @@ public class WaniApiManager: NSObject {
   public static let sharedInstance = WaniApiManager()
   
   private static let baseURL = "https://www.wanikani.com/api/"
-  private let myKey = "c6ce4072cf1bd37b407f2c86d69137e3"
+  private static let userDefaulsKey = "WaniAPIManagerKey"
+  private var myKey: String?
+  
+  public static let noApiKeyNotification = "NoApiKeyNotification"
+  
+  private func apiKey() -> String? {
+    if let key = myKey {
+      return key
+    } else {
+      myKey = NSUserDefaults.standardUserDefaults().objectForKey(WaniApiManager.userDefaulsKey) as? String
+    }
+    if let key = myKey {
+      return key
+    } else {
+      NSNotificationCenter.defaultCenter().postNotificationName(WaniApiManager.noApiKeyNotification, object: nil)
+      return nil
+    }
+  }
+  
+  public func setApiKey(key: String) {
+    NSUserDefaults.standardUserDefaults().setObject(key, forKey: WaniApiManager.userDefaulsKey)
+    NSUserDefaults.standardUserDefaults().synchronize()
+    myKey = key
+  }
   
   private static let userInfoKey = "user_information"
   private static let requestedInfo = "requested_information"
   
   public func fetchStudyQueue(handler:(User?, StudyQueue?)->()) {
     
-    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-    
-    Alamofire.request(.GET, "https://www.wanikani.com/api/user/\(myKey)/study-queue", parameters: nil)
-      .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, _, JSON, _) -> Void in
-        var user: User? = nil
-        var studyQueue: StudyQueue? = nil
-        if let dict = JSON as? NSDictionary {
-          if let userInfo = dict[WaniApiManager.userInfoKey] as? NSDictionary {
-            user = User.objectFromDictionary(userInfo)
+    if let key = apiKey() {
+      UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+      
+      Alamofire.request(.GET, "https://www.wanikani.com/api/user/\(key)/study-queue", parameters: nil)
+        .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, _, JSON, _) -> Void in
+          var user: User? = nil
+          var studyQueue: StudyQueue? = nil
+          if let dict = JSON as? NSDictionary {
+            if let userInfo = dict[WaniApiManager.userInfoKey] as? NSDictionary {
+              user = User.objectFromDictionary(userInfo)
+            }
+            if let studyQueueInfo = dict[WaniApiManager.requestedInfo] as? NSDictionary {
+              studyQueue = StudyQueue.objectFromDictionary(studyQueueInfo)
+            }
           }
-          if let studyQueueInfo = dict[WaniApiManager.requestedInfo] as? NSDictionary {
-            studyQueue = StudyQueue.objectFromDictionary(studyQueueInfo)
-          }
-        }
-        handler(user, studyQueue)
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+          handler(user, studyQueue)
+          UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+      }
     }
   }
   

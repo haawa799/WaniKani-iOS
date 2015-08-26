@@ -14,7 +14,7 @@ class DataFetchManager: NSObject {
   
   static let sharedInstance = DataFetchManager()
   
-  let newStudyQueueReceivedNotification = "NewStudyQueueReceivedNotification"
+  static let newStudyQueueReceivedNotification = "NewStudyQueueReceivedNotification"
   
   func fetchStudyQueue() {
     WaniApiManager.sharedInstance.fetchStudyQueue { (user, studyQ) -> () in
@@ -33,8 +33,7 @@ class DataFetchManager: NSObject {
           let hours = q.nextReviewWaitingData().hours
           NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
           UIApplication.sharedApplication().applicationIconBadgeNumber = q.reviewsAvaliable
-          
-          NSNotificationCenter.defaultCenter().postNotificationName(self.newStudyQueueReceivedNotification, object: q)
+          NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newStudyQueueReceivedNotification, object: q)
         }
       }
     }
