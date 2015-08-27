@@ -54,13 +54,19 @@ public class WaniApiManager: NSObject {
   private static let userInfoKey = "user_information"
   private static let requestedInfo = "requested_information"
   
+  var manager: Manager!
+  
   public func fetchStudyQueue(handler:(User?, StudyQueue?)->()) {
     
     if let key = apiKey() {
       UIApplication.sharedApplication().networkActivityIndicatorVisible = true
       
-      Alamofire.request(.GET, "https://www.wanikani.com/api/user/\(key)/study-queue", parameters: nil)
-        .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, _, JSON, _) -> Void in
+      let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+      configuration.timeoutIntervalForResource = 60 // seconds
+      
+      manager = Alamofire.Manager(configuration: configuration)
+      manager.request(.GET, "https://www.wanikani.com/api/user/\(key)/study-queue", parameters: nil)
+        .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, response, JSON, error) -> Void in
           var user: User? = nil
           var studyQueue: StudyQueue? = nil
           if let dict = JSON as? NSDictionary {

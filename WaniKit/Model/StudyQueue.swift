@@ -66,7 +66,7 @@ extension StudyQueue {
               if minutes == 1 {
                 s = ""
               }
-              nextReviewString = "~ \(minutes) minute\(s)"
+              nextReviewString = "~ \(minutes) min\(s)"
             }
           } else {
             var s = "s"

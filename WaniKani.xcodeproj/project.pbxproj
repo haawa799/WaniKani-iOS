@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164D1B846016007B7DE9 /* NotificationManager.swift */; };
-		433E16521B846016007B7DE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164F1B846016007B7DE9 /* ViewController.swift */; };
+		433E16521B846016007B7DE9 /* StudyQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */; };
 		433E16551B8460C1007B7DE9 /* AvaliableItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E16531B8460C1007B7DE9 /* AvaliableItemCell.swift */; };
 		433E16561B8460C1007B7DE9 /* AvaliableItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433E16541B8460C1007B7DE9 /* AvaliableItemCell.xib */; };
 		433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E16581B8465D1007B7DE9 /* DashboardLayout.swift */; };
@@ -25,6 +25,8 @@
 		433E281C1B79D5E900BBB45E /* WaniKaniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E281B1B79D5E900BBB45E /* WaniKaniTests.swift */; };
 		43AFAFC61B8C96130016E55F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFAFC51B8C96130016E55F /* Utils.swift */; };
 		43AFAFC81B8CA1060016E55F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFAFC71B8CA1060016E55F /* WebViewController.swift */; };
+		43BF1AAA1B8F31150048A17F /* NextReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BF1AA81B8F31150048A17F /* NextReviewCell.swift */; };
+		43BF1AAB1B8F31150048A17F /* NextReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43BF1AA91B8F31150048A17F /* NextReviewCell.xib */; };
 		43C306731B79D75D00DEB6A4 /* WaniKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C306721B79D75D00DEB6A4 /* WaniKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43C306791B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; };
 		43C306821B79D75D00DEB6A4 /* WaniKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */; };
@@ -88,7 +90,7 @@
 		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		433E164D1B846016007B7DE9 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		433E164F1B846016007B7DE9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueueViewController.swift; sourceTree = "<group>"; };
 		433E16531B8460C1007B7DE9 /* AvaliableItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliableItemCell.swift; sourceTree = "<group>"; };
 		433E16541B8460C1007B7DE9 /* AvaliableItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvaliableItemCell.xib; sourceTree = "<group>"; };
 		433E16581B8465D1007B7DE9 /* DashboardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardLayout.swift; sourceTree = "<group>"; };
@@ -109,6 +111,8 @@
 		433E281B1B79D5E900BBB45E /* WaniKaniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaniKaniTests.swift; sourceTree = "<group>"; };
 		43AFAFC51B8C96130016E55F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		43AFAFC71B8CA1060016E55F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		43BF1AA81B8F31150048A17F /* NextReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextReviewCell.swift; sourceTree = "<group>"; };
+		43BF1AA91B8F31150048A17F /* NextReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextReviewCell.xib; sourceTree = "<group>"; };
 		43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WaniKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C306711B79D75D00DEB6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C306721B79D75D00DEB6A4 /* WaniKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaniKit.h; sourceTree = "<group>"; };
@@ -180,7 +184,7 @@
 			children = (
 				43AFAFC71B8CA1060016E55F /* WebViewController.swift */,
 				433E16A01B8A3408007B7DE9 /* ApiKeyPickerController.swift */,
-				433E164F1B846016007B7DE9 /* ViewController.swift */,
+				433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -195,6 +199,8 @@
 				433E16541B8460C1007B7DE9 /* AvaliableItemCell.xib */,
 				433E169C1B89CCBC007B7DE9 /* ReviewCell.swift */,
 				433E169E1B89CCF4007B7DE9 /* ReviewCell.xib */,
+				43BF1AA81B8F31150048A17F /* NextReviewCell.swift */,
+				43BF1AA91B8F31150048A17F /* NextReviewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -476,6 +482,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43BF1AAB1B8F31150048A17F /* NextReviewCell.xib in Resources */,
 				433E280B1B79D5E900BBB45E /* Main.storyboard in Resources */,
 				433E165D1B84764B007B7DE9 /* DashboardHeader.xib in Resources */,
 				433E28101B79D5E900BBB45E /* LaunchScreen.xib in Resources */,
@@ -591,9 +598,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43BF1AAA1B8F31150048A17F /* NextReviewCell.swift in Sources */,
 				433E16A11B8A3408007B7DE9 /* ApiKeyPickerController.swift in Sources */,
 				43AFAFC81B8CA1060016E55F /* WebViewController.swift in Sources */,
-				433E16521B846016007B7DE9 /* ViewController.swift in Sources */,
+				433E16521B846016007B7DE9 /* StudyQueueViewController.swift in Sources */,
 				433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */,
 				433E16551B8460C1007B7DE9 /* AvaliableItemCell.swift in Sources */,
 				433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */,

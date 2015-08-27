@@ -11,7 +11,7 @@ import WaniKit
 import RealmSwift
 import KINWebBrowser
 
-class ViewController: UIViewController {
+class StudyQueueViewController: UIViewController {
   
   private var loadedQueue: StudyQueue?
   var studyQueue: StudyQueue? {
@@ -36,6 +36,8 @@ class ViewController: UIViewController {
       collectionView?.registerNib(avaliableCellNib, forCellWithReuseIdentifier: AvaliableItemCell.identifier)
       let reviewCellNib = UINib(nibName: "ReviewCell", bundle: nil)
       collectionView?.registerNib(reviewCellNib, forCellWithReuseIdentifier: ReviewCell.identifier)
+      let nextReviewCellNib = UINib(nibName: "NextReviewCell", bundle: nil)
+      collectionView?.registerNib(nextReviewCellNib, forCellWithReuseIdentifier: NextReviewCell.identifier)
       let headerNib = UINib(nibName: "DashboardHeader", bundle: nil)
       collectionView?.registerNib(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier)
     }
@@ -75,6 +77,12 @@ class ViewController: UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "newStudyQueueData", name: DataFetchManager.newStudyQueueReceivedNotification, object: nil)
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let vc = segue.destinationViewController as? WebViewController, let link = sender as? String {
+      vc.url = link
+    }
+  }
+  
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
@@ -82,13 +90,19 @@ class ViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
+    hidesBottomBarWhenPushed = true
     if blurView.alpha == 0 {
-//      collectionView.alpha = 0
+      collectionView.alpha = 0
       UIView.animateWithDuration(1, animations: { () -> Void in
         self.blurView.alpha = 1
-//        self.collectionView.alpha = 1
+        self.collectionView.alpha = 1
       })
     }
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    DataFetchManager.sharedInstance.fetchStudyQueue()
   }
   
   override func viewDidLayoutSubviews() {
@@ -101,7 +115,7 @@ class ViewController: UIViewController {
 }
 
 // Notifications
-extension ViewController {
+extension StudyQueueViewController {
   
   func noApiKeyNotification() {
     performSegueWithIdentifier("apiKeyPicker", sender: nil)
@@ -115,18 +129,11 @@ extension ViewController {
   
 }
 
-extension ViewController : UICollectionViewDelegate {
+extension StudyQueueViewController : UICollectionViewDelegate {
   
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AvaliableItemCell {
       if cell.enabled == true {
-        let webBrowser = KINWebBrowserViewController.webBrowser()
-        webBrowser.actionButtonHidden = true
-        webBrowser.showsPageTitleInNavigationBar = true
-        webBrowser.tintColor = navigationController?.navigationBar.tintColor
-        hidesBottomBarWhenPushed = true
-        self.navigationController?.hidesBarsOnSwipe = true
-        self.navigationController?.pushViewController(webBrowser, animated: true)
         
         var url = ""
         switch (indexPath.section, indexPath.row) {
@@ -135,14 +142,14 @@ extension ViewController : UICollectionViewDelegate {
         default: break
         }
         
-        webBrowser.loadURLString(url)
+        performSegueWithIdentifier("browserSegue", sender: url)
       }
     }
   }
   
 }
 
-extension ViewController : UICollectionViewDataSource {
+extension StudyQueueViewController : UICollectionViewDataSource {
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 2
@@ -161,9 +168,10 @@ extension ViewController : UICollectionViewDataSource {
     
     var cell: UICollectionViewCell
     var identifier: String = ""
-    switch indexPath.section {
-    case 0: identifier = AvaliableItemCell.identifier
-    case 1: identifier = ReviewCell.identifier
+    switch (indexPath.section, indexPath.row) {
+    case (1, 0): identifier = NextReviewCell.identifier
+    case (0, _): identifier = AvaliableItemCell.identifier
+    case (1, _): identifier = ReviewCell.identifier
     default: break
     }
     cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UICollectionViewCell
@@ -172,7 +180,11 @@ extension ViewController : UICollectionViewDataSource {
       switch (indexPath.section, indexPath.row) {
       case (0, 0): (cell as? AvaliableItemCell)?.setupWith("\(q.lessonsAvaliable) Lessons", enabled: (q.lessonsAvaliable > 0))
       case (0, 1): (cell as? AvaliableItemCell)?.setupWith("\(q.reviewsAvaliable) Reviews", enabled: (q.reviewsAvaliable > 0))
-      case (1, 0): (cell as? AvaliableItemCell)?.setupWith("Next review \(q.nextReviewWaitingData().string)", enabled: (q.lessonsAvaliable > 0))
+      case (1, 0):
+        if let c = cell as? NextReviewCell {
+          c.setupWith("Next review \(q.nextReviewWaitingData().string)", notifications: NotificationManager.sharedInstance.notificationsEnabled)
+          c.delegate = self
+        }
       case (1, 1): (cell as? ReviewCell)?.setupWith("Next hour", numberText: "\(q.reviewsNextHour)")
       case (1, 2): (cell as? ReviewCell)?.setupWith("Next day", numberText: "\(q.reviewsNextDay)")
       default: break
@@ -192,10 +204,8 @@ extension ViewController : UICollectionViewDataSource {
   }
 }
 
-extension ViewController {
-  
-  override func shouldAutorotate() -> Bool {
-    return false
+extension StudyQueueViewController: NextReviewCellDelegate {
+  func notificationsEnabled(enabled: Bool) {
+    NotificationManager.sharedInstance.notificationsEnabled = enabled
   }
-  
 }

@@ -2,40 +2,41 @@
 //  WebViewController.swift
 //  
 //
-//  Created by Andriy K. on 8/25/15.
+//  Created by Andriy K. on 8/26/15.
 //
 //
 
 import UIKit
+import KINWebBrowser
 
 class WebViewController: UIViewController {
   
-  @IBOutlet weak var webView: UIWebView! {
+  var url: String? {
     didSet {
-      webView.delegate = self
+      loadInitialLink()
     }
   }
   
-  var url: String?
+  var kinWebViewController: KINWebBrowserViewController = {
+    let webBrowser = KINWebBrowserViewController.webBrowser()
+    webBrowser.actionButtonHidden = true
+    webBrowser.showsURLInNavigationBar = true
+    webBrowser.tintColor = UIColor(red:0.92, green:0.12, blue:0.39, alpha:1)
+    return webBrowser
+  }()
   
-}
-
-extension WebViewController: UIWebViewDelegate {
-  
-  func webViewDidStartLoad(webView: UIWebView) {
-
+  func loadInitialLink() {
+    if let url = url {
+      kinWebViewController.loadURLString(url)
+    }
   }
   
-  func webViewDidFinishLoad(webView: UIWebView) {
-
-  }
+  private var originalTintColor: UIColor?
   
-  func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
-
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    addChildViewController(kinWebViewController)
+    view.addSubview(kinWebViewController.view)
+    kinWebViewController.didMoveToParentViewController(self)
   }
-  
-  func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-    return true
-  }
-  
 }

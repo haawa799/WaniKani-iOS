@@ -1,6 +1,6 @@
 //
 //  NotificationManager.swift
-//  
+//
 //
 //  Created by Andriy K. on 8/12/15.
 //
@@ -20,30 +20,56 @@ class NotificationManager: NSObject {
     p.bodyLabel.text = "This app works best with notifications."
     p.bodyLabel.superview?.backgroundColor = UIColor(patternImage: UIImage(named: "pattern")!)
     return p
-  }()
+    }()
   
-  func scheduleNextReviewNotification(date: NSDate) {
-    
-    pscope.show(authChange: { (finished, results) -> Void in
-      
-      if results.first?.status == .Authorized {
+  
+  
+  static let notificationsAllowedKey = "NotificationsAllowedKey"
+  var notificationsEnabled = NSUserDefaults.standardUserDefaults().boolForKey(NotificationManager.notificationsAllowedKey) {
+    didSet {
+      if oldValue != notificationsEnabled {
+        NSUserDefaults.standardUserDefaults().setBool(notificationsEnabled, forKey: NotificationManager.notificationsAllowedKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
         
-        
-        if UIApplication.sharedApplication().scheduledLocalNotifications.count == 0 {
-          if date.compare(NSDate()) == .OrderedDescending {
-            let notification = UILocalNotification()
-            notification.fireDate = date
-            notification.alertBody = "New reviews avaliable!"
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
-          } else {
-            
+        if notificationsEnabled == false {
+          unscheduleNotification()
+        } else {
+          if let date = lastAttemptDate {
+            scheduleNextReviewNotification(date)
           }
         }
       }
-      
-    }) { (results) -> Void in
-      
     }
+  }
+  private var lastAttemptDate: NSDate?
+  
+  //return NSUserDefaults.standardUserDefaults().boolForKey(notificationsAllowedKey)
+  
+  func scheduleNextReviewNotification(date: NSDate) {
+    
+    if notificationsEnabled {
+      pscope.show(authChange: { (finished, results) -> Void in
+        if results.first?.status == .Authorized {
+          if UIApplication.sharedApplication().scheduledLocalNotifications.count == 0 {
+            if date.compare(NSDate()) == .OrderedDescending {
+              let notification = UILocalNotification()
+              notification.fireDate = date
+              notification.alertBody = "New reviews avaliable!"
+              UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            } else {
+            }
+          }
+        }
+        
+        }) { (results) -> Void in
+          
+      }
+    }
+    lastAttemptDate = date
+  }
+  
+  func unscheduleNotification() {
+    UIApplication.sharedApplication().cancelAllLocalNotifications()
   }
   
   
