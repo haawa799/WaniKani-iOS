@@ -44,7 +44,7 @@ class StudyQueueViewController: UIViewController {
   }
   
   @IBAction private func refresh() {
-    DataFetchManager.sharedInstance.fetchStudyQueue()
+    DataFetchManager.sharedInstance.fetchStudyQueue(nil)
   }
   
   func flipVisibleCells() {
@@ -75,6 +75,27 @@ class StudyQueueViewController: UIViewController {
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "noApiKeyNotification", name: WaniApiManager.noApiKeyNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "newStudyQueueData", name: DataFetchManager.newStudyQueueReceivedNotification, object: nil)
+    
+    let counter = NSUserDefaults.standardUserDefaults().integerForKey(AppDelegate.bgFetchUserDefaultKey)
+    let leftItem = UIBarButtonItem(title: "\(counter)", style: UIBarButtonItemStyle.Plain, target: self, action: "bgFetchInfo")
+    navigationItem.leftBarButtonItem = leftItem
+  }
+  
+  func bgFetchInfo() {
+    
+    if let dates = NSUserDefaults.standardUserDefaults().arrayForKey(AppDelegate.bgFetchDatesUserDefaultKey) as? [NSDate] {
+      
+      let alertController = UIAlertController(title: "Dates", message: "Background fetch", preferredStyle: .Alert)
+      let dateFormatter = NSDateFormatter()
+      dateFormatter.dateFormat = "MMM dd HH:MM"
+      
+      for date in dates {
+        let s = dateFormatter.stringFromDate(date)
+        let action = UIAlertAction(title: s, style: .Default) { (_) in }
+        alertController.addAction(action)
+      }
+      presentViewController(alertController, animated: true, completion: nil)
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -102,7 +123,7 @@ class StudyQueueViewController: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    DataFetchManager.sharedInstance.fetchStudyQueue()
+//    DataFetchManager.sharedInstance.fetchStudyQueue(nil)
   }
   
   override func viewDidLayoutSubviews() {

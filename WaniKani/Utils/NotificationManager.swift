@@ -45,7 +45,9 @@ class NotificationManager: NSObject {
   
   //return NSUserDefaults.standardUserDefaults().boolForKey(notificationsAllowedKey)
   
-  func scheduleNextReviewNotification(date: NSDate) {
+  func scheduleNextReviewNotification(date: NSDate) -> Bool {
+    
+    var newNotificationScheduled = false
     
     if notificationsEnabled {
       pscope.show(authChange: { (finished, results) -> Void in
@@ -56,6 +58,7 @@ class NotificationManager: NSObject {
               notification.fireDate = date
               notification.alertBody = "New reviews avaliable!"
               UIApplication.sharedApplication().scheduleLocalNotification(notification)
+              newNotificationScheduled = true
             } else {
             }
           }
@@ -66,6 +69,7 @@ class NotificationManager: NSObject {
       }
     }
     lastAttemptDate = date
+    return newNotificationScheduled
   }
   
   func unscheduleNotification() {

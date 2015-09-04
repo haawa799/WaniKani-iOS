@@ -16,8 +16,15 @@ class DataFetchManager: NSObject {
   
   static let newStudyQueueReceivedNotification = "NewStudyQueueReceivedNotification"
   
-  func fetchStudyQueue() {
-    WaniApiManager.sharedInstance.fetchStudyQueue { (user, studyQ) -> () in
+  func fetchStudyQueue(completionHandler: ((result: UIBackgroundFetchResult)->())? ) {
+    WaniApiManager.sharedInstance.fetchStudyQueue { (user, studyQ, error) -> () in
+      if error != nil {
+        completionHandler?(result: UIBackgroundFetchResult.Failed)
+        return
+      }
+      
+      var newNotification = false
+      
       if let user = user, let studyQ = studyQ {
         let realm = Realm()
         
@@ -26,14 +33,20 @@ class DataFetchManager: NSObject {
         realm.write({ () -> Void in
           realm.add(user, update: true)
         })
+        realm.refresh()
         
         let users = realm.objects(User)
+        println(users)
         if let user = users.first, let q = user.studyQueue {
           
-          let hours = q.nextReviewWaitingData().hours
-          NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
+          newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
           UIApplication.sharedApplication().applicationIconBadgeNumber = q.reviewsAvaliable
           NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newStudyQueueReceivedNotification, object: q)
+        }
+        if newNotification {
+          completionHandler?(result: UIBackgroundFetchResult.NewData)
+        } else {
+          completionHandler?(result: UIBackgroundFetchResult.NoData)
         }
       }
     }
