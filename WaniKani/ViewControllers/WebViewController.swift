@@ -11,23 +11,24 @@ import KINWebBrowser
 
 class WebViewController: UIViewController {
   
-  var url: String? {
+  var url: String?
+  var oldOffset: CGFloat?
+  
+  @IBOutlet weak var webView: UIWebView! {
     didSet {
-      loadInitialLink()
+      webView.scrollView.delegate = self
     }
   }
-  
-  var kinWebViewController: KINWebBrowserViewController = {
-    let webBrowser = KINWebBrowserViewController.webBrowser()
-    webBrowser.actionButtonHidden = true
-    webBrowser.showsURLInNavigationBar = true
-    webBrowser.tintColor = UIColor(red:0.92, green:0.12, blue:0.39, alpha:1)
-    return webBrowser
-  }()
+  @IBAction func cancelPressed(sender: AnyObject) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
   
   func loadInitialLink() {
     if let url = url {
-      kinWebViewController.loadURLString(url)
+      if let realURL = NSURL(string: url) {
+        let request = NSURLRequest(URL: realURL)
+        webView?.loadRequest(request)
+      }
     }
   }
   
@@ -35,8 +36,19 @@ class WebViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    addChildViewController(kinWebViewController)
-    view.addSubview(kinWebViewController.view)
-    kinWebViewController.didMoveToParentViewController(self)
+    loadInitialLink()
+  }
+}
+
+extension WebViewController: UIScrollViewDelegate {
+  func scrollViewDidScroll(scrollView: UIScrollView) {
+    let new = scrollView.contentOffset.y
+    var old = oldOffset ?? new
+    let delta = max((old - new), -(old - new))
+    println(delta)
+    if delta > 35 {
+      scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: 0)
+    }
+    oldOffset = new
   }
 }

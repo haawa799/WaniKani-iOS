@@ -8,6 +8,7 @@
 
 import UIKit
 import PermissionScope
+import Crashlytics
 
 
 class NotificationManager: NSObject {
@@ -59,6 +60,15 @@ class NotificationManager: NSObject {
               notification.alertBody = "New reviews avaliable!"
               UIApplication.sharedApplication().scheduleLocalNotification(notification)
               newNotificationScheduled = true
+              
+              var backgroundCall = false
+              if let isBackgroundFetch = (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching {
+                backgroundCall = isBackgroundFetch
+              }
+              Answers.logCustomEventWithName("Notification scheduled",
+                customAttributes: [
+                  "isBackgroundFetch": "\(backgroundCall)"
+                ])
             } else {
             }
           }

@@ -8,23 +8,23 @@
 
 import UIKit
 import Crashlytics
+import Fabric
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
-  static let bgFetchUserDefaultKey = "backgroundFetch"
-  static let bgFetchDatesUserDefaultKey = "backgroundFetchDates"
+  var isBackgroundFetching = false
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    
     UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     if NSUserDefaults.standardUserDefaults().valueForKey(NotificationManager.notificationsAllowedKey) == nil {
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: NotificationManager.notificationsAllowedKey)
     }
     
-    Crashlytics.sharedInstance().debugMode = true
-    Crashlytics.startWithAPIKey("d2e6cfd499572eade933f1e9b057bb480b76a6bf")
+    Fabric.with([Crashlytics.self()])
     
     return true
   }
@@ -49,21 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-    var counter = NSUserDefaults.standardUserDefaults().integerForKey(AppDelegate.bgFetchUserDefaultKey)
-    counter++
-    NSUserDefaults.standardUserDefaults().setInteger(counter, forKey: AppDelegate.bgFetchUserDefaultKey)
     
-    var dates = NSUserDefaults.standardUserDefaults().arrayForKey(AppDelegate.bgFetchDatesUserDefaultKey) as? [NSDate]
-    if dates == nil {
-      dates = [NSDate]()
-    }
-    
-    dates?.append(NSDate())
-    NSUserDefaults.standardUserDefaults().setObject(dates, forKey: AppDelegate.bgFetchDatesUserDefaultKey)
-    
-    NSUserDefaults.standardUserDefaults().synchronize()
+    isBackgroundFetching = true
     
     DataFetchManager.sharedInstance.fetchStudyQueue { (result) -> () in
+      Answers.logCustomEventWithName("Background fetch",
+        customAttributes: [
+          "Result": "\(result)"
+        ])
+      self.isBackgroundFetching = false
       completionHandler(result)
     }
   }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A235d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PNX-Q4-r4e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PNX-Q4-r4e">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="el3-SF-56c">
+                            <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="el3-SF-56c">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="c1A-pe-ALE">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
@@ -97,7 +97,7 @@
                         <outlet property="blurView" destination="el3-SF-56c" id="VXs-Ot-YvI"/>
                         <outlet property="collectionView" destination="rRS-3r-vDf" id="aCO-jc-ltY"/>
                         <segue destination="SHY-7q-xSy" kind="presentation" identifier="apiKeyPicker" id="JA8-j6-eSF"/>
-                        <segue destination="Tld-vc-g2T" kind="show" identifier="browserSegue" id="JKb-uu-ISu"/>
+                        <segue destination="Tld-vc-g2T" kind="presentation" identifier="browserSegue" id="JKb-uu-ISu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,13 +115,51 @@
                     <view key="view" contentMode="scaleToFill" id="nHB-u0-1bL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26a-LR-JAy">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXi-1O-oeL">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="cancel" id="MqB-k6-45T">
+                                        <connections>
+                                            <action selector="cancelPressed:" destination="Tld-vc-g2T" id="gBW-Lg-XGg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.86666666670000003" green="0.1137254902" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NqN-Zk-tlO" firstAttribute="top" secondItem="26a-LR-JAy" secondAttribute="bottom" id="2dG-js-qHx"/>
+                            <constraint firstItem="26a-LR-JAy" firstAttribute="leading" secondItem="nHB-u0-1bL" secondAttribute="leading" id="6Aw-wx-B1M"/>
+                            <constraint firstItem="NqN-Zk-tlO" firstAttribute="top" secondItem="ZXi-1O-oeL" secondAttribute="bottom" id="Dpx-yh-tmc"/>
+                            <constraint firstItem="26a-LR-JAy" firstAttribute="top" secondItem="xbr-nH-4IE" secondAttribute="bottom" id="Uf7-oH-eV8"/>
+                            <constraint firstAttribute="trailing" secondItem="ZXi-1O-oeL" secondAttribute="trailing" id="Yqz-Wa-VU8"/>
+                            <constraint firstItem="26a-LR-JAy" firstAttribute="top" secondItem="nHB-u0-1bL" secondAttribute="top" id="q8s-p1-cUx"/>
+                            <constraint firstItem="ZXi-1O-oeL" firstAttribute="leading" secondItem="nHB-u0-1bL" secondAttribute="leading" id="unc-vi-tlV"/>
+                            <constraint firstAttribute="trailing" secondItem="26a-LR-JAy" secondAttribute="trailing" id="zZK-bD-bSe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="q8s-p1-cUx"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="26a-LR-JAy" id="nfx-F2-QHk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3H-yF-IAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2694" y="139"/>
+            <point key="canvasLocation" x="2694" y="195"/>
         </scene>
         <!--Api Key Picker Controller-->
         <scene sceneID="s7U-hY-wsl">

@@ -39,7 +39,8 @@ class DataFetchManager: NSObject {
         println(users)
         if let user = users.first, let q = user.studyQueue {
           
-          newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
+          NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
+          newNotification = UIApplication.sharedApplication().applicationIconBadgeNumber == q.reviewsAvaliable
           UIApplication.sharedApplication().applicationIconBadgeNumber = q.reviewsAvaliable
           NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newStudyQueueReceivedNotification, object: q)
         }
