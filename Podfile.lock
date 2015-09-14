@@ -2,10 +2,6 @@ PODS:
   - AIFlatSwitch (0.0.2)
   - Alamofire (1.3.1)
   - ARChromeActivity (1.0.4)
-  - Crashlytics (3.2.0)
-  - Fabric (1.4.1):
-    - Fabric/Base (= 1.4.1)
-  - Fabric/Base (1.4.1)
   - KINWebBrowser (1.3.0):
     - ARChromeActivity (= 1.0.4)
     - TUSafariActivity (= 1.0.4)
@@ -20,8 +16,6 @@ PODS:
 DEPENDENCIES:
   - AIFlatSwitch
   - Alamofire (~> 1.3)
-  - Crashlytics
-  - Fabric
   - KINWebBrowser
   - PermissionScope (~> 0.6)
   - RealmSwift
@@ -30,8 +24,6 @@ SPEC CHECKSUMS:
   AIFlatSwitch: 0a4fcc19d46bcc510c9da23ab46e4636442290ce
   Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
   ARChromeActivity: 9064d94803338d3377f3e1013a8e8f4821d7daf1
-  Crashlytics: a29e4f820aa401482b26043dc5d78adf08ac7573
-  Fabric: 4f718eeca4c02c7d6f6f4e5f0e5f87c63aa38458
   KINWebBrowser: 20ea8d11fe425a0f0ffb8e5d14d03e8aff370703
   PermissionScope: 1d27791185cca10c26f84d1aab905117dde50f39
   Realm: bbb171b96728ea136ed5cd354dca2a3d6529923c

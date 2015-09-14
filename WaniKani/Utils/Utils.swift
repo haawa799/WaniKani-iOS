@@ -26,3 +26,4 @@ extension UIBackgroundFetchResult: Printable {
     }
   }
 }
+

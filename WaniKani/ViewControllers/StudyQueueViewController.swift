@@ -78,8 +78,15 @@ class StudyQueueViewController: UIViewController {
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let vc = segue.destinationViewController as? WebViewController, let link = sender as? String {
-      vc.url = link
+    if let vc = segue.destinationViewController as? WebViewController, let index = sender as? Int {
+      switch index {
+      case 0: vc.url = "https://www.wanikani.com/lesson/session"
+        vc.type = .Lesson
+      case 1:
+        vc.url = "https://www.wanikani.com/review/session"
+        vc.type = .Review
+      default: break
+      }
     }
   }
   
@@ -90,7 +97,6 @@ class StudyQueueViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    hidesBottomBarWhenPushed = true
     if blurView.alpha == 0 {
       collectionView.alpha = 0
       UIView.animateWithDuration(1, animations: { () -> Void in
@@ -100,11 +106,25 @@ class StudyQueueViewController: UIViewController {
     }
   }
   
+  var lastUpdateDate: NSDate?
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    if (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching == false {
-      DataFetchManager.sharedInstance.fetchStudyQueue(nil)
+    var needsUpdate = true
+    
+    if let lastUpdateDate = lastUpdateDate {
+      let time = NSDate().timeIntervalSinceDate(lastUpdateDate)
+      if time < 10 {
+        needsUpdate = false
+      }
+    }
+    
+    if needsUpdate {
+      if (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching == false {
+        DataFetchManager.sharedInstance.fetchStudyQueue(nil)
+      }
+      lastUpdateDate = NSDate()
     }
   }
   
@@ -137,15 +157,9 @@ extension StudyQueueViewController : UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AvaliableItemCell {
       if cell.enabled == true {
-        
-        var url = ""
-        switch (indexPath.section, indexPath.row) {
-        case (0, 0): url = "https://www.wanikani.com/lesson/session"
-        case (0, 1): url = "https://www.wanikani.com/review/session"
-        default: break
+        if indexPath.section == 0 {
+          performSegueWithIdentifier("browserSegue", sender: indexPath.row)
         }
-        
-        performSegueWithIdentifier("browserSegue", sender: url)
       }
     }
   }

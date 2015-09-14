@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: NotificationManager.notificationsAllowedKey)
     }
     
-    Fabric.with([Crashlytics.self()])
+//    Fabric.with([Crashlytics.self()])
+//    Crashlytics.sharedInstance().debugMode = true
     
     return true
   }
