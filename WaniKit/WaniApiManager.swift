@@ -10,77 +10,114 @@ import Alamofire
 import RealmSwift
 
 
-// Define your models like regular Swift classes
-class Dog: Object {
-  dynamic var name = ""
-  dynamic var age = 0
-}
-class Person: Object {
-  dynamic var name = ""
-  dynamic var picture = NSData()
-  let dogs = List<Dog>()
+// MARK: - Constants
+public struct WaniApiManagerConstants {
+  public struct NotificationKey {
+    public static let NoApiKey = "NoApiKeyNotification"
+  }
+  public struct URL {
+    public static let BaseURL = "https://www.wanikani.com/api"
+  }
+  public struct NSUserDefaultsKeys {
+    public static let WaniKaniApiKey = "WaniAPIManagerKey"
+  }
+  public struct ResponseKeys {
+    public static let UserInfoKey = "user_information"
+    public static let RequestedInfoKey = "requested_information"
+  }
 }
 
-public class WaniApiManager: NSObject {
+public enum WaniApiError: ErrorType {
+  case ServerError
+  case ObjectSereliazationError
+}
+
+public class WaniApiManager: NSObject, Singltone {
   
-  public static let sharedInstance = WaniApiManager()
+  // MARK: - Singltone
   
-  private static let baseURL = "https://www.wanikani.com/api/"
-  private static let userDefaulsKey = "WaniAPIManagerKey"
-  private var myKey: String?
-  
-  public static let noApiKeyNotification = "NoApiKeyNotification"
-  
-  private func apiKey() -> String? {
-    if let key = myKey {
-      return key
-    } else {
-      myKey = NSUserDefaults.standardUserDefaults().objectForKey(WaniApiManager.userDefaulsKey) as? String
-    }
-    if let key = myKey {
-      return key
-    } else {
-      NSNotificationCenter.defaultCenter().postNotificationName(WaniApiManager.noApiKeyNotification, object: nil)
-      return nil
-    }
+  public static func sharedInstance() -> WaniApiManager {
+    return instance
   }
   
+  // MARK: - Public API
+  
   public func setApiKey(key: String) {
-    NSUserDefaults.standardUserDefaults().setObject(key, forKey: WaniApiManager.userDefaulsKey)
+    NSUserDefaults.standardUserDefaults().setObject(key, forKey: WaniApiManagerConstants.NSUserDefaultsKeys.WaniKaniApiKey)
     NSUserDefaults.standardUserDefaults().synchronize()
     myKey = key
   }
   
-  private static let userInfoKey = "user_information"
-  private static let requestedInfo = "requested_information"
+  public func fetchStudyQueue(handler:(User, StudyQueue) -> ()) throws {
+    internalFetchStudyQueue { (user, queue, error) -> () in
+      if error != nil {
+        throw WaniApiError.ServerError
+      } else {
+        if let user = user, let queue = queue {
+          handler(user, queue)
+        } else {
+          throw WaniApiError.ObjectSereliazationError
+        }
+      }
+    }
+  }
   
-  var manager: Manager!
-  
-  public func fetchStudyQueue(handler:(User?, StudyQueue?, error: NSError?)->()) {
+  private func internalFetchStudyQueue(handler:(User?, StudyQueue?, error: ErrorType?) throws -> ()) {
     
     if let key = apiKey() {
       UIApplication.sharedApplication().networkActivityIndicatorVisible = true
       
       let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-      configuration.timeoutIntervalForResource = 60 // seconds
+      configuration.timeoutIntervalForResource = 60
       
       manager = Alamofire.Manager(configuration: configuration)
-      manager.request(.GET, "https://www.wanikani.com/api/user/\(key)/study-queue", parameters: nil)
+      manager.request(.GET, "\(WaniApiManagerConstants.URL.BaseURL)/user/\(key)/study-queue", parameters: nil)
         .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, response, JSON) -> Void in
-          var user: User? = nil
-          var studyQueue: StudyQueue? = nil
-          if let dict = JSON.value as? NSDictionary {
-            if let userInfo = dict[WaniApiManager.userInfoKey] as? NSDictionary {
-              user = User.objectFromDictionary(userInfo)
+          
+          switch JSON {
+          case .Failure( _ , let error) :
+            try! handler(nil, nil, error: error)
+            return
+          case .Success(let value) :
+            var user: User? = nil
+            var studyQueue: StudyQueue? = nil
+            if let dict = value as? NSDictionary {
+              if let userInfo = dict[WaniApiManagerConstants.ResponseKeys.UserInfoKey] as? NSDictionary {
+                user = User.objectFromDictionary(userInfo)
+              }
+              if let studyQueueInfo = dict[WaniApiManagerConstants.ResponseKeys.RequestedInfoKey] as? NSDictionary {
+                studyQueue = StudyQueue.objectFromDictionary(studyQueueInfo)
+              }
             }
-            if let studyQueueInfo = dict[WaniApiManager.requestedInfo] as? NSDictionary {
-              studyQueue = StudyQueue.objectFromDictionary(studyQueueInfo)
-            }
+            try! handler(user, studyQueue, error: nil)
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            return
           }
-          handler(user, studyQueue, error: nil)
-          UIApplication.sharedApplication().networkActivityIndicatorVisible = false
       }
     }
   }
   
+  // MARK: Private
+  
+  private static let instance = WaniApiManager()
+  private var manager: Manager!
+  private var myKey: String?
+  
+  private override init() {
+    super.init()
+  }
+  
+  private func apiKey() -> String? {
+    if let key = myKey {
+      return key
+    } else {
+      myKey = NSUserDefaults.standardUserDefaults().objectForKey(WaniApiManagerConstants.NSUserDefaultsKeys.WaniKaniApiKey) as? String
+    }
+    if let key = myKey {
+      return key
+    } else {
+      NSNotificationCenter.defaultCenter().postNotificationName(WaniApiManagerConstants.NotificationKey.NoApiKey, object: nil)
+      return nil
+    }
+  }
 }

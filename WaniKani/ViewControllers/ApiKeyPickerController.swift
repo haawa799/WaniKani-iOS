@@ -28,7 +28,7 @@ class ApiKeyPickerController: UIViewController {
   @IBAction func textDidChange(textField: UITextField) {
     let text = textField.text!
     if text.characters.count == keyLength {
-      WaniApiManager.sharedInstance.setApiKey(text)
+      WaniApiManager.sharedInstance().setApiKey(text)
       dismissViewControllerAnimated(true, completion: nil)
     }
   }

@@ -67,7 +67,7 @@ class StudyQueueViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "noApiKeyNotification", name: WaniApiManager.noApiKeyNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "noApiKeyNotification", name: WaniApiManagerConstants.NotificationKey.NoApiKey, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "newStudyQueueData", name: DataFetchManager.newStudyQueueReceivedNotification, object: nil)
   }
   

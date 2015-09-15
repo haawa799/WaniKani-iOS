@@ -17,19 +17,13 @@ class DataFetchManager: NSObject {
   static let newStudyQueueReceivedNotification = "NewStudyQueueReceivedNotification"
   
   func fetchStudyQueue(completionHandler: ((result: UIBackgroundFetchResult)->())? ) {
-    WaniApiManager.sharedInstance.fetchStudyQueue { (user, studyQ, error) -> () in
-      if error != nil {
-        completionHandler?(result: UIBackgroundFetchResult.Failed)
-        return
-      }
-      
-      var newNotification = false
-      
-      if let user = user, let studyQ = studyQ {
+    
+    do {
+      try WaniApiManager.sharedInstance().fetchStudyQueue { (user, studyQ) -> () in
+        
+        var newNotification = false
         let realm = try! Realm()
-        
         user.studyQueue = studyQ
-        
         try! realm.write({ () -> Void in
           realm.add(user, update: true)
         })
@@ -52,6 +46,8 @@ class DataFetchManager: NSObject {
           completionHandler?(result: UIBackgroundFetchResult.NoData)
         }
       }
+    } catch  {
+      completionHandler?(result: UIBackgroundFetchResult.Failed)
     }
   }
   
