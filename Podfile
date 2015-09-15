@@ -4,8 +4,7 @@ use_frameworks!
 
 
 link_with 'WaniKit'
-pod 'Alamofire', '~> 1.3'
-pod 'RealmSwift'
-pod 'PermissionScope', '~> 0.6'
-pod 'KINWebBrowser'
-pod 'AIFlatSwitch'
+pod 'Alamofire', '~> 2.0'
+pod 'Realm', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'swift-2.0'
+pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'swift-2.0'
+pod 'PermissionScope', '~> 1.0'

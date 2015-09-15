@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AIFlatSwitch
 
 class SettingsViewController: UIViewController {
   

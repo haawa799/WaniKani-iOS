@@ -26,17 +26,17 @@ class DataFetchManager: NSObject {
       var newNotification = false
       
       if let user = user, let studyQ = studyQ {
-        let realm = Realm()
+        let realm = try! Realm()
         
         user.studyQueue = studyQ
         
-        realm.write({ () -> Void in
+        try! realm.write({ () -> Void in
           realm.add(user, update: true)
         })
         realm.refresh()
         
         let users = realm.objects(User)
-        println(users)
+        print(users)
         if let user = users.first, let q = user.studyQueue {
           
           newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)

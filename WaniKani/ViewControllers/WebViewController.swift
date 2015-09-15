@@ -97,7 +97,7 @@ class WebViewController: UIViewController {
 
 extension WebViewController: UIWebViewDelegate {
   func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-    println(request)
+    print(request)
     return true
   }
   
@@ -109,9 +109,9 @@ extension WebViewController: UIWebViewDelegate {
 extension WebViewController: UIScrollViewDelegate {
   func scrollViewDidScroll(scrollView: UIScrollView) {
     let new = scrollView.contentOffset.y
-    var old = oldOffset ?? new
+    let old = oldOffset ?? new
     let delta = max((old - new), -(old - new))
-    println(delta)
+    print(delta)
     if delta > 35 {
       scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: 0)
     }

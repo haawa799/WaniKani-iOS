@@ -46,8 +46,8 @@ extension StudyQueue {
   public func nextReviewWaitingData() -> (string: String, hours: Int) {
     let calendar: NSCalendar = NSCalendar.currentCalendar()
     
-    let flags = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute
-    let components = calendar.components(flags, fromDate: NSDate(), toDate: nextReviewDate, options: nil)
+    let flags: NSCalendarUnit = [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute]
+    let components = calendar.components(flags, fromDate: NSDate(), toDate: nextReviewDate, options: [])
     
     var nextReviewString = "Avaliable now!"
     

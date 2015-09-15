@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AIFlatSwitch
 
 protocol NextReviewCellDelegate: class {
   func notificationsEnabled(enabled: Bool)
@@ -37,7 +36,7 @@ class NextReviewCell: UICollectionViewCell {
 }
 
 extension NextReviewCell: FlippableCell {
-  func flip(#animations: () -> Void, delay: NSTimeInterval){
+  func flip(animations animations: () -> Void, delay: NSTimeInterval){
     dispatch_after(
       dispatch_time(
         DISPATCH_TIME_NOW,

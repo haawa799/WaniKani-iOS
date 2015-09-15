@@ -13,7 +13,7 @@ protocol SingleReuseIdentifier {
 }
 
 protocol FlippableCell {
-  func flip(#animations: () -> Void, delay: NSTimeInterval)
+  func flip(animations animations: () -> Void, delay: NSTimeInterval)
 }
 
 class AvaliableItemCell: UICollectionViewCell {
@@ -40,7 +40,7 @@ class AvaliableItemCell: UICollectionViewCell {
 }
 
 extension AvaliableItemCell: FlippableCell {
-  func flip(#animations: () -> Void, delay: NSTimeInterval){
+  func flip(animations animations: () -> Void, delay: NSTimeInterval){
     dispatch_after(
       dispatch_time(
         DISPATCH_TIME_NOW,

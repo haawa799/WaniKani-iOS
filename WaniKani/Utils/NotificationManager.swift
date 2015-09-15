@@ -16,7 +16,7 @@ class NotificationManager: NSObject {
   static let sharedInstance = NotificationManager()
   private let pscope: PermissionScope = {
     let p = PermissionScope()
-    p.addPermission(PermissionConfig(type: .Notifications, demands: .Required, message: "We will only send you notification when Reviews are up. No spam."))
+    p.addPermission(NotificationsPermission(notificationCategories: nil), message: "We will only send you notification when Reviews are up. No spam.")
     p.headerLabel.text = "₍ᐢ•ﻌ•ᐢ₎*･ﾟ｡"
     p.bodyLabel.text = "This app works best with notifications."
     p.bodyLabel.superview?.backgroundColor = UIColor(patternImage: UIImage(named: "pattern")!)
@@ -51,9 +51,9 @@ class NotificationManager: NSObject {
     var newNotificationScheduled = false
     
     if notificationsEnabled {
-      pscope.show(authChange: { (finished, results) -> Void in
+      pscope.show({ (finished, results) -> Void in
         if results.first?.status == .Authorized {
-          if UIApplication.sharedApplication().scheduledLocalNotifications.count == 0 {
+          if UIApplication.sharedApplication().scheduledLocalNotifications!.count == 0 {
             if date.compare(NSDate()) == .OrderedDescending {
               let notification = UILocalNotification()
               notification.fireDate = date

@@ -23,6 +23,7 @@
 		433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433E280C1B79D5E900BBB45E /* Images.xcassets */; };
 		433E28101B79D5E900BBB45E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433E280E1B79D5E900BBB45E /* LaunchScreen.xib */; };
 		433E281C1B79D5E900BBB45E /* WaniKaniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E281B1B79D5E900BBB45E /* WaniKaniTests.swift */; };
+		434C51EA1BA8242D001CBA13 /* AIFlatSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C51E91BA8242D001CBA13 /* AIFlatSwitch.swift */; settings = {ASSET_TAGS = (); }; };
 		435A7B9C1BA1C64B00BA6773 /* DogeHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7B9B1BA1C64B00BA6773 /* DogeHintView.swift */; };
 		43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */ = {isa = PBXBuildFile; fileRef = 43850CF31B9DB86F00DFF6DD /* fast_forward.js */; };
 		43AD052F1BA044BA000DBCBE /* UserScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD052E1BA044BA000DBCBE /* UserScript.swift */; };
@@ -117,6 +118,7 @@
 		433E28151B79D5E900BBB45E /* WaniKaniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaniKaniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		433E281A1B79D5E900BBB45E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		433E281B1B79D5E900BBB45E /* WaniKaniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaniKaniTests.swift; sourceTree = "<group>"; };
+		434C51E91BA8242D001CBA13 /* AIFlatSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFlatSwitch.swift; sourceTree = "<group>"; };
 		435A7B9B1BA1C64B00BA6773 /* DogeHintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogeHintView.swift; sourceTree = "<group>"; };
 		43850CF31B9DB86F00DFF6DD /* fast_forward.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fast_forward.js; path = ../Utils/fast_forward.js; sourceTree = "<group>"; };
 		43AD052E1BA044BA000DBCBE /* UserScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserScript.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				433E169E1B89CCF4007B7DE9 /* ReviewCell.xib */,
 				43BF1AA81B8F31150048A17F /* NextReviewCell.swift */,
 				43BF1AA91B8F31150048A17F /* NextReviewCell.xib */,
+				434C51E91BA8242D001CBA13 /* AIFlatSwitch.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -466,8 +469,9 @@
 		433E27F81B79D5E900BBB45E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Andriy K.";
 				TargetAttributes = {
 					433E27FF1B79D5E900BBB45E = {
@@ -654,6 +658,7 @@
 				433E16521B846016007B7DE9 /* StudyQueueViewController.swift in Sources */,
 				433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */,
 				433E16551B8460C1007B7DE9 /* AvaliableItemCell.swift in Sources */,
+				434C51EA1BA8242D001CBA13 /* AIFlatSwitch.swift in Sources */,
 				43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */,
 				433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */,
 				43AFAFC61B8C96130016E55F /* Utils.swift in Sources */,
@@ -762,6 +767,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -839,6 +845,7 @@
 				);
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -859,6 +866,7 @@
 				);
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -879,6 +887,7 @@
 				);
 				INFOPLIST_FILE = WaniKaniTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaniKani.app/WaniKani";
 			};
@@ -894,6 +903,7 @@
 				);
 				INFOPLIST_FILE = WaniKaniTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaniKani.app/WaniKani";
 			};
@@ -916,6 +926,7 @@
 				INFOPLIST_FILE = WaniKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -936,6 +947,7 @@
 				INFOPLIST_FILE = WaniKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -956,6 +968,7 @@
 				);
 				INFOPLIST_FILE = WaniKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaniKani.app/WaniKani";
 			};
@@ -970,6 +983,7 @@
 				);
 				INFOPLIST_FILE = WaniKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaniKani.app/WaniKani";
 			};

@@ -26,7 +26,7 @@ class ReviewCell: UICollectionViewCell {
 }
 
 extension ReviewCell: FlippableCell {
-  func flip(#animations: () -> Void, delay: NSTimeInterval){
+  func flip(animations animations: () -> Void, delay: NSTimeInterval){
     dispatch_after(
       dispatch_time(
         DISPATCH_TIME_NOW,

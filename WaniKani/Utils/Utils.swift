@@ -17,7 +17,7 @@ func delay(delay:Double, closure:()->()) {
     dispatch_get_main_queue(), closure)
 }
 
-extension UIBackgroundFetchResult: Printable {
+extension UIBackgroundFetchResult: CustomStringConvertible {
   public var description: String {
     switch self {
     case .NewData : return "NewData"

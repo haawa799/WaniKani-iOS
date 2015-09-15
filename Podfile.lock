@@ -1,33 +1,38 @@
 PODS:
-  - AIFlatSwitch (0.0.2)
-  - Alamofire (1.3.1)
-  - ARChromeActivity (1.0.4)
-  - KINWebBrowser (1.3.0):
-    - ARChromeActivity (= 1.0.4)
-    - TUSafariActivity (= 1.0.4)
-  - PermissionScope (0.7)
+  - Alamofire (2.0.0)
+  - PermissionScope (1.0)
   - Realm (0.95.0):
     - Realm/Headers (= 0.95.0)
   - Realm/Headers (0.95.0)
   - RealmSwift (0.95.0):
     - Realm (= 0.95.0)
-  - TUSafariActivity (1.0.4)
 
 DEPENDENCIES:
-  - AIFlatSwitch
-  - Alamofire (~> 1.3)
-  - KINWebBrowser
-  - PermissionScope (~> 0.6)
-  - RealmSwift
+  - Alamofire (~> 2.0)
+  - PermissionScope (~> 1.0)
+  - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
+  - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
+
+EXTERNAL SOURCES:
+  Realm:
+    :branch: swift-2.0
+    :git: https://github.com/realm/realm-cocoa.git
+  RealmSwift:
+    :branch: swift-2.0
+    :git: https://github.com/realm/realm-cocoa.git
+
+CHECKOUT OPTIONS:
+  Realm:
+    :commit: 01c52eb0116c6f4d735cd824f07305bb6f96e2fe
+    :git: https://github.com/realm/realm-cocoa.git
+  RealmSwift:
+    :commit: 01c52eb0116c6f4d735cd824f07305bb6f96e2fe
+    :git: https://github.com/realm/realm-cocoa.git
 
 SPEC CHECKSUMS:
-  AIFlatSwitch: 0a4fcc19d46bcc510c9da23ab46e4636442290ce
-  Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
-  ARChromeActivity: 9064d94803338d3377f3e1013a8e8f4821d7daf1
-  KINWebBrowser: 20ea8d11fe425a0f0ffb8e5d14d03e8aff370703
-  PermissionScope: 1d27791185cca10c26f84d1aab905117dde50f39
-  Realm: bbb171b96728ea136ed5cd354dca2a3d6529923c
-  RealmSwift: 35eeb642bf0b43dedfe363451ba3288d0e72ebb9
-  TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
+  Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
+  PermissionScope: 5ab56752470de9f2ec0dfc89a444de4b0a17144c
+  Realm: 1c28007bd496af94dba8c76d50719164e706a521
+  RealmSwift: 9864524dd99c2cb7b4643c29513ef8447fe63724
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.2

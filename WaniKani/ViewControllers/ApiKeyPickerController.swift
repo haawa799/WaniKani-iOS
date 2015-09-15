@@ -8,7 +8,6 @@
 
 import UIKit
 import WaniKit
-import KINWebBrowser
 
 class ApiKeyPickerController: UIViewController {
   
@@ -27,8 +26,8 @@ class ApiKeyPickerController: UIViewController {
   }
   
   @IBAction func textDidChange(textField: UITextField) {
-    let text = textField.text
-    if count(text) == keyLength {
+    let text = textField.text!
+    if text.characters.count == keyLength {
       WaniApiManager.sharedInstance.setApiKey(text)
       dismissViewControllerAnimated(true, completion: nil)
     }

@@ -9,14 +9,13 @@
 import UIKit
 import WaniKit
 import RealmSwift
-import KINWebBrowser
 
 class StudyQueueViewController: UIViewController {
   
   private var loadedQueue: StudyQueue?
   var studyQueue: StudyQueue? {
     if loadedQueue == nil {
-      let users = Realm().objects(User)
+      let users = try! Realm().objects(User)
       if let user = users.first, let q = user.studyQueue {
         loadedQueue = q
       }
@@ -49,19 +48,14 @@ class StudyQueueViewController: UIViewController {
   
   func flipVisibleCells() {
     var delayFromFirst:Float = 0.0
-    var deltaTime:Float = 0.1
+    let deltaTime:Float = 0.1
     
-    var cells = self.collectionView.visibleCells()
+    let cells = self.collectionView.visibleCells()
     
     for cell in cells{
-      if let cell = cell as? UICollectionViewCell {
-        if let indexPath = self.collectionView.indexPathForCell(cell){
-          delayFromFirst += deltaTime
-          
-          (cell as? FlippableCell)?.flip(animations: {
-            }, delay: NSTimeInterval(delayFromFirst))
-        }
-      }
+      delayFromFirst += deltaTime
+      (cell as? FlippableCell)?.flip(animations: {
+        }, delay: NSTimeInterval(delayFromFirst))
     }
   }
   
@@ -191,7 +185,7 @@ extension StudyQueueViewController : UICollectionViewDataSource {
     case (1, _): identifier = ReviewCell.identifier
     default: break
     }
-    cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UICollectionViewCell
+    cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) 
     
     if let q = studyQueue {
       switch (indexPath.section, indexPath.row) {
