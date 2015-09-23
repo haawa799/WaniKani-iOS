@@ -93,6 +93,10 @@ class WebViewController: UIViewController {
     super.viewDidLoad()
     loadInitialLink()
   }
+  
+  override func prefersStatusBarHidden() -> Bool {
+    return true
+  }
 }
 
 extension WebViewController: UIWebViewDelegate {

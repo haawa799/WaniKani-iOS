@@ -127,7 +127,7 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <animations/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="cancel" id="MqB-k6-45T">
+                                    <barButtonItem style="plain" systemItem="done" id="MqB-k6-45T">
                                         <connections>
                                             <action selector="cancelPressed:" destination="Tld-vc-g2T" id="gBW-Lg-XGg"/>
                                         </connections>
@@ -308,7 +308,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wow, first skript! Much carefully use!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGj-dl-Ufu">
-                                                <rect key="frame" x="12" y="15" width="111" height="54"/>
+                                                <rect key="frame" x="12" y="10" width="111" height="59"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="highlightedColor"/>
@@ -318,7 +318,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="yLx-jh-mjQ" firstAttribute="top" secondItem="gGj-e1-Ncw" secondAttribute="top" id="17d-FS-eUU"/>
-                                            <constraint firstItem="qGj-dl-Ufu" firstAttribute="top" secondItem="gGj-e1-Ncw" secondAttribute="top" constant="15" id="Hev-hX-V2c"/>
+                                            <constraint firstItem="qGj-dl-Ufu" firstAttribute="top" secondItem="gGj-e1-Ncw" secondAttribute="top" constant="10" id="Hev-hX-V2c"/>
                                             <constraint firstItem="qGj-dl-Ufu" firstAttribute="leading" secondItem="gGj-e1-Ncw" secondAttribute="leading" constant="12" id="Jui-fe-vPx"/>
                                             <constraint firstAttribute="trailing" secondItem="qGj-dl-Ufu" secondAttribute="trailing" constant="12" id="N6U-Ez-OvC"/>
                                             <constraint firstAttribute="width" constant="135" id="QHY-Ta-Kbj"/>

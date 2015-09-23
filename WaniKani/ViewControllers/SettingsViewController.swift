@@ -10,7 +10,6 @@ import UIKit
 
 class SettingsViewController: UIViewController {
   
-  //  @IBOutlet weak var fastForwardReviewsSwitch: AIFlatSwitch!
   @IBOutlet weak var collectionView: UICollectionView! {
     didSet {
       collectionView?.dataSource = self
@@ -21,17 +20,6 @@ class SettingsViewController: UIViewController {
       collectionView?.registerNib(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier)
     }
   }
-  
-  @IBAction func fastForwardSwitchValueChanged(sender: AIFlatSwitch) {
-    UserScriptsSuit.sharedInstance.fastForwardEnabled = sender.selected
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    _ = UserScriptsSuit.sharedInstance.fastForwardEnabled
-    //    fastForwardReviewsSwitch.selected = state
-  }
-  
 }
 
 extension SettingsViewController: UICollectionViewDataSource {
@@ -73,6 +61,7 @@ extension SettingsViewController: UICollectionViewDataSource {
 }
 
 extension SettingsViewController: SettingsScriptCellDelegate {
+  
   func scriptCellChangedState(cell: SettingsScriptCell ,state: Bool) {
     guard let indexPath = collectionView?.indexPathForCell(cell) else {return}
     switch indexPath.row {

@@ -100,7 +100,8 @@ class StudyQueueViewController: UIViewController {
     }
   }
   
-  var lastUpdateDate: NSDate?
+  private var lastUpdateDate: NSDate?
+  private var waitingTime: NSTimeInterval = 20
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -109,7 +110,7 @@ class StudyQueueViewController: UIViewController {
     
     if let lastUpdateDate = lastUpdateDate {
       let time = NSDate().timeIntervalSinceDate(lastUpdateDate)
-      if time < 10 {
+      if time < waitingTime {
         needsUpdate = false
       }
     }
