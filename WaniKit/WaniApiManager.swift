@@ -42,8 +42,12 @@ public class WaniApiManager: NSObject, Singltone {
   
   // MARK: - Public API
   
-  public func setApiKey(key: String) {
-    NSUserDefaults.standardUserDefaults().setObject(key, forKey: WaniApiManagerConstants.NSUserDefaultsKeys.WaniKaniApiKey)
+  public func setApiKey(key: String?) {
+    if let key = key {
+      NSUserDefaults.standardUserDefaults().setObject(key, forKey: WaniApiManagerConstants.NSUserDefaultsKeys.WaniKaniApiKey)
+    } else {
+      NSUserDefaults.standardUserDefaults().removeObjectForKey(WaniApiManagerConstants.NSUserDefaultsKeys.WaniKaniApiKey)
+    }
     NSUserDefaults.standardUserDefaults().synchronize()
     myKey = key
   }
@@ -61,6 +65,26 @@ public class WaniApiManager: NSObject, Singltone {
       }
     }
   }
+  
+  public func apiKey() -> String? {
+    if let key = myKey {
+      return key
+    } else {
+      myKey = NSUserDefaults.standardUserDefaults().objectForKey(WaniApiManagerConstants.NSUserDefaultsKeys.WaniKaniApiKey) as? String
+    }
+    if let key = myKey {
+      return key
+    } else {
+      NSNotificationCenter.defaultCenter().postNotificationName(WaniApiManagerConstants.NotificationKey.NoApiKey, object: nil)
+      return nil
+    }
+  }
+  
+  // MARK: Private
+  
+  private static let instance = WaniApiManager()
+  private var manager: Manager!
+  private var myKey: String?
   
   private func internalFetchStudyQueue(handler:(User?, StudyQueue?, error: ErrorType?) throws -> ()) {
     
@@ -97,27 +121,8 @@ public class WaniApiManager: NSObject, Singltone {
     }
   }
   
-  // MARK: Private
-  
-  private static let instance = WaniApiManager()
-  private var manager: Manager!
-  private var myKey: String?
-  
   private override init() {
     super.init()
   }
   
-  private func apiKey() -> String? {
-    if let key = myKey {
-      return key
-    } else {
-      myKey = NSUserDefaults.standardUserDefaults().objectForKey(WaniApiManagerConstants.NSUserDefaultsKeys.WaniKaniApiKey) as? String
-    }
-    if let key = myKey {
-      return key
-    } else {
-      NSNotificationCenter.defaultCenter().postNotificationName(WaniApiManagerConstants.NotificationKey.NoApiKey, object: nil)
-      return nil
-    }
-  }
 }

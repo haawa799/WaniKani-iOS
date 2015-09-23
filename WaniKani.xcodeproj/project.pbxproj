@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 432C07171BB2E15A0031B3B1 /* notification.m4a */; settings = {ASSET_TAGS = (); }; };
 		4330D2D91BA83EB800255890 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330D2D81BA83EB800255890 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164D1B846016007B7DE9 /* NotificationManager.swift */; };
 		433E16521B846016007B7DE9 /* StudyQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */; };
@@ -46,6 +47,7 @@
 		43EBC09E1BA5F6C000C0B390 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */; };
 		43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */; };
 		43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */; };
+		43F443691BA9AF2B00726619 /* WaniApiManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F443681BA9AF2B00726619 /* WaniApiManagerTests.swift */; settings = {ASSET_TAGS = (); }; };
 		62798FF1436B89758C73F9B9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -99,6 +101,7 @@
 		00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		432C07171BB2E15A0031B3B1 /* notification.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.m4a; sourceTree = "<group>"; };
 		4330D2D81BA83EB800255890 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		433E164D1B846016007B7DE9 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueueViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 		43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		43F443681BA9AF2B00726619 /* WaniApiManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaniApiManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +294,7 @@
 		433E28031B79D5E900BBB45E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				432C07171BB2E15A0031B3B1 /* notification.m4a */,
 				43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */,
 				43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */,
 				433E28041B79D5E900BBB45E /* Info.plist */,
@@ -349,6 +354,7 @@
 			children = (
 				43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */,
 				43C3067F1B79D75D00DEB6A4 /* Supporting Files */,
+				43F443681BA9AF2B00726619 /* WaniApiManagerTests.swift */,
 			);
 			path = WaniKitTests;
 			sourceTree = "<group>";
@@ -537,6 +543,7 @@
 				433E280B1B79D5E900BBB45E /* Main.storyboard in Resources */,
 				433E165D1B84764B007B7DE9 /* DashboardHeader.xib in Resources */,
 				433E28101B79D5E900BBB45E /* LaunchScreen.xib in Resources */,
+				432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */,
 				43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */,
 				433E16561B8460C1007B7DE9 /* AvaliableItemCell.xib in Resources */,
 				433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */,
@@ -709,6 +716,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43C306821B79D75D00DEB6A4 /* WaniKitTests.swift in Sources */,
+				43F443691BA9AF2B00726619 /* WaniApiManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +797,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -829,6 +838,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

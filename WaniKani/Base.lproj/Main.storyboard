@@ -278,32 +278,78 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObY-S4-6aN" userLabel="doge hint view" customClass="DogeHintView" customModule="WaniKani" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="360" width="600" height="240"/>
                                 <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObB-Jr-cA6">
+                                        <rect key="frame" x="0.0" y="0.0" width="193.5" height="128"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="iBu-0v-Vw3"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGj-e1-Ncw" userLabel="bubble container">
+                                        <rect key="frame" x="193.5" y="0.0" width="135" height="128"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="yLx-jh-mjQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="135" height="128"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wow, first skript! Much carefully use!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGj-dl-Ufu">
+                                                <rect key="frame" x="12" y="15" width="111" height="54"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="yLx-jh-mjQ" firstAttribute="top" secondItem="gGj-e1-Ncw" secondAttribute="top" id="17d-FS-eUU"/>
+                                            <constraint firstItem="qGj-dl-Ufu" firstAttribute="top" secondItem="gGj-e1-Ncw" secondAttribute="top" constant="15" id="Hev-hX-V2c"/>
+                                            <constraint firstItem="qGj-dl-Ufu" firstAttribute="leading" secondItem="gGj-e1-Ncw" secondAttribute="leading" constant="12" id="Jui-fe-vPx"/>
+                                            <constraint firstAttribute="trailing" secondItem="qGj-dl-Ufu" secondAttribute="trailing" constant="12" id="N6U-Ez-OvC"/>
+                                            <constraint firstAttribute="width" constant="135" id="QHY-Ta-Kbj"/>
+                                            <constraint firstAttribute="bottom" secondItem="yLx-jh-mjQ" secondAttribute="bottom" id="T3Y-Iv-hpg"/>
+                                            <constraint firstAttribute="bottom" secondItem="qGj-dl-Ufu" secondAttribute="bottom" constant="59" id="e4Y-Yc-ReE"/>
+                                            <constraint firstItem="yLx-jh-mjQ" firstAttribute="leading" secondItem="gGj-e1-Ncw" secondAttribute="leading" id="jhe-p4-qLK"/>
+                                            <constraint firstAttribute="height" constant="128" id="ssS-lE-hS8"/>
+                                            <constraint firstAttribute="trailing" secondItem="yLx-jh-mjQ" secondAttribute="trailing" id="vFl-8n-2HI"/>
+                                        </constraints>
+                                    </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doge" translatesAutoresizingMaskIntoConstraints="NO" id="Rg8-ct-5Wj">
                                         <rect key="frame" x="0.0" y="0.0" width="215" height="240"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Rg8-ct-5Wj" secondAttribute="height" multiplier="43:48" id="5gA-aV-Xoy"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="UpW-gr-Aqc"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="yLx-jh-mjQ">
-                                        <rect key="frame" x="184" y="6" width="120" height="114"/>
-                                        <animations/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wow, first skript! Much carefully use!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGj-dl-Ufu">
-                                        <rect key="frame" x="190" y="-13" width="108" height="109"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Rg8-ct-5Wj" firstAttribute="top" secondItem="ObY-S4-6aN" secondAttribute="top" id="81a-AZ-8S2"/>
+                                    <constraint firstItem="gGj-e1-Ncw" firstAttribute="top" secondItem="ObY-S4-6aN" secondAttribute="top" id="Gce-Or-PSO"/>
                                     <constraint firstItem="Rg8-ct-5Wj" firstAttribute="leading" secondItem="ObY-S4-6aN" secondAttribute="leading" id="PRX-B1-sJe"/>
+                                    <constraint firstItem="ObB-Jr-cA6" firstAttribute="height" secondItem="Rg8-ct-5Wj" secondAttribute="height" id="T8D-Pq-hiX"/>
+                                    <constraint firstItem="gGj-e1-Ncw" firstAttribute="leading" secondItem="ObB-Jr-cA6" secondAttribute="trailing" id="WXV-xR-Nc3"/>
+                                    <constraint firstItem="gGj-e1-Ncw" firstAttribute="leading" secondItem="Rg8-ct-5Wj" secondAttribute="trailing" id="Xdm-op-347"/>
+                                    <constraint firstItem="Rg8-ct-5Wj" firstAttribute="top" secondItem="ObY-S4-6aN" secondAttribute="top" priority="750" id="fp5-1j-aYO"/>
+                                    <constraint firstItem="gGj-e1-Ncw" firstAttribute="bottom" secondItem="ObB-Jr-cA6" secondAttribute="bottom" id="gcZ-aw-UQE"/>
+                                    <constraint firstItem="ObB-Jr-cA6" firstAttribute="top" secondItem="Rg8-ct-5Wj" secondAttribute="top" id="iYy-k1-AQY"/>
                                     <constraint firstAttribute="bottom" secondItem="Rg8-ct-5Wj" secondAttribute="bottom" id="kka-Ky-bow"/>
+                                    <constraint firstItem="ObB-Jr-cA6" firstAttribute="leading" secondItem="Rg8-ct-5Wj" secondAttribute="leading" id="snv-3W-wKX"/>
+                                    <constraint firstItem="ObB-Jr-cA6" firstAttribute="width" secondItem="Rg8-ct-5Wj" secondAttribute="width" multiplier="0.9" id="wzn-Rb-aTy"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="T8D-Pq-hiX"/>
+                                        <exclude reference="81a-AZ-8S2"/>
+                                        <exclude reference="Gce-Or-PSO"/>
+                                        <exclude reference="Xdm-op-347"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05m-C6-3Pg">
                                 <rect key="frame" x="20" y="40" width="560" height="44"/>
@@ -312,7 +358,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="516" height="44"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVd-Vg-Svt" customClass="AIFlatSwitch" customModule="WaniKani" customModuleProvider="target">

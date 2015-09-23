@@ -58,6 +58,7 @@ class NotificationManager: NSObject {
               let notification = UILocalNotification()
               notification.fireDate = date
               notification.alertBody = "New reviews avaliable!"
+              notification.soundName = "notification.m4a"
               UIApplication.sharedApplication().scheduleLocalNotification(notification)
               newNotificationScheduled = true
               
