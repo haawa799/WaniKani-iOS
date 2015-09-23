@@ -21,7 +21,7 @@ class UserScriptsSuit: NSObject {
   static let fastForwardEnabledKey = "fastForwardEnabledKey"
   
   // Scripts
-  private var fastForwardScript = UserScript.scriptNamed("fast_forward")!
+  private(set) var fastForwardScript = UserScript.scriptNamed("fast_forward", name: "Fast forward")!
   
   
   // Flags

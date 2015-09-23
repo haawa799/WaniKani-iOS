@@ -10,16 +10,19 @@ import UIKit
 
 class UserScript: NSObject {
   
-  class func scriptNamed(name: String) -> UserScript? {
-    let script = UserScript(name: name)
+  class func scriptNamed(filename: String, name: String) -> UserScript? {
+    let script = UserScript(filename: filename, scriptName: name)
     return script
   }
   
-  init(name: String) {
-    if let path = NSBundle.mainBundle().pathForResource(name, ofType: "js"), let js = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding) {
+  private(set) var name: String
+  
+  init(filename: String, scriptName: String) {
+    name = scriptName
+    if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "js"), let js = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding) {
       script = js
     } else {
-      assertionFailure("Failed loading script with name: \(name)")
+      assertionFailure("Failed loading script with name: \(filename)")
     }
   }
   

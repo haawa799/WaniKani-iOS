@@ -100,7 +100,11 @@ public class WaniApiManager: NSObject, Singltone {
           
           switch JSON {
           case .Failure( _ , let error) :
-            try! handler(nil, nil, error: error)
+            do {
+              try handler(nil, nil, error: error)
+            } catch _ {
+              
+            }
             return
           case .Success(let value) :
             var user: User? = nil

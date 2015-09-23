@@ -11,7 +11,16 @@ import UIKit
 class DashboardHeader: UICollectionReusableView {
   
   @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet private weak var backgroundImage: UIImageView!
+  @IBOutlet private var coloredViews: [UIView]!
+  
+  var color: UIColor = UIColor(red:0.92, green:0.12, blue:0.39, alpha:1) {
+    didSet {
+      guard let coloredViews = coloredViews else {return}
+      for v in coloredViews {
+        v.backgroundColor = color
+      }
+    }
+  }
   
   override func prepareForReuse() {
     super.prepareForReuse()

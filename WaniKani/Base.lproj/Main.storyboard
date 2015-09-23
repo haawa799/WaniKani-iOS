@@ -275,6 +275,19 @@
                                 <animations/>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wUH-2m-af9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.49803921569999998" green="0.81176470590000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5jm-wS-uSR" customClass="SettingsLayout" customModule="WaniKani" customModuleProvider="target">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObY-S4-6aN" userLabel="doge hint view" customClass="DogeHintView" customModule="WaniKani" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="360" width="600" height="240"/>
                                 <subviews>
@@ -287,7 +300,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGj-e1-Ncw" userLabel="bubble container">
-                                        <rect key="frame" x="193.5" y="0.0" width="135" height="128"/>
+                                        <rect key="frame" x="193" y="0.0" width="135" height="128"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="yLx-jh-mjQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="135" height="128"/>
@@ -351,80 +364,45 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05m-C6-3Pg">
-                                <rect key="frame" x="20" y="40" width="560" height="44"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast forward mode for reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJZ-YT-h6n">
-                                        <rect key="frame" x="0.0" y="0.0" width="516" height="44"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVd-Vg-Svt" customClass="AIFlatSwitch" customModule="WaniKani" customModuleProvider="target">
-                                        <rect key="frame" x="516" y="0.0" width="44" height="44"/>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="TVd-Vg-Svt" secondAttribute="height" multiplier="1:1" id="fAx-i2-MFf"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                                <color key="value" red="0.49803921568627452" green="0.81176470588235294" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
-                                                <color key="value" red="0.49803921569999998" green="0.81176470590000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="fastForwardSwitchValueChanged:" destination="ZnJ-bk-HfM" eventType="valueChanged" id="TS2-lT-8au"/>
-                                        </connections>
-                                    </view>
-                                </subviews>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="AEA-Ox-wOp"/>
-                                    <constraint firstAttribute="trailing" secondItem="TVd-Vg-Svt" secondAttribute="trailing" id="EgE-6A-xHn"/>
-                                    <constraint firstItem="YJZ-YT-h6n" firstAttribute="leading" secondItem="05m-C6-3Pg" secondAttribute="leading" id="FjD-qe-Nta"/>
-                                    <constraint firstAttribute="centerY" secondItem="TVd-Vg-Svt" secondAttribute="centerY" id="KDG-ic-Ry3"/>
-                                    <constraint firstAttribute="bottom" secondItem="YJZ-YT-h6n" secondAttribute="bottom" id="LVv-VE-d2j"/>
-                                    <constraint firstAttribute="height" secondItem="TVd-Vg-Svt" secondAttribute="height" id="Uc8-QO-APA"/>
-                                    <constraint firstItem="YJZ-YT-h6n" firstAttribute="top" secondItem="05m-C6-3Pg" secondAttribute="top" id="i1W-Pg-CKi"/>
-                                    <constraint firstItem="TVd-Vg-Svt" firstAttribute="leading" secondItem="YJZ-YT-h6n" secondAttribute="trailing" id="ne8-sV-bdb"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wUH-2m-af9" firstAttribute="top" secondItem="dBd-t8-Nap" secondAttribute="top" id="0ps-EO-bUC"/>
+                            <constraint firstItem="27Y-c5-bw8" firstAttribute="top" secondItem="wUH-2m-af9" secondAttribute="bottom" id="60F-BP-6XN"/>
                             <constraint firstAttribute="trailing" secondItem="cf4-we-Qz7" secondAttribute="trailing" id="6aR-cm-JDn"/>
                             <constraint firstItem="BTp-Qm-cHo" firstAttribute="top" secondItem="dBd-t8-Nap" secondAttribute="top" id="BRL-8i-mQt"/>
                             <constraint firstItem="BTp-Qm-cHo" firstAttribute="leading" secondItem="dBd-t8-Nap" secondAttribute="leading" id="Eu5-tz-4kH"/>
+                            <constraint firstAttribute="trailing" secondItem="wUH-2m-af9" secondAttribute="trailing" id="HxN-9k-kej"/>
                             <constraint firstAttribute="bottom" secondItem="ObY-S4-6aN" secondAttribute="bottom" id="KhN-10-lyO"/>
-                            <constraint firstItem="05m-C6-3Pg" firstAttribute="top" secondItem="NUl-yH-4TM" secondAttribute="bottom" constant="20" id="LN9-7I-jtB"/>
+                            <constraint firstItem="wUH-2m-af9" firstAttribute="top" secondItem="NUl-yH-4TM" secondAttribute="bottom" id="KlJ-9M-Iah"/>
                             <constraint firstAttribute="bottom" secondItem="BTp-Qm-cHo" secondAttribute="bottom" id="MLx-dY-bnu"/>
                             <constraint firstItem="ObY-S4-6aN" firstAttribute="height" secondItem="dBd-t8-Nap" secondAttribute="height" multiplier="0.4" id="N8e-X2-OC4"/>
+                            <constraint firstItem="wUH-2m-af9" firstAttribute="top" secondItem="NUl-yH-4TM" secondAttribute="bottom" id="Rp8-Fv-813"/>
                             <constraint firstItem="cf4-we-Qz7" firstAttribute="top" secondItem="dBd-t8-Nap" secondAttribute="top" id="XLp-kM-C7b"/>
                             <constraint firstItem="ObY-S4-6aN" firstAttribute="leading" secondItem="dBd-t8-Nap" secondAttribute="leading" id="Zz4-bE-BqS"/>
                             <constraint firstAttribute="bottomMargin" secondItem="cf4-we-Qz7" secondAttribute="bottom" id="gvq-Fk-Mxl"/>
                             <constraint firstAttribute="trailing" secondItem="ObY-S4-6aN" secondAttribute="trailing" id="hPc-v4-xkL"/>
-                            <constraint firstItem="05m-C6-3Pg" firstAttribute="trailing" secondItem="dBd-t8-Nap" secondAttribute="trailingMargin" id="jJO-PA-ndn"/>
-                            <constraint firstItem="05m-C6-3Pg" firstAttribute="leading" secondItem="dBd-t8-Nap" secondAttribute="leadingMargin" id="m47-6G-Ocm"/>
                             <constraint firstItem="cf4-we-Qz7" firstAttribute="leading" secondItem="dBd-t8-Nap" secondAttribute="leading" id="n9R-WU-QLb"/>
+                            <constraint firstItem="wUH-2m-af9" firstAttribute="leading" secondItem="dBd-t8-Nap" secondAttribute="leading" id="rON-0d-p6f"/>
                             <constraint firstItem="cf4-we-Qz7" firstAttribute="top" secondItem="NUl-yH-4TM" secondAttribute="bottom" constant="5" id="uAg-Et-KEF"/>
                             <constraint firstAttribute="trailing" secondItem="BTp-Qm-cHo" secondAttribute="trailing" id="uc0-VI-pmj"/>
+                            <constraint firstAttribute="bottom" secondItem="wUH-2m-af9" secondAttribute="bottom" id="xdW-yG-96D"/>
+                            <constraint firstItem="wUH-2m-af9" firstAttribute="top" secondItem="dBd-t8-Nap" secondAttribute="top" id="zJc-cW-Jh8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="uAg-Et-KEF"/>
+                                <exclude reference="0ps-EO-bUC"/>
+                                <exclude reference="KlJ-9M-Iah"/>
+                                <exclude reference="Rp8-Fv-813"/>
+                                <exclude reference="60F-BP-6XN"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="Lpp-TH-naP"/>
                     <connections>
-                        <outlet property="fastForwardReviewsSwitch" destination="TVd-Vg-Svt" id="HwT-1H-NAN"/>
+                        <outlet property="collectionView" destination="wUH-2m-af9" id="5oo-lO-4iV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3K-12-fXB" userLabel="First Responder" sceneMemberID="firstResponder"/>

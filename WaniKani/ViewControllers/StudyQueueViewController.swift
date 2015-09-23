@@ -54,7 +54,7 @@ class StudyQueueViewController: UIViewController {
     
     for cell in cells{
       delayFromFirst += deltaTime
-      (cell as? FlippableCell)?.flip(animations: {
+      (cell as? FlippableView)?.flip(animations: {
         }, delay: NSTimeInterval(delayFromFirst))
     }
   }
