@@ -23,4 +23,9 @@ class ReviewCell: UICollectionViewCell, FlippableView, SingleReuseIdentifier {
     titleLabel?.text = nil
     numberLabel?.text = nil
   }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    prepareForReuse()
+  }
 }

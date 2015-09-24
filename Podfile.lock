@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (2.0.0)
-  - PermissionScope (1.0)
+  - PermissionScope (1.0.1)
   - Realm (0.95.0):
     - Realm/Headers (= 0.95.0)
   - Realm/Headers (0.95.0)
@@ -9,7 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 2.0)
-  - PermissionScope (~> 1.0)
+  - PermissionScope
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
 
@@ -31,7 +31,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
-  PermissionScope: 5ab56752470de9f2ec0dfc89a444de4b0a17144c
+  PermissionScope: 9767066cedefd211d90a8c4f92f6f1a987085ee8
   Realm: 1c28007bd496af94dba8c76d50719164e706a521
   RealmSwift: 9864524dd99c2cb7b4643c29513ef8447fe63724
 

@@ -30,6 +30,11 @@ class NextReviewCell: UICollectionViewCell, FlippableView, SingleReuseIdentifier
     titleLabel?.text = nil
   }
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    prepareForReuse()
+  }
+  
   @IBAction func switchValueChange(sender: AIFlatSwitch) {
     delegate?.notificationsEnabled(sender.selected)
   }

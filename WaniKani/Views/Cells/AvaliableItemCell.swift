@@ -29,4 +29,9 @@ class AvaliableItemCell: UICollectionViewCell, FlippableView, SingleReuseIdentif
     titleLabel?.text = nil
     disclosureButton?.hidden = true
   }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    prepareForReuse()
+  }
 }

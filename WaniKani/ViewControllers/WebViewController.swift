@@ -95,7 +95,7 @@ class WebViewController: UIViewController {
   }
   
   override func prefersStatusBarHidden() -> Bool {
-    return true
+    return UserScriptsSuit.sharedInstance.hideStatusBarEnabled
   }
 }
 

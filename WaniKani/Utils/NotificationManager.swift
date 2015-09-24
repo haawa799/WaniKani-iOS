@@ -51,7 +51,10 @@ class NotificationManager: NSObject {
     var newNotificationScheduled = false
     
     if notificationsEnabled {
+      
       pscope.show({ (finished, results) -> Void in
+        print("got results \(results)")
+        
         if results.first?.status == .Authorized {
           if UIApplication.sharedApplication().scheduledLocalNotifications!.count == 0 {
             if date.compare(NSDate()) == .OrderedDescending {
@@ -75,9 +78,8 @@ class NotificationManager: NSObject {
           }
         }
         
-        }) { (results) -> Void in
-          
-      }
+        }, cancelled: { (results) -> Void in
+      })
     }
     lastAttemptDate = date
     return newNotificationScheduled

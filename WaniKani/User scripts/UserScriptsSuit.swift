@@ -20,6 +20,7 @@ class UserScriptsSuit: NSObject {
   // Keys
   static let fastForwardEnabledKey = "fastForwardEnabledKey"
   static let ignoreButtonEnabledKey = "ignoreButtonEnabledKey"
+  static let hideStatusBarKey = "hideStatusBarKey"
   
   // Scripts
   private(set) var fastForwardScript = UserScript.scriptNamed("fast_forward", name: "Fast forward")!
@@ -39,6 +40,15 @@ class UserScriptsSuit: NSObject {
     didSet {
       if ignoreButtonEnabled != oldValue {
         NSUserDefaults.standardUserDefaults().setBool(ignoreButtonEnabled, forKey: UserScriptsSuit.ignoreButtonEnabledKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
+      }
+    }
+  }
+  
+  var hideStatusBarEnabled = NSUserDefaults.standardUserDefaults().boolForKey(UserScriptsSuit.hideStatusBarKey) {
+    didSet {
+      if hideStatusBarEnabled != oldValue {
+        NSUserDefaults.standardUserDefaults().setBool(hideStatusBarEnabled, forKey: UserScriptsSuit.hideStatusBarKey)
         NSUserDefaults.standardUserDefaults().synchronize()
       }
     }
