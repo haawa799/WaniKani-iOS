@@ -13,11 +13,7 @@ class ApiKeyPickerController: UIViewController {
   
   let keyLength = 32
   
-  @IBOutlet weak var keyTextField: UITextField! {
-    didSet {
-      keyTextField.delegate = self
-    }
-  }
+  @IBOutlet weak var keyTextField: UITextField!
   
   @IBAction func getMyKeyPressed(sender: UIButton) {
     if let url = NSURL(string: "https://www.wanikani.com/account") {
@@ -33,7 +29,15 @@ class ApiKeyPickerController: UIViewController {
     }
   }
   
-}
-
-extension ApiKeyPickerController: UITextFieldDelegate {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    let tap = UITapGestureRecognizer(target: self, action: "tap")
+    view.addGestureRecognizer(tap)
+  }
+  
+  @objc private func tap() {
+    keyTextField?.resignFirstResponder()
+  }
+  
 }

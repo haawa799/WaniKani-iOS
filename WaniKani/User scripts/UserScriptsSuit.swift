@@ -19,9 +19,11 @@ class UserScriptsSuit: NSObject {
   
   // Keys
   static let fastForwardEnabledKey = "fastForwardEnabledKey"
+  static let ignoreButtonEnabledKey = "ignoreButtonEnabledKey"
   
   // Scripts
   private(set) var fastForwardScript = UserScript.scriptNamed("fast_forward", name: "Fast forward")!
+  private(set) var ignoreButtonScript = UserScript.scriptNamed("ignore", name: "Ignore button")!
   
   
   // Flags
@@ -33,11 +35,22 @@ class UserScriptsSuit: NSObject {
       }
     }
   }
+  var ignoreButtonEnabled = NSUserDefaults.standardUserDefaults().boolForKey(UserScriptsSuit.ignoreButtonEnabledKey) {
+    didSet {
+      if ignoreButtonEnabled != oldValue {
+        NSUserDefaults.standardUserDefaults().setBool(ignoreButtonEnabled, forKey: UserScriptsSuit.ignoreButtonEnabledKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
+      }
+    }
+  }
   
   var userScriptsForReview: [UserScript] {
     var scripts = [UserScript]()
     if fastForwardEnabled == true {
       scripts.append(fastForwardScript)
+    }
+    if ignoreButtonEnabled == true {
+      scripts.append(ignoreButtonScript)
     }
     return scripts
   }

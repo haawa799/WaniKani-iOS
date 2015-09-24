@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UICollectionViewDataSource {
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 1
+    return 2
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -37,6 +37,9 @@ extension SettingsViewController: UICollectionViewDataSource {
     case 0:
       name = UserScriptsSuit.sharedInstance.fastForwardScript.name
       state = UserScriptsSuit.sharedInstance.fastForwardEnabled
+    case 1:
+      name = UserScriptsSuit.sharedInstance.ignoreButtonScript.name
+      state = UserScriptsSuit.sharedInstance.ignoreButtonEnabled
     default:
       break
     }
@@ -52,7 +55,7 @@ extension SettingsViewController: UICollectionViewDataSource {
     let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier, forIndexPath: indexPath) as! DashboardHeader
     switch indexPath.section {
     case 0:
-      header.titleLabel?.text = "Reviews"
+      header.titleLabel?.text = "Scripts for Reviews"
       header.color = collectionView.tintColor
     default: break
     }
@@ -67,6 +70,8 @@ extension SettingsViewController: SettingsScriptCellDelegate {
     switch indexPath.row {
     case 0:
       UserScriptsSuit.sharedInstance.fastForwardEnabled = state
+    case 1:
+      UserScriptsSuit.sharedInstance.ignoreButtonEnabled = state
     default: break
     }
   }
