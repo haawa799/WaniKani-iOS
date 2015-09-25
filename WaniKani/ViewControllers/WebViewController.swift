@@ -7,56 +7,6 @@
 //
 
 import UIKit
-import WebKit
-
-//class WebViewController: UIViewController {
-//  
-//  private var webView: WKWebView? {
-//    didSet {
-////      webView?.navigationDelegate = self
-//    }
-//  }
-//  var url: String?
-//  
-//  let configuration = WKWebViewConfiguration()
-//  let userContentController = WKUserContentController()
-//  
-//  override func viewDidLoad() {
-//    super.viewDidLoad()
-//    
-//    if let path = NSBundle.mainBundle().pathForResource("ignore", ofType: "js"), let js = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) {
-//      let userScript = WKUserScript(source: js, injectionTime: .AtDocumentEnd, forMainFrameOnly: false)
-//      
-//      
-//      userContentController.addUserScript(userScript)
-//      userContentController.addScriptMessageHandler(self, name: "interOp")
-//      configuration.userContentController = userContentController
-//      webView = WKWebView(frame: self.view.bounds, configuration: configuration)
-//    }
-//    
-//    view = webView
-//    
-//    
-//    loadInitialLink()
-//  }
-//  
-//  func loadInitialLink() {
-//    if let url = url {
-//      if let realURL = NSURL(string: url) {
-//        let request = NSURLRequest(URL: realURL)
-//        webView?.loadRequest(request)
-//      }
-//    }
-//  }
-//}
-
-//extension WebViewController: WKScriptMessageHandler {
-//  func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-//    println("\(message.body)")
-//  }
-//}
-
-
 
 class WebViewController: UIViewController {
   

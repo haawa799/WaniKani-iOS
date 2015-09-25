@@ -289,10 +289,10 @@
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObY-S4-6aN" userLabel="doge hint view" customClass="DogeHintView" customModule="WaniKani" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="360" width="600" height="240"/>
+                                <rect key="frame" x="0.0" y="366" width="600" height="234"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObB-Jr-cA6">
-                                        <rect key="frame" x="0.0" y="0.0" width="193.5" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="188.5" height="128"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -300,7 +300,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGj-e1-Ncw" userLabel="bubble container">
-                                        <rect key="frame" x="193" y="0.0" width="135" height="128"/>
+                                        <rect key="frame" x="188" y="0.0" width="135" height="128"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="yLx-jh-mjQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="135" height="128"/>
@@ -330,7 +330,7 @@
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doge" translatesAutoresizingMaskIntoConstraints="NO" id="Rg8-ct-5Wj">
-                                        <rect key="frame" x="0.0" y="0.0" width="215" height="240"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="209.5" height="234"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -377,7 +377,7 @@
                             <constraint firstAttribute="bottom" secondItem="ObY-S4-6aN" secondAttribute="bottom" id="KhN-10-lyO"/>
                             <constraint firstItem="wUH-2m-af9" firstAttribute="top" secondItem="NUl-yH-4TM" secondAttribute="bottom" id="KlJ-9M-Iah"/>
                             <constraint firstAttribute="bottom" secondItem="BTp-Qm-cHo" secondAttribute="bottom" id="MLx-dY-bnu"/>
-                            <constraint firstItem="ObY-S4-6aN" firstAttribute="height" secondItem="dBd-t8-Nap" secondAttribute="height" multiplier="0.4" id="N8e-X2-OC4"/>
+                            <constraint firstItem="ObY-S4-6aN" firstAttribute="height" secondItem="dBd-t8-Nap" secondAttribute="height" multiplier="0.39" id="N8e-X2-OC4"/>
                             <constraint firstItem="wUH-2m-af9" firstAttribute="top" secondItem="NUl-yH-4TM" secondAttribute="bottom" id="Rp8-Fv-813"/>
                             <constraint firstItem="cf4-we-Qz7" firstAttribute="top" secondItem="dBd-t8-Nap" secondAttribute="top" id="XLp-kM-C7b"/>
                             <constraint firstItem="ObY-S4-6aN" firstAttribute="leading" secondItem="dBd-t8-Nap" secondAttribute="leading" id="Zz4-bE-BqS"/>

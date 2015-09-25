@@ -44,8 +44,6 @@ class NotificationManager: NSObject {
   }
   private var lastAttemptDate: NSDate?
   
-  //return NSUserDefaults.standardUserDefaults().boolForKey(notificationsAllowedKey)
-  
   func scheduleNextReviewNotification(date: NSDate) -> Bool {
     
     var newNotificationScheduled = false
@@ -81,6 +79,7 @@ class NotificationManager: NSObject {
         }, cancelled: { (results) -> Void in
       })
     }
+    
     lastAttemptDate = date
     return newNotificationScheduled
   }
