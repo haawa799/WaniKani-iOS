@@ -208,7 +208,7 @@ extension StudyQueueViewController : UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
     let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier, forIndexPath: indexPath) as! DashboardHeader
     switch indexPath.section {
-    case 0: header.titleLabel?.text = "Avaliable"
+    case 0: header.titleLabel?.text = "Available"
     case 1: header.titleLabel?.text = "Reviews"
     default: break
     }
