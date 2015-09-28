@@ -6,6 +6,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Study Queue View Controller-->
@@ -307,7 +308,7 @@
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Much options! So cool!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGj-dl-Ufu">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Much soon, more options. Stay tuned!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGj-dl-Ufu">
                                                 <rect key="frame" x="12" y="10" width="111" height="59"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -430,6 +431,57 @@
             </objects>
             <point key="canvasLocation" x="1988" y="195"/>
         </scene>
+        <!--Browser View Controller-->
+        <scene sceneID="eoE-a5-R5P">
+            <objects>
+                <viewController id="uk1-05-vvP" customClass="BrowserViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2EG-yD-Wnv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q4u-kf-CQH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wcc-vI-ktD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5nm-za-bfz">
+                        <leftBarButtonItems>
+                            <barButtonItem image="home" id="l6R-qA-d5r">
+                                <connections>
+                                    <action selector="homePressed:" destination="uk1-05-vvP" id="KdH-fj-vzg"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="forums" id="ohE-uE-a2o">
+                                <connections>
+                                    <action selector="forumPressed:" destination="uk1-05-vvP" id="lZB-uq-AcH"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem image="next" id="ETg-V6-EMg">
+                                <connections>
+                                    <action selector="nextPressed:" destination="uk1-05-vvP" id="vMQ-N3-gGy"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="back" id="fUB-lH-zdS">
+                                <connections>
+                                    <action selector="previousPressed:" destination="uk1-05-vvP" id="Uqk-o7-5Us"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backButton" destination="fUB-lH-zdS" id="kUE-Wn-1TK"/>
+                        <outlet property="forumsButton" destination="ohE-uE-a2o" id="cJb-dh-MHL"/>
+                        <outlet property="homeButton" destination="l6R-qA-d5r" id="8Cb-Bh-V5p"/>
+                        <outlet property="nextButton" destination="ETg-V6-EMg" id="Kdb-86-gVC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6b8-PA-4DD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2249" y="-463"/>
+        </scene>
         <!--Colorfull Tab Bar Controller-->
         <scene sceneID="IHn-Ak-yhu">
             <objects>
@@ -442,21 +494,47 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="PNX-Q4-r4e" kind="relationship" relationship="viewControllers" id="fZb-ic-E57"/>
+                        <segue destination="PNX-Q4-r4e" kind="relationship" relationship="viewControllers" id="2ej-ic-Ymb"/>
+                        <segue destination="E8N-aB-qRr" kind="relationship" relationship="viewControllers" id="Y9C-Y5-TKA"/>
                         <segue destination="ZnJ-bk-HfM" kind="relationship" relationship="viewControllers" id="Y3c-z1-Ksm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFa-nK-DUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1176" y="195"/>
+            <point key="canvasLocation" x="1181" y="229"/>
+        </scene>
+        <!--Browser-->
+        <scene sceneID="KaM-DF-jDZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E8N-aB-qRr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Browser" image="browser" id="oEs-8b-jqB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WF7-17-EIw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uk1-05-vvP" kind="relationship" relationship="rootViewController" id="Sk4-UG-8f4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5KW-IX-eQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1437" y="-463"/>
         </scene>
     </scenes>
     <resources>
         <image name="art0" width="221" height="345"/>
+        <image name="back" width="12" height="20"/>
+        <image name="browser" width="25" height="25"/>
         <image name="bubble" width="55" height="55"/>
         <image name="dashboard" width="25" height="25"/>
         <image name="doge" width="132" height="132"/>
+        <image name="forums" width="32" height="32"/>
+        <image name="home" width="32" height="32"/>
         <image name="login" width="432" height="747"/>
+        <image name="next" width="12" height="20"/>
         <image name="settings" width="25" height="25"/>
     </resources>
 </document>
