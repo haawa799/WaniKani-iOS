@@ -1,14 +1,16 @@
 PODS:
-  - Alamofire (2.0.0)
+  - Alamofire (2.0.2)
+  - NJKScrollFullScreen (0.2.6)
   - PermissionScope (1.0.1)
-  - Realm (0.95.0):
-    - Realm/Headers (= 0.95.0)
-  - Realm/Headers (0.95.0)
-  - RealmSwift (0.95.0):
-    - Realm (= 0.95.0)
+  - Realm (0.95.2):
+    - Realm/Headers (= 0.95.2)
+  - Realm/Headers (0.95.2)
+  - RealmSwift (0.95.2):
+    - Realm (= 0.95.2)
 
 DEPENDENCIES:
   - Alamofire (~> 2.0)
+  - NJKScrollFullScreen
   - PermissionScope
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
@@ -23,16 +25,17 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Realm:
-    :commit: 01c52eb0116c6f4d735cd824f07305bb6f96e2fe
+    :commit: c65d743f862254854c09b49d6beb71626b040bdb
     :git: https://github.com/realm/realm-cocoa.git
   RealmSwift:
-    :commit: 01c52eb0116c6f4d735cd824f07305bb6f96e2fe
+    :commit: c65d743f862254854c09b49d6beb71626b040bdb
     :git: https://github.com/realm/realm-cocoa.git
 
 SPEC CHECKSUMS:
-  Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
   PermissionScope: 9767066cedefd211d90a8c4f92f6f1a987085ee8
-  Realm: 1c28007bd496af94dba8c76d50719164e706a521
-  RealmSwift: 9864524dd99c2cb7b4643c29513ef8447fe63724
+  Realm: 392c2662f18bd6d77c97a2cc1da1273b13c542c1
+  RealmSwift: d59af58ee52301069b69468fab018919b591b0c1
 
 COCOAPODS: 0.38.2

@@ -52,21 +52,27 @@
                     <rect key="frame" x="0.0" y="180" width="461" height="48"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pull to refresh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="uoN-X6-FuV">
-                            <rect key="frame" x="168.5" y="11.5" width="123" height="24"/>
+                            <rect key="frame" x="169" y="12" width="123" height="24"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1d9-N8-cyl">
+                            <rect key="frame" x="221" y="14" width="20" height="20"/>
+                            <animations/>
+                        </activityIndicatorView>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="1d9-N8-cyl" firstAttribute="centerY" secondItem="yhA-tS-wNR" secondAttribute="centerY" id="1l6-1v-yAI"/>
                         <constraint firstAttribute="height" constant="40" id="AyR-Pi-61k"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uoN-X6-FuV" secondAttribute="bottom" id="F91-Jb-unI"/>
                         <constraint firstItem="uoN-X6-FuV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yhA-tS-wNR" secondAttribute="top" id="GOp-yc-4YB"/>
                         <constraint firstItem="uoN-X6-FuV" firstAttribute="centerY" secondItem="yhA-tS-wNR" secondAttribute="centerY" id="J7p-Vr-ZAn"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uoN-X6-FuV" secondAttribute="trailing" constant="20" symbolic="YES" id="MQu-Og-Meu"/>
+                        <constraint firstItem="1d9-N8-cyl" firstAttribute="centerX" secondItem="yhA-tS-wNR" secondAttribute="centerX" id="PAg-Rx-a8b"/>
                         <constraint firstItem="uoN-X6-FuV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yhA-tS-wNR" secondAttribute="leading" constant="20" symbolic="YES" id="aCE-6G-30S"/>
                         <constraint firstItem="uoN-X6-FuV" firstAttribute="centerX" secondItem="yhA-tS-wNR" secondAttribute="centerX" id="xBe-sn-128"/>
                     </constraints>
@@ -104,8 +110,10 @@
                 <constraint firstAttribute="bottom" secondItem="yhA-tS-wNR" secondAttribute="bottom" priority="250" id="tkj-lj-2te"/>
             </constraints>
             <connections>
+                <outlet property="activityIndicator" destination="1d9-N8-cyl" id="Eto-y2-H0S"/>
                 <outlet property="bottomSpaceView" destination="vC8-d1-oFm" id="R3c-r9-Qfg"/>
                 <outlet property="doubleProgressBar" destination="M3L-Rs-LFN" id="Cba-QM-wvt"/>
+                <outlet property="pullLabel" destination="uoN-X6-FuV" id="vCR-wI-2hr"/>
             </connections>
             <point key="canvasLocation" x="350.5" y="303.5"/>
         </collectionReusableView>

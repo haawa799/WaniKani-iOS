@@ -90,6 +90,10 @@ class StudyQueueViewController: UIViewController {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
   
+  var stratchyLayout: DashboardLayout {
+    return collectionView.collectionViewLayout as! DashboardLayout
+  }
+  
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
@@ -143,6 +147,7 @@ extension StudyQueueViewController {
   }
   
   func newStudyQueueData() {
+    stratchyHeader?.displayLoading = false
     loadedQueue = nil
     flipVisibleCells()
     collectionView.reloadData()
@@ -252,10 +257,6 @@ extension StudyQueueViewController: NextReviewCellDelegate {
 extension StudyQueueViewController: ProgressHeaderDelegate {
   func fullStretch() {
     refresh()
-//    resetScroll()
-  }
-  
-  func resetScroll() {
-//    let scrollView = collectionView as UIScrollView
+    stratchyHeader?.displayLoading = true
   }
 }
