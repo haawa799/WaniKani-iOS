@@ -1,0 +1,21 @@
+//
+//  LevelInfoView.swift
+//  WaniKani
+//
+//  Created by Andriy K. on 9/30/15.
+//  Copyright © 2015 Andriy K. All rights reserved.
+//
+
+import UIKit
+
+class LevelInfoView: UIView {
+
+    /*
+    // Only override drawRect: if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func drawRect(rect: CGRect) {
+        // Drawing code
+    }
+    */
+
+}

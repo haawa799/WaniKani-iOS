@@ -39,6 +39,8 @@ class StudyQueueViewController: UIViewController {
       collectionView?.registerNib(nextReviewCellNib, forCellWithReuseIdentifier: NextReviewCell.identifier)
       let headerNib = UINib(nibName: "DashboardHeader", bundle: nil)
       collectionView?.registerNib(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier)
+      let progressHeaderNib = UINib(nibName: "ProgressHeader", bundle: nil)
+      collectionView?.registerNib(progressHeaderNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ProgressHeader.identifier)
     }
   }
   
@@ -102,6 +104,7 @@ class StudyQueueViewController: UIViewController {
   
   private var lastUpdateDate: NSDate?
   private var waitingTime: NSTimeInterval = 20
+  private var stratchyHeader: ProgressHeader?
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -152,25 +155,25 @@ extension StudyQueueViewController : UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AvaliableItemCell {
       if cell.enabled == true {
-        if indexPath.section == 0 {
+        if indexPath.section == 1 {
           performSegueWithIdentifier("browserSegue", sender: indexPath.row)
         }
       }
     }
   }
-  
 }
 
 extension StudyQueueViewController : UICollectionViewDataSource {
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-    return 2
+    return 3
   }
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch section {
-    case 0: return 2
-    case 1: return 3
+    case 0: return 0
+    case 1: return 2
+    case 2: return 3
     default: break
     }
     return 0
@@ -181,35 +184,59 @@ extension StudyQueueViewController : UICollectionViewDataSource {
     var cell: UICollectionViewCell
     var identifier: String = ""
     switch (indexPath.section, indexPath.row) {
-    case (1, 0): identifier = NextReviewCell.identifier
-    case (0, _): identifier = AvaliableItemCell.identifier
-    case (1, _): identifier = ReviewCell.identifier
+    case (2, 0): identifier = NextReviewCell.identifier
+    case (1, _): identifier = AvaliableItemCell.identifier
+    case (2, _): identifier = ReviewCell.identifier
     default: break
     }
     cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) 
     
     if let q = studyQueue {
       switch (indexPath.section, indexPath.row) {
-      case (0, 0): (cell as? AvaliableItemCell)?.setupWith("\(q.lessonsAvaliable) Lessons", enabled: (q.lessonsAvaliable > 0))
-      case (0, 1): (cell as? AvaliableItemCell)?.setupWith("\(q.reviewsAvaliable) Reviews", enabled: (q.reviewsAvaliable > 0))
-      case (1, 0):
+      case (1, 0): (cell as? AvaliableItemCell)?.setupWith("\(q.lessonsAvaliable) Lessons", enabled: (q.lessonsAvaliable > 0))
+      case (1, 1): (cell as? AvaliableItemCell)?.setupWith("\(q.reviewsAvaliable) Reviews", enabled: (q.reviewsAvaliable > 0))
+      case (2, 0):
         if let c = cell as? NextReviewCell {
           c.setupWith("Next review \(q.nextReviewWaitingData().string)", notifications: NotificationManager.sharedInstance.notificationsEnabled)
           c.delegate = self
         }
-      case (1, 1): (cell as? ReviewCell)?.setupWith("Next hour", numberText: "\(q.reviewsNextHour)")
-      case (1, 2): (cell as? ReviewCell)?.setupWith("Next day", numberText: "\(q.reviewsNextDay)")
+      case (2, 1): (cell as? ReviewCell)?.setupWith("Next hour", numberText: "\(q.reviewsNextHour)")
+      case (2, 2): (cell as? ReviewCell)?.setupWith("Next day", numberText: "\(q.reviewsNextDay)")
       default: break
       }
     }
     return cell
   }
   
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    switch section {
+    case 0:
+      if let stratchyLayout = collectionViewLayout as? StratchyHeaderLayout {
+        return stratchyLayout.stratchyHeaderSize
+      }
+      return CGSizeZero
+    default :
+      if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
+        return flowLayout.headerReferenceSize
+      }
+      return CGSizeZero
+    }
+  }
+  
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-    let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier, forIndexPath: indexPath) as! DashboardHeader
+    
+    var header: UICollectionReusableView
     switch indexPath.section {
-    case 0: header.titleLabel?.text = "Available"
-    case 1: header.titleLabel?.text = "Reviews"
+    case 0: header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: ProgressHeader.identifier, forIndexPath: indexPath)
+    default: header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier, forIndexPath: indexPath)
+    }
+    //ProgressHeader
+    switch indexPath.section {
+    case 0:
+      stratchyHeader = (header as? ProgressHeader)
+      stratchyHeader?.progressHeaderDelegate = self
+    case 1: (header as? DashboardHeader)?.titleLabel?.text = "Available"
+    case 2: (header as? DashboardHeader)?.titleLabel?.text = "Reviews"
     default: break
     }
     return header
@@ -219,5 +246,16 @@ extension StudyQueueViewController : UICollectionViewDataSource {
 extension StudyQueueViewController: NextReviewCellDelegate {
   func notificationsEnabled(enabled: Bool) {
     NotificationManager.sharedInstance.notificationsEnabled = enabled
+  }
+}
+
+extension StudyQueueViewController: ProgressHeaderDelegate {
+  func fullStretch() {
+    refresh()
+//    resetScroll()
+  }
+  
+  func resetScroll() {
+//    let scrollView = collectionView as UIScrollView
   }
 }

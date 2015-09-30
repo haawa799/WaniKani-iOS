@@ -8,39 +8,35 @@
 
 import UIKit
 
-class DashboardLayout: UICollectionViewFlowLayout {
+class DashboardLayout: StratchyHeaderLayout {
   
   let defaultCellInset: CGFloat = 7
   let rowsSpacing: CGFloat = 1
   let aspectRatio:CGFloat = 320/50
   let maxHeight: CGFloat = 60
   
-  var originalTopIset: CGFloat?
   var originalBotIset: CGFloat?
   
   override func prepareLayout() {
     
-    if originalTopIset == nil {
-      originalTopIset = collectionView!.contentInset.top
-    }
     if originalBotIset == nil {
       originalBotIset = collectionView!.contentInset.bottom
     }
     
     let maxSide = max(collectionView!.bounds.size.width, collectionView!.bounds.size.height)
-    let contentSize = CGSize(width: collectionView!.bounds.size.width, height: maxSide - originalTopIset! - originalBotIset!)
+    let contentSize = CGSize(width: collectionView!.bounds.size.width, height: maxSide - originalBotIset!)
     
     let leftInset = defaultCellInset
     let rightInset = defaultCellInset
     
     let width = contentSize.width - (leftInset + rightInset)
     let height = min(width / aspectRatio, maxHeight)
-    
+    stratchyHeaderSize = CGSize(width: width * 0.85, height: 85)
     
     let headerHeight = height * 0.5
     
     if let collectionView = collectionView, let numberOfSections = collectionView.dataSource?.numberOfSectionsInCollectionView!(collectionView) {
-      var usedHeight = headerHeight * CGFloat(numberOfSections)
+      var usedHeight = headerHeight * CGFloat(numberOfSections) + stratchyHeaderSize.height
       for var i = 0; i < numberOfSections; i++ {
         if let numberOfCells = collectionView.dataSource?.collectionView(collectionView, numberOfItemsInSection: i) {
           usedHeight += height * CGFloat(numberOfCells)
@@ -57,11 +53,8 @@ class DashboardLayout: UICollectionViewFlowLayout {
       minimumInteritemSpacing = defaultCellInset
       minimumLineSpacing = rowsSpacing
       
-      if let originalTopIset = originalTopIset {
-        let insets = collectionView.contentInset
-        collectionView.contentInset = UIEdgeInsets(top: originalTopIset + maxHeight, left: insets.left, bottom: insets.bottom, right: insets.right)
-      }
-      
+      let insets = collectionView.contentInset
+      collectionView.contentInset = UIEdgeInsets(top: 0, left: insets.left, bottom: insets.bottom, right: insets.right)
     }
   }
   

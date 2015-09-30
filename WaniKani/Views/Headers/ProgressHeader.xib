@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WaniKani.ProgressHeader" id="WWb-7I-iZf" customClass="ProgressHeader" customModule="WaniKani" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="461" height="259"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Uu-88-lcZ">
+                    <rect key="frame" x="0.0" y="0.0" width="461" height="180"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="fFM-2c-qHe"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="fFM-2c-qHe"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3L-Rs-LFN" customClass="DoubleProgressBar" customModule="WaniKani" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="20" width="461" height="160"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="M3L-Rs-LFN" secondAttribute="height" multiplier="461:160" id="BCV-he-03N"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="vIe-wp-yp8"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="topProgress">
+                            <real key="value" value="0.20000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="botProgress">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="vIe-wp-yp8"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhA-tS-wNR">
+                    <rect key="frame" x="0.0" y="180" width="461" height="48"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pull to refresh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="uoN-X6-FuV">
+                            <rect key="frame" x="168.5" y="11.5" width="123" height="24"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="AyR-Pi-61k"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uoN-X6-FuV" secondAttribute="bottom" id="F91-Jb-unI"/>
+                        <constraint firstItem="uoN-X6-FuV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yhA-tS-wNR" secondAttribute="top" id="GOp-yc-4YB"/>
+                        <constraint firstItem="uoN-X6-FuV" firstAttribute="centerY" secondItem="yhA-tS-wNR" secondAttribute="centerY" id="J7p-Vr-ZAn"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uoN-X6-FuV" secondAttribute="trailing" constant="20" symbolic="YES" id="MQu-Og-Meu"/>
+                        <constraint firstItem="uoN-X6-FuV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yhA-tS-wNR" secondAttribute="leading" constant="20" symbolic="YES" id="aCE-6G-30S"/>
+                        <constraint firstItem="uoN-X6-FuV" firstAttribute="centerX" secondItem="yhA-tS-wNR" secondAttribute="centerX" id="xBe-sn-128"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="AyR-Pi-61k"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vC8-d1-oFm">
+                    <rect key="frame" x="0.0" y="233" width="461" height="26"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yhA-tS-wNR" firstAttribute="top" secondItem="M3L-Rs-LFN" secondAttribute="bottom" id="08m-Ru-Rnj"/>
+                <constraint firstItem="3Uu-88-lcZ" firstAttribute="leading" secondItem="WWb-7I-iZf" secondAttribute="leading" id="Bl3-WJ-TBI"/>
+                <constraint firstAttribute="trailing" secondItem="M3L-Rs-LFN" secondAttribute="trailing" id="Cpk-99-2If"/>
+                <constraint firstItem="M3L-Rs-LFN" firstAttribute="top" secondItem="WWb-7I-iZf" secondAttribute="top" constant="20" id="EJ0-bW-B1b"/>
+                <constraint firstItem="M3L-Rs-LFN" firstAttribute="leading" secondItem="WWb-7I-iZf" secondAttribute="leading" id="FRx-s7-F07"/>
+                <constraint firstItem="vC8-d1-oFm" firstAttribute="leading" secondItem="WWb-7I-iZf" secondAttribute="leading" id="Sbt-Be-Kai"/>
+                <constraint firstItem="yhA-tS-wNR" firstAttribute="top" secondItem="3Uu-88-lcZ" secondAttribute="bottom" id="U3m-A9-WMv"/>
+                <constraint firstAttribute="bottom" secondItem="vC8-d1-oFm" secondAttribute="bottom" id="UtO-jk-eDI"/>
+                <constraint firstAttribute="trailing" secondItem="3Uu-88-lcZ" secondAttribute="trailing" id="XWh-vT-1ic"/>
+                <constraint firstItem="3Uu-88-lcZ" firstAttribute="top" secondItem="WWb-7I-iZf" secondAttribute="top" id="b84-my-1vP"/>
+                <constraint firstItem="yhA-tS-wNR" firstAttribute="leading" secondItem="WWb-7I-iZf" secondAttribute="leading" id="cKR-1u-fPG"/>
+                <constraint firstAttribute="trailing" secondItem="vC8-d1-oFm" secondAttribute="trailing" id="hGx-JR-X7P"/>
+                <constraint firstItem="yhA-tS-wNR" firstAttribute="height" secondItem="M3L-Rs-LFN" secondAttribute="height" multiplier="0.3" id="jaK-vS-gFO"/>
+                <constraint firstAttribute="trailing" secondItem="yhA-tS-wNR" secondAttribute="trailing" id="k0Q-iV-rGR"/>
+                <constraint firstAttribute="bottom" secondItem="M3L-Rs-LFN" secondAttribute="bottom" priority="750" id="nXN-n9-E7L"/>
+                <constraint firstItem="vC8-d1-oFm" firstAttribute="top" secondItem="yhA-tS-wNR" secondAttribute="bottom" priority="100" constant="5" id="q8b-BU-EaB"/>
+                <constraint firstAttribute="bottom" secondItem="yhA-tS-wNR" secondAttribute="bottom" priority="250" id="tkj-lj-2te"/>
+            </constraints>
+            <connections>
+                <outlet property="bottomSpaceView" destination="vC8-d1-oFm" id="R3c-r9-Qfg"/>
+                <outlet property="doubleProgressBar" destination="M3L-Rs-LFN" id="Cba-QM-wvt"/>
+            </connections>
+            <point key="canvasLocation" x="350.5" y="303.5"/>
+        </collectionReusableView>
+    </objects>
+</document>

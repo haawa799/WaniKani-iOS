@@ -46,9 +46,16 @@
 		43C306851B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; };
 		43C306861B79D75D00DEB6A4 /* WaniKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43C3068F1B79D79900DEB6A4 /* WaniApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */; };
+		43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		43D824FC1B7A2951003D26BE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D824FB1B7A2951003D26BE /* User.swift */; };
 		43D824FE1B7B117A003D26BE /* StudyQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D824FD1B7B117A003D26BE /* StudyQueue.swift */; };
 		43D825001B7B16AE003D26BE /* DictionaryConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D824FF1B7B16AE003D26BE /* DictionaryConvertable.swift */; };
+		43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E4567C1BBAD47A0043ECAE /* ProgressHeader.swift */; settings = {ASSET_TAGS = (); }; };
+		43E4567F1BBAD4A30043ECAE /* ProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E4567E1BBAD4A30043ECAE /* ProgressHeader.xib */; settings = {ASSET_TAGS = (); }; };
+		43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */; settings = {ASSET_TAGS = (); }; };
+		43E456831BBBD1A20043ECAE /* StratchyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456821BBBD1A20043ECAE /* StratchyLayout.swift */; settings = {ASSET_TAGS = (); }; };
+		43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456841BBC1FEF0043ECAE /* LevelInfoView.swift */; settings = {ASSET_TAGS = (); }; };
+		43E456871BBC1FFE0043ECAE /* LevelInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E456861BBC1FFE0043ECAE /* LevelInfoView.xib */; settings = {ASSET_TAGS = (); }; };
 		43EBC09E1BA5F6C000C0B390 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */; };
 		43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */; };
 		43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */; };
@@ -150,9 +157,16 @@
 		43C306801B79D75D00DEB6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaniKitTests.swift; sourceTree = "<group>"; };
 		43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaniApiManager.swift; sourceTree = "<group>"; };
+		43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		43D824FB1B7A2951003D26BE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		43D824FD1B7B117A003D26BE /* StudyQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueue.swift; sourceTree = "<group>"; };
 		43D824FF1B7B16AE003D26BE /* DictionaryConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryConvertable.swift; sourceTree = "<group>"; };
+		43E4567C1BBAD47A0043ECAE /* ProgressHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHeader.swift; sourceTree = "<group>"; };
+		43E4567E1BBAD4A30043ECAE /* ProgressHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressHeader.xib; sourceTree = "<group>"; };
+		43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleProgressBar.swift; sourceTree = "<group>"; };
+		43E456821BBBD1A20043ECAE /* StratchyLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StratchyLayout.swift; sourceTree = "<group>"; };
+		43E456841BBC1FEF0043ECAE /* LevelInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelInfoView.swift; sourceTree = "<group>"; };
+		43E456861BBC1FFE0043ECAE /* LevelInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelInfoView.xib; sourceTree = "<group>"; };
 		43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
@@ -223,8 +237,12 @@
 		432C07261BB3272C0031B3B1 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				43E4567C1BBAD47A0043ECAE /* ProgressHeader.swift */,
+				43E4567E1BBAD4A30043ECAE /* ProgressHeader.xib */,
 				432C07271BB3272C0031B3B1 /* DashboardHeader.swift */,
 				432C07281BB3272C0031B3B1 /* DashboardHeader.xib */,
+				43E456841BBC1FEF0043ECAE /* LevelInfoView.swift */,
+				43E456861BBC1FFE0043ECAE /* LevelInfoView.xib */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -235,6 +253,7 @@
 				432C072A1BB3272C0031B3B1 /* AIFlatSwitch.swift */,
 				432C072B1BB3272C0031B3B1 /* DogeHintView.swift */,
 				432C073A1BB338820031B3B1 /* SliceView.swift */,
+				43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +284,7 @@
 				43AFAFC71B8CA1060016E55F /* WebViewController.swift */,
 				433E16A01B8A3408007B7DE9 /* ApiKeyPickerController.swift */,
 				433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */,
+				43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -285,6 +305,7 @@
 			children = (
 				433E16581B8465D1007B7DE9 /* DashboardLayout.swift */,
 				432C07381BB32CF90031B3B1 /* SettingsLayout.swift */,
+				43E456821BBBD1A20043ECAE /* StratchyLayout.swift */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -489,7 +510,6 @@
 				43C3066A1B79D75D00DEB6A4 /* Frameworks */,
 				43C3066B1B79D75D00DEB6A4 /* Headers */,
 				43C3066C1B79D75D00DEB6A4 /* Resources */,
-				0BCC4B9FDABEFCD3F142E367 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -583,10 +603,12 @@
 				432C07351BB3272C0031B3B1 /* DashboardHeader.xib in Resources */,
 				432C07331BB3272C0031B3B1 /* SettingsScriptCell.xib in Resources */,
 				432C07311BB3272C0031B3B1 /* ReviewCell.xib in Resources */,
+				43E456871BBC1FFE0043ECAE /* LevelInfoView.xib in Resources */,
 				432C072D1BB3272C0031B3B1 /* AvaliableItemCell.xib in Resources */,
 				433E280B1B79D5E900BBB45E /* Main.storyboard in Resources */,
 				433E28101B79D5E900BBB45E /* LaunchScreen.xib in Resources */,
 				432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */,
+				43E4567F1BBAD4A30043ECAE /* ProgressHeader.xib in Resources */,
 				43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */,
 				433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */,
 			);
@@ -629,21 +651,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		0BCC4B9FDABEFCD3F142E367 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		43EBC09F1BA5FB7200C0B390 /* ShellScript */ = {
@@ -711,19 +718,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */,
 				433E16A11B8A3408007B7DE9 /* ApiKeyPickerController.swift in Sources */,
 				432C07301BB3272C0031B3B1 /* ReviewCell.swift in Sources */,
+				43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */,
 				43AFAFC81B8CA1060016E55F /* WebViewController.swift in Sources */,
 				433E16521B846016007B7DE9 /* StudyQueueViewController.swift in Sources */,
 				433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */,
 				432C072E1BB3272C0031B3B1 /* NextReviewCell.swift in Sources */,
+				43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */,
 				432C073B1BB338820031B3B1 /* SliceView.swift in Sources */,
 				432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */,
 				432C07361BB3272C0031B3B1 /* AIFlatSwitch.swift in Sources */,
 				43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */,
 				433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */,
+				43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */,
 				43AFAFC61B8C96130016E55F /* Utils.swift in Sources */,
 				432C07321BB3272C0031B3B1 /* SettingsScriptCell.swift in Sources */,
+				43E456831BBBD1A20043ECAE /* StratchyLayout.swift in Sources */,
 				432C072C1BB3272C0031B3B1 /* AvaliableItemCell.swift in Sources */,
 				43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */,
 				432C07391BB32CF90031B3B1 /* SettingsLayout.swift in Sources */,
@@ -851,6 +863,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -891,6 +904,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -911,7 +925,7 @@
 				);
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniKani;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniKani009;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -932,7 +946,7 @@
 				);
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniKani;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniKani009;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

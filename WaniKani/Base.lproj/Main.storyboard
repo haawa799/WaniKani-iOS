@@ -9,7 +9,7 @@
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--Study Queue View Controller-->
+        <!--Dashboard-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="StudyQueueViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,6 +89,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="dashboard" id="EU8-zS-Dk4"/>
                     <navigationItem key="navigationItem" id="y2h-GV-Yat">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="z72-IO-rlO">
                             <connections>
@@ -410,27 +411,6 @@
             </objects>
             <point key="canvasLocation" x="456" y="900"/>
         </scene>
-        <!--Dashboard-->
-        <scene sceneID="5vN-NH-bLs">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PNX-Q4-r4e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dashboard" image="dashboard" id="Fgh-Ta-Ic5"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LYn-Sa-ceU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="tintColor" red="0.92156862750000001" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yWf-TR-1lR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WFv-hM-qe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1988" y="195"/>
-        </scene>
         <!--Browser View Controller-->
         <scene sceneID="eoE-a5-R5P">
             <objects>
@@ -494,7 +474,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="PNX-Q4-r4e" kind="relationship" relationship="viewControllers" id="2ej-ic-Ymb"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="oYE-wn-f20"/>
                         <segue destination="E8N-aB-qRr" kind="relationship" relationship="viewControllers" id="Y9C-Y5-TKA"/>
                         <segue destination="ZnJ-bk-HfM" kind="relationship" relationship="viewControllers" id="Y3c-z1-Ksm"/>
                     </connections>

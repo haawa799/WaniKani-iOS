@@ -26,7 +26,6 @@ class DashboardHeader: UICollectionReusableView {
     super.prepareForReuse()
     titleLabel?.text = nil
   }
-  
 }
 
 extension DashboardHeader: SingleReuseIdentifier {
