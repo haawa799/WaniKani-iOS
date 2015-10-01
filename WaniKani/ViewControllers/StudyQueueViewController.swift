@@ -16,11 +16,24 @@ class StudyQueueViewController: UIViewController {
   var studyQueue: StudyQueue? {
     if loadedQueue == nil {
       let users = try! Realm().objects(User)
-      if let user = users.first, let q = user.studyQueue {
-        loadedQueue = q
+      if let user = users.first {
+        if let q = user.studyQueue {
+          loadedQueue = q
+        }
       }
     }
     return loadedQueue
+  }
+  
+  private var loadedProgressData: ProgressHeaderData?
+  var progressData: ProgressHeaderData? {
+    if loadedProgressData == nil {
+      let users = try! Realm().objects(User)
+      if let user = users.first, let progression = user.levelProgression {
+        loadedProgressData = ProgressHeaderData(level: user.level, maxTopValue: progression.kanjiTotal, topValue: progression.kanjiProgress, maxBotValue: progression.radicalsTotal,botValue: progression.radicalsProgress)
+      }
+    }
+    return loadedProgressData
   }
   
   @IBOutlet weak var blurView: UIVisualEffectView!
@@ -45,7 +58,7 @@ class StudyQueueViewController: UIViewController {
   }
   
   @IBAction private func refresh() {
-    DataFetchManager.sharedInstance.fetchStudyQueue(nil)
+    DataFetchManager.sharedInstance.fetchAllData()
   }
   
   func flipVisibleCells() {
@@ -71,6 +84,9 @@ class StudyQueueViewController: UIViewController {
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "noApiKeyNotification", name: WaniApiManagerConstants.NotificationKey.NoApiKey, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "newStudyQueueData", name: DataFetchManager.newStudyQueueReceivedNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLevelProgressionData", name: DataFetchManager.newLevelProgressionReceivedNotification, object: nil)
+    
+    collectionView.reloadData()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -124,7 +140,7 @@ class StudyQueueViewController: UIViewController {
     
     if needsUpdate {
       if (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching == false {
-        DataFetchManager.sharedInstance.fetchStudyQueue(nil)
+        refresh()
       }
       lastUpdateDate = NSDate()
     }
@@ -151,6 +167,12 @@ extension StudyQueueViewController {
     loadedQueue = nil
     flipVisibleCells()
     collectionView.reloadData()
+  }
+  
+  func newLevelProgressionData() {
+    loadedProgressData = nil
+    guard let progressData = progressData else {return}
+    stratchyHeader?.setupWithProgressionData(progressData)
   }
   
 }
@@ -240,6 +262,9 @@ extension StudyQueueViewController : UICollectionViewDataSource {
     case 0:
       stratchyHeader = (header as? ProgressHeader)
       stratchyHeader?.progressHeaderDelegate = self
+      if let progressData = progressData {
+        stratchyHeader?.setupWithProgressionData(progressData)
+      }
     case 1: (header as? DashboardHeader)?.titleLabel?.text = "Available"
     case 2: (header as? DashboardHeader)?.titleLabel?.text = "Reviews"
     default: break

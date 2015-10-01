@@ -15,17 +15,47 @@ class DataFetchManager: NSObject {
   static let sharedInstance = DataFetchManager()
   
   static let newStudyQueueReceivedNotification = "NewStudyQueueReceivedNotification"
+  static let newLevelProgressionReceivedNotification = "NewLevelProgressionReceivedNotification"
   
-  func fetchStudyQueue(completionHandler: ((result: UIBackgroundFetchResult)->())? ) {
-    
+  func performMigrationIfNeeded() {
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(
+      schemaVersion: 1,
+      migrationBlock: { migration, oldSchemaVersion in
+//        if (oldSchemaVersion < 1) {
+//          migration.enumerate(User.className()) { oldObject, newObject in
+//            // combine name fields into a single field
+//          }
+//        }
+    })
+    _ = try! Realm()
+  }
+  
+  func fetchAllData() {
+    fetchStudyQueue({ () -> () in
+      self.fetchLevelProgression()
+      }, completionHandler: nil)
+  }
+  
+  func fetchStudyQueue(handler: (() -> ())? ,completionHandler: ((result: UIBackgroundFetchResult)->())?) {
     do {
       try WaniApiManager.sharedInstance().fetchStudyQueue { (user, studyQ) -> () in
         
         var newNotification = false
         let realm = try! Realm()
-        user.studyQueue = studyQ
+        
+        var realmUser: User
+        if let currentUSer = realm.objects(User).first {
+          realmUser = currentUSer
+        } else {
+          try! realm.write({ () -> Void in
+            realm.add(user)
+          })
+          realmUser = user
+        }
+        
         try! realm.write({ () -> Void in
-          realm.add(user, update: true)
+          realmUser.studyQueue = studyQ
+          realm.add(realmUser, update: true)
         })
         realm.refresh()
         
@@ -45,10 +75,40 @@ class DataFetchManager: NSObject {
         } else {
           completionHandler?(result: UIBackgroundFetchResult.NoData)
         }
+        handler?()
       }
     } catch  {
       completionHandler?(result: UIBackgroundFetchResult.Failed)
+      handler?()
     }
+  }
+  
+  func fetchLevelProgression() {
+    do {
+      try WaniApiManager.sharedInstance().fetchLevelProgression({ (user, levelProgression) -> () in
+        let realm = try! Realm()
+        
+        var realmUser: User
+        if let currentUSer = realm.objects(User).first {
+          realmUser = currentUSer
+        } else {
+          try! realm.write({ () -> Void in
+            realm.add(user)
+          })
+          realmUser = user
+        }
+        
+        try! realm.write({ () -> Void in
+          realmUser.levelProgression = levelProgression
+          realm.add(realmUser, update: true)
+        })
+        realm.refresh()
+        NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newLevelProgressionReceivedNotification, object: levelProgression)
+      })
+    } catch {
+      
+    }
+    
   }
   
 }

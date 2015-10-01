@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    DataFetchManager.sharedInstance.performMigrationIfNeeded()
     
     UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     if NSUserDefaults.standardUserDefaults().valueForKey(NotificationManager.notificationsAllowedKey) == nil {
@@ -53,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     isBackgroundFetching = true
     
-    DataFetchManager.sharedInstance.fetchStudyQueue { (result) -> () in
+    DataFetchManager.sharedInstance.fetchStudyQueue(nil) { (result) -> () in
       Answers.logCustomEventWithName("Background fetch",
         customAttributes: [
           "Result": "\(result)"

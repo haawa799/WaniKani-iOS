@@ -4,36 +4,56 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LevelInfoView" customModule="WaniKani" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xx-6p-pP8">
-                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="spP-9j-Mfq">
-                            <rect key="frame" x="96" y="90" width="9.5" height="20.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="spP-9j-Mfq">
+                            <rect key="frame" x="20.5" y="-5" width="10" height="60"/>
                             <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="0.87623922413793098" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="spP-9j-Mfq" secondAttribute="bottom" id="1TU-2F-bQj"/>
+                        <constraint firstItem="spP-9j-Mfq" firstAttribute="height" secondItem="7xx-6p-pP8" secondAttribute="height" id="4a3-JG-f1N"/>
                         <constraint firstItem="spP-9j-Mfq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7xx-6p-pP8" secondAttribute="top" id="6wg-Ao-lRG"/>
                         <constraint firstAttribute="width" secondItem="7xx-6p-pP8" secondAttribute="height" multiplier="1:1" id="9KP-NQ-E0m"/>
+                        <constraint firstItem="spP-9j-Mfq" firstAttribute="centerY" secondItem="7xx-6p-pP8" secondAttribute="centerY" id="CIP-Mm-OI2"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="spP-9j-Mfq" secondAttribute="bottom" id="EHO-LT-grf"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="spP-9j-Mfq" secondAttribute="trailing" id="FiS-tz-Q0C"/>
                         <constraint firstItem="spP-9j-Mfq" firstAttribute="centerX" secondItem="7xx-6p-pP8" secondAttribute="centerX" id="Pt3-7P-8Ek"/>
+                        <constraint firstItem="spP-9j-Mfq" firstAttribute="width" secondItem="7xx-6p-pP8" secondAttribute="width" multiplier="0.2" id="Tes-4v-Ytc"/>
                         <constraint firstItem="spP-9j-Mfq" firstAttribute="centerY" secondItem="7xx-6p-pP8" secondAttribute="centerY" id="WE7-7U-RoE"/>
+                        <constraint firstItem="spP-9j-Mfq" firstAttribute="centerX" secondItem="7xx-6p-pP8" secondAttribute="centerX" id="g88-pb-rgL"/>
+                        <constraint firstItem="spP-9j-Mfq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7xx-6p-pP8" secondAttribute="top" id="lzo-nI-e9k"/>
                         <constraint firstItem="spP-9j-Mfq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7xx-6p-pP8" secondAttribute="leading" id="r7X-nk-bKU"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="1TU-2F-bQj"/>
+                            <exclude reference="4a3-JG-f1N"/>
+                            <exclude reference="6wg-Ao-lRG"/>
+                            <exclude reference="EHO-LT-grf"/>
+                            <exclude reference="FiS-tz-Q0C"/>
+                            <exclude reference="Pt3-7P-8Ek"/>
+                            <exclude reference="WE7-7U-RoE"/>
+                            <exclude reference="lzo-nI-e9k"/>
+                            <exclude reference="r7X-nk-bKU"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <animations/>
@@ -51,6 +71,9 @@
                     <exclude reference="pMn-FK-ZA6"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="label" destination="spP-9j-Mfq" id="syB-Sm-cQp"/>
+            </connections>
             <point key="canvasLocation" x="171.5" y="63.5"/>
         </view>
     </objects>

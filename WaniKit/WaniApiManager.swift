@@ -66,6 +66,21 @@ public class WaniApiManager: NSObject, Singltone {
     }
   }
   
+  public func fetchLevelProgression(handler:(User, LevelProgression) -> ()) throws {
+    
+    internalFetchLevelProgress { (user, levelProgression, error) -> () in
+      if error != nil {
+        throw WaniApiError.ServerError
+      } else {
+        if let user = user, let levelProgression = levelProgression {
+          handler(user, levelProgression)
+        } else {
+          throw WaniApiError.ObjectSereliazationError
+        }
+      }
+    }
+  }
+  
   public func apiKey() -> String? {
     if let key = myKey {
       return key
@@ -118,6 +133,45 @@ public class WaniApiManager: NSObject, Singltone {
               }
             }
             try! handler(user, studyQueue, error: nil)
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            return
+          }
+      }
+    }
+  }
+  
+  private func internalFetchLevelProgress(handler:(User?, LevelProgression?, error: ErrorType?) throws -> ()) {
+    
+    if let key = apiKey() {
+      UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+      
+      let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+      configuration.timeoutIntervalForResource = 60
+      
+      manager = Alamofire.Manager(configuration: configuration)//https://www.wanikani.com/api/user/c6ce4072cf1bd37b407f2c86d69137e3/level-progression
+      manager.request(.GET, "\(WaniApiManagerConstants.URL.BaseURL)/user/\(key)/level-progression", parameters: nil)
+        .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, response, JSON) -> Void in
+          
+          switch JSON {
+          case .Failure( _ , let error) :
+            do {
+              try handler(nil, nil, error: error)
+            } catch _ {
+              
+            }
+            return
+          case .Success(let value) :
+            var user: User? = nil
+            var levelProgression: LevelProgression? = nil
+            if let dict = value as? NSDictionary {
+              if let userInfo = dict[WaniApiManagerConstants.ResponseKeys.UserInfoKey] as? NSDictionary {
+                user = User.objectFromDictionary(userInfo)
+              }
+              if let studyQueueInfo = dict[WaniApiManagerConstants.ResponseKeys.RequestedInfoKey] as? NSDictionary {
+                levelProgression = LevelProgression.objectFromDictionary(studyQueueInfo)
+              }
+            }
+            try! handler(user, levelProgression, error: nil)
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             return
           }

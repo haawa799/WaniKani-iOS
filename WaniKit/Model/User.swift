@@ -35,6 +35,7 @@ public class User: Object {
   public dynamic var creationDate: NSDate = NSDate()
   
   public dynamic var studyQueue: StudyQueue?
+  public dynamic var levelProgression: LevelProgression?
   
   public override static func primaryKey() -> String? {
     return "username"

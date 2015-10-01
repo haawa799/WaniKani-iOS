@@ -26,7 +26,7 @@ class ApiKeyPickerController: UIViewController {
     if text.characters.count == keyLength {
       WaniApiManager.sharedInstance().setApiKey(text)
       dismissViewControllerAnimated(true, completion: nil)
-      DataFetchManager.sharedInstance.fetchStudyQueue(nil)
+      DataFetchManager.sharedInstance.fetchAllData()
     }
   }
   
