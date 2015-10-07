@@ -12,23 +12,18 @@ class DogeHintView: UIView {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    setup()
+//    setup()
   }
   
   private func setup() {
-    hide()
     delay(1.0, closure: { () -> () in
       self.show()
     })
   }
   
-  private func hide() {
-    self.transform = CGAffineTransformMakeTranslation(0.0, bounds.height)
-  }
-  
   private func show() {
     UIView.animateWithDuration(0.6, animations: { () -> Void in
-      self.transform = CGAffineTransformMakeTranslation(0.0, 0.0)
+      self.frame = CGRect(x: 0, y: self.frame.origin.y - self.bounds.height, width: self.bounds.width, height: self.bounds.height)
     })
   }
   

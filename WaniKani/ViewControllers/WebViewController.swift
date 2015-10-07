@@ -45,7 +45,7 @@ class WebViewController: UIViewController {
   }
   
   override func prefersStatusBarHidden() -> Bool {
-    return UserScriptsSuit.sharedInstance.hideStatusBarEnabled
+    return SettingsSuit.sharedInstance.hideStatusBarEnabled
   }
 }
 
@@ -56,7 +56,7 @@ extension WebViewController: UIWebViewDelegate {
   }
   
   func webViewDidFinishLoad(webView: UIWebView) {
-    UserScriptsSuit.sharedInstance.applyUserScriptsToWebView(webView, type: type)
+    SettingsSuit.sharedInstance.applyUserScriptsToWebView(webView, type: type)
   }
 }
 

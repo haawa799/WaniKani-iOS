@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4329D0EA1BBC6DB2009BEABF /* LevelProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4329D0E91BBC6DB2009BEABF /* LevelProgression.swift */; settings = {ASSET_TAGS = (); }; };
+		4329D0EC1BBD36E2009BEABF /* resize.js in Resources */ = {isa = PBXBuildFile; fileRef = 4329D0EB1BBD36E2009BEABF /* resize.js */; settings = {ASSET_TAGS = (); }; };
 		432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 432C07171BB2E15A0031B3B1 /* notification.m4a */; settings = {ASSET_TAGS = (); }; };
 		432C072C1BB3272C0031B3B1 /* AvaliableItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C071E1BB3272C0031B3B1 /* AvaliableItemCell.swift */; settings = {ASSET_TAGS = (); }; };
 		432C072D1BB3272C0031B3B1 /* AvaliableItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 432C071F1BB3272C0031B3B1 /* AvaliableItemCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -47,6 +48,7 @@
 		43C306851B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; };
 		43C306861B79D75D00DEB6A4 /* WaniKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43C3068F1B79D79900DEB6A4 /* WaniApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */; };
+		43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */; settings = {ASSET_TAGS = (); }; };
 		43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		43D824FC1B7A2951003D26BE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D824FB1B7A2951003D26BE /* User.swift */; };
 		43D824FE1B7B117A003D26BE /* StudyQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D824FD1B7B117A003D26BE /* StudyQueue.swift */; };
@@ -115,6 +117,7 @@
 		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4329D0E91BBC6DB2009BEABF /* LevelProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProgression.swift; sourceTree = "<group>"; };
+		4329D0EB1BBD36E2009BEABF /* resize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = resize.js; sourceTree = "<group>"; };
 		432C07171BB2E15A0031B3B1 /* notification.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.m4a; sourceTree = "<group>"; };
 		432C071E1BB3272C0031B3B1 /* AvaliableItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliableItemCell.swift; sourceTree = "<group>"; };
 		432C071F1BB3272C0031B3B1 /* AvaliableItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvaliableItemCell.xib; sourceTree = "<group>"; };
@@ -159,6 +162,7 @@
 		43C306801B79D75D00DEB6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaniKitTests.swift; sourceTree = "<group>"; };
 		43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaniApiManager.swift; sourceTree = "<group>"; };
+		43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSuit.swift; sourceTree = "<group>"; };
 		43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		43D824FB1B7A2951003D26BE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		43D824FD1B7B117A003D26BE /* StudyQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueue.swift; sourceTree = "<group>"; };
@@ -383,10 +387,12 @@
 		43AD052D1BA044BA000DBCBE /* User scripts */ = {
 			isa = PBXGroup;
 			children = (
+				4329D0EB1BBD36E2009BEABF /* resize.js */,
 				43850CF31B9DB86F00DFF6DD /* fast_forward.js */,
 				432C073E1BB408AE0031B3B1 /* ignore.js */,
 				43AD05301BA05648000DBCBE /* UserScriptsSuit.swift */,
 				43AD052E1BA044BA000DBCBE /* UserScript.swift */,
+				43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */,
 			);
 			path = "User scripts";
 			sourceTree = "<group>";
@@ -605,6 +611,7 @@
 				432C072F1BB3272C0031B3B1 /* NextReviewCell.xib in Resources */,
 				432C07351BB3272C0031B3B1 /* DashboardHeader.xib in Resources */,
 				432C07331BB3272C0031B3B1 /* SettingsScriptCell.xib in Resources */,
+				4329D0EC1BBD36E2009BEABF /* resize.js in Resources */,
 				432C07311BB3272C0031B3B1 /* ReviewCell.xib in Resources */,
 				43E456871BBC1FFE0043ECAE /* LevelInfoView.xib in Resources */,
 				432C072D1BB3272C0031B3B1 /* AvaliableItemCell.xib in Resources */,
@@ -721,6 +728,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */,
 				43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */,
 				433E16A11B8A3408007B7DE9 /* ApiKeyPickerController.swift in Sources */,
 				432C07301BB3272C0031B3B1 /* ReviewCell.swift in Sources */,

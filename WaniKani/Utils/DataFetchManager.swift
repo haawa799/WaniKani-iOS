@@ -54,6 +54,14 @@ class DataFetchManager: NSObject {
         }
         
         try! realm.write({ () -> Void in
+          realmUser.gravatar = user.gravatar
+          realmUser.level = user.level
+          realmUser.title = user.title
+          realmUser.about = user.about
+          realmUser.website = user.website
+          realmUser.twitter = user.twitter
+          realmUser.topicsCount = user.topicsCount
+          realmUser.postsCount = user.postsCount
           realmUser.studyQueue = studyQ
           realm.add(realmUser, update: true)
         })
@@ -99,6 +107,14 @@ class DataFetchManager: NSObject {
         }
         
         try! realm.write({ () -> Void in
+          realmUser.gravatar = user.gravatar
+          realmUser.level = user.level
+          realmUser.title = user.title
+          realmUser.about = user.about
+          realmUser.website = user.website
+          realmUser.twitter = user.twitter
+          realmUser.topicsCount = user.topicsCount
+          realmUser.postsCount = user.postsCount
           realmUser.levelProgression = levelProgression
           realm.add(realmUser, update: true)
         })

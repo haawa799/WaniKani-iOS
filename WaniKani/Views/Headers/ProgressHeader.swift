@@ -96,7 +96,7 @@ class ProgressHeader: UICollectionReusableView, SingleReuseIdentifier {
     super.applyLayoutAttributes(layoutAttributes)
     
     if let layoutAttributes = layoutAttributes as? StratchyLayoutAttributes {
-      let stratch = (layoutAttributes.deltaY / layoutAttributes.maxDelta) * 1.5
+      let stratch = (layoutAttributes.deltaY / layoutAttributes.maxDelta) * 1.0
       lebelsContainer.alpha = stratch
     }
     

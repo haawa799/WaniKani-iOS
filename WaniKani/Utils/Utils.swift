@@ -53,3 +53,55 @@ extension FlippableView where Self: UIView {
     })
   }
 }
+
+func optimalReviewMetrics(statusBarHidden: Bool) -> (height: Int, width: Int, scale: Int) {
+  let screenSize: CGRect = UIScreen.mainScreen().bounds
+  var height = Int(screenSize.height - 154)
+  var scale = 100
+  if statusBarHidden == true {
+    height += 20
+  }
+  let width = Int(screenSize.width)
+  
+  let model = PhoneModel.myModel()
+  
+  switch model {
+  case .iPhone6Plus :
+    height -= 271
+    scale = 250
+  case .iPhone6 :
+     height -= 258
+     scale = 250
+  case .iPhone5 :
+     height -= 253
+     scale = 220
+  case .iPhone4 :
+     height = 50
+     scale = 100
+  }
+  
+  return (height, width, scale)
+}
+
+
+enum PhoneModel {
+  case iPhone4
+  case iPhone5
+  case iPhone6
+  case iPhone6Plus
+  
+  static func myModel() -> PhoneModel {
+    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    switch screenSize.height {
+    case 736 :
+      return .iPhone6Plus
+    case 667 :
+      return .iPhone6
+    case 568 :
+      return .iPhone5
+    case 480 :
+      return iPhone4
+    default : return iPhone6
+    }
+  }
+}

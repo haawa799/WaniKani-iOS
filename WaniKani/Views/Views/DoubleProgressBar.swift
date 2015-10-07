@@ -89,7 +89,7 @@ class DoubleProgressBar: UIControl {
     let kof: CGFloat = 0.9
     
     let usualHeight = bounds.height * 0.75
-    let maxHeight = bounds.width * 0.25
+    let maxHeight = bounds.width * 0.2
     let maxDelta: CGFloat = 15.0
     
     let height = min(usualHeight, maxHeight)

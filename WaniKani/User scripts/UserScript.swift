@@ -8,12 +8,7 @@
 
 import UIKit
 
-class UserScript: NSObject {
-  
-  class func scriptNamed(filename: String, name: String) -> UserScript? {
-    let script = UserScript(filename: filename, scriptName: name)
-    return script
-  }
+struct UserScript {
   
   private(set) var name: String
   
@@ -24,6 +19,10 @@ class UserScript: NSObject {
     } else {
       assertionFailure("Failed loading script with name: \(filename)")
     }
+  }
+  
+  mutating func modifyScript(modifier: (String -> (String))) {
+    script = modifier(script)
   }
   
   private(set) var script: String = ""

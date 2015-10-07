@@ -405,6 +405,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="Lpp-TH-naP"/>
                     <connections>
                         <outlet property="collectionView" destination="wUH-2m-af9" id="5oo-lO-4iV"/>
+                        <outlet property="dogeView" destination="ObY-S4-6aN" id="9ZT-BU-gGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3K-12-fXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -507,7 +508,7 @@
     <resources>
         <image name="art0" width="221" height="345"/>
         <image name="back" width="12" height="20"/>
-        <image name="browser" width="25" height="25"/>
+        <image name="browser" width="32" height="32"/>
         <image name="bubble" width="55" height="55"/>
         <image name="dashboard" width="25" height="25"/>
         <image name="doge" width="132" height="132"/>
