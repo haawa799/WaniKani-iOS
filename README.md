@@ -1,11 +1,20 @@
 # WaniKani-iOS
 
-WaniKani iOS client
+WaniKani iOS client v0.7
 
-Very first version. Lot's of stuff missing, but it has core functionality:
-- Reviews/Lessons inside the app
-- Notifications when reviews are up
-- Next hour/day reviews info
+Features:
+ Features:
+ - Fast forward script.
+ - Ignore button.
+ - Smart sizing.
+ - Notifications.
+ - In app browser (sorry Safari!)
 
-![Alt text](https://www.dropbox.com/s/kcqo2rxrs6c9i87/7832CBA0-4B6D-4916-8EAD-5430048E4598.png?raw=1 "Optional title")
+More features to come:
+ - More user scripts
+ - Kanji, Radicals and Vocab screens.
+
+- 
+![Alt text](http://cl.ly/image/3x2U3E1y2H1d/preview.png "Optional title")
+![Alt text](http://cl.ly/image/3m1G311z1J20/v7.png "Optional title")
 
