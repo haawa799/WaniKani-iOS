@@ -28,7 +28,14 @@ class BrowserViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    webView = WKWebView(frame: view.bounds)
+    
+    let userScript = WKUserScript(source: hideSubscribitionsSkript, injectionTime: .AtDocumentEnd, forMainFrameOnly: true)
+    let userContentController = WKUserContentController()
+    userContentController.addUserScript(userScript)
+    let configuration = WKWebViewConfiguration()
+    configuration.userContentController = userContentController
+    
+    webView = WKWebView(frame: self.view.bounds, configuration: configuration)
     webView.navigationDelegate = self
     view = webView
     loadURL(Constants.homeLink)

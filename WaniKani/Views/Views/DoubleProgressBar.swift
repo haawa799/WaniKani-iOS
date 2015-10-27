@@ -41,7 +41,6 @@ class DoubleProgressBar: UIControl {
   @IBInspectable var botProgress: CGFloat = 0.0 {
     didSet {
       oldBotProgress = oldValue
-      print(botProgress)
       setNeedsDisplay()
     }
   }

@@ -82,6 +82,7 @@ public class WaniApiManager: NSObject, Singltone {
   }
   
   public func apiKey() -> String? {
+    
     if let key = myKey {
       return key
     } else {

@@ -93,7 +93,7 @@ class StudyQueueViewController: UIViewController {
     if let vc = segue.destinationViewController as? WebViewController, let index = sender as? Int {
       switch index {
       case 0: vc.url = "https://www.wanikani.com/lesson/session"
-        vc.type = .Lesson
+      vc.type = .Lesson
       case 1:
         vc.url = "https://www.wanikani.com/review/session"
         vc.type = .Review
@@ -110,8 +110,27 @@ class StudyQueueViewController: UIViewController {
     return collectionView.collectionViewLayout as! DashboardLayout
   }
   
+  private var isPresented = false {
+    didSet {
+      if isPresented == true && needsToPresentAPIPrompt == true {
+        needsToPresentAPIPrompt = false
+        promptForAPIKey()
+      }
+    }
+  }
+  private var needsToPresentAPIPrompt = false
+  
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    
+    if WaniApiManager.sharedInstance().apiKey() != nil {
+      var token: dispatch_once_t = 0
+      dispatch_once(&token) {
+        AwardsManager.sharedInstance.authenticateLocalPlayer()
+      }
+    }
+    
+    isPresented = true
     
     if blurView.alpha == 0 {
       collectionView.alpha = 0
@@ -120,6 +139,11 @@ class StudyQueueViewController: UIViewController {
         self.collectionView.alpha = 1
       })
     }
+  }
+  
+  override func viewDidDisappear(animated: Bool) {
+    super.viewDidDisappear(animated)
+    isPresented = false
   }
   
   private var lastUpdateDate: NSDate?
@@ -159,6 +183,14 @@ class StudyQueueViewController: UIViewController {
 extension StudyQueueViewController {
   
   func noApiKeyNotification() {
+    if isPresented == false {
+      needsToPresentAPIPrompt = true
+    } else {
+      promptForAPIKey()
+    }
+  }
+  
+  private func promptForAPIKey() {
     performSegueWithIdentifier("apiKeyPicker", sender: nil)
   }
   
@@ -216,7 +248,7 @@ extension StudyQueueViewController : UICollectionViewDataSource {
     case (2, _): identifier = ReviewCell.identifier
     default: break
     }
-    cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) 
+    cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath)
     
     if let q = studyQueue {
       switch (indexPath.section, indexPath.row) {

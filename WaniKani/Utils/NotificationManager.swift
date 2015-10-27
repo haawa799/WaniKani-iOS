@@ -51,14 +51,13 @@ class NotificationManager: NSObject {
     if notificationsEnabled {
       
       pscope.show({ (finished, results) -> Void in
-        print("got results \(results)")
         
         if results.first?.status == .Authorized {
           if UIApplication.sharedApplication().scheduledLocalNotifications!.count == 0 {
             if date.compare(NSDate()) == .OrderedDescending {
               let notification = UILocalNotification()
               notification.fireDate = date
-              notification.alertBody = "New reviews avaliable!"
+              notification.alertBody = "New reviews available!"
               notification.soundName = "notification.m4a"
               UIApplication.sharedApplication().scheduleLocalNotification(notification)
               newNotificationScheduled = true

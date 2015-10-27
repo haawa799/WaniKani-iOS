@@ -51,12 +51,13 @@ class SettingsSuit: NSObject {
     let othersSectionIndex = 1
     var otherSettings = [Setting]()
     otherSettings.append(Setting(key: hideStatusBarKey, script: nil, description: "Status bar hidden on Reviews"))
+    otherSettings.append(Setting(key: gameCenterKey, script: nil, description: "Game center"))
     
     return [firstSectionIndex : (name: "Scripts for Reviews", settings: scriptsSettings) , othersSectionIndex : (name: "Other options", settings: otherSettings)]
   }()
   
   var userScriptsForReview: [UserScript] {
-    var scripts = [UserScript]()
+    var scripts = [SettingsSuit.scoreScript]
     for q in settings[0]!.settings {
       if let script = q.script where q.enabled == true {
         if script.name == SettingsSuit.smartResizingScript.name {
@@ -102,10 +103,12 @@ class SettingsSuit: NSObject {
   static let ignoreButtonEnabledKey = "ignoreButtonEnabledKey"
   static let smartResizingEnabledKey = "smartResizingEnabledKey"
   static let hideStatusBarKey = "hideStatusBarKey"
+  static let gameCenterKey = "gameCenterKey"
   
   // Scripts
   private(set) static var fastForwardScript = UserScript(filename: "fast_forward", scriptName: "Fast forward")
   private(set) static var ignoreButtonScript = UserScript(filename: "ignore", scriptName: "Ignore button")
   private(set) static var smartResizingScript = UserScript(filename: "resize", scriptName: "Smart resize")
+  private(set) static var scoreScript = UserScript(filename: "score", scriptName: "Score script")
   
 }

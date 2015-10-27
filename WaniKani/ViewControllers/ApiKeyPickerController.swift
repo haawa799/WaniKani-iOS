@@ -16,9 +16,7 @@ class ApiKeyPickerController: UIViewController {
   @IBOutlet weak var keyTextField: UITextField!
   
   @IBAction func getMyKeyPressed(sender: UIButton) {
-    if let url = NSURL(string: "https://www.wanikani.com/account") {
-      UIApplication.sharedApplication().openURL(url)
-    }
+    performSegueWithIdentifier("getKey", sender: self)
   }
   
   @IBAction func textDidChange(textField: UITextField) {
@@ -30,6 +28,11 @@ class ApiKeyPickerController: UIViewController {
     }
   }
   
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+//    performSegueWithIdentifier("getKey", sender: self)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -37,8 +40,22 @@ class ApiKeyPickerController: UIViewController {
     view.addGestureRecognizer(tap)
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    guard let loginVC = segue.destinationViewController as? LoginWebViewController else {return}
+    loginVC.delegate = self
+  }
+  
   @objc private func tap() {
     keyTextField?.resignFirstResponder()
   }
   
+}
+
+extension ApiKeyPickerController: LoginWebViewControllerDelegate {
+  func apiKeyReceived(apiKey: String) {
+    keyTextField?.text = apiKey
+    delay(0.9) { () -> () in
+      self.textDidChange(self.keyTextField)
+    }
+  }
 }

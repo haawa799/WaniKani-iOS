@@ -42,33 +42,11 @@ class DataFetchManager: NSObject {
         
         var newNotification = false
         let realm = try! Realm()
-        
-        var realmUser: User
-        if let currentUSer = realm.objects(User).first {
-          realmUser = currentUSer
-        } else {
-          try! realm.write({ () -> Void in
-            realm.add(user)
-          })
-          realmUser = user
-        }
-        
-        try! realm.write({ () -> Void in
-          realmUser.gravatar = user.gravatar
-          realmUser.level = user.level
-          realmUser.title = user.title
-          realmUser.about = user.about
-          realmUser.website = user.website
-          realmUser.twitter = user.twitter
-          realmUser.topicsCount = user.topicsCount
-          realmUser.postsCount = user.postsCount
+        self.updateUserInRealm(user, modificationBlock: { (realmUser) -> () in
           realmUser.studyQueue = studyQ
-          realm.add(realmUser, update: true)
         })
-        realm.refresh()
         
         let users = realm.objects(User)
-        print(users)
         if let user = users.first, let q = user.studyQueue {
           
           newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
@@ -94,37 +72,54 @@ class DataFetchManager: NSObject {
   func fetchLevelProgression() {
     do {
       try WaniApiManager.sharedInstance().fetchLevelProgression({ (user, levelProgression) -> () in
-        let realm = try! Realm()
-        
-        var realmUser: User
-        if let currentUSer = realm.objects(User).first {
-          realmUser = currentUSer
-        } else {
-          try! realm.write({ () -> Void in
-            realm.add(user)
-          })
-          realmUser = user
-        }
-        
-        try! realm.write({ () -> Void in
-          realmUser.gravatar = user.gravatar
-          realmUser.level = user.level
-          realmUser.title = user.title
-          realmUser.about = user.about
-          realmUser.website = user.website
-          realmUser.twitter = user.twitter
-          realmUser.topicsCount = user.topicsCount
-          realmUser.postsCount = user.postsCount
+        self.updateUserInRealm(user, modificationBlock: { (realmUser) -> () in
           realmUser.levelProgression = levelProgression
-          realm.add(realmUser, update: true)
         })
-        realm.refresh()
         NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newLevelProgressionReceivedNotification, object: levelProgression)
       })
     } catch {
       
     }
     
+  }
+  
+  typealias UserModificationBlock = (realmUser: User)->()
+  
+  func updateUserInRealm(user: User, modificationBlock: UserModificationBlock?) {
+    
+    var oldLevel = 0
+    let newLevel = user.level
+    
+    let realm = try! Realm()
+    
+    var realmUser: User
+    if let currentUSer = realm.objects(User).first {
+      realmUser = currentUSer
+      oldLevel = realmUser.level
+    } else {
+      try! realm.write({ () -> Void in
+        realm.add(user)
+      })
+      realmUser = user
+    }
+    
+    try! realm.write({ () -> Void in
+      realmUser.gravatar = user.gravatar
+      realmUser.level = user.level
+      realmUser.title = user.title
+      realmUser.about = user.about
+      realmUser.website = user.website
+      realmUser.twitter = user.twitter
+      realmUser.topicsCount = user.topicsCount
+      realmUser.postsCount = user.postsCount
+      modificationBlock?(realmUser: realmUser)
+      realm.add(realmUser, update: true)
+    })
+    realm.refresh()
+    
+    delay(3) { () -> () in
+      AwardsManager.sharedInstance.userLevelUp(oldLevel: oldLevel, newLevel: newLevel)
+    }
   }
   
 }

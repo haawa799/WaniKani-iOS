@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   var isBackgroundFetching = false
+  lazy var rootViewController: UIViewController = {
+    let q = self.window?.rootViewController
+    return q!
+  }()
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.

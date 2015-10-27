@@ -13,6 +13,7 @@ class WebViewController: UIViewController {
   // Public API:
   var url: String?
   var type = WebSessionType.Lesson
+  private var newScoreEarned = 0
   
   
   private var oldOffset: CGFloat?
@@ -24,6 +25,8 @@ class WebViewController: UIViewController {
     }
   }
   @IBAction func cancelPressed(sender: AnyObject) {
+    checkForNewScore()
+    submitScore()
     dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -50,9 +53,27 @@ class WebViewController: UIViewController {
 }
 
 extension WebViewController: UIWebViewDelegate {
+  
+  private func checkForNewScore() {
+    if let response = webView.stringByEvaluatingJavaScriptFromString("getScore();"),//("function f() {var q = document.getElementById('completed-count').textContent;return q;}f();"),
+      let score = Int(response) where score != 0 {
+        print("score: = \(newScoreEarned) + \(score)")
+        newScoreEarned += score
+    }
+  }
+  
+  private func submitScore() {
+    AwardsManager.sharedInstance.saveHighscore(newScoreEarned)
+  }
+  
   func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-    print(request)
-    return true
+    
+    if let url = url where url.containsString(request.URLString) {
+      checkForNewScore()
+      return true
+    } else {
+      return request.URLString == "https://www.wanikani.com/login"
+    }
   }
   
   func webViewDidFinishLoad(webView: UIWebView) {
@@ -65,7 +86,6 @@ extension WebViewController: UIScrollViewDelegate {
     let new = scrollView.contentOffset.y
     let old = oldOffset ?? new
     let delta = max((old - new), -(old - new))
-    print(delta)
     if delta > 35 {
       scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: 0)
     }
