@@ -129,7 +129,7 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <animations/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="done" id="MqB-k6-45T">
+                                    <barButtonItem title="Submit to GameCenter" style="plain" id="MqB-k6-45T">
                                         <connections>
                                             <action selector="cancelPressed:" destination="Tld-vc-g2T" id="gBW-Lg-XGg"/>
                                         </connections>
@@ -553,21 +553,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KW-IX-eQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1437" y="-463"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="WUg-Bs-NOA">
-            <objects>
-                <viewController id="Lh3-gm-huf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fKi-Y9-HnX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Bx-t8-Fsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="565" y="1541"/>
         </scene>
     </scenes>
     <resources>

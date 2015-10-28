@@ -8,12 +8,12 @@
 
 import UIKit
 import GameKit
+import EasyGameCenter
 
 class SettingsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    GKAchievement.resetAchievementsWithCompletionHandler(nil)
   }
   
   @IBOutlet weak var collectionView: UICollectionView! {

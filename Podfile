@@ -9,3 +9,5 @@ pod 'Realm', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'swi
 pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'swift-2.0'
 pod 'PermissionScope'
 pod 'NJKScrollFullScreen'
+pod 'EasyGameCenter', :git => 'https://github.com/DaRkD0G/Easy-Game-Center-Swift.git'
+pod 'GCHelper', '~> 0.2'

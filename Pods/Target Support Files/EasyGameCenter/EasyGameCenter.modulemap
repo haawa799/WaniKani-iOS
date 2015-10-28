@@ -1,0 +1,6 @@
+framework module EasyGameCenter {
+  umbrella header "EasyGameCenter-umbrella.h"
+
+  export *
+  module * { export * }
+}

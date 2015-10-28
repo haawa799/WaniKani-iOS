@@ -10,6 +10,8 @@
 
 import UIKit
 import GameKit
+import EasyGameCenter
+import GCHelper
 
 enum LevelProgressionStage {
   case PLEASANT
@@ -69,69 +71,45 @@ enum LevelProgressionStage {
 class AwardsManager: NSObject {
   
   static let sharedInstance = AwardsManager()
+  private var previousLevelNotSubmitted: Int?
   
   let syncAlreadySetting = Setting(key: "syncNeededSettingKey", script: nil, description: nil)
   
   private let player: GKLocalPlayer = GKLocalPlayer.localPlayer()
   private let rootViewController: UIViewController = {
     let q = UIApplication.sharedApplication().delegate as! AppDelegate
+    EGC.sharedInstance(q.rootViewController)
     return q.rootViewController
   }()
   
   //initiate gamecenter
   func authenticateLocalPlayer() {
-    player.authenticateHandler = {(viewController, error) -> Void in
-      
-      if let viewController = viewController {
-        self.rootViewController.presentViewController(viewController, animated: true, completion: nil)
-      }
-      else {
-        print((GKLocalPlayer.localPlayer().authenticated))
-      }
-    }
+    GCHelper.sharedInstance.authenticateLocalUser()
   }
+  
+  private var lastSubmitedLevel: Int?
   
   func userLevelUp(oldLevel oldLevel: Int?, newLevel: Int) {
     
-    guard (newLevel != oldLevel) && (player.authenticated == true) else {return}
-    
+    guard player.authenticated == true else {print("not authentificated"); return}
+    guard lastSubmitedLevel != newLevel else {print("level was sumbitted before"); return}
+
     var achievementsToReport = [GKAchievement]()
-    
-    let oldLevel = oldLevel ?? 0
-    if (oldLevel == 0) || (newLevel - oldLevel > 1) || syncAlreadySetting.enabled == false {
-      syncAlreadySetting.enabled = true
-      // Unlock older achievements
-      let olderStages = LevelProgressionStage.stagesLowerThen(newLevel)
-      for stage in olderStages {
-        let key = stage.achievementGameCenterID
-        let achievement = GKAchievement(identifier: key, player: player)
-        if achievement.completed == false {
-          achievement.showsCompletionBanner = false
-          achievement.percentComplete = 100
-          achievementsToReport.append(achievement)
-        }
-      }
-    }
-    
-    switch newLevel {
-    case 11, 21, 31, 41, 51, 60:
-      
-      // Previous stage completion
-      let previousLevel = newLevel - 1
-      let pastStage = LevelProgressionStage.stageForLevel(previousLevel).stage
-      let key = pastStage.achievementGameCenterID
+
+    // Unlock older achievements
+    let olderStages = LevelProgressionStage.stagesLowerThen(newLevel)
+    for stage in olderStages {
+      let key = stage.achievementGameCenterID
       let achievement = GKAchievement(identifier: key, player: player)
       if achievement.completed == false {
-        achievement.percentComplete = 100
         achievement.showsCompletionBanner = false
+        achievement.percentComplete = 100
         achievementsToReport.append(achievement)
       }
-      
-    default: break
     }
     
     achievementsToReport.last?.showsCompletionBanner = true
-    
+
     // This stage progress
     let thisStageInfo = LevelProgressionStage.stageForLevel(newLevel)
     let thisStage = thisStageInfo.stage
@@ -144,29 +122,17 @@ class AwardsManager: NSObject {
       achievementsToReport.append(achievement)
     }
     
-    
-    
-    if achievementsToReport.count > 0 {
-      GKAchievement.reportAchievements(achievementsToReport, withCompletionHandler: { (error) -> Void in
-        if let reportError = error {
-          print(reportError)
-        }
-      })
-    }
-  }
-  
-  private func showUserAchievemntUnlocked() {
-    
+    delay(4.0, closure: { () -> () in
+      GKAchievement.reportAchievements(achievementsToReport) { (error) -> Void in
+        guard error == nil else {return}
+        self.lastSubmitedLevel = newLevel
+      }
+    })
+
   }
   
   func showGameCenterViewController() {
-    
-    authenticateLocalPlayer()
-    
-    let gc = GKGameCenterViewController()
-    gc.viewState = GKGameCenterViewControllerState.Leaderboards
-    gc.gameCenterDelegate = self
-    rootViewController.presentViewController(gc, animated: true, completion: nil)
+    EGC.showGameCenterLeaderboard(leaderboardIdentifier: "wanikani.score.leaderboard.0")
   }
   
   //send high score to leaderboard

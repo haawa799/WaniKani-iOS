@@ -1,0 +1,1 @@
+GCHELPER_OTHER_LDFLAGS = -framework "GameKit"

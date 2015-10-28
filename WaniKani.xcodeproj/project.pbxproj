@@ -42,7 +42,6 @@
 		434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */; };
 		434673E01BDEC8840095A4A3 /* score.js in Resources */ = {isa = PBXBuildFile; fileRef = 434673DF1BDEC8840095A4A3 /* score.js */; };
 		43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */ = {isa = PBXBuildFile; fileRef = 43850CF31B9DB86F00DFF6DD /* fast_forward.js */; };
-		439794F81BD5330400E0A5D4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 439794F71BD5330400E0A5D4 /* GameKit.framework */; };
 		43AD052F1BA044BA000DBCBE /* UserScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD052E1BA044BA000DBCBE /* UserScript.swift */; };
 		43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD05301BA05648000DBCBE /* UserScriptsSuit.swift */; };
 		43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */; };
@@ -70,6 +69,7 @@
 		43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */; };
 		43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */; };
 		43F443691BA9AF2B00726619 /* WaniApiManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F443681BA9AF2B00726619 /* WaniApiManagerTests.swift */; };
+		43FD50F81BE01F1800944AC0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD50F71BE01F1800944AC0 /* GameKit.framework */; };
 		62798FF1436B89758C73F9B9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -162,7 +162,6 @@
 		434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCenterCollectionViewCell.xib; sourceTree = "<group>"; };
 		434673DF1BDEC8840095A4A3 /* score.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = score.js; sourceTree = "<group>"; };
 		43850CF31B9DB86F00DFF6DD /* fast_forward.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fast_forward.js; path = ../Utils/fast_forward.js; sourceTree = "<group>"; };
-		439794F71BD5330400E0A5D4 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		43AD052E1BA044BA000DBCBE /* UserScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserScript.swift; sourceTree = "<group>"; };
 		43AD05301BA05648000DBCBE /* UserScriptsSuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserScriptsSuit.swift; sourceTree = "<group>"; };
 		43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorfullTabBarController.swift; sourceTree = "<group>"; };
@@ -191,6 +190,7 @@
 		43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		43F443681BA9AF2B00726619 /* WaniApiManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaniApiManagerTests.swift; sourceTree = "<group>"; };
+		43FD50F71BE01F1800944AC0 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +202,7 @@
 				6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */,
 				43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */,
 				43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */,
-				439794F81BD5330400E0A5D4 /* GameKit.framework in Frameworks */,
+				43FD50F81BE01F1800944AC0 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +235,7 @@
 		2481F23E0E9C1BDFB82D2F93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				439794F71BD5330400E0A5D4 /* GameKit.framework */,
+				43FD50F71BE01F1800944AC0 /* GameKit.framework */,
 				08CAC6D6A8578DF22EC21F90 /* Pods.framework */,
 			);
 			name = Frameworks;

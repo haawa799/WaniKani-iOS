@@ -20,11 +20,17 @@ $('#answer-form button').on('click', function(e){
                             }
                             });
 
-var score;
+var score = 0;
 
 function checkScore()
 {
-  score = document.getElementById('completed-count').textContent;
+  var value = document.getElementById('completed-count').textContent;
+  var q = parseInt(value);
+  if (q < score) {
+    score += q;
+  } else {
+    score = q;
+  }
 }
 
 function getScore() {

@@ -42,7 +42,7 @@ class DataFetchManager: NSObject {
         
         var newNotification = false
         let realm = try! Realm()
-        self.updateUserInRealm(user, modificationBlock: { (realmUser) -> () in
+        self.updateUserInRealm(user, submitToGC: false, modificationBlock: { (realmUser) -> () in
           realmUser.studyQueue = studyQ
         })
         
@@ -72,7 +72,7 @@ class DataFetchManager: NSObject {
   func fetchLevelProgression() {
     do {
       try WaniApiManager.sharedInstance().fetchLevelProgression({ (user, levelProgression) -> () in
-        self.updateUserInRealm(user, modificationBlock: { (realmUser) -> () in
+        self.updateUserInRealm(user, submitToGC: true, modificationBlock: { (realmUser) -> () in
           realmUser.levelProgression = levelProgression
         })
         NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newLevelProgressionReceivedNotification, object: levelProgression)
@@ -85,7 +85,7 @@ class DataFetchManager: NSObject {
   
   typealias UserModificationBlock = (realmUser: User)->()
   
-  func updateUserInRealm(user: User, modificationBlock: UserModificationBlock?) {
+  func updateUserInRealm(user: User, submitToGC: Bool, modificationBlock: UserModificationBlock?) {
     
     var oldLevel = 0
     let newLevel = user.level
@@ -117,7 +117,7 @@ class DataFetchManager: NSObject {
     })
     realm.refresh()
     
-    delay(3) { () -> () in
+    if submitToGC {
       AwardsManager.sharedInstance.userLevelUp(oldLevel: oldLevel, newLevel: newLevel)
     }
   }
