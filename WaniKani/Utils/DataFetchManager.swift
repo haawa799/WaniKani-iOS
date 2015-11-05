@@ -1,6 +1,6 @@
 //
 //  DataFetchManager.swift
-//  
+//
 //
 //  Created by Andriy K. on 8/19/15.
 //
@@ -16,16 +16,17 @@ class DataFetchManager: NSObject {
   
   static let newStudyQueueReceivedNotification = "NewStudyQueueReceivedNotification"
   static let newLevelProgressionReceivedNotification = "NewLevelProgressionReceivedNotification"
+  static let criticalItemsReceivedNotification = "CriticalItemsReceivedNotification"
   
   func performMigrationIfNeeded() {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 1,
+      schemaVersion: 3,
       migrationBlock: { migration, oldSchemaVersion in
-//        if (oldSchemaVersion < 1) {
-//          migration.enumerate(User.className()) { oldObject, newObject in
-//            // combine name fields into a single field
-//          }
-//        }
+        //        if (oldSchemaVersion < 1) {
+        //          migration.enumerate(User.className()) { oldObject, newObject in
+        //            // combine name fields into a single field
+        //          }
+        //        }
     })
     _ = try! Realm()
   }
@@ -33,6 +34,7 @@ class DataFetchManager: NSObject {
   func fetchAllData() {
     fetchStudyQueue({ () -> () in
       self.fetchLevelProgression()
+      self.fetchCriticalItems()
       }, completionHandler: nil)
   }
   
@@ -80,7 +82,20 @@ class DataFetchManager: NSObject {
     } catch {
       
     }
-    
+  }
+  
+  func fetchCriticalItems() {
+    do {
+      
+      try WaniApiManager.sharedInstance().fetchCriticalItems({ (user, criticalItems) -> () in
+        self.updateUserInRealm(user, submitToGC: false, modificationBlock: { (realmUser) -> () in
+          realmUser.criticalItems = criticalItems
+        })
+        NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.criticalItemsReceivedNotification, object: criticalItems)
+      })
+    } catch {
+      
+    }
   }
   
   typealias UserModificationBlock = (realmUser: User)->()

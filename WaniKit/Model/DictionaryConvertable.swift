@@ -12,3 +12,11 @@ protocol DictionaryConvertable {
   typealias T
   static func objectFromDictionary(dict: NSDictionary) -> T?
 }
+
+protocol DictionaryInitialization {
+  init(dict: NSDictionary)
+}
+
+protocol ArrayInitialization {
+  init(array: NSArray)
+}

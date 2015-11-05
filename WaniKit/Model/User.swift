@@ -36,6 +36,7 @@ public class User: Object {
   
   public dynamic var studyQueue: StudyQueue?
   public dynamic var levelProgression: LevelProgression?
+  public dynamic var criticalItems: CriticalItemsList?
   
   public override static func primaryKey() -> String? {
     return "username"

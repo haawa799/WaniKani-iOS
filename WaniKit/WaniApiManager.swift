@@ -81,6 +81,21 @@ public class WaniApiManager: NSObject, Singltone {
     }
   }
   
+  public func fetchCriticalItems(handler:(User, CriticalItemsList) -> ()) throws {
+    
+    internalfetchCriticalItems { (user, criticalItems, error) -> () in
+      if error != nil {
+        throw WaniApiError.ServerError
+      } else {
+        if let user = user, let criticalItems = criticalItems {
+          handler(user, criticalItems)
+        } else {
+          throw WaniApiError.ObjectSereliazationError
+        }
+      }
+    }
+  }
+  
   public func apiKey() -> String? {
     
     if let key = myKey {
@@ -173,6 +188,45 @@ public class WaniApiManager: NSObject, Singltone {
               }
             }
             try! handler(user, levelProgression, error: nil)
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            return
+          }
+      }
+    }
+  }
+  
+  private func internalfetchCriticalItems(handler:(User?, CriticalItemsList?, error: ErrorType?) throws -> ()) {
+    
+    if let key = apiKey() {
+      UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+      
+      let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+      configuration.timeoutIntervalForResource = 60
+      
+      manager = Alamofire.Manager(configuration: configuration)//https://www.wanikani.com/api/user/c6ce4072cf1bd37b407f2c86d69137e3/critical-items/75
+      manager.request(.GET, "\(WaniApiManagerConstants.URL.BaseURL)/user/\(key)/critical-items/75", parameters: nil)
+        .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, response, JSON) -> Void in
+          
+          switch JSON {
+          case .Failure( _ , let error) :
+            do {
+              try handler(nil, nil, error: error)
+            } catch _ {
+              
+            }
+            return
+          case .Success(let value) :
+            var user: User? = nil
+            var criticalItems: CriticalItemsList? = nil
+            if let dict = value as? NSDictionary {
+              if let userInfo = dict[WaniApiManagerConstants.ResponseKeys.UserInfoKey] as? NSDictionary {
+                user = User.objectFromDictionary(userInfo)
+              }
+              if let criticalItemsInfo = dict[WaniApiManagerConstants.ResponseKeys.RequestedInfoKey] as? NSArray {
+                criticalItems = CriticalItemsList(array: criticalItemsInfo)
+              }
+            }
+            try! handler(user, criticalItems, error: nil)
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             return
           }
