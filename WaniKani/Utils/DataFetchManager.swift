@@ -9,6 +9,7 @@
 import UIKit
 import WaniKit
 import RealmSwift
+import PermissionScope
 
 class DataFetchManager: NSObject {
   
@@ -34,7 +35,7 @@ class DataFetchManager: NSObject {
   func fetchAllData() {
     fetchStudyQueue({ () -> () in
       self.fetchLevelProgression()
-      self.fetchCriticalItems()
+//      self.fetchCriticalItems()
       }, completionHandler: nil)
   }
   
@@ -49,7 +50,7 @@ class DataFetchManager: NSObject {
         })
         
         let users = realm.objects(User)
-        if let user = users.first, let q = user.studyQueue {
+        if let user = users.first, let q = user.studyQueue where PermissionScope().statusNotifications() == .Authorized {
           
           newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
           let newAppIconCounter = q.reviewsAvaliable + q.lessonsAvaliable

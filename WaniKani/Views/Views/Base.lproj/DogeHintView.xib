@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DogeHintView" customModule="WaniKani" customModuleProvider="target">
+            <connections>
+                <outlet property="dogeImageView" destination="cte-cx-nwG" id="BoD-XM-otD"/>
+                <outlet property="paddingConstraint" destination="pns-5p-az7" id="oAA-fz-DHl"/>
+                <outlet property="textLabel" destination="28N-FE-v3A" id="nvv-Cg-otU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Wac-XN-jjZ" userLabel="doge hint view">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="187"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oes-en-Kcw" userLabel="empty">
+                    <rect key="frame" x="0.0" y="0.0" width="372" height="187"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="187" id="pns-5p-az7"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBW-Xd-cyb" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="187" width="372" height="187"/>
+                    <subviews>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeC-Ie-b7Q">
+                            <rect key="frame" x="0.0" y="0.0" width="372" height="187"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Pjt-s7-zXM">
+                                <rect key="frame" x="0.0" y="0.0" width="372" height="187"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <animations/>
+                            </view>
+                            <animations/>
+                            <blurEffect style="extraLight"/>
+                        </visualEffectView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="28N-FE-v3A">
+                            <rect key="frame" x="128" y="16" width="236" height="163"/>
+                            <animations/>
+                            <attributedString key="attributedText">
+                                <fragment>
+                                    <string key="content">Hope you'll have much good time here.
+I need you to log into your </string>
+                                    <attributes>
+                                        <color key="NSColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="13" name="Fipps-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="WaniKani">
+                                    <attributes>
+                                        <color key="NSColor" red="0.86666666670000003" green="0.15162741517027567" blue="0.39185213194798835" alpha="0.74221443965517242" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="15" name="Fipps-Regular"/>
+                                        <font key="NSOriginalFont" size="14" name="Fipps-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=" account">
+                                    <attributes>
+                                        <color key="NSColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="13" name="Fipps-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=".">
+                                    <attributes>
+                                        <color key="NSColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="4" name="Fipps-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doge" translatesAutoresizingMaskIntoConstraints="NO" id="cte-cx-nwG">
+                            <rect key="frame" x="0.0" y="58" width="120" height="133.5"/>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="cte-cx-nwG" secondAttribute="height" multiplier="43:48" id="gzg-JP-Voq"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="jAf-SS-BC1"/>
+                                <constraint firstAttribute="width" secondItem="cte-cx-nwG" secondAttribute="height" multiplier="43:48" id="lHR-lb-P2f"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="jAf-SS-BC1"/>
+                                    <exclude reference="lHR-lb-P2f"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="28N-FE-v3A" secondAttribute="trailing" constant="8" id="81c-u3-Jkh"/>
+                        <constraint firstItem="aeC-Ie-b7Q" firstAttribute="top" secondItem="PBW-Xd-cyb" secondAttribute="top" id="9iq-C2-rfj"/>
+                        <constraint firstItem="cte-cx-nwG" firstAttribute="top" secondItem="PBW-Xd-cyb" secondAttribute="top" id="Eux-8e-Bnq"/>
+                        <constraint firstAttribute="bottom" secondItem="cte-cx-nwG" secondAttribute="bottom" constant="-5" id="FCz-Ck-f8z"/>
+                        <constraint firstAttribute="trailing" secondItem="aeC-Ie-b7Q" secondAttribute="trailing" id="I7J-8f-hAu"/>
+                        <constraint firstItem="cte-cx-nwG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PBW-Xd-cyb" secondAttribute="top" id="LNF-Lq-GPx"/>
+                        <constraint firstItem="cte-cx-nwG" firstAttribute="height" secondItem="PBW-Xd-cyb" secondAttribute="height" priority="750" id="MgZ-HP-J6t"/>
+                        <constraint firstAttribute="bottom" secondItem="aeC-Ie-b7Q" secondAttribute="bottom" id="Rbi-6X-NfU"/>
+                        <constraint firstItem="cte-cx-nwG" firstAttribute="leading" secondItem="PBW-Xd-cyb" secondAttribute="leading" id="WsI-mS-RMT"/>
+                        <constraint firstItem="cte-cx-nwG" firstAttribute="top" secondItem="PBW-Xd-cyb" secondAttribute="top" priority="750" id="Zyp-mB-dwo"/>
+                        <constraint firstAttribute="bottom" secondItem="cte-cx-nwG" secondAttribute="bottom" id="bJY-cb-zGA"/>
+                        <constraint firstItem="cte-cx-nwG" firstAttribute="leading" secondItem="PBW-Xd-cyb" secondAttribute="leading" id="dwf-ar-xRr"/>
+                        <constraint firstItem="cte-cx-nwG" firstAttribute="width" secondItem="PBW-Xd-cyb" secondAttribute="width" multiplier="0.3" priority="750" id="eNS-zV-aKs"/>
+                        <constraint firstItem="aeC-Ie-b7Q" firstAttribute="leading" secondItem="PBW-Xd-cyb" secondAttribute="leading" id="eVw-DP-ffg"/>
+                        <constraint firstItem="28N-FE-v3A" firstAttribute="leading" secondItem="cte-cx-nwG" secondAttribute="trailing" constant="8" id="ldg-7U-KXi"/>
+                        <constraint firstItem="28N-FE-v3A" firstAttribute="top" secondItem="PBW-Xd-cyb" secondAttribute="topMargin" constant="8" id="qBj-hi-7Xa"/>
+                        <constraint firstItem="28N-FE-v3A" firstAttribute="trailing" secondItem="PBW-Xd-cyb" secondAttribute="trailingMargin" id="xXf-Th-sSa"/>
+                        <constraint firstItem="28N-FE-v3A" firstAttribute="bottom" secondItem="PBW-Xd-cyb" secondAttribute="bottomMargin" id="xck-qy-gu8"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Eux-8e-Bnq"/>
+                            <exclude reference="Zyp-mB-dwo"/>
+                            <exclude reference="bJY-cb-zGA"/>
+                            <exclude reference="dwf-ar-xRr"/>
+                            <exclude reference="xXf-Th-sSa"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="PBW-Xd-cyb" secondAttribute="bottom" id="8th-nj-BBi"/>
+                <constraint firstItem="PBW-Xd-cyb" firstAttribute="top" secondItem="Wac-XN-jjZ" secondAttribute="top" id="G3Y-Vr-OR9"/>
+                <constraint firstItem="PBW-Xd-cyb" firstAttribute="top" secondItem="oes-en-Kcw" secondAttribute="bottom" id="NSV-9R-J2f"/>
+                <constraint firstItem="oes-en-Kcw" firstAttribute="top" secondItem="Wac-XN-jjZ" secondAttribute="top" id="Sbw-g6-BUH"/>
+                <constraint firstItem="PBW-Xd-cyb" firstAttribute="leading" secondItem="Wac-XN-jjZ" secondAttribute="leading" id="UHE-zV-fkU"/>
+                <constraint firstItem="PBW-Xd-cyb" firstAttribute="height" secondItem="Wac-XN-jjZ" secondAttribute="height" id="YmS-fj-hee"/>
+                <constraint firstItem="oes-en-Kcw" firstAttribute="leading" secondItem="Wac-XN-jjZ" secondAttribute="leading" id="lKC-Na-lYX"/>
+                <constraint firstAttribute="trailing" secondItem="PBW-Xd-cyb" secondAttribute="trailing" id="nGO-O2-Ygy"/>
+                <constraint firstAttribute="trailing" secondItem="oes-en-Kcw" secondAttribute="trailing" id="nQc-Ro-0ei"/>
+                <constraint firstAttribute="bottom" secondItem="oes-en-Kcw" secondAttribute="bottom" id="zZV-Tb-jvm"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="zZV-Tb-jvm"/>
+                    <exclude reference="8th-nj-BBi"/>
+                    <exclude reference="G3Y-Vr-OR9"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="181" y="1239.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="doge" width="120" height="126"/>
+    </resources>
+</document>

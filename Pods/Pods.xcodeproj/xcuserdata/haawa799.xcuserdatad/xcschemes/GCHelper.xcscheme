@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDC96D74803379D111EF2B06"
+               BlueprintIdentifier = "A5296A3F8B27DEED62E37ED3"
                BuildableName = "GCHelper.framework"
                BlueprintName = "GCHelper"
                ReferencedContainer = "container:Pods.xcodeproj">

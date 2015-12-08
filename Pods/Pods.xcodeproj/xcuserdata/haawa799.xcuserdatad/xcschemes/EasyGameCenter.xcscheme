@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "72EBE27AD9C4C7A454CC2047"
+               BlueprintIdentifier = "DA53C07A2BCCE961E79BDBEE"
                BuildableName = "EasyGameCenter.framework"
                BlueprintName = "EasyGameCenter"
                ReferencedContainer = "container:Pods.xcodeproj">

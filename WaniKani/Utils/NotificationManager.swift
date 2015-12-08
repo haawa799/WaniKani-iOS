@@ -7,23 +7,12 @@
 //
 
 import UIKit
-import PermissionScope
 import Crashlytics
 
 
 class NotificationManager: NSObject {
   
   static let sharedInstance = NotificationManager()
-  private let pscope: PermissionScope = {
-    let p = PermissionScope()
-    p.addPermission(NotificationsPermission(notificationCategories: nil), message: "We will only send you notification when Reviews are up. No spam.")
-    p.headerLabel.text = "₍ᐢ•ﻌ•ᐢ₎*･ﾟ｡"
-    p.bodyLabel.text = "This app works best with notifications."
-    p.bodyLabel.superview?.backgroundColor = UIColor(patternImage: UIImage(named: "pattern")!)
-    return p
-    }()
-  
-  
   
   static let notificationsAllowedKey = "NotificationsAllowedKey"
   var notificationsEnabled = NSUserDefaults.standardUserDefaults().boolForKey(NotificationManager.notificationsAllowedKey) {
@@ -50,33 +39,26 @@ class NotificationManager: NSObject {
     
     if notificationsEnabled {
       
-      pscope.show({ (finished, results) -> Void in
-        
-        if results.first?.status == .Authorized {
-          if UIApplication.sharedApplication().scheduledLocalNotifications!.count == 0 {
-            if date.compare(NSDate()) == .OrderedDescending {
-              let notification = UILocalNotification()
-              notification.fireDate = date
-              notification.alertBody = "New reviews available!"
-              notification.soundName = "notification.m4a"
-              UIApplication.sharedApplication().scheduleLocalNotification(notification)
-              newNotificationScheduled = true
-              
-              var backgroundCall = false
-              if let isBackgroundFetch = (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching {
-                backgroundCall = isBackgroundFetch
-              }
-              Answers.logCustomEventWithName("Notification scheduled",
-                customAttributes: [
-                  "isBackgroundFetch": "\(backgroundCall)"
-                ])
-            } else {
-            }
+      if UIApplication.sharedApplication().scheduledLocalNotifications!.count == 0 {
+        if date.compare(NSDate()) == .OrderedDescending {
+          let notification = UILocalNotification()
+          notification.fireDate = date
+          notification.alertBody = "New reviews available!"
+          notification.soundName = "notification.m4a"
+          UIApplication.sharedApplication().scheduleLocalNotification(notification)
+          newNotificationScheduled = true
+          
+          var backgroundCall = false
+          if let isBackgroundFetch = (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching {
+            backgroundCall = isBackgroundFetch
           }
+          Answers.logCustomEventWithName("Notification scheduled",
+            customAttributes: [
+              "isBackgroundFetch": "\(backgroundCall)"
+            ])
+        } else {
         }
-        
-        }, cancelled: { (results) -> Void in
-      })
+      }
     }
     
     lastAttemptDate = date

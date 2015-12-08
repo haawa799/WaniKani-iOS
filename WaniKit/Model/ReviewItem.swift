@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import Realm
 
 public enum ReviewItemType {
   case Radical
@@ -62,7 +63,11 @@ public class ReviewItem: Object, DictionaryInitialization {
   }
 
   required public init() {
-    super.init()
+      super.init()
+  }
+  
+  override init(realm: RLMRealm, schema: RLMObjectSchema) {
+    super.init(realm: realm, schema: schema)
   }
 }
 
@@ -89,7 +94,11 @@ public class RadicalItem: ReviewItem {
   }
 
   required public init() {
-    super.init()
+    super.init(dict: NSDictionary())
+  }
+  
+  override init(realm: RLMRealm, schema: RLMObjectSchema) {
+    super.init(realm: realm, schema: schema)
   }
 }
 
@@ -125,7 +134,11 @@ public class KanjiItem: ReviewItem {
   }
   
   required public init() {
-    super.init()
+    super.init(dict: NSDictionary())
+  }
+  
+  override init(realm: RLMRealm, schema: RLMObjectSchema) {
+    super.init(realm: realm, schema: schema)
   }
 }
 
@@ -152,7 +165,11 @@ public class VocabItem: ReviewItem {
   }
   
   required public init() {
-    super.init()
+    super.init(dict: NSDictionary())
+  }
+  
+  override init(realm: RLMRealm, schema: RLMObjectSchema) {
+    super.init(realm: realm, schema: schema)
   }
 }
 

@@ -166,7 +166,7 @@ public class WaniApiManager: NSObject, Singltone {
       
       manager = Alamofire.Manager(configuration: configuration)//https://www.wanikani.com/api/user/c6ce4072cf1bd37b407f2c86d69137e3/level-progression
       manager.request(.GET, "\(WaniApiManagerConstants.URL.BaseURL)/user/\(key)/level-progression", parameters: nil)
-        .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (_, response, JSON) -> Void in
+        .responseJSON(options: NSJSONReadingOptions.AllowFragments) { (q, response, JSON) -> Void in
           
           switch JSON {
           case .Failure( _ , let error) :

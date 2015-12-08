@@ -85,7 +85,6 @@ class StudyQueueViewController: UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "noApiKeyNotification", name: WaniApiManagerConstants.NotificationKey.NoApiKey, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "newStudyQueueData", name: DataFetchManager.newStudyQueueReceivedNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLevelProgressionData", name: DataFetchManager.newLevelProgressionReceivedNotification, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "criticalItemsReceived", name: DataFetchManager.newLevelProgressionReceivedNotification, object: nil)
     
     collectionView.reloadData()
   }
@@ -206,10 +205,6 @@ extension StudyQueueViewController {
     loadedProgressData = nil
     guard let progressData = progressData else {return}
     stratchyHeader?.setupWithProgressionData(progressData)
-  }
-  
-  func criticalItemsReceived() {
-    
   }
   
 }
