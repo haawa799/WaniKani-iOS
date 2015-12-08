@@ -1,1 +1,6 @@
-GCHELPER_OTHER_LDFLAGS = -framework "GameKit"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/GCHelper" "${PODS_ROOT}/Headers/Public"
+OTHER_LDFLAGS = -framework "GameKit"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES

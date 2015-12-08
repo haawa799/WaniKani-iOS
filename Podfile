@@ -1,7 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.4'
 use_frameworks!
-
+inhibit_all_warnings!
 
 link_with 'WaniKit'
 pod 'Alamofire', '~> 2.0'

@@ -83,7 +83,7 @@
 		43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */; };
 		43F443691BA9AF2B00726619 /* WaniApiManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F443681BA9AF2B00726619 /* WaniApiManagerTests.swift */; };
 		43FD50F81BE01F1800944AC0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD50F71BE01F1800944AC0 /* GameKit.framework */; };
-		62798FF1436B89758C73F9B9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		62798FF1436B89758C73F9B9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; };
 		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 

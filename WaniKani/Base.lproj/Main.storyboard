@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ivv-vk-yuo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ivv-vk-yuo">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -157,49 +157,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3H-yF-IAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3542" y="-173"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="tUM-25-gXf">
-            <objects>
-                <viewController id="nWv-UN-963" customClass="CriticalItemsViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Uzt-PP-pOU"/>
-                        <viewControllerLayoutGuide type="bottom" id="R5g-dO-hLN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QzS-Sq-vuf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4sH-hY-zq4">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gli-5s-OQj" customClass="CriticalItemsLayout" customModule="WaniKani" customModuleProvider="target">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4sH-hY-zq4" firstAttribute="top" secondItem="Uzt-PP-pOU" secondAttribute="bottom" id="EsC-kM-qBG"/>
-                            <constraint firstItem="4sH-hY-zq4" firstAttribute="leading" secondItem="QzS-Sq-vuf" secondAttribute="leading" id="KLB-fr-f0C"/>
-                            <constraint firstItem="R5g-dO-hLN" firstAttribute="top" secondItem="4sH-hY-zq4" secondAttribute="bottom" id="a0s-SL-x2A"/>
-                            <constraint firstAttribute="trailing" secondItem="4sH-hY-zq4" secondAttribute="trailing" id="w6T-Py-WIQ"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="jJE-4C-kOE"/>
-                    <connections>
-                        <outlet property="collectionView" destination="4sH-hY-zq4" id="AUR-GD-Llt"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RWV-NU-A49" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1296" y="1096"/>
         </scene>
         <!--Api Key Picker Controller-->
         <scene sceneID="s7U-hY-wsl">
@@ -713,7 +670,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3K-12-fXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="456" y="900"/>
+            <point key="canvasLocation" x="992" y="1348"/>
         </scene>
         <!--Browser View Controller-->
         <scene sceneID="eoE-a5-R5P">
@@ -764,7 +721,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6b8-PA-4DD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2249" y="-463"/>
+            <point key="canvasLocation" x="2513" y="-967"/>
         </scene>
         <!--Colorfull Tab Bar Controller-->
         <scene sceneID="IHn-Ak-yhu">
@@ -805,7 +762,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KW-IX-eQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1437" y="-463"/>
+            <point key="canvasLocation" x="1613" y="-967"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Kv-Ok-Sog">
@@ -825,24 +782,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIi-VE-mvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2758" y="807"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="LPu-7E-Ekr">
-            <objects>
-                <viewController id="uXn-Fd-Z2S" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="c1G-Rc-OdK"/>
-                        <viewControllerLayoutGuide type="bottom" id="leh-xu-5Xx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9ax-aP-G60">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qck-rq-VvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
