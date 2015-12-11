@@ -82,9 +82,9 @@ class StudyQueueViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "noApiKeyNotification", name: DataFetchManager.noApiKeyNotification, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "newStudyQueueData", name: DataFetchManager.newStudyQueueReceivedNotification, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLevelProgressionData", name: DataFetchManager.newLevelProgressionReceivedNotification, object: nil)
+    appDelegate.notificationCenterManager.addObserver(self, notification: .NoApiKeyNotification, selector: "noApiKeyNotification")
+    appDelegate.notificationCenterManager.addObserver(self, notification: .NewStudyQueueReceivedNotification, selector: "newStudyQueueData")
+    appDelegate.notificationCenterManager.addObserver(self, notification: .NewLevelProgressionReceivedNotification, selector: "newLevelProgressionData")
     
     collectionView.reloadData()
   }
@@ -103,7 +103,7 @@ class StudyQueueViewController: UIViewController {
   }
   
   deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self)
+    appDelegate.notificationCenterManager.removeObserver(self)
   }
   
   var stratchyLayout: DashboardLayout {

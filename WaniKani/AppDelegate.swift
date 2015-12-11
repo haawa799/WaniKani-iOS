@@ -7,12 +7,14 @@
 //
 
 import UIKit
-import Crashlytics
-import Fabric
 import WaniKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+  
+  let notificationCenterManager = NotificationCenterManager()
+  let fabricManager = FabricEventsManager()
   
   var window: UIWindow?
   var isBackgroundFetching = false
@@ -30,32 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: NotificationManager.notificationsAllowedKey)
     }
     
-//    WaniApiManager.sharedInstance().setApiKey("69b9b1f682946cbc42d251f41f2863d7")
     WaniApiManager.sharedInstance().delegate = self
     
-    Fabric.with([Crashlytics.self()])
-    Crashlytics.sharedInstance().debugMode = true
-    
     return true
-  }
-  
-  func applicationWillResignActive(application: UIApplication) {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-  }
-  
-  func applicationDidEnterBackground(application: UIApplication) {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-  }
-  
-  func applicationWillEnterForeground(application: UIApplication) {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-  }
-  
-  func applicationDidBecomeActive(application: UIApplication) {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    //    DataFetchManager.sharedInstance.fetchStudyQueue()
   }
   
   func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
@@ -63,24 +42,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     isBackgroundFetching = true
     
     DataFetchManager.sharedInstance.fetchStudyQueue() { (result) -> () in
-      Answers.logCustomEventWithName("Background fetch",
-        customAttributes: [
-          "Result": "\(result)"
-        ])
+      self.fabricManager.postBackgroundFetchEvent(result)
       self.isBackgroundFetching = false
       completionHandler(result)
     }
   }
-  
-  func applicationWillTerminate(application: UIApplication) {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-  }
-  
 }
+
+let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
 extension AppDelegate: WaniApiManagerDelegate {
   func apiKeyWasUsedBeforeItWasSet() {
-    NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.noApiKeyNotification, object: nil)
+    notificationCenterManager.postNotification(.NoApiKeyNotification, object: nil)
   }
 }
 

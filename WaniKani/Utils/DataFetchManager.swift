@@ -15,11 +15,6 @@ class DataFetchManager: NSObject {
   
   static let sharedInstance = DataFetchManager()
   
-  static let noApiKeyNotification = "NoApiKeyNotification"
-  static let newStudyQueueReceivedNotification = "NewStudyQueueReceivedNotification"
-  static let newLevelProgressionReceivedNotification = "NewLevelProgressionReceivedNotification"
-  static let criticalItemsReceivedNotification = "CriticalItemsReceivedNotification"
-  
   func performMigrationIfNeeded() {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 4,
@@ -65,7 +60,7 @@ class DataFetchManager: NSObject {
         let oldAppIconCounter = UIApplication.sharedApplication().applicationIconBadgeNumber
         newNotification = newNotification || (oldAppIconCounter != newAppIconCounter)
         UIApplication.sharedApplication().applicationIconBadgeNumber = newAppIconCounter
-        NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newStudyQueueReceivedNotification, object: q)
+        appDelegate.notificationCenterManager.postNotification(.NewStudyQueueReceivedNotification, object: q)
       }
       if newNotification {
         completionHandler?(result: UIBackgroundFetchResult.NewData)
@@ -89,7 +84,7 @@ class DataFetchManager: NSObject {
       self.updateUserInRealm(user, submitToGC: true, modificationBlock: { (realmUser) -> () in
         realmUser.levelProgression = levelProgression
       })
-      NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newLevelProgressionReceivedNotification, object: levelProgression)
+      appDelegate.notificationCenterManager.postNotification(.NewLevelProgressionReceivedNotification, object: levelProgression)
     }
   }
   
