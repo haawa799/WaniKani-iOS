@@ -68,11 +68,11 @@ extension WebViewController: UIWebViewDelegate {
   
   func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
     
-    if let url = url where url.containsString(request.URLString) {
+    if let url = url where url.containsString(request.URL!.absoluteString) {
       checkForNewScore()
       return true
     } else {
-      return request.URLString == "https://www.wanikani.com/login"
+      return request.URL!.absoluteString == "https://www.wanikani.com/login"
     }
   }
   

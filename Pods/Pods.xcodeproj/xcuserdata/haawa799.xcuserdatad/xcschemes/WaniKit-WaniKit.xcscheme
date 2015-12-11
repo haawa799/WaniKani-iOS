@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2E711EABD4FDE7D88AD52DD0'
-               BlueprintName = 'GCHelper'
+               BlueprintIdentifier = '1F94E1B9E35A49A511C13640'
+               BlueprintName = 'WaniKit-WaniKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'GCHelper.framework'>
+               BuildableName = 'WaniKit.bundle'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

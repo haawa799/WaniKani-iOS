@@ -15,13 +15,14 @@ class DataFetchManager: NSObject {
   
   static let sharedInstance = DataFetchManager()
   
+  static let noApiKeyNotification = "NoApiKeyNotification"
   static let newStudyQueueReceivedNotification = "NewStudyQueueReceivedNotification"
   static let newLevelProgressionReceivedNotification = "NewLevelProgressionReceivedNotification"
   static let criticalItemsReceivedNotification = "CriticalItemsReceivedNotification"
   
   func performMigrationIfNeeded() {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 3,
+      schemaVersion: 4,
       migrationBlock: { migration, oldSchemaVersion in
         //        if (oldSchemaVersion < 1) {
         //          migration.enumerate(User.className()) { oldObject, newObject in
@@ -33,71 +34,78 @@ class DataFetchManager: NSObject {
   }
   
   func fetchAllData() {
-    fetchStudyQueue({ () -> () in
-      self.fetchLevelProgression()
-//      self.fetchCriticalItems()
-      }, completionHandler: nil)
+    fetchStudyQueue(nil)
+    fetchLevelProgression()
   }
   
-  func fetchStudyQueue(handler: (() -> ())? ,completionHandler: ((result: UIBackgroundFetchResult)->())?) {
-    do {
-      try WaniApiManager.sharedInstance().fetchStudyQueue { (user, studyQ) -> () in
-        
-        var newNotification = false
-        let realm = try! Realm()
-        self.updateUserInRealm(user, submitToGC: false, modificationBlock: { (realmUser) -> () in
-          realmUser.studyQueue = studyQ
-        })
-        
-        let users = realm.objects(User)
-        if let user = users.first, let q = user.studyQueue where PermissionScope().statusNotifications() == .Authorized {
-          
-          newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
-          let newAppIconCounter = q.reviewsAvaliable + q.lessonsAvaliable
-          let oldAppIconCounter = UIApplication.sharedApplication().applicationIconBadgeNumber
-          newNotification = newNotification || (oldAppIconCounter != newAppIconCounter)
-          UIApplication.sharedApplication().applicationIconBadgeNumber = newAppIconCounter
-          NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newStudyQueueReceivedNotification, object: q)
-        }
-        if newNotification {
-          completionHandler?(result: UIBackgroundFetchResult.NewData)
-        } else {
-          completionHandler?(result: UIBackgroundFetchResult.NoData)
-        }
-        handler?()
+  func fetchStudyQueue(completionHandler: ((result: UIBackgroundFetchResult)->())?) {
+    
+    WaniApiManager.sharedInstance().fetchStudyQueue { (userInfo, studyQInfo) -> Void in
+      
+      guard let userInfo = userInfo, studyQInfo = studyQInfo else {
+        completionHandler?(result: UIBackgroundFetchResult.Failed)
+        return
       }
-    } catch  {
-      completionHandler?(result: UIBackgroundFetchResult.Failed)
-      handler?()
+      
+      // Convert to Realm objects
+      let user = User(userInfo: userInfo)
+      let studyQ = StudyQueue(studyQueueInfo: studyQInfo)
+      
+      var newNotification = false
+      let realm = try! Realm()
+      self.updateUserInRealm(user, submitToGC: false, modificationBlock: { (realmUser) -> () in
+        realmUser.studyQueue = studyQ
+      })
+      
+      let users = realm.objects(User)
+      if let user = users.first, let q = user.studyQueue /*where PermissionScope().statusNotifications() == .Authorized*/ {
+        
+        newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
+        let newAppIconCounter = q.reviewsAvaliable + q.lessonsAvaliable
+        let oldAppIconCounter = UIApplication.sharedApplication().applicationIconBadgeNumber
+        newNotification = newNotification || (oldAppIconCounter != newAppIconCounter)
+        UIApplication.sharedApplication().applicationIconBadgeNumber = newAppIconCounter
+        NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newStudyQueueReceivedNotification, object: q)
+      }
+      if newNotification {
+        completionHandler?(result: UIBackgroundFetchResult.NewData)
+      } else {
+        completionHandler?(result: UIBackgroundFetchResult.NoData)
+      }
     }
   }
   
   func fetchLevelProgression() {
-    do {
-      try WaniApiManager.sharedInstance().fetchLevelProgression({ (user, levelProgression) -> () in
-        self.updateUserInRealm(user, submitToGC: true, modificationBlock: { (realmUser) -> () in
-          realmUser.levelProgression = levelProgression
-        })
-        NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newLevelProgressionReceivedNotification, object: levelProgression)
-      })
-    } catch {
+    
+    WaniApiManager.sharedInstance().fetchLevelProgression { (userInfo, levelProgressionInfo) -> Void in
+      guard let userInfo = userInfo, levelProgressionInfo = levelProgressionInfo else {
+        return
+      }
       
+      // Convert to Realm objects
+      let user = User(userInfo: userInfo)
+      let levelProgression = LevelProgression(levelProgressInfo: levelProgressionInfo)
+      
+      self.updateUserInRealm(user, submitToGC: true, modificationBlock: { (realmUser) -> () in
+        realmUser.levelProgression = levelProgression
+      })
+      NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.newLevelProgressionReceivedNotification, object: levelProgression)
     }
   }
   
-  func fetchCriticalItems() {
-    do {
-      
-      try WaniApiManager.sharedInstance().fetchCriticalItems({ (user, criticalItems) -> () in
-        self.updateUserInRealm(user, submitToGC: false, modificationBlock: { (realmUser) -> () in
-          realmUser.criticalItems = criticalItems
-        })
-        NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.criticalItemsReceivedNotification, object: criticalItems)
-      })
-    } catch {
-      
-    }
-  }
+//  func fetchCriticalItems() {
+//    do {
+//      
+//      try WaniApiManager.sharedInstance().fetchCriticalItems({ (user, criticalItems) -> () in
+//        self.updateUserInRealm(user, submitToGC: false, modificationBlock: { (realmUser) -> () in
+//          realmUser.criticalItems = criticalItems
+//        })
+//        NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.criticalItemsReceivedNotification, object: criticalItems)
+//      })
+//    } catch {
+//      
+//    }
+//  }
   
   typealias UserModificationBlock = (realmUser: User)->()
   

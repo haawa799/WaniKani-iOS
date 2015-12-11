@@ -1,0 +1,25 @@
+{
+  "name": "WaniKit",
+  "version": "0.1.0",
+  "summary": "A short description of WaniKit.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/WaniKit",
+  "license": "MIT",
+  "authors": {
+    "Andriy K.": "haawaplus@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/WaniKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "WaniKit": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

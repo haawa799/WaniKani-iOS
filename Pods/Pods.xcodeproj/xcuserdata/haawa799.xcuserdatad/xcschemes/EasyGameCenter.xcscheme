@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D6F15E8B5B3E44AFE3263FDB'
+               BlueprintIdentifier = 'C643652243E0893E78E4EC42'
                BlueprintName = 'EasyGameCenter'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'EasyGameCenter.framework'>

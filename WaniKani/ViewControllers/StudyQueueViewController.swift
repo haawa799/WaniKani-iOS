@@ -82,7 +82,7 @@ class StudyQueueViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "noApiKeyNotification", name: WaniApiManagerConstants.NotificationKey.NoApiKey, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "noApiKeyNotification", name: DataFetchManager.noApiKeyNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "newStudyQueueData", name: DataFetchManager.newStudyQueueReceivedNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLevelProgressionData", name: DataFetchManager.newLevelProgressionReceivedNotification, object: nil)
     
@@ -197,8 +197,10 @@ extension StudyQueueViewController {
   func newStudyQueueData() {
     stratchyHeader?.displayLoading = false
     loadedQueue = nil
-    flipVisibleCells()
-    collectionView.reloadData()
+    dispatch_async(dispatch_get_main_queue(), {
+      self.flipVisibleCells()
+      self.collectionView.reloadData()
+    })
   }
   
   func newLevelProgressionData() {

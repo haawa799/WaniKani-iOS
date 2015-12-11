@@ -9,6 +9,7 @@
 import UIKit
 import Crashlytics
 import Fabric
+import WaniKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if NSUserDefaults.standardUserDefaults().valueForKey(NotificationManager.notificationsAllowedKey) == nil {
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: NotificationManager.notificationsAllowedKey)
     }
+    
+//    WaniApiManager.sharedInstance().setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+    WaniApiManager.sharedInstance().delegate = self
     
     Fabric.with([Crashlytics.self()])
     Crashlytics.sharedInstance().debugMode = true
@@ -58,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     isBackgroundFetching = true
     
-    DataFetchManager.sharedInstance.fetchStudyQueue(nil) { (result) -> () in
+    DataFetchManager.sharedInstance.fetchStudyQueue() { (result) -> () in
       Answers.logCustomEventWithName("Background fetch",
         customAttributes: [
           "Result": "\(result)"
@@ -72,5 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
   
+}
+
+extension AppDelegate: WaniApiManagerDelegate {
+  func apiKeyWasUsedBeforeItWasSet() {
+    NSNotificationCenter.defaultCenter().postNotificationName(DataFetchManager.noApiKeyNotification, object: nil)
+  }
 }
 

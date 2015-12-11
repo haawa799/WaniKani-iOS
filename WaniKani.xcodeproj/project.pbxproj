@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 431A31311BFF59600080944E /* Fipps-Regular.otf */; };
-		4329D0EA1BBC6DB2009BEABF /* LevelProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4329D0E91BBC6DB2009BEABF /* LevelProgression.swift */; };
 		4329D0EC1BBD36E2009BEABF /* resize.js in Resources */ = {isa = PBXBuildFile; fileRef = 4329D0EB1BBD36E2009BEABF /* resize.js */; };
 		432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 432C07171BB2E15A0031B3B1 /* notification.m4a */; };
 		432C072C1BB3272C0031B3B1 /* AvaliableItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C071E1BB3272C0031B3B1 /* AvaliableItemCell.swift */; };
@@ -26,7 +25,9 @@
 		432C07391BB32CF90031B3B1 /* SettingsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C07381BB32CF90031B3B1 /* SettingsLayout.swift */; };
 		432C073B1BB338820031B3B1 /* SliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C073A1BB338820031B3B1 /* SliceView.swift */; };
 		432C073F1BB408AE0031B3B1 /* ignore.js in Resources */ = {isa = PBXBuildFile; fileRef = 432C073E1BB408AE0031B3B1 /* ignore.js */; };
-		4330D2D91BA83EB800255890 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4330D2D81BA83EB800255890 /* Extensions.swift */; };
+		4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9B71C19CA6B0011746D /* LevelProgression.swift */; };
+		4335B9BE1C19CA6B0011746D /* StudyQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9B91C19CA6B0011746D /* StudyQueue.swift */; };
+		4335B9BF1C19CA6B0011746D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9BA1C19CA6B0011746D /* User.swift */; };
 		433A3FAD1BCFACDF009C0FF1 /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433A3FAC1BCFACDF009C0FF1 /* LoginWebViewController.swift */; };
 		433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC231BFB3BCC0025EB24 /* NotificationsSetupVC.swift */; };
 		433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC251BFB407F0025EB24 /* SetupStepViewController.swift */; };
@@ -45,12 +46,7 @@
 		434673DD1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434673DB1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift */; };
 		434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */; };
 		434673E01BDEC8840095A4A3 /* score.js in Resources */ = {isa = PBXBuildFile; fileRef = 434673DF1BDEC8840095A4A3 /* score.js */; };
-		435E48621BE88DB500C06C3B /* ReviewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435E48611BE88DB500C06C3B /* ReviewItem.swift */; };
-		435E48641BE89F1200C06C3B /* CriticalItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435E48631BE89F1200C06C3B /* CriticalItemsList.swift */; };
-		435E48661BE8C1CA00C06C3B /* CriticalItemsListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435E48651BE8C1CA00C06C3B /* CriticalItemsListTests.swift */; };
-		435E48681BE8D6A200C06C3B /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435E48671BE8D6A200C06C3B /* json.swift */; };
 		43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */ = {isa = PBXBuildFile; fileRef = 43850CF31B9DB86F00DFF6DD /* fast_forward.js */; };
-		43AABDA21BEB452700F2D5B8 /* CriticalItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AABDA11BEB452700F2D5B8 /* CriticalItemsViewController.swift */; };
 		43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */; };
 		43AABDA61BEB47BC00F2D5B8 /* WordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */; };
 		43AD052F1BA044BA000DBCBE /* UserScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD052E1BA044BA000DBCBE /* UserScript.swift */; };
@@ -59,18 +55,9 @@
 		43AFAFC61B8C96130016E55F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFAFC51B8C96130016E55F /* Utils.swift */; };
 		43AFAFC81B8CA1060016E55F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFAFC71B8CA1060016E55F /* WebViewController.swift */; };
 		43B5F8AA1C0C84C900DA9893 /* DogeHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B5F8AC1C0C84C900DA9893 /* DogeHintView.xib */; };
-		43C306731B79D75D00DEB6A4 /* WaniKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C306721B79D75D00DEB6A4 /* WaniKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		43C306791B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; };
-		43C306821B79D75D00DEB6A4 /* WaniKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */; };
-		43C306851B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; };
-		43C306861B79D75D00DEB6A4 /* WaniKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		43C3068F1B79D79900DEB6A4 /* WaniApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */; };
 		43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */; };
 		43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */; };
 		43D748781BD7ADC200A11916 /* AwardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D748771BD7ADC200A11916 /* AwardsManager.swift */; };
-		43D824FC1B7A2951003D26BE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D824FB1B7A2951003D26BE /* User.swift */; };
-		43D824FE1B7B117A003D26BE /* StudyQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D824FD1B7B117A003D26BE /* StudyQueue.swift */; };
-		43D825001B7B16AE003D26BE /* DictionaryConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D824FF1B7B16AE003D26BE /* DictionaryConvertable.swift */; };
 		43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E4567C1BBAD47A0043ECAE /* ProgressHeader.swift */; };
 		43E4567F1BBAD4A30043ECAE /* ProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E4567E1BBAD4A30043ECAE /* ProgressHeader.xib */; };
 		43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */; };
@@ -81,10 +68,8 @@
 		43EBC09E1BA5F6C000C0B390 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */; };
 		43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */; };
 		43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */; };
-		43F443691BA9AF2B00726619 /* WaniApiManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F443681BA9AF2B00726619 /* WaniApiManagerTests.swift */; };
 		43FD50F81BE01F1800944AC0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD50F71BE01F1800944AC0 /* GameKit.framework */; };
-		62798FF1436B89758C73F9B9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; };
-		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,27 +80,6 @@
 			remoteGlobalIDString = 433E27FF1B79D5E900BBB45E;
 			remoteInfo = WaniKani;
 		};
-		43C3067A1B79D75D00DEB6A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 43C3066D1B79D75D00DEB6A4;
-			remoteInfo = WaniKit;
-		};
-		43C3067C1B79D75D00DEB6A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 433E27FF1B79D5E900BBB45E;
-			remoteInfo = WaniKani;
-		};
-		43C306831B79D75D00DEB6A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 43C3066D1B79D75D00DEB6A4;
-			remoteInfo = WaniKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -125,7 +89,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				43C306861B79D75D00DEB6A4 /* WaniKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +100,6 @@
 		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
-		4329D0E91BBC6DB2009BEABF /* LevelProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProgression.swift; sourceTree = "<group>"; };
 		4329D0EB1BBD36E2009BEABF /* resize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = resize.js; sourceTree = "<group>"; };
 		432C07171BB2E15A0031B3B1 /* notification.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.m4a; sourceTree = "<group>"; };
 		432C071E1BB3272C0031B3B1 /* AvaliableItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliableItemCell.swift; sourceTree = "<group>"; };
@@ -155,7 +117,9 @@
 		432C07381BB32CF90031B3B1 /* SettingsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLayout.swift; sourceTree = "<group>"; };
 		432C073A1BB338820031B3B1 /* SliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliceView.swift; sourceTree = "<group>"; };
 		432C073E1BB408AE0031B3B1 /* ignore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ignore.js; sourceTree = "<group>"; };
-		4330D2D81BA83EB800255890 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4335B9B71C19CA6B0011746D /* LevelProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProgression.swift; sourceTree = "<group>"; };
+		4335B9B91C19CA6B0011746D /* StudyQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueue.swift; sourceTree = "<group>"; };
+		4335B9BA1C19CA6B0011746D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		433A3FAC1BCFACDF009C0FF1 /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 		433BDC231BFB3BCC0025EB24 /* NotificationsSetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsSetupVC.swift; sourceTree = "<group>"; };
 		433BDC251BFB407F0025EB24 /* SetupStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupStepViewController.swift; sourceTree = "<group>"; };
@@ -178,12 +142,7 @@
 		434673DB1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterCollectionViewCell.swift; sourceTree = "<group>"; };
 		434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCenterCollectionViewCell.xib; sourceTree = "<group>"; };
 		434673DF1BDEC8840095A4A3 /* score.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = score.js; sourceTree = "<group>"; };
-		435E48611BE88DB500C06C3B /* ReviewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewItem.swift; sourceTree = "<group>"; };
-		435E48631BE89F1200C06C3B /* CriticalItemsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriticalItemsList.swift; sourceTree = "<group>"; };
-		435E48651BE8C1CA00C06C3B /* CriticalItemsListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriticalItemsListTests.swift; sourceTree = "<group>"; };
-		435E48671BE8D6A200C06C3B /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		43850CF31B9DB86F00DFF6DD /* fast_forward.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fast_forward.js; path = ../Utils/fast_forward.js; sourceTree = "<group>"; };
-		43AABDA11BEB452700F2D5B8 /* CriticalItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriticalItemsViewController.swift; sourceTree = "<group>"; };
 		43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 		43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordCell.xib; sourceTree = "<group>"; };
 		43AD052E1BA044BA000DBCBE /* UserScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserScript.swift; sourceTree = "<group>"; };
@@ -192,19 +151,9 @@
 		43AFAFC51B8C96130016E55F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		43AFAFC71B8CA1060016E55F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		43B5F8AB1C0C84C900DA9893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DogeHintView.xib; sourceTree = "<group>"; };
-		43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WaniKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		43C306711B79D75D00DEB6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43C306721B79D75D00DEB6A4 /* WaniKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaniKit.h; sourceTree = "<group>"; };
-		43C306781B79D75D00DEB6A4 /* WaniKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaniKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43C306801B79D75D00DEB6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaniKitTests.swift; sourceTree = "<group>"; };
-		43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaniApiManager.swift; sourceTree = "<group>"; };
 		43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSuit.swift; sourceTree = "<group>"; };
 		43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		43D748771BD7ADC200A11916 /* AwardsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsManager.swift; sourceTree = "<group>"; };
-		43D824FB1B7A2951003D26BE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		43D824FD1B7B117A003D26BE /* StudyQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueue.swift; sourceTree = "<group>"; };
-		43D824FF1B7B16AE003D26BE /* DictionaryConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryConvertable.swift; sourceTree = "<group>"; };
 		43E4567C1BBAD47A0043ECAE /* ProgressHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHeader.swift; sourceTree = "<group>"; };
 		43E4567E1BBAD4A30043ECAE /* ProgressHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressHeader.xib; sourceTree = "<group>"; };
 		43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleProgressBar.swift; sourceTree = "<group>"; };
@@ -215,7 +164,6 @@
 		43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
-		43F443681BA9AF2B00726619 /* WaniApiManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaniApiManagerTests.swift; sourceTree = "<group>"; };
 		43FD50F71BE01F1800944AC0 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -224,7 +172,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43C306851B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */,
 				6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */,
 				43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */,
 				43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */,
@@ -236,22 +183,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C3066A1B79D75D00DEB6A4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				62798FF1436B89758C73F9B9 /* Pods.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C306751B79D75D00DEB6A4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				43C306791B79D75D00DEB6A4 /* WaniKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,12 +242,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		4330D2D71BA83EA200255890 /* Utils */ = {
+		4335B9B51C19CA4C0011746D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4330D2D81BA83EB800255890 /* Extensions.swift */,
+				4335B9B71C19CA6B0011746D /* LevelProgression.swift */,
+				4335B9B91C19CA6B0011746D /* StudyQueue.swift */,
+				4335B9BA1C19CA6B0011746D /* User.swift */,
 			);
-			path = Utils;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		433BDC221BFB3BA40025EB24 /* Setup */ = {
@@ -352,7 +285,6 @@
 				43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */,
 				433A3FAC1BCFACDF009C0FF1 /* LoginWebViewController.swift */,
 				434673D71BDE53B80095A4A3 /* GameCenterViewController.swift */,
-				43AABDA11BEB452700F2D5B8 /* CriticalItemsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -384,8 +316,6 @@
 			children = (
 				433E28021B79D5E900BBB45E /* WaniKani */,
 				433E28181B79D5E900BBB45E /* WaniKaniTests */,
-				43C3066F1B79D75D00DEB6A4 /* WaniKit */,
-				43C3067E1B79D75D00DEB6A4 /* WaniKitTests */,
 				433E28011B79D5E900BBB45E /* Products */,
 				4C7149E8EDAB8FE705410AF3 /* Pods */,
 				2481F23E0E9C1BDFB82D2F93 /* Frameworks */,
@@ -397,8 +327,6 @@
 			children = (
 				433E28001B79D5E900BBB45E /* WaniKani.app */,
 				433E28151B79D5E900BBB45E /* WaniKaniTests.xctest */,
-				43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */,
-				43C306781B79D75D00DEB6A4 /* WaniKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -406,6 +334,7 @@
 		433E28021B79D5E900BBB45E /* WaniKani */ = {
 			isa = PBXGroup;
 			children = (
+				4335B9B51C19CA4C0011746D /* Model */,
 				43AD052D1BA044BA000DBCBE /* User scripts */,
 				433E164C1B846016007B7DE9 /* Utils */,
 				433E164E1B846016007B7DE9 /* ViewControllers */,
@@ -462,59 +391,6 @@
 			path = "User scripts";
 			sourceTree = "<group>";
 		};
-		43C3066F1B79D75D00DEB6A4 /* WaniKit */ = {
-			isa = PBXGroup;
-			children = (
-				4330D2D71BA83EA200255890 /* Utils */,
-				43D824FA1B7A2929003D26BE /* Model */,
-				43C3068E1B79D79900DEB6A4 /* WaniApiManager.swift */,
-				43C306721B79D75D00DEB6A4 /* WaniKit.h */,
-				43C306701B79D75D00DEB6A4 /* Supporting Files */,
-			);
-			path = WaniKit;
-			sourceTree = "<group>";
-		};
-		43C306701B79D75D00DEB6A4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				43C306711B79D75D00DEB6A4 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		43C3067E1B79D75D00DEB6A4 /* WaniKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				43C306811B79D75D00DEB6A4 /* WaniKitTests.swift */,
-				43C3067F1B79D75D00DEB6A4 /* Supporting Files */,
-				43F443681BA9AF2B00726619 /* WaniApiManagerTests.swift */,
-				435E48651BE8C1CA00C06C3B /* CriticalItemsListTests.swift */,
-				435E48671BE8D6A200C06C3B /* json.swift */,
-			);
-			path = WaniKitTests;
-			sourceTree = "<group>";
-		};
-		43C3067F1B79D75D00DEB6A4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				43C306801B79D75D00DEB6A4 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		43D824FA1B7A2929003D26BE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				43D824FD1B7B117A003D26BE /* StudyQueue.swift */,
-				43D824FB1B7A2951003D26BE /* User.swift */,
-				4329D0E91BBC6DB2009BEABF /* LevelProgression.swift */,
-				435E48611BE88DB500C06C3B /* ReviewItem.swift */,
-				435E48631BE89F1200C06C3B /* CriticalItemsList.swift */,
-				43D824FF1B7B16AE003D26BE /* DictionaryConvertable.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		4C7149E8EDAB8FE705410AF3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,17 +401,6 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		43C3066B1B79D75D00DEB6A4 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				43C306731B79D75D00DEB6A4 /* WaniKit.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		433E27FF1B79D5E900BBB45E /* WaniKani */ = {
@@ -554,7 +419,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				43C306841B79D75D00DEB6A4 /* PBXTargetDependency */,
 			);
 			name = WaniKani;
 			productName = WaniKani;
@@ -577,44 +441,6 @@
 			name = WaniKaniTests;
 			productName = WaniKaniTests;
 			productReference = 433E28151B79D5E900BBB45E /* WaniKaniTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		43C3066D1B79D75D00DEB6A4 /* WaniKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 43C3068B1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKit" */;
-			buildPhases = (
-				01B11088131BD1B43DB92643 /* Check Pods Manifest.lock */,
-				43C306691B79D75D00DEB6A4 /* Sources */,
-				43C3066A1B79D75D00DEB6A4 /* Frameworks */,
-				43C3066B1B79D75D00DEB6A4 /* Headers */,
-				43C3066C1B79D75D00DEB6A4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WaniKit;
-			productName = WaniKit;
-			productReference = 43C3066E1B79D75D00DEB6A4 /* WaniKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		43C306771B79D75D00DEB6A4 /* WaniKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 43C3068D1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKitTests" */;
-			buildPhases = (
-				43C306741B79D75D00DEB6A4 /* Sources */,
-				43C306751B79D75D00DEB6A4 /* Frameworks */,
-				43C306761B79D75D00DEB6A4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				43C3067B1B79D75D00DEB6A4 /* PBXTargetDependency */,
-				43C3067D1B79D75D00DEB6A4 /* PBXTargetDependency */,
-			);
-			name = WaniKitTests;
-			productName = WaniKitTests;
-			productReference = 43C306781B79D75D00DEB6A4 /* WaniKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -644,13 +470,6 @@
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 433E27FF1B79D5E900BBB45E;
 					};
-					43C3066D1B79D75D00DEB6A4 = {
-						CreatedOnToolsVersion = 6.4;
-					};
-					43C306771B79D75D00DEB6A4 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 433E27FF1B79D5E900BBB45E;
-					};
 				};
 			};
 			buildConfigurationList = 433E27FB1B79D5E900BBB45E /* Build configuration list for PBXProject "WaniKani" */;
@@ -668,8 +487,6 @@
 			targets = (
 				433E27FF1B79D5E900BBB45E /* WaniKani */,
 				433E28141B79D5E900BBB45E /* WaniKaniTests */,
-				43C3066D1B79D75D00DEB6A4 /* WaniKit */,
-				43C306771B79D75D00DEB6A4 /* WaniKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -708,38 +525,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43C3066C1B79D75D00DEB6A4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C306761B79D75D00DEB6A4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01B11088131BD1B43DB92643 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		43EBC09F1BA5FB7200C0B390 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -816,12 +604,14 @@
 				433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */,
 				433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */,
 				432C072E1BB3272C0031B3B1 /* NextReviewCell.swift in Sources */,
+				4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */,
 				43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */,
 				432C073B1BB338820031B3B1 /* SliceView.swift in Sources */,
 				432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */,
 				434673D81BDE53B80095A4A3 /* GameCenterViewController.swift in Sources */,
 				433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */,
 				43D748781BD7ADC200A11916 /* AwardsManager.swift in Sources */,
+				4335B9BF1C19CA6B0011746D /* User.swift in Sources */,
 				432C07361BB3272C0031B3B1 /* AIFlatSwitch.swift in Sources */,
 				434673DD1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift in Sources */,
 				43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */,
@@ -830,9 +620,9 @@
 				43AFAFC61B8C96130016E55F /* Utils.swift in Sources */,
 				432C07321BB3272C0031B3B1 /* SettingsScriptCell.swift in Sources */,
 				43E456831BBBD1A20043ECAE /* StratchyLayout.swift in Sources */,
+				4335B9BE1C19CA6B0011746D /* StudyQueue.swift in Sources */,
 				43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */,
 				432C072C1BB3272C0031B3B1 /* AvaliableItemCell.swift in Sources */,
-				43AABDA21BEB452700F2D5B8 /* CriticalItemsViewController.swift in Sources */,
 				433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */,
 				43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */,
 				432C07391BB32CF90031B3B1 /* SettingsLayout.swift in Sources */,
@@ -853,32 +643,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43C306691B79D75D00DEB6A4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4330D2D91BA83EB800255890 /* Extensions.swift in Sources */,
-				435E48621BE88DB500C06C3B /* ReviewItem.swift in Sources */,
-				43D824FE1B7B117A003D26BE /* StudyQueue.swift in Sources */,
-				435E48641BE89F1200C06C3B /* CriticalItemsList.swift in Sources */,
-				4329D0EA1BBC6DB2009BEABF /* LevelProgression.swift in Sources */,
-				43D825001B7B16AE003D26BE /* DictionaryConvertable.swift in Sources */,
-				43D824FC1B7A2951003D26BE /* User.swift in Sources */,
-				43C3068F1B79D79900DEB6A4 /* WaniApiManager.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C306741B79D75D00DEB6A4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				435E48661BE8C1CA00C06C3B /* CriticalItemsListTests.swift in Sources */,
-				43C306821B79D75D00DEB6A4 /* WaniKitTests.swift in Sources */,
-				43F443691BA9AF2B00726619 /* WaniApiManagerTests.swift in Sources */,
-				435E48681BE8D6A200C06C3B /* json.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -886,21 +650,6 @@
 			isa = PBXTargetDependency;
 			target = 433E27FF1B79D5E900BBB45E /* WaniKani */;
 			targetProxy = 433E28161B79D5E900BBB45E /* PBXContainerItemProxy */;
-		};
-		43C3067B1B79D75D00DEB6A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 43C3066D1B79D75D00DEB6A4 /* WaniKit */;
-			targetProxy = 43C3067A1B79D75D00DEB6A4 /* PBXContainerItemProxy */;
-		};
-		43C3067D1B79D75D00DEB6A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 433E27FF1B79D5E900BBB45E /* WaniKani */;
-			targetProxy = 43C3067C1B79D75D00DEB6A4 /* PBXContainerItemProxy */;
-		};
-		43C306841B79D75D00DEB6A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 43C3066D1B79D75D00DEB6A4 /* WaniKit */;
-			targetProxy = 43C306831B79D75D00DEB6A4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1100,88 +849,6 @@
 			};
 			name = Release;
 		};
-		43C306871B79D75D00DEB6A4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WaniKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		43C306881B79D75D00DEB6A4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */;
-			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = WaniKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		43C306891B79D75D00DEB6A4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WaniKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaniKani.app/WaniKani";
-			};
-			name = Debug;
-		};
-		43C3068A1B79D75D00DEB6A4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WaniKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaniKani.app/WaniKani";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1208,24 +875,6 @@
 			buildConfigurations = (
 				433E28231B79D5E900BBB45E /* Debug */,
 				433E28241B79D5E900BBB45E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		43C3068B1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				43C306871B79D75D00DEB6A4 /* Debug */,
-				43C306881B79D75D00DEB6A4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		43C3068D1B79D75D00DEB6A4 /* Build configuration list for PBXNativeTarget "WaniKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				43C306891B79D75D00DEB6A4 /* Debug */,
-				43C3068A1B79D75D00DEB6A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
