@@ -123,7 +123,7 @@ class StudyQueueViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    if WaniApiManager.sharedInstance().apiKey() != nil {
+    if appDelegate.waniApiManager.apiKey() != nil {
       var token: dispatch_once_t = 0
       dispatch_once(&token) {
         AwardsManager.sharedInstance.authenticateLocalPlayer()

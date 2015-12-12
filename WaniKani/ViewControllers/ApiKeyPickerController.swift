@@ -32,7 +32,7 @@ class ApiKeyPickerController: SetupStepViewController {
   @IBAction func textDidChange(textField: UITextField) {
     let text = textField.text!
     if text.characters.count == keyLength {
-      WaniApiManager.sharedInstance().setApiKey(text)
+      appDelegate.waniApiManager.setApiKey(text)
       performSegueWithIdentifier("nextPage", sender: self)
       DataFetchManager.sharedInstance.fetchAllData()
     }

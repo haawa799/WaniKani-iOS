@@ -28,15 +28,17 @@ public class StudyQueue: Object {
 
 extension StudyQueue {
   
-  convenience init(studyQueueInfo: StudyQueueInfo) {
-    
-    self.init()
-    
+  func updateWith(studyQueueInfo: StudyQueueInfo) {
     lessonsAvaliable = studyQueueInfo.lessonsAvaliable ?? 0
     reviewsAvaliable = studyQueueInfo.reviewsAvaliable ?? 0
     nextReviewDate = studyQueueInfo.nextReviewDate ?? NSDate()
     reviewsNextHour = studyQueueInfo.reviewsNextHour ?? 0
     reviewsNextDay = studyQueueInfo.reviewsNextDay ?? 0
+  }
+  
+  convenience init(studyQueueInfo: StudyQueueInfo) {
+    self.init()
+    updateWith(studyQueueInfo)
   }
   
 }

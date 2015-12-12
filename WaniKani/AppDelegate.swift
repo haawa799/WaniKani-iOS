@@ -8,6 +8,8 @@
 
 import UIKit
 import WaniKit
+import RealmSwift
+import Realm
 
 
 @UIApplicationMain
@@ -15,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   let notificationCenterManager = NotificationCenterManager()
   let fabricManager = FabricEventsManager()
+  let waniApiManager = WaniApiManager()
   
   var window: UIWindow?
   var isBackgroundFetching = false
@@ -32,7 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: NotificationManager.notificationsAllowedKey)
     }
     
-    WaniApiManager.sharedInstance().delegate = self
+    waniApiManager.delegate = self
+    waniApiManager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+    
+    print(user)
     
     return true
   }
@@ -50,6 +56,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+let realm = try! Realm()
+let realmQueue = dispatch_get_main_queue()//dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
+
+var user: User? {
+  return realm.objects(User).first
+}
 
 extension AppDelegate: WaniApiManagerDelegate {
   func apiKeyWasUsedBeforeItWasSet() {

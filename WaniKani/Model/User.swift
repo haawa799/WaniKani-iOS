@@ -49,8 +49,12 @@ extension User {
   convenience init(userInfo: UserInfo) {
     
     self.init()
-    
     username = userInfo.username
+    updateUserWithUserInfo(userInfo)
+  }
+  
+  func updateUserWithUserInfo(userInfo: UserInfo) {
+    
     creationDate = userInfo.creationDate ?? NSDate()
     
     gravatar = userInfo.gravatar ?? ""

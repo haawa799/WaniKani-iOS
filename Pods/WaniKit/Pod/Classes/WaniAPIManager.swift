@@ -28,7 +28,11 @@ public protocol WaniApiManagerDelegate: class {
   func apiKeyWasUsedBeforeItWasSet()
 }
 
-public class WaniApiManager: NSObject {
+public class WaniApiManager {
+  
+  public init() {
+    
+  }
   
   public weak var delegate: WaniApiManagerDelegate?
   
@@ -39,12 +43,6 @@ public class WaniApiManager: NSObject {
     q.maxConcurrentOperationCount = 1
     return q
   }()
-  
-  // MARK: - Singltone
-  
-  public static func sharedInstance() -> WaniApiManager {
-    return instance
-  }
   
   // MARK: - Public API
   
@@ -84,13 +82,6 @@ public class WaniApiManager: NSObject {
   }
   
   // MARK: Private
-  
-  private static let instance = WaniApiManager()
   private var myKey: String?
-  
-  
-  private override init() {
-    super.init()
-  }
   
 }

@@ -35,44 +35,72 @@ class DataFetchManager: NSObject {
   
   func fetchStudyQueue(completionHandler: ((result: UIBackgroundFetchResult)->())?) {
     
-    WaniApiManager.sharedInstance().fetchStudyQueue { (userInfo, studyQInfo) -> Void in
+    appDelegate.waniApiManager.fetchStudyQueue { (userInfo, studyQInfo) -> Void in
       
       guard let userInfo = userInfo, studyQInfo = studyQInfo else {
         completionHandler?(result: UIBackgroundFetchResult.Failed)
         return
       }
       
-      // Convert to Realm objects
-      let user = User(userInfo: userInfo)
-      let studyQ = StudyQueue(studyQueueInfo: studyQInfo)
-      
-      var newNotification = false
-      let realm = try! Realm()
-      self.updateUserInRealm(user, submitToGC: false, modificationBlock: { (realmUser) -> () in
-        realmUser.studyQueue = studyQ
-      })
-      
-      let users = realm.objects(User)
-      if let user = users.first, let q = user.studyQueue /*where PermissionScope().statusNotifications() == .Authorized*/ {
+      dispatch_async(realmQueue) { () -> Void in
+        try! realm.write({ () -> Void in
+          
+          if let user = user {
+            user.studyQueue?.updateWith(studyQInfo)
+            user.updateUserWithUserInfo(userInfo)
+          } else {
+            let usr = User(userInfo: userInfo)
+            let studyQ = StudyQueue(studyQueueInfo: studyQInfo)
+            dispatch_async(realmQueue) { () -> Void in
+              try! realm.write({ () -> Void in
+                usr.studyQueue = studyQ
+                realm.add(usr)
+              })
+            }
+          }
+        })
         
-        newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
-        let newAppIconCounter = q.reviewsAvaliable + q.lessonsAvaliable
-        let oldAppIconCounter = UIApplication.sharedApplication().applicationIconBadgeNumber
-        newNotification = newNotification || (oldAppIconCounter != newAppIconCounter)
-        UIApplication.sharedApplication().applicationIconBadgeNumber = newAppIconCounter
-        appDelegate.notificationCenterManager.postNotification(.NewStudyQueueReceivedNotification, object: q)
+        var newNotification = false
+        if let q = user?.studyQueue /*where PermissionScope().statusNotifications() == .Authorized*/ {
+          
+          newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(q.nextReviewDate)
+          let newAppIconCounter = q.reviewsAvaliable + q.lessonsAvaliable
+          let oldAppIconCounter = UIApplication.sharedApplication().applicationIconBadgeNumber
+          newNotification = newNotification || (oldAppIconCounter != newAppIconCounter)
+          UIApplication.sharedApplication().applicationIconBadgeNumber = newAppIconCounter
+          appDelegate.notificationCenterManager.postNotification(.NewStudyQueueReceivedNotification, object: q)
+        }
+        if newNotification {
+          completionHandler?(result: UIBackgroundFetchResult.NewData)
+        } else {
+          completionHandler?(result: UIBackgroundFetchResult.NoData)
+        }
       }
-      if newNotification {
-        completionHandler?(result: UIBackgroundFetchResult.NewData)
-      } else {
-        completionHandler?(result: UIBackgroundFetchResult.NoData)
-      }
+      
+      
+//      let studyQ = StudyQueue(studyQueueInfo: studyQInfo)
+////
+//      let realm = try! Realm()
+//      let users = realm.objects(User)
+//
+//      if let usr = users.first {
+//        self.updateUserInRealm(usr, submitToGC: false, modificationBlock: { (realmUser) -> () in
+//          realmUser.updateUserWithUserInfo(userInfo)
+//          realmUser.studyQueue = studyQ
+//        })
+//      } else {
+//        let usr = User(userInfo: userInfo)
+//        usr.studyQueue = studyQ
+//        try! realm.write({ () -> Void in
+//          realm.add(usr)
+//        })
+//      }
     }
   }
   
   func fetchLevelProgression() {
     
-    WaniApiManager.sharedInstance().fetchLevelProgression { (userInfo, levelProgressionInfo) -> Void in
+    appDelegate.waniApiManager.fetchLevelProgression { (userInfo, levelProgressionInfo) -> Void in
       guard let userInfo = userInfo, levelProgressionInfo = levelProgressionInfo else {
         return
       }
@@ -106,39 +134,39 @@ class DataFetchManager: NSObject {
   
   func updateUserInRealm(user: User, submitToGC: Bool, modificationBlock: UserModificationBlock?) {
     
-    var oldLevel = 0
-    let newLevel = user.level
-    
-    let realm = try! Realm()
-    
-    var realmUser: User
-    if let currentUSer = realm.objects(User).first {
-      realmUser = currentUSer
-      oldLevel = realmUser.level
-    } else {
-      try! realm.write({ () -> Void in
-        realm.add(user)
-      })
-      realmUser = user
-    }
-    
-    try! realm.write({ () -> Void in
-      realmUser.gravatar = user.gravatar
-      realmUser.level = user.level
-      realmUser.title = user.title
-      realmUser.about = user.about
-      realmUser.website = user.website
-      realmUser.twitter = user.twitter
-      realmUser.topicsCount = user.topicsCount
-      realmUser.postsCount = user.postsCount
-      modificationBlock?(realmUser: realmUser)
-      realm.add(realmUser, update: true)
-    })
-    realm.refresh()
-    
-    if submitToGC {
-      AwardsManager.sharedInstance.userLevelUp(oldLevel: oldLevel, newLevel: newLevel)
-    }
+//    var oldLevel = 0
+//    let newLevel = user.level
+//    
+//    let realm = try! Realm()
+//    
+//    var realmUser: User
+//    if let currentUSer = realm.objects(User).first {
+//      realmUser = currentUSer
+//      oldLevel = realmUser.level
+//    } else {
+//      try! realm.write({ () -> Void in
+//        realm.add(user)
+//      })
+//      realmUser = user
+//    }
+//    
+//    try! realm.write({ () -> Void in
+//      realmUser.gravatar = user.gravatar
+//      realmUser.level = user.level
+//      realmUser.title = user.title
+//      realmUser.about = user.about
+//      realmUser.website = user.website
+//      realmUser.twitter = user.twitter
+//      realmUser.topicsCount = user.topicsCount
+//      realmUser.postsCount = user.postsCount
+//      modificationBlock?(realmUser: realmUser)
+//      realm.add(realmUser, update: true)
+//    })
+//    realm.refresh()
+//    
+//    if submitToGC {
+//      AwardsManager.sharedInstance.userLevelUp(oldLevel: oldLevel, newLevel: newLevel)
+//    }
   }
   
 }

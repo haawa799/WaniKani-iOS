@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1F94E1B9E35A49A511C13640'
+               BlueprintIdentifier = 'BB661F7F5C4077A4D8FD9072'
                BlueprintName = 'WaniKit-WaniKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'WaniKit.bundle'>
