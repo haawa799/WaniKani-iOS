@@ -26,14 +26,16 @@ public class LevelProgression: Object {
 
 extension LevelProgression {
   
-  convenience init(levelProgressInfo: LevelProgressionInfo) {
-    
-    self.init()
-    
+  func updateWith(levelProgressInfo: LevelProgressionInfo) {
     radicalsProgress = levelProgressInfo.radicalsProgress ?? 0
     radicalsTotal = levelProgressInfo.radicalsTotal ?? 0
     kanjiProgress = levelProgressInfo.radicalsProgress ?? 0
     kanjiTotal = levelProgressInfo.kanjiTotal ?? 0
+  }
+  
+  convenience init(levelProgressInfo: LevelProgressionInfo) {
+    self.init()
+    updateWith(levelProgressInfo)
   }
   
 }
