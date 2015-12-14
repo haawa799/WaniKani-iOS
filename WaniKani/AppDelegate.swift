@@ -10,6 +10,7 @@ import UIKit
 import WaniKit
 import RealmSwift
 import Realm
+import UICKeyChainStore
 
 
 @UIApplicationMain
@@ -18,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   private(set) lazy var notificationCenterManager = NotificationCenterManager()
   private(set) lazy var fabricManager = FabricEventsManager()
   private(set) lazy var waniApiManager = WaniApiManager()
+  
+  let apiKeyStoreKey = "WaniKaniApiKey"
+  let keychain = UICKeyChainStore(service: "com.haawa.WaniKani")
   
   var window: UIWindow?
   var isBackgroundFetching = false
@@ -35,10 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: NotificationManager.notificationsAllowedKey)
     }
     
+    if let key = keychain[apiKeyStoreKey] {
+      waniApiManager.setApiKey(key)
+    }
     waniApiManager.delegate = self
-    waniApiManager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
-    
-    print(user)
     
     return true
   }

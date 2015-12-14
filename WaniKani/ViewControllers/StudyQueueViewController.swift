@@ -131,14 +131,6 @@ class StudyQueueViewController: UIViewController {
     }
     
     isPresented = true
-    
-    if blurView.alpha == 0 {
-      collectionView.alpha = 0
-      UIView.animateWithDuration(1, animations: { () -> Void in
-        self.blurView.alpha = 1
-        self.collectionView.alpha = 1
-      })
-    }
   }
   
   override func viewDidDisappear(animated: Bool) {

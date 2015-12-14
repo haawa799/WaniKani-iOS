@@ -9,6 +9,7 @@ PODS:
   - Realm/Headers (0.95.2)
   - RealmSwift (0.95.2):
     - Realm (= 0.95.2)
+  - UICKeyChainStore (2.1.0)
   - WaniKit (0.1.0)
 
 DEPENDENCIES:
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - PermissionScope
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
+  - UICKeyChainStore
   - WaniKit (from `https://github.com/haawa799/WaniKit.git`, branch `master`)
 
 EXTERNAL SOURCES:
@@ -56,6 +58,7 @@ SPEC CHECKSUMS:
   PermissionScope: 9767066cedefd211d90a8c4f92f6f1a987085ee8
   Realm: 392c2662f18bd6d77c97a2cc1da1273b13c542c1
   RealmSwift: d59af58ee52301069b69468fab018919b591b0c1
+  UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
   WaniKit: e82b2185bd31dbc45114a083bbafa2bc271ed91b
 
 COCOAPODS: 0.39.0
