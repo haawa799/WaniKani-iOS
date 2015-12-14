@@ -15,9 +15,9 @@ import Realm
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
-  let notificationCenterManager = NotificationCenterManager()
-  let fabricManager = FabricEventsManager()
-  let waniApiManager = WaniApiManager()
+  private(set) lazy var notificationCenterManager = NotificationCenterManager()
+  private(set) lazy var fabricManager = FabricEventsManager()
+  private(set) lazy var waniApiManager = WaniApiManager()
   
   var window: UIWindow?
   var isBackgroundFetching = false
