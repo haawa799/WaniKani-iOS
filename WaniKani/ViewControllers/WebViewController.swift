@@ -12,12 +12,30 @@ class WebViewController: UIViewController {
   
   // Public API:
   var url: String?
-  var type = WebSessionType.Lesson
+  var type = WebSessionType.Lesson {
+    didSet {
+      submitButton?.title = buttonTitle
+    }
+  }
+  
+  var buttonTitle: String {
+    var title = "End session"
+    if (type == .Review) && (SettingsSuit.sharedInstance.shouldUseGameCenter == true) {
+      title = "Submit to GameCenter"
+    }
+    return title
+  }
+  
   private var newScoreEarned = 0
   
   
   private var oldOffset: CGFloat?
   
+  @IBOutlet weak var submitButton: UIBarButtonItem! {
+    didSet {
+      submitButton?.title = buttonTitle
+    }
+  }
   @IBOutlet weak var webView: UIWebView! {
     didSet {
       webView.scrollView.delegate = self

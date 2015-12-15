@@ -143,6 +143,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="submitButton" destination="MqB-k6-45T" id="caL-mN-d98"/>
                         <outlet property="webView" destination="aZV-bu-6Yl" id="xF2-ZJ-lCS"/>
                     </connections>
                 </viewController>

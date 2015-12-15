@@ -73,7 +73,6 @@ class AwardsManager: NSObject {
   static let sharedInstance = AwardsManager()
   private var previousLevelNotSubmitted: Int?
   
-  let gameCenterSetting = Setting(key: "shouldUSeGameCenter", script: nil, description: nil)
   let syncAlreadySetting = Setting(key: "syncNeededSettingKey", script: nil, description: nil)
   
   private let player: GKLocalPlayer = GKLocalPlayer.localPlayer()
@@ -85,7 +84,7 @@ class AwardsManager: NSObject {
   
   //initiate gamecenter
   func authenticateLocalPlayer() {
-    guard gameCenterSetting.enabled == true else {return}
+    guard SettingsSuit.sharedInstance.shouldUseGameCenter == true else {return}
     GCHelper.sharedInstance.authenticateLocalUser()
   }
   
@@ -93,7 +92,7 @@ class AwardsManager: NSObject {
   
   func userLevelUp(oldLevel oldLevel: Int?, newLevel: Int) {
     
-    guard gameCenterSetting.enabled == true else {return}
+    guard SettingsSuit.sharedInstance.shouldUseGameCenter == true else {return}
     
     guard player.authenticated == true else {print("not authentificated"); return}
     guard lastSubmitedLevel != newLevel else {print("level was sumbitted before"); return}
@@ -136,14 +135,19 @@ class AwardsManager: NSObject {
   }
   
   func showGameCenterViewController() {
-    guard gameCenterSetting.enabled == true else {return}
+    guard SettingsSuit.sharedInstance.shouldUseGameCenter == true else {
+      let alert = UIAlertController(title: "GameCenter disabled", message: "Enable GameCenter to browse Leaderboards and Achievements", preferredStyle: UIAlertControllerStyle.Alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+      rootViewController.presentViewController(alert, animated: true, completion: nil)
+      return
+    }
     EGC.showGameCenterLeaderboard(leaderboardIdentifier: "wanikani.score.leaderboard.0")
   }
   
   //send high score to leaderboard
   func saveHighscore(scoreUpdate:Int) {
     
-    guard gameCenterSetting.enabled == true else {return}
+    guard SettingsSuit.sharedInstance.shouldUseGameCenter == true else {return}
     
     if GKLocalPlayer.localPlayer().authenticated && scoreUpdate > 0 {
       

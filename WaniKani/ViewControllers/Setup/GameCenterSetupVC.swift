@@ -51,7 +51,7 @@ extension GameCenterSetupVC {
   
   override func nextStep() {
    
-    AwardsManager.sharedInstance.gameCenterSetting.enabled = flatSwitch.selected
+    SettingsSuit.sharedInstance.shouldUseGCSetting.setting.enabled = flatSwitch.selected
     navigationController?.dismissViewControllerAnimated(true, completion: nil)
   }
   

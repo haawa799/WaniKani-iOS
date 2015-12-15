@@ -30,13 +30,6 @@ class SettingsViewController: UIViewController {
     }
   }
   
-  
-  @IBOutlet weak var dogeView: DogeHintView! {
-    didSet {
-      dogeView.hidden = true//(PhoneModel.myModel() == .iPhone4)
-    }
-  }
-  
   let settings = SettingsSuit.sharedInstance.settings
   
 }
@@ -44,7 +37,7 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     switch (indexPath.section, indexPath.row) {
-    case (1, 1): AwardsManager.sharedInstance.showGameCenterViewController()
+    case (1, 2): AwardsManager.sharedInstance.showGameCenterViewController()
     default: break
     }
   }
@@ -66,7 +59,7 @@ extension SettingsViewController: UICollectionViewDataSource {
     let name = setting.description ?? ""
     
     switch (indexPath.section, indexPath.row) {
-    case (1, 1):
+    case (1, 2):
       let identifier = GameCenterCollectionViewCell.identifier
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! GameCenterCollectionViewCell
       cell.label.text = name
