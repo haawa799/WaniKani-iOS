@@ -15,8 +15,7 @@ class StudyQueueViewController: UIViewController {
   private var loadedQueue: StudyQueue?
   var studyQueue: StudyQueue? {
     if loadedQueue == nil {
-      let users = try! Realm().objects(User)
-      if let user = users.first {
+      if let user = user {
         if let q = user.studyQueue {
           loadedQueue = q
         }
@@ -86,6 +85,7 @@ class StudyQueueViewController: UIViewController {
     appDelegate.notificationCenterManager.addObserver(self, notification: .NewStudyQueueReceivedNotification, selector: "newStudyQueueData")
     appDelegate.notificationCenterManager.addObserver(self, notification: .NewLevelProgressionReceivedNotification, selector: "newLevelProgressionData")
     
+    flipVisibleCells()
     collectionView.reloadData()
   }
   
@@ -123,6 +123,22 @@ class StudyQueueViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
+    var needsUpdate = true
+    
+    if let lastUpdateDate = lastUpdateDate {
+      let time = NSDate().timeIntervalSinceDate(lastUpdateDate)
+      if time < waitingTime {
+        needsUpdate = false
+      }
+    }
+    
+    if needsUpdate {
+      if (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching == false {
+        refresh()
+      }
+      lastUpdateDate = NSDate()
+    }
+    
     if appDelegate.waniApiManager.apiKey() != nil {
       var token: dispatch_once_t = 0
       dispatch_once(&token) {
@@ -141,26 +157,6 @@ class StudyQueueViewController: UIViewController {
   private var lastUpdateDate: NSDate?
   private var waitingTime: NSTimeInterval = 20
   private var stratchyHeader: ProgressHeader?
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    var needsUpdate = true
-    
-    if let lastUpdateDate = lastUpdateDate {
-      let time = NSDate().timeIntervalSinceDate(lastUpdateDate)
-      if time < waitingTime {
-        needsUpdate = false
-      }
-    }
-    
-    if needsUpdate {
-      if (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching == false {
-        refresh()
-      }
-      lastUpdateDate = NSDate()
-    }
-  }
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()

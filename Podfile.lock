@@ -47,7 +47,7 @@ CHECKOUT OPTIONS:
     :commit: c65d743f862254854c09b49d6beb71626b040bdb
     :git: https://github.com/realm/realm-cocoa.git
   WaniKit:
-    :commit: 5977bd1a64ddb7cec8b059ad62092ce3c43d4e28
+    :commit: 1f814c8f507d964a8babdc8e1dd8cea842f94a1b
     :git: https://github.com/haawa799/WaniKit.git
 
 SPEC CHECKSUMS:

@@ -8,8 +8,6 @@
 
 import UIKit
 import WaniKit
-import RealmSwift
-import Realm
 import UICKeyChainStore
 
 
@@ -32,17 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
-    DataFetchManager.sharedInstance.performMigrationIfNeeded()
+    DataFetchManager.sharedInstance.makeInitialPreperations()
     
     UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     if NSUserDefaults.standardUserDefaults().valueForKey(NotificationManager.notificationsAllowedKey) == nil {
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: NotificationManager.notificationsAllowedKey)
     }
     
+    waniApiManager.delegate = self
     if let key = keychain[apiKeyStoreKey] {
       waniApiManager.setApiKey(key)
     }
-    waniApiManager.delegate = self
     
     return true
   }
@@ -59,17 +57,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 }
 
-let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-let realm = try! Realm()
-let realmQueue = dispatch_get_main_queue()//dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
-
-var user: User? {
-  return realm.objects(User).first
-}
-
 extension AppDelegate: WaniApiManagerDelegate {
   func apiKeyWasUsedBeforeItWasSet() {
     notificationCenterManager.postNotification(.NoApiKeyNotification, object: nil)
   }
+  
+  func apiKeyWasSet() {
+    
+  }
+  
 }
+
+let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 

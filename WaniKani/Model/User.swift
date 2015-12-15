@@ -35,13 +35,7 @@ public class User: Object {
   public dynamic var creationDate: NSDate = NSDate()
   
   public dynamic var studyQueue: StudyQueue?
-  public dynamic var levelProgression: LevelProgression?
-//  public dynamic var criticalItems: CriticalItemsList?
-  
-  public override static func primaryKey() -> String? {
-    return "username"
-  }
-  
+  public dynamic var levelProgression: LevelProgression?  
 }
 
 extension User {
@@ -49,12 +43,12 @@ extension User {
   convenience init(userInfo: UserInfo) {
     
     self.init()
-    username = userInfo.username
     updateUserWithUserInfo(userInfo)
   }
   
   func updateUserWithUserInfo(userInfo: UserInfo) {
     
+    username = userInfo.username
     creationDate = userInfo.creationDate ?? NSDate()
     
     gravatar = userInfo.gravatar ?? ""
