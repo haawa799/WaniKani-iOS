@@ -57,7 +57,10 @@ class StudyQueueViewController: UIViewController {
   }
   
   @IBAction private func refresh() {
-    DataFetchManager.sharedInstance.fetchAllData()
+    
+    delay(1.0) { () -> () in
+      DataFetchManager.sharedInstance.fetchAllData()
+    }
   }
   
   func flipVisibleCells() {

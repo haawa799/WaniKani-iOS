@@ -78,7 +78,6 @@ class AwardsManager: NSObject {
   private let player: GKLocalPlayer = GKLocalPlayer.localPlayer()
   private let rootViewController: UIViewController = {
     let q = UIApplication.sharedApplication().delegate as! AppDelegate
-    EGC.sharedInstance(q.rootViewController)
     return q.rootViewController
   }()
   
@@ -141,7 +140,7 @@ class AwardsManager: NSObject {
       rootViewController.presentViewController(alert, animated: true, completion: nil)
       return
     }
-    EGC.showGameCenterLeaderboard(leaderboardIdentifier: "wanikani.score.leaderboard.0")
+    GCHelper.sharedInstance.showGameCenter(appDelegate.rootViewController, viewState: GKGameCenterViewControllerState.Leaderboards)
   }
   
   //send high score to leaderboard

@@ -157,7 +157,5 @@ extension SettingsSuit: SettingsDelegate {
     } else if setting == shouldUseGCSetting.setting && setting.enabled == true {
       AwardsManager.sharedInstance.authenticateLocalPlayer()
     }
-    
-    
   }
 }

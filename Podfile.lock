@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (2.0.2)
-  - EasyGameCenter (2.1.0)
   - GCHelper (0.2.6)
   - NJKScrollFullScreen (0.2.6)
   - PermissionScope (1.0.1)
@@ -14,7 +13,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 2.0)
-  - EasyGameCenter (from `https://github.com/DaRkD0G/Easy-Game-Center-Swift.git`)
   - GCHelper (~> 0.2)
   - NJKScrollFullScreen
   - PermissionScope
@@ -24,8 +22,6 @@ DEPENDENCIES:
   - WaniKit (from `https://github.com/haawa799/WaniKit.git`, branch `master`)
 
 EXTERNAL SOURCES:
-  EasyGameCenter:
-    :git: https://github.com/DaRkD0G/Easy-Game-Center-Swift.git
   Realm:
     :branch: swift-2.0
     :git: https://github.com/realm/realm-cocoa.git
@@ -37,9 +33,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/haawa799/WaniKit.git
 
 CHECKOUT OPTIONS:
-  EasyGameCenter:
-    :commit: 4977e88fba31c92b7754192c9cc8357b87c59e01
-    :git: https://github.com/DaRkD0G/Easy-Game-Center-Swift.git
   Realm:
     :commit: c65d743f862254854c09b49d6beb71626b040bdb
     :git: https://github.com/realm/realm-cocoa.git
@@ -52,7 +45,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
-  EasyGameCenter: 506a62b92a6e96b6fc2dbe40549d2e06d1380d0c
   GCHelper: 4a31dac6834c2a2f037cfe61a19303e351fbfb15
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
   PermissionScope: 9767066cedefd211d90a8c4f92f6f1a987085ee8

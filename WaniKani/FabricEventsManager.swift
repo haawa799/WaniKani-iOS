@@ -13,25 +13,47 @@ import Fabric
 
 struct FabricEventsManager {
   
+  let eventSuffix: String = {
+    #if DEBUG
+      return "debug_"
+    #else
+      return ""
+    #endif
+  }()
+  
   enum FabricEventName: String {
     case BackgroundFetch = "Background fetch"
+    case NotificationScheduled = "Notification scheduled"
   }
   
   enum FabricAttributesName: String {
     case Result = "Result"
+    case IsBackgorundFetch = "isBackgroundFetch"
   }
   
   init() {
     Fabric.with([Crashlytics.self()])
-    Crashlytics.sharedInstance().debugMode = true
+    #if DEBUG
+      Crashlytics.sharedInstance().debugMode = true
+    #else
+      Crashlytics.sharedInstance().debugMode = false
+    #endif
   }
   
   func postBackgroundFetchEvent(result: UIBackgroundFetchResult) {
-    postEvent(.BackgroundFetch, attributes: [FabricAttributesName.Result.rawValue : "\(result)"])
+    postEvent(.BackgroundFetch, attributes: ["\(eventSuffix)\(FabricAttributesName.Result.rawValue)" : "\(result)"])
+  }
+  
+  func postNotificationScheduled(backgroundCall: Bool) {
+    postEvent(.NotificationScheduled, attributes: [ FabricAttributesName.IsBackgorundFetch.rawValue : "\(backgroundCall)" ])
   }
   
   func postEvent(eventName: FabricEventName, attributes: [String: AnyObject]?) {
-    Answers.logCustomEventWithName(eventName.rawValue, customAttributes: attributes)
+    Answers.logCustomEventWithName("\(eventSuffix)\(eventName.rawValue)", customAttributes: attributes)
+  }
+  
+  func crash() {
+    Crashlytics.sharedInstance().crash()
   }
   
 }

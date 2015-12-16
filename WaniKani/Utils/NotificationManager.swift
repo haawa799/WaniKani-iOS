@@ -35,12 +35,27 @@ class NotificationManager: NSObject {
   
   func scheduleNextReviewNotification(date: NSDate) -> Bool {
     
+    // Make sure notification is in future
+    guard date.timeIntervalSinceNow > 0 else { return false }
+    
     var newNotificationScheduled = false
     
     if notificationsEnabled {
       
-      if UIApplication.sharedApplication().scheduledLocalNotifications!.count == 0 {
+      // Clean up past notifications
+      if UIApplication.sharedApplication().scheduledLocalNotifications?.count > 0 {
+        for notif in UIApplication.sharedApplication().scheduledLocalNotifications! {
+          if notif.fireDate?.timeIntervalSinceNow < 0 {
+            unscheduleNotification()
+            break
+          }
+        }
+      }
+      
+      // Schedule new notification if there is none yet
+      if UIApplication.sharedApplication().scheduledLocalNotifications?.count == 0 {
         if date.compare(NSDate()) == .OrderedDescending {
+          print("orderDescending")
           let notification = UILocalNotification()
           notification.fireDate = date
           notification.alertBody = "New reviews available!"
@@ -52,11 +67,7 @@ class NotificationManager: NSObject {
           if let isBackgroundFetch = (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching {
             backgroundCall = isBackgroundFetch
           }
-          Answers.logCustomEventWithName("Notification scheduled",
-            customAttributes: [
-              "isBackgroundFetch": "\(backgroundCall)"
-            ])
-        } else {
+          appDelegate.fabricManager.postNotificationScheduled(backgroundCall)
         }
       }
     }
