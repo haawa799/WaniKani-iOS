@@ -26,7 +26,7 @@ class SettingsLayout: UICollectionViewFlowLayout {
     
     if let collectionView = collectionView {
       let insets = collectionView.contentInset
-      collectionView.contentInset = UIEdgeInsets(top: insets.top + height, left: insets.left, bottom: insets.bottom, right: insets.right)
+      collectionView.contentInset = UIEdgeInsets(top: insets.top + height, left: insets.left, bottom: insets.bottom + height, right: insets.right)
     }
     
     minimumLineSpacing = rowsSpacing

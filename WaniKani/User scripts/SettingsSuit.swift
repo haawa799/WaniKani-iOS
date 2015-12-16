@@ -37,6 +37,11 @@ class Setting {
   }
 }
 
+extension Setting: Equatable { }
+func ==(lhs: Setting, rhs: Setting) -> Bool {
+  return lhs.key == rhs.key
+}
+
 class SettingsSuit: NSObject {
   
   typealias SettingOption = (setting: Setting, indexPath: NSIndexPath)
@@ -50,6 +55,8 @@ class SettingsSuit: NSObject {
   let hideStatusBarSetting:SettingOption = (Setting(key: hideStatusBarKey, script: nil, description: "Status bar hidden on Reviews"), NSIndexPath(forItem: 0, inSection: 1))
   let shouldUseGCSetting:SettingOption = (Setting(key: shouldUseGameCenterKey, script: nil, description: "Use GameCenter"), NSIndexPath(forItem: 1, inSection: 1))
   let gameCenterDummySetting:SettingOption = (Setting(key: gameCenterKey, script: nil, description: "Game center"), NSIndexPath(forItem: 2, inSection: 1))
+  // ======================================
+  let ignoreLessonsInIconCounter:SettingOption = (Setting(key: ignoreLessonsInIconBadgeKey, script: nil, description: "Ignore lessons in icon badge"), NSIndexPath(forItem: 3, inSection: 1))
   // ======================================
   
   lazy private(set) var settings: [Int: (name: String, settings:[Setting])] = {
@@ -71,7 +78,12 @@ class SettingsSuit: NSObject {
     otherSettings.append(self.shouldUseGCSetting.setting)
     otherSettings.append(self.gameCenterDummySetting.setting)
     
-    return [firstSectionIndex : (name: "Scripts for Reviews", settings: scriptsSettings) , othersSectionIndex : (name: "Other options", settings: otherSettings)]
+    // Notifications options
+    let notificationsSectionIndex = 2
+    var notificationsSettings = [Setting]()
+    notificationsSettings.append(self.ignoreLessonsInIconCounter.setting)
+    
+    return [firstSectionIndex : (name: "Scripts for Reviews", settings: scriptsSettings) , othersSectionIndex : (name: "Other options", settings: otherSettings) , notificationsSectionIndex: (name: "Notifications options", settings: notificationsSettings)]
   }()
   
   var userScriptsForReview: [UserScript] {
@@ -127,6 +139,7 @@ class SettingsSuit: NSObject {
   static let hideStatusBarKey = "hideStatusBarKey"
   static let gameCenterKey = "gameCenterKey"
   static let shouldUseGameCenterKey = "shouldUSeGameCenter"
+  static let ignoreLessonsInIconBadgeKey = "ignoreLessonsInIconBadgeKey"
   
   // Scripts
   private(set) static var fastForwardScript = UserScript(filename: "fast_forward", scriptName: "Fast forward")
@@ -138,8 +151,13 @@ class SettingsSuit: NSObject {
 
 extension SettingsSuit: SettingsDelegate {
   func settingDidChange(setting: Setting) {
-    if setting.enabled == true {
+    
+    if setting == ignoreButtonSetting.setting {
+      DataFetchManager.sharedInstance.fetchAllData()
+    } else if setting == shouldUseGCSetting.setting && setting.enabled == true {
       AwardsManager.sharedInstance.authenticateLocalPlayer()
     }
+    
+    
   }
 }

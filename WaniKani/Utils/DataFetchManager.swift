@@ -107,7 +107,8 @@ class DataFetchManager: NSObject {
     
     if PermissionScope().statusNotifications() != .Disabled {
       newNotification = NotificationManager.sharedInstance.scheduleNextReviewNotification(studyQueue.nextReviewDate)
-      let newAppIconCounter = studyQueue.reviewsAvaliable + studyQueue.lessonsAvaliable
+      let additionalNotifications = SettingsSuit.sharedInstance.ignoreLessonsInIconCounter.setting.enabled ? 0 : studyQueue.lessonsAvaliable
+      let newAppIconCounter = studyQueue.reviewsAvaliable + additionalNotifications
       let oldAppIconCounter = UIApplication.sharedApplication().applicationIconBadgeNumber
       newNotification = newNotification || (oldAppIconCounter != newAppIconCounter)
       UIApplication.sharedApplication().applicationIconBadgeNumber = newAppIconCounter

@@ -73,7 +73,7 @@ class WebViewController: UIViewController {
 extension WebViewController: UIWebViewDelegate {
   
   private func checkForNewScore() {
-    if let response = webView.stringByEvaluatingJavaScriptFromString("getScore();"),//("function f() {var q = document.getElementById('completed-count').textContent;return q;}f();"),
+    if let response = webView.stringByEvaluatingJavaScriptFromString("getScore();"),
       let score = Int(response) where score != 0 {
         print("score: = \(newScoreEarned) + \(score)")
         newScoreEarned += score
