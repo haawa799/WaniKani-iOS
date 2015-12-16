@@ -10,7 +10,6 @@
 
 import UIKit
 import GameKit
-import EasyGameCenter
 import GCHelper
 
 enum LevelProgressionStage {

@@ -8,7 +8,6 @@
 
 import UIKit
 import GameKit
-import EasyGameCenter
 
 class SettingsViewController: UIViewController {
   
