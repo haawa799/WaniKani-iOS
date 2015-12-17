@@ -23,6 +23,7 @@ public class GetUserInfoOperation: GroupOperation {
     let url = NSURL(string: "\(WaniKitConstants.URL.BaseURL)/user/\(apiKey)/user-information")!
     downloadOperation = DownloadUserInfoOperation(url: url, cacheFile: cacheFile)
     parseOperation = ParseUserInfoOperation(cacheFile: cacheFile, handler: handler)
+    parseOperation.addDependency(downloadOperation)
     
     super.init(operations: [downloadOperation, parseOperation])
     name = "Get User info"

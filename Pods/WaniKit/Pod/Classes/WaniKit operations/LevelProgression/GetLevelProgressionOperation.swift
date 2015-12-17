@@ -22,6 +22,7 @@ public class GetLevelProgressionOperation: GroupOperation {
     let url = NSURL(string: "\(WaniKitConstants.URL.BaseURL)/user/\(apiKey)/level-progression")!
     downloadOperation = DownloadLevelProgressionOperation(url: url, cacheFile: cacheFile)
     parseOperation = ParseLevelProgressionOperation(cacheFile: cacheFile, handler: handler)
+    parseOperation.addDependency(downloadOperation)
     
     super.init(operations: [downloadOperation, parseOperation])
     name = "Get Level progression"

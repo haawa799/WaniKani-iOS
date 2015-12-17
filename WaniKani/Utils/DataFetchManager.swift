@@ -32,7 +32,7 @@ class DataFetchManager: NSObject {
   
   func performMigrationIfNeeded() {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 5,
+      schemaVersion: 7,
       migrationBlock: { migration, oldSchemaVersion in
         
     })

@@ -34,8 +34,6 @@ public class User: Object {
   public dynamic var postsCount: Int = 0
   public dynamic var creationDate: NSDate = NSDate()
   
-  public dynamic var fetchCounter: Int = 0
-  
   public dynamic var studyQueue: StudyQueue?
   public dynamic var levelProgression: LevelProgression?  
 }
@@ -63,8 +61,6 @@ extension User {
     
     topicsCount = userInfo.topicsCount ?? 0
     postsCount = userInfo.postsCount ?? 0
-    
-    fetchCounter++
   }
   
 }

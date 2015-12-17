@@ -22,6 +22,7 @@ public class GetStudyQueueOperation: GroupOperation {
     let url = NSURL(string: "\(WaniKitConstants.URL.BaseURL)/user/\(apiKey)/study-queue")!
     downloadOperation = DownloadStudyQueueOperation(url: url, cacheFile: cacheFile)
     parseOperation = ParseStudyQueueOperation(cacheFile: cacheFile, handler: handler)
+    parseOperation.addDependency(downloadOperation)
     
     super.init(operations: [downloadOperation, parseOperation])
     name = "Get Study Queue"
