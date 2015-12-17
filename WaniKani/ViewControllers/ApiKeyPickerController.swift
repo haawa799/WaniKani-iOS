@@ -50,6 +50,13 @@ extension ApiKeyPickerController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
+    // Use key from clipboard if it's valid
+    let pateboard = UIPasteboard.generalPasteboard()
+    if let string = pateboard.string where string.characters.count == keyLength {
+      keyTextField.text = string
+      textDidChange(keyTextField)
+    }
+    
     delay(0.5) { () -> () in
       if self.shouldShowShiba {
         self.dogeHintView.show()
