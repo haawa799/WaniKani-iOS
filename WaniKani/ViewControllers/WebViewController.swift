@@ -33,6 +33,7 @@ class WebViewController: UIViewController {
   
   @IBOutlet weak var submitButton: UIBarButtonItem! {
     didSet {
+      submitButton?.accessibilityIdentifier = "Submit"
       submitButton?.title = buttonTitle
     }
   }

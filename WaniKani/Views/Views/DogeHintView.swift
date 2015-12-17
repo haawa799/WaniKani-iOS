@@ -38,6 +38,10 @@ class DogeHintView: UIView {
   }
   
   private func playBreathingAnimation() {
+    
+    guard NSProcessInfo.processInfo().environment["isUITest"] == nil else { return }
+    
+    
     let delay0 = 0.05
     let delay1 = 0.05
     let firstPartDuration = (1 - (delay0 + delay1)) / 2
