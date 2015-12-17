@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   let apiKeyStoreKey = "WaniKaniApiKey"
   let keychain = UICKeyChainStore(service: "com.haawa.WaniKani")
+  let firstRunDefaultsKey = "FirstRun"
+  let firstRunValue = "1strun"
   
   var window: UIWindow?
   var isBackgroundFetching = false
@@ -28,8 +30,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return q!
   }()
   
+  private func cleanKeychainIfNeeded() {
+    
+    if (NSUserDefaults.standardUserDefaults().objectForKey(firstRunDefaultsKey) == nil) {
+      keychain[apiKeyStoreKey] = nil
+      NSUserDefaults.standardUserDefaults().setValue(firstRunValue, forKey: firstRunDefaultsKey)
+      NSUserDefaults.standardUserDefaults().synchronize()
+    }
+  }
+  
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+    
+    cleanKeychainIfNeeded()
+    
     DataFetchManager.sharedInstance.makeInitialPreperations()
     
     UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
@@ -39,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     waniApiManager.delegate = self
     if let key = keychain[apiKeyStoreKey] {
+      
       waniApiManager.setApiKey(key)
     }
     
