@@ -31,8 +31,18 @@ public protocol WaniApiManagerDelegate: class {
 
 public class WaniApiManager {
   
-  public init() {
+  public var baseURL: String? {
     
+    guard let apiKey = apiKey() else {
+      return nil
+    }
+    return testBaseURL ?? "\(WaniKitConstants.URL.BaseURL)/user/\(apiKey)/"
+  }
+  
+  private var testBaseURL: String?
+  
+  public init(testBaseURL: String? = nil) {
+    self.testBaseURL = testBaseURL
   }
   
   public weak var delegate: WaniApiManagerDelegate?
@@ -56,36 +66,36 @@ public class WaniApiManager {
   }
   
   public func fetchStudyQueue(handler: StudyQueueRecieveBlock) {
-    guard let apiKey = apiKey() else {
+    guard let baseURL = baseURL else {
       return
     }
     
     if (getStudyQueueOperation == nil) || (getStudyQueueOperation?.finished == true) {
-      getStudyQueueOperation = GetStudyQueueOperation(apiKey: apiKey, handler: handler)
+      getStudyQueueOperation = GetStudyQueueOperation(baseURL: baseURL, handler: handler)
       getStudyQueueOperation?.userInitiated = true
       operationQueue.addOperation(getStudyQueueOperation!)
     }
   }
   
   public func fetchLevelProgression(handler: LevelProgressionRecieveBlock) {
-    guard let apiKey = apiKey() else {
+    guard let baseURL = baseURL else {
       return
     }
     
     if (getLevelProgressionOperation == nil) || (getLevelProgressionOperation?.finished == true) {
-      getLevelProgressionOperation = GetLevelProgressionOperation(apiKey: apiKey, handler: handler)
+      getLevelProgressionOperation = GetLevelProgressionOperation(baseURL: baseURL, handler: handler)
       getLevelProgressionOperation?.userInitiated = true
       operationQueue.addOperation(getLevelProgressionOperation!)
     }
   }
   
   public func fetchUserInfo(handler: UserInfoRecieveBlock) {
-    guard let apiKey = apiKey() else {
+    guard let baseURL = baseURL else {
       return
     }
     
     if (getUserInfoOperation == nil) || (getUserInfoOperation?.finished == true) {
-      getUserInfoOperation = GetUserInfoOperation(apiKey: apiKey, handler: handler)
+      getUserInfoOperation = GetUserInfoOperation(baseURL: baseURL, handler: handler)
       getUserInfoOperation?.userInitiated = true
       operationQueue.addOperation(getUserInfoOperation!)
     }

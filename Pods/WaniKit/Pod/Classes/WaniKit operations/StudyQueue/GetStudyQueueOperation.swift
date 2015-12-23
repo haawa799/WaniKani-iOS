@@ -13,13 +13,13 @@ public class GetStudyQueueOperation: GroupOperation {
   let downloadOperation: DownloadStudyQueueOperation
   let parseOperation: ParseStudyQueueOperation
   
-  init(apiKey: String, handler: StudyQueueRecieveBlock) {
+  init(baseURL: String, handler: StudyQueueRecieveBlock) {
     
     let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("studyQueue.json")
+    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(NSUUID().UUIDString)_studyQueue.json")
     
     
-    let url = NSURL(string: "\(WaniKitConstants.URL.BaseURL)/user/\(apiKey)/study-queue")!
+    let url = NSURL(string: "\(baseURL)study-queue")!
     downloadOperation = DownloadStudyQueueOperation(url: url, cacheFile: cacheFile)
     parseOperation = ParseStudyQueueOperation(cacheFile: cacheFile, handler: handler)
     parseOperation.addDependency(downloadOperation)
