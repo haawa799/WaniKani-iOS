@@ -26,9 +26,9 @@ class LevelPickerViewController: UIViewController {
       let trueLevel = level + 1
       vc.title = "lvl: \(trueLevel)"
       vc.level = trueLevel
+      hidesBottomBarWhenPushed = true
     }
   }
-  
 }
 
 extension LevelPickerViewController: UITableViewDataSource {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		430401011C1B18EA00D59949 /* FabricEventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430401001C1B18EA00D59949 /* FabricEventsManager.swift */; };
+		43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */; };
 		431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 431A31311BFF59600080944E /* Fipps-Regular.otf */; };
 		4329D0EC1BBD36E2009BEABF /* resize.js in Resources */ = {isa = PBXBuildFile; fileRef = 4329D0EB1BBD36E2009BEABF /* resize.js */; };
 		432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 432C07171BB2E15A0031B3B1 /* notification.m4a */; };
@@ -117,6 +118,7 @@
 		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		430401001C1B18EA00D59949 /* FabricEventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FabricEventsManager.swift; sourceTree = "<group>"; };
+		43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiMetaDataView.swift; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		4329D0EB1BBD36E2009BEABF /* resize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = resize.js; sourceTree = "<group>"; };
 		432C07171BB2E15A0031B3B1 /* notification.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.m4a; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				432C072B1BB3272C0031B3B1 /* DogeHintView.swift */,
 				432C073A1BB338820031B3B1 /* SliceView.swift */,
 				43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */,
+				43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */,
 				437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */,
 				432C073B1BB338820031B3B1 /* SliceView.swift in Sources */,
+				43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */,
 				432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */,
 				434673D81BDE53B80095A4A3 /* GameCenterViewController.swift in Sources */,
 				433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */,

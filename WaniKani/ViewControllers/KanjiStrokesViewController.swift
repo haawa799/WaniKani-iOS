@@ -8,10 +8,14 @@
 
 import UIKit
 import StrokeDrawingView
+import WaniKit
 
 class KanjiStrokesViewController: UIViewController {
   
-  @IBOutlet weak var strokeDrawingView: StrokeDrawingView! {
+  let paperColor = UIColor(red:1, green:0.99, blue:0.97, alpha:1)
+  
+  var firstView: UIView!
+  var strokeDrawingView: StrokeDrawingView!  {
     didSet {
       strokeDrawingView?.delegate = self
       if let kanji = kanji {
@@ -20,12 +24,64 @@ class KanjiStrokesViewController: UIViewController {
     }
   }
   
-  var kanji: Kanji? {
+  var showingBack = true
+  
+  @IBOutlet weak var container: KanjiMetaDataView!
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    firstView = UIView(frame: CGRectZero)
+    firstView.backgroundColor = UIColor.redColor()
+    firstView.hidden = true
+    container.addSubview(firstView)
+    container.backgroundColor = paperColor
+    
+    strokeDrawingView = StrokeDrawingView(frame: CGRectZero)
+    strokeDrawingView.backgroundColor = paperColor
+    
+    let singleTap = UITapGestureRecognizer(target: self, action: Selector("tapped"))
+    singleTap.numberOfTapsRequired = 1
+    
+    container.addGestureRecognizer(singleTap)
+    container.setupWithKanji(kanjiInfo)
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    
+    strokeDrawingView.frame = container.bounds
+    firstView.frame = container.bounds
+  }
+  
+  func tapped() {
+    if (showingBack == false) {
+      UIView.transitionFromView(strokeDrawingView, toView: firstView, duration: 1, options: [UIViewAnimationOptions.TransitionFlipFromRight, .AllowAnimatedContent], completion: nil)
+      showingBack = true
+    } else {
+      UIView.transitionFromView(firstView, toView: strokeDrawingView, duration: 1, options: [UIViewAnimationOptions.TransitionFlipFromRight, .AllowAnimatedContent], completion: nil)
+      showingBack = false
+    }
+    
+  }
+  
+  private var kanji: Kanji? {
     didSet {
       guard let kanji = kanji else { return }
       strokeDrawingView?.stopForeverAnimation()
       strokeDrawingView?.clean()
       strokeDrawingView?.dataSource = kanji
+      
+    }
+  }
+  
+  var kanjiInfo: KanjiInfo? {
+    didSet {
+      if let kanjiInfo = kanjiInfo {
+        container?.setupWithKanji(kanjiInfo)
+        kanji = Kanji(kanji: kanjiInfo.character)
+      }
     }
   }
   

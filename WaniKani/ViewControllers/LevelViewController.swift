@@ -22,11 +22,11 @@ class LevelViewController: UIViewController {
   
   var level: Int = 1
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     let manager = WaniApiManager()
-//    manager.setApiKey("")
     manager.setApiKey("c6ce4072cf1bd37b407f2c86d69137e3")
 
     
@@ -52,6 +52,12 @@ class LevelViewController: UIViewController {
     }
   }
   
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    showTabBar(true)
+  }
+  
   var kanjiArray: [KanjiInfo]?
 }
 
@@ -69,7 +75,7 @@ extension LevelViewController: UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("kanjiCell", forIndexPath: indexPath)
     
     if let kanji = kanjiArray?[indexPath.item], let kanjiCell = cell as? KanjiCell {
-      kanjiCell.kanjiLabel?.text = kanji.character
+      kanjiCell.setupWithKanji(kanji)
     }
     
     return cell
@@ -80,8 +86,7 @@ extension LevelViewController: UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     
     if let kanji = kanjiArray?[indexPath.item] {
-      let k = Kanji(kanji: kanji.character)
-      kanjiViewController?.kanji = k
+      kanjiViewController?.kanjiInfo = kanji
     }
   }
 }
