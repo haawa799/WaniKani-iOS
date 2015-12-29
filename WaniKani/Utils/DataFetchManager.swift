@@ -70,7 +70,7 @@ class DataFetchManager: NSObject {
     appDelegate.waniApiManager.fetchStudyQueue { result -> Void in
       
       switch result {
-      case .Error(let error):
+      case .Error(let _):
         completionHandler?(result: UIBackgroundFetchResult.Failed)
         
       case .Response(let response):
@@ -130,7 +130,7 @@ class DataFetchManager: NSObject {
     appDelegate.waniApiManager.fetchLevelProgression { result -> Void in
       
       switch result {
-      case .Error(let error): break
+      case .Error(let _): break
         
       case .Response(let response):
         let resp = response()
