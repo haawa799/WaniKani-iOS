@@ -19,7 +19,7 @@ DEPENDENCIES:
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
   - UICKeyChainStore
-  - WaniKit
+  - WaniKit (from `https://github.com/haawa799/WaniKit.git`, branch `master`)
 
 EXTERNAL SOURCES:
   Realm:
@@ -28,6 +28,9 @@ EXTERNAL SOURCES:
   RealmSwift:
     :branch: swift-2.0
     :git: https://github.com/realm/realm-cocoa.git
+  WaniKit:
+    :branch: master
+    :git: https://github.com/haawa799/WaniKit.git
 
 CHECKOUT OPTIONS:
   Realm:
@@ -36,6 +39,9 @@ CHECKOUT OPTIONS:
   RealmSwift:
     :commit: c65d743f862254854c09b49d6beb71626b040bdb
     :git: https://github.com/realm/realm-cocoa.git
+  WaniKit:
+    :commit: fea1ca114bf3fcd219b00e3bcfa365ba997593b4
+    :git: https://github.com/haawa799/WaniKit.git
 
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad

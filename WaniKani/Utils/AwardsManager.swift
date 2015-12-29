@@ -86,15 +86,22 @@ class AwardsManager: NSObject {
     GCHelper.sharedInstance.authenticateLocalUser()
   }
   
-  private var lastSubmitedLevel: Int?
+  func resetAchievements() {
+    guard SettingsSuit.sharedInstance.shouldUseGameCenter == true else {return}
+    guard player.authenticated == true else {print("not authentificated"); return}
+    
+    GKAchievement.resetAchievementsWithCompletionHandler(nil)
+  }
+  
+  private var lastSubmitedLevel = IntUserDefault(key: "lastSubmitedLevel")
   
   func userLevelUp(oldLevel oldLevel: Int?, newLevel: Int) {
     
     guard SettingsSuit.sharedInstance.shouldUseGameCenter == true else {return}
     
     guard player.authenticated == true else {print("not authentificated"); return}
-    guard lastSubmitedLevel != newLevel else {print("level was sumbitted before"); return}
-
+    guard lastSubmitedLevel.value != newLevel else {print("level was sumbitted before"); return}
+    
     var achievementsToReport = [GKAchievement]()
 
     // Unlock older achievements
@@ -123,12 +130,9 @@ class AwardsManager: NSObject {
       achievementsToReport.append(achievement)
     }
     
-    delay(4.0, closure: { () -> () in
-      GKAchievement.reportAchievements(achievementsToReport) { (error) -> Void in
-        guard error == nil else {return}
-        self.lastSubmitedLevel = newLevel
-      }
-    })
+    GKAchievement.reportAchievements(achievementsToReport) { (error) -> Void in
+      guard error == nil else {return}
+    }
 
   }
   

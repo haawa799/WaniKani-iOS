@@ -8,48 +8,28 @@
 
 import UIKit
 
-public typealias LevelProgressionRecieveBlock = (userInfo: UserInfo?, levelProgression: LevelProgressionInfo?) -> Void
+public typealias LevelProgressionResponse = (userInfo: UserInfo?, levelProgression: LevelProgressionInfo?)
+public typealias LevelProgressionRecieveBlock = (Result<LevelProgressionResponse, NSError>) -> Void
 
-public class ParseLevelProgressionOperation: Operation {
+
+public class ParseLevelProgressionOperation: ParseOperation<LevelProgressionResponse> {
   
-  private let cacheFile: NSURL
-  private var handler: LevelProgressionRecieveBlock
-  
-  public init(cacheFile: NSURL, handler: LevelProgressionRecieveBlock ) {
-    self.cacheFile = cacheFile
-    self.handler = handler
-    super.init()
+  override init(cacheFile: NSURL, handler: ResponseHandler) {
+    super.init(cacheFile: cacheFile, handler: handler)
     name = "Parse LevelProgression"
   }
   
-  override func execute() {
-    guard let stream = NSInputStream(URL: cacheFile) else {
-      finish()
-      return
-    }
-    stream.open()
+  override func parsedValue(rootDictionary: NSDictionary?) -> LevelProgressionResponse? {
     
-    defer {
-      stream.close()
+    var user: UserInfo?
+    var levelProgress: LevelProgressionInfo?
+    if let userInfo = rootDictionary?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {
+      user = UserInfo(dict: userInfo)
+    }
+    if let levelProgInfo = rootDictionary?[WaniKitConstants.ResponseKeys.RequestedInfoKey] as? NSDictionary {
+      levelProgress = LevelProgressionInfo(dict: levelProgInfo)
     }
     
-    do {
-      let json = try NSJSONSerialization.JSONObjectWithStream(stream, options: []) as? [String: AnyObject]
-      
-      var user: UserInfo?
-      var levelProgress: LevelProgressionInfo?
-      if let userInfo = json?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {
-        user = UserInfo(dict: userInfo)
-      }
-      if let levelProgInfo = json?[WaniKitConstants.ResponseKeys.RequestedInfoKey] as? NSDictionary {
-        levelProgress = LevelProgressionInfo(dict: levelProgInfo)
-      }
-      handler(userInfo: user, levelProgression: levelProgress)
-      finish()
-    }
-    catch let jsonError as NSError {
-      finishWithError(jsonError)
-    }
+    return (user, levelProgress)
   }
-  
 }

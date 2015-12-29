@@ -37,6 +37,26 @@ class Setting {
   }
 }
 
+class IntUserDefault {
+  let key: String
+  
+  weak var delegate: SettingsDelegate?
+  
+  var value: Int = 0 {
+    didSet {
+      if value != oldValue {
+        NSUserDefaults.standardUserDefaults().setInteger(value, forKey: key)
+        NSUserDefaults.standardUserDefaults().synchronize()
+      }
+    }
+  }
+  
+  init(key: String) {
+    self.key = key
+    self.value = NSUserDefaults.standardUserDefaults().integerForKey(key)
+  }
+}
+
 extension Setting: Equatable { }
 func ==(lhs: Setting, rhs: Setting) -> Bool {
   return lhs.key == rhs.key

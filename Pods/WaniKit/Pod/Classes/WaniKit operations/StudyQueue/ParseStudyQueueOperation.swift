@@ -8,48 +8,28 @@
 
 import UIKit
 
-public typealias StudyQueueRecieveBlock = (userInfo: UserInfo?, studyQInfo: StudyQueueInfo?) -> Void
+public typealias StudyQueueResponse = (userInfo: UserInfo?, studyQInfo: StudyQueueInfo?)
+public typealias StudyQueueRecieveBlock = (Result<StudyQueueResponse, NSError>) -> Void
 
-public class ParseStudyQueueOperation: Operation {
+
+public class ParseStudyQueueOperation: ParseOperation<StudyQueueResponse> {
   
-  private let cacheFile: NSURL
-  private var handler: StudyQueueRecieveBlock
-  
-  public init(cacheFile: NSURL, handler: StudyQueueRecieveBlock ) {
-    self.cacheFile = cacheFile
-    self.handler = handler
-    super.init()
-    name = "Parse StudyQueue"
+  override init(cacheFile: NSURL, handler: ResponseHandler) {
+    super.init(cacheFile: cacheFile, handler: handler)
+    name = "Parse LevelProgression"
   }
   
-  override func execute() {
-    guard let stream = NSInputStream(URL: cacheFile) else {
-      finish()
-      return
-    }
-    stream.open()
+  override func parsedValue(rootDictionary: NSDictionary?) -> StudyQueueResponse? {
     
-    defer {
-      stream.close()
+    var user: UserInfo?
+    var studyQ: StudyQueueInfo?
+    if let userInfo = rootDictionary?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {
+      user = UserInfo(dict: userInfo)
+    }
+    if let studyQInfo = rootDictionary?[WaniKitConstants.ResponseKeys.RequestedInfoKey] as? NSDictionary {
+      studyQ = StudyQueueInfo(dict: studyQInfo)
     }
     
-    do {
-      let json = try NSJSONSerialization.JSONObjectWithStream(stream, options: []) as? [String: AnyObject]
-      
-      var user: UserInfo?
-      var studyQ: StudyQueueInfo?
-      if let userInfo = json?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {
-        user = UserInfo(dict: userInfo)
-      }
-      if let studyQInfo = json?[WaniKitConstants.ResponseKeys.RequestedInfoKey] as? NSDictionary {
-        studyQ = StudyQueueInfo(dict: studyQInfo)
-      }
-      handler(userInfo: user, studyQInfo: studyQ)
-      finish()
-    }
-    catch let jsonError as NSError {
-      finishWithError(jsonError)
-    }
+    return (user, studyQ)
   }
-  
 }

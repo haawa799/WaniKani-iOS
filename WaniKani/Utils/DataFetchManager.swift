@@ -67,38 +67,46 @@ class DataFetchManager: NSObject {
   func fetchStudyQueue(completionHandler: ((result: UIBackgroundFetchResult)->())? = nil) {
     
     // Fetch data
-    appDelegate.waniApiManager.fetchStudyQueue { (userInfo, studyQInfo) -> Void in
+    appDelegate.waniApiManager.fetchStudyQueue { result -> Void in
       
-      // Make sure recieved data is OK
-      guard let userInfo = userInfo, studyQInfo = studyQInfo else {
+      switch result {
+      case .Error(let error):
         completionHandler?(result: UIBackgroundFetchResult.Failed)
-        return
-      }
-      
-      // Update user and study queue on realmQueue
-      dispatch_async(realmQueue) { () -> Void in
         
-        // Make sure that user exist
-        guard let user = realm().objects(User).first else { return }
+      case .Response(let response):
+        let resp = response()
         
-        // Update study queue, and user info
-        try! realm().write({ () -> Void in
-          user.studyQueue?.updateWith(studyQInfo)
-          user.updateUserWithUserInfo(userInfo)
-        })
-        realm().refresh()
+        // Make sure recieved data is OK
+        guard let userInfo = resp.userInfo, studyQInfo = resp.studyQInfo else {
+          completionHandler?(result: UIBackgroundFetchResult.Failed)
+          return
+        }
         
-        // Do some stuff with data
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        // Update user and study queue on realmQueue
+        dispatch_async(realmQueue) { () -> Void in
+          
+          // Make sure that user exist
+          guard let user = realm().objects(User).first else { return }
+          
+          // Update study queue, and user info
+          try! realm().write({ () -> Void in
+            self.checkIfUserLeveledUp(user.level, newLevel: userInfo.level)
+            user.studyQueue?.updateWith(studyQInfo)
+            user.updateUserWithUserInfo(userInfo)
+          })
           realm().refresh()
-          let user = realm().objects(User).first
-          guard let studyQ =  user?.studyQueue else { return }
-          let result: UIBackgroundFetchResult = self.schedulePushNotificationIfNeededFor(studyQ) ? .NewData : .NoData
-          appDelegate.notificationCenterManager.postNotification(.NewStudyQueueReceivedNotification, object: studyQ)
-          completionHandler?(result: result)
-        })
+          
+          // Do some stuff with data
+          dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            realm().refresh()
+            let user = realm().objects(User).first
+            guard let studyQ =  user?.studyQueue else { return }
+            let result: UIBackgroundFetchResult = self.schedulePushNotificationIfNeededFor(studyQ) ? .NewData : .NoData
+            appDelegate.notificationCenterManager.postNotification(.NewStudyQueueReceivedNotification, object: studyQ)
+            completionHandler?(result: result)
+          })
+        }
       }
-      
     }
   }
   
@@ -117,35 +125,64 @@ class DataFetchManager: NSObject {
   }
   
   func fetchLevelProgression() {
-
+    
     // Fetch data
-    appDelegate.waniApiManager.fetchLevelProgression { (userInfo, levelProgressionInfo) -> Void in
+    appDelegate.waniApiManager.fetchLevelProgression { result -> Void in
       
-      // Make sure recieved data is OK
-      guard let userInfo = userInfo, levelProgressionInfo = levelProgressionInfo else {
-        return
-      }
-      
-      dispatch_async(realmQueue) { () -> Void in
+      switch result {
+      case .Error(let error): break
         
-        // Make sure that user exist
-        guard let user = realm().objects(User).first else { return }
+      case .Response(let response):
+        let resp = response()
         
-        // Update study queue, and user info
-        try! realm().write({ () -> Void in
-          user.levelProgression?.updateWith(levelProgressionInfo)
-          user.updateUserWithUserInfo(userInfo)
-        })
-        realm().refresh()
+        // Make sure recieved data is OK
+        guard let userInfo = resp.userInfo, levelProgressionInfo = resp.levelProgression else {
+          return
+        }
         
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        dispatch_async(realmQueue) { () -> Void in
+          
+          // Make sure that user exist
+          guard let user = realm().objects(User).first else { return }
+          
+          // Update study queue, and user info
+          try! realm().write({ () -> Void in
+            self.checkIfUserLeveledUp(user.level, newLevel: userInfo.level)
+            user.levelProgression?.updateWith(levelProgressionInfo)
+            user.updateUserWithUserInfo(userInfo)
+          })
           realm().refresh()
-          let user = realm().objects(User).first
-          guard let levelProgression =  user?.levelProgression else { return}
-          appDelegate.notificationCenterManager.postNotification(.NewLevelProgressionReceivedNotification, object: levelProgression)
-        })
+          
+          dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            realm().refresh()
+            let user = realm().objects(User).first
+            guard let levelProgression =  user?.levelProgression else { return}
+            appDelegate.notificationCenterManager.postNotification(.NewLevelProgressionReceivedNotification, object: levelProgression)
+          })
+        }
       }
     }
+  }
+  
+  func checkIfUserLeveledUp(oldLevel: Int, newLevel: Int?) {
+    
+    guard let newLevel = newLevel else { return }
+    
+    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+      //User leveled up
+      
+      
+      //      if oldLevel < newLevel {
+      
+      delay(7, closure: { () -> () in
+        //          AwardsManager.sharedInstance.resetAchievements()
+        AwardsManager.sharedInstance.userLevelUp(oldLevel: oldLevel, newLevel: newLevel)
+      })
+      
+      
+      //      }
+    }
+    
   }
   
   

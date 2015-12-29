@@ -36,10 +36,11 @@ public class WaniApiManager {
     guard let apiKey = apiKey() else {
       return nil
     }
-    return testBaseURL ?? "\(WaniKitConstants.URL.BaseURL)/user/\(apiKey)/"
+    return testBaseURL ?? "\(WaniKitConstants.URL.BaseURL)/user/\(apiKey)"
   }
   
   private var testBaseURL: String?
+  private let identifier = NSUUID().UUIDString
   
   public init(testBaseURL: String? = nil) {
     self.testBaseURL = testBaseURL
@@ -50,6 +51,7 @@ public class WaniApiManager {
   public private(set) var getStudyQueueOperation: GetStudyQueueOperation?
   public private(set) var getLevelProgressionOperation: GetLevelProgressionOperation?
   public private(set) var getUserInfoOperation: GetUserInfoOperation?
+  public private(set) var getKanjiListOperation: GetKanjiListOperation?
   public private(set) var operationQueue: OperationQueue = {
     let q = OperationQueue()
     q.maxConcurrentOperationCount = 1
@@ -71,7 +73,7 @@ public class WaniApiManager {
     }
     
     if (getStudyQueueOperation == nil) || (getStudyQueueOperation?.finished == true) {
-      getStudyQueueOperation = GetStudyQueueOperation(baseURL: baseURL, handler: handler)
+      getStudyQueueOperation = GetStudyQueueOperation(baseURL: baseURL, cacheFilePrefix: identifier, handler: handler)
       getStudyQueueOperation?.userInitiated = true
       operationQueue.addOperation(getStudyQueueOperation!)
     }
@@ -83,21 +85,33 @@ public class WaniApiManager {
     }
     
     if (getLevelProgressionOperation == nil) || (getLevelProgressionOperation?.finished == true) {
-      getLevelProgressionOperation = GetLevelProgressionOperation(baseURL: baseURL, handler: handler)
+      getLevelProgressionOperation = GetLevelProgressionOperation(baseURL: baseURL, cacheFilePrefix: identifier, handler: handler)
       getLevelProgressionOperation?.userInitiated = true
       operationQueue.addOperation(getLevelProgressionOperation!)
     }
   }
   
-  public func fetchUserInfo(handler: UserInfoRecieveBlock) {
+  public func fetchUserInfo(handler: UserInfoResponseHandler) {
     guard let baseURL = baseURL else {
       return
     }
     
     if (getUserInfoOperation == nil) || (getUserInfoOperation?.finished == true) {
-      getUserInfoOperation = GetUserInfoOperation(baseURL: baseURL, handler: handler)
+      getUserInfoOperation = GetUserInfoOperation(baseURL: baseURL, cacheFilePrefix: identifier, handler: handler)
       getUserInfoOperation?.userInitiated = true
       operationQueue.addOperation(getUserInfoOperation!)
+    }
+  }
+  
+  public func fetchKanjiList(level: Int, handler: KanjiListResponseHandler) {
+    guard let baseURL = baseURL else {
+      return
+    }
+    
+    if (getKanjiListOperation == nil) || (getKanjiListOperation?.finished == true) {
+      getKanjiListOperation = GetKanjiListOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
+      getKanjiListOperation?.userInitiated = true
+      operationQueue.addOperation(getKanjiListOperation!)
     }
   }
   

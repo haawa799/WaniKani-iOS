@@ -6,7 +6,7 @@
 //
 //
 
-import UIKit
+import Foundation
 
 public struct UserInfo {
   
@@ -22,13 +22,13 @@ public struct UserInfo {
   private static let keyPostsCount = "posts_count"
   private static let keyCreationDate = "creation_date"
   
-  public var username: NSString
-  public var gravatar: NSString?
+  public var username: String
+  public var gravatar: String?
   public var level: Int?
-  public var title: NSString?
-  public var about: NSString?
-  public var website: NSString?
-  public var twitter: NSString?
+  public var title: String?
+  public var about: String?
+  public var website: String?
+  public var twitter: String?
   public var topicsCount: Int?
   public var postsCount: Int?
   public var creationDate: NSDate?
@@ -48,7 +48,7 @@ extension UserInfo: DictionaryInitialization {
     title = (dict[UserInfo.keyTitle] as? String)
     
     about = (dict[UserInfo.keyAbout] as? String)
-    website = (dict[UserInfo.keyWebsite] as? NSString)
+    website = (dict[UserInfo.keyWebsite] as? String)
     twitter = (dict[UserInfo.keyTwitter] as? String)
     
     topicsCount = (dict[UserInfo.keyTopicsCount] as? Int)

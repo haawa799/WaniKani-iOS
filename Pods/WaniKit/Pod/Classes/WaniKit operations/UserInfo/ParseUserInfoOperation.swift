@@ -9,44 +9,22 @@
 import UIKit
 
 
-public typealias UserInfoRecieveBlock = (userInfo: UserInfo?) -> Void
+public typealias UserInfoResponse = (UserInfo?)
+public typealias UserInfoResponseHandler = (Result<UserInfoResponse, NSError>) -> Void
 
-public class ParseUserInfoOperation: Operation {
+public class ParseUserInfoOperation: ParseOperation<UserInfoResponse> {
   
-  private let cacheFile: NSURL
-  private var handler: UserInfoRecieveBlock
-  
-  public init(cacheFile: NSURL, handler: UserInfoRecieveBlock ) {
-    self.cacheFile = cacheFile
-    self.handler = handler
-    super.init()
+  override init(cacheFile: NSURL, handler: ResponseHandler) {
+    super.init(cacheFile: cacheFile, handler: handler)
     name = "Parse User info"
   }
   
-  override func execute() {
-    guard let stream = NSInputStream(URL: cacheFile) else {
-      finish()
-      return
+  override func parsedValue(rootDictionary: NSDictionary?) -> UserInfoResponse? {
+    var user: UserInfo?
+    if let userInfo = rootDictionary?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {
+      user = UserInfo(dict: userInfo)
     }
-    stream.open()
-    
-    defer {
-      stream.close()
-    }
-    
-    do {
-      let json = try NSJSONSerialization.JSONObjectWithStream(stream, options: []) as? [String: AnyObject]
-      
-      var user: UserInfo?
-      if let userInfo = json?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {
-        user = UserInfo(dict: userInfo)
-      }
-      handler(userInfo: user)
-      finish()
-    }
-    catch let jsonError as NSError {
-      finishWithError(jsonError)
-    }
+    return user
   }
   
 }

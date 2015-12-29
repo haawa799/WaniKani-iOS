@@ -8,12 +8,18 @@
 
 import UIKit
 
+public enum Result<T, U> {
+  case Response(() -> T)
+  case Error(() -> U)
+}
+
 public class DownloadOperation: GroupOperation {
   
   let cacheFile: NSURL
   
   init(url: NSURL, cacheFile: NSURL) {
     
+    print(url)
     self.cacheFile = cacheFile
     
     super.init(operations: [])
@@ -40,6 +46,7 @@ public class DownloadOperation: GroupOperation {
   }
   
   func downloadFinished(url: NSURL?, response: NSURLResponse?, error: NSError?) {
+    
     if let localURL = url {
       do {
         try NSFileManager.defaultManager().removeItemAtURL(cacheFile)
