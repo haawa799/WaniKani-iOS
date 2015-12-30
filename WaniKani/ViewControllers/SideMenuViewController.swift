@@ -8,6 +8,7 @@
 
 import UIKit
 import RESideMenu
+import ACEDrawingView
 
 class SideMenuViewController: RESideMenu {
   
@@ -28,13 +29,10 @@ class SideMenuViewController: RESideMenu {
     
     backgroundImage = UIImage(named: "strokes_bg")
     contentViewController.view.backgroundColor = UIColor.clearColor()
+    view.clipsToBounds = true
     
     //
     kanjiPracticeController.kanjiCharacter = "飲"
-    
-    delay(10) { () -> () in
-      self.kanjiPracticeController.kanjiCharacter = "進"
-    }
   }
   
   func dumpAnimation() {
@@ -54,6 +52,20 @@ class SideMenuViewController: RESideMenu {
           })
         })
     })
+  }
+}
+
+extension SideMenuViewController {
+  
+  override func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+
+    let locationPoint = touch.locationInView(view)
+        
+    if let _ = view.hitTest(locationPoint, withEvent: nil) as? ACEDrawingView {
+      return false
+    }
+    
+    return true
   }
 }
 

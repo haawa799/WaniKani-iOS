@@ -9,6 +9,7 @@
 import UIKit
 import StrokeDrawingView
 import WaniKit
+import ACEDrawingView
 
 class KanjiPracticeViewController: UIViewController {
   
@@ -16,6 +17,20 @@ class KanjiPracticeViewController: UIViewController {
     didSet {
       strokeDrawingView.delegate = self
     }
+  }
+  @IBOutlet weak var drawingView: ACEDrawingView! {
+    didSet {
+      drawingView?.lineColor = UIColor(red:0.99, green:0, blue:0.65, alpha:1)
+      drawingView?.lineWidth = 5
+    }
+  }
+  
+  @IBAction func undoAction(sender: AnyObject) {
+    drawingView.undoLatestStep()
+  }
+  
+  @IBAction func trashAction(sender: AnyObject) {
+    drawingView.clear()
   }
   
   func setKanji() {

@@ -15,3 +15,4 @@ pod "StrokeDrawingView", :git => 'https://github.com/haawa799/StrokeDrawingView.
 pod 'WaniKit', :git => 'https://github.com/haawa799/WaniKit.git', :branch => 'master'
 pod "KanjiBezierPaths", :git => 'https://github.com/haawa799/KanjiBezierPaths.git', :branch => 'master'
 pod 'RESideMenu'
+pod 'ACEDrawingView'

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '62B2FDDC22099C5C83FF257D'
-               BlueprintName = 'GCHelper'
+               BlueprintIdentifier = 'B706BEC8A297F811C939F50B'
+               BlueprintName = 'ACEDrawingView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'GCHelper.framework'>
+               BuildableName = 'ACEDrawingView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

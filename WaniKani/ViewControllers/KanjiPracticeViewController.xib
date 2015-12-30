@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KanjiPracticeViewController" customModule="WaniKani" customModuleProvider="target">
             <connections>
+                <outlet property="drawingView" destination="M9W-7l-0ri" id="KO3-VF-qgn"/>
                 <outlet property="strokeDrawingView" destination="ij2-PP-hFo" id="19F-LH-dG4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -52,18 +53,55 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9B-92-fs7">
-                            <rect key="frame" x="8" y="428" width="412.5" height="163.5"/>
+                            <rect key="frame" x="8" y="428" width="412.5" height="164"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9W-7l-0ri" customClass="ACEDrawingView">
+                                    <rect key="frame" x="0.0" y="0.0" width="412.5" height="120"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="M9W-7l-0ri" firstAttribute="leading" secondItem="e9B-92-fs7" secondAttribute="leading" id="0as-Ff-KFb"/>
+                                <constraint firstAttribute="trailing" secondItem="M9W-7l-0ri" secondAttribute="trailing" id="7sH-0b-wZh"/>
+                                <constraint firstItem="M9W-7l-0ri" firstAttribute="top" secondItem="e9B-92-fs7" secondAttribute="top" id="JBU-Jj-xp2"/>
+                                <constraint firstAttribute="bottom" secondItem="M9W-7l-0ri" secondAttribute="bottom" id="KFM-mQ-fMN"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="KFM-mQ-fMN"/>
+                                </mask>
+                            </variation>
                         </view>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bO-Ib-HXU">
+                            <rect key="frame" x="8" y="548" width="412.5" height="44"/>
+                            <items>
+                                <barButtonItem systemItem="trash" id="cEo-m6-qI7">
+                                    <connections>
+                                        <action selector="trashAction:" destination="-1" id="Ir5-dz-TVD"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="KAQ-Fe-ehI"/>
+                                <barButtonItem systemItem="undo" id="jxv-ZE-kOO">
+                                    <connections>
+                                        <action selector="undoAction:" destination="-1" id="WFr-cq-KUE"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="NHy-IN-Lpl" firstAttribute="leading" secondItem="BAM-fW-jB0" secondAttribute="leadingMargin" id="034-7c-0nb"/>
+                        <constraint firstItem="9bO-Ib-HXU" firstAttribute="leading" secondItem="BAM-fW-jB0" secondAttribute="leadingMargin" id="6VE-r2-4MV"/>
                         <constraint firstItem="e9B-92-fs7" firstAttribute="trailing" secondItem="BAM-fW-jB0" secondAttribute="trailingMargin" id="7Lv-IP-JM8"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="9bO-Ib-HXU" secondAttribute="bottom" id="DH2-Xm-rVP"/>
                         <constraint firstItem="e9B-92-fs7" firstAttribute="leading" secondItem="BAM-fW-jB0" secondAttribute="leadingMargin" id="Eew-BR-NkJ"/>
                         <constraint firstItem="e9B-92-fs7" firstAttribute="top" secondItem="NHy-IN-Lpl" secondAttribute="bottom" constant="8" symbolic="YES" id="MBf-Ti-UuG"/>
                         <constraint firstItem="e9B-92-fs7" firstAttribute="height" secondItem="NHy-IN-Lpl" secondAttribute="height" id="T7t-9H-M0R"/>
                         <constraint firstItem="NHy-IN-Lpl" firstAttribute="top" secondItem="BAM-fW-jB0" secondAttribute="topMargin" id="WuF-Mz-ma8"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="9bO-Ib-HXU" secondAttribute="trailing" id="X3G-UX-olx"/>
+                        <constraint firstItem="9bO-Ib-HXU" firstAttribute="top" secondItem="M9W-7l-0ri" secondAttribute="bottom" id="g6Y-H5-h2e"/>
                         <constraint firstItem="NHy-IN-Lpl" firstAttribute="trailing" secondItem="BAM-fW-jB0" secondAttribute="trailingMargin" id="k5F-YV-GCc"/>
                         <constraint firstItem="e9B-92-fs7" firstAttribute="bottom" secondItem="BAM-fW-jB0" secondAttribute="bottomMargin" id="opr-XF-xlB"/>
                         <constraint firstItem="NHy-IN-Lpl" firstAttribute="leading" secondItem="e9B-92-fs7" secondAttribute="leading" id="ysR-Xp-Lp9"/>

@@ -1,0 +1,6 @@
+framework module ACEDrawingView {
+  umbrella header "ACEDrawingView-umbrella.h"
+
+  export *
+  module * { export * }
+}
