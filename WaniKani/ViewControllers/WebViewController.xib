@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController" customModule="WaniKani" customModuleProvider="target">
+            <connections>
+                <outlet property="submitButton" destination="BAR-Ea-X8Z" id="c28-tl-HC6"/>
+                <outlet property="view" destination="XJV-1E-X1A" id="0hd-b4-6uU"/>
+                <outlet property="webView" destination="fyd-Gy-8Ca" id="tC2-Hu-KQ2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="XJV-1E-X1A">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyd-Gy-8Ca">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-eu-4s3">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <items>
+                        <barButtonItem title="Submit to GameCenter" style="plain" id="BAR-Ea-X8Z">
+                            <connections>
+                                <action selector="cancelPressed:" destination="-1" id="z25-l8-Zhq"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                    <color key="tintColor" red="0.86666666670000003" green="0.1137254902" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="2NZ-eu-4s3" firstAttribute="top" secondItem="fyd-Gy-8Ca" secondAttribute="bottom" id="746-iw-O20"/>
+                <constraint firstAttribute="trailing" secondItem="fyd-Gy-8Ca" secondAttribute="trailing" id="98v-fw-ejs"/>
+                <constraint firstItem="fyd-Gy-8Ca" firstAttribute="top" secondItem="XJV-1E-X1A" secondAttribute="top" id="K1s-im-SaZ"/>
+                <constraint firstAttribute="trailing" secondItem="2NZ-eu-4s3" secondAttribute="trailing" id="Zxb-w9-5e7"/>
+                <constraint firstAttribute="bottom" secondItem="2NZ-eu-4s3" secondAttribute="bottom" id="fQV-yP-CuK"/>
+                <constraint firstItem="2NZ-eu-4s3" firstAttribute="leading" secondItem="XJV-1E-X1A" secondAttribute="leading" id="p0s-Kf-Zrh"/>
+                <constraint firstItem="fyd-Gy-8Ca" firstAttribute="leading" secondItem="XJV-1E-X1A" secondAttribute="leading" id="ub2-2O-XKA"/>
+            </constraints>
+            <point key="canvasLocation" x="4108" y="-1672"/>
+        </view>
+    </objects>
+</document>

@@ -97,6 +97,7 @@
                         <outlet property="collectionView" destination="rRS-3r-vDf" id="aCO-jc-ltY"/>
                         <segue destination="Tld-vc-g2T" kind="presentation" identifier="browserSegue" id="ST6-yO-Wgo"/>
                         <segue destination="0Vh-ob-Jyr" kind="presentation" identifier="apiKeyPicker" id="Yo4-gf-tu6"/>
+                        <segue destination="7gY-zR-Q4e" kind="presentation" identifier="qqq" id="JYl-mK-1z6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -149,7 +150,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3H-yF-IAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3570" y="-461"/>
+            <point key="canvasLocation" x="3440" y="-179"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="nUc-Y3-Ysn">
+            <objects>
+                <viewController id="7gY-zR-Q4e" customClass="SideMenuViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uzD-HQ-4Iv"/>
+                        <viewControllerLayoutGuide type="bottom" id="BS4-Y9-hm8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ycb-ab-Ile">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bxh-Wd-y0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3261" y="-1126"/>
         </scene>
         <!--Api Key Picker Controller-->
         <scene sceneID="s7U-hY-wsl">

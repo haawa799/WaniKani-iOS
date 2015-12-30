@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		430401011C1B18EA00D59949 /* FabricEventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430401001C1B18EA00D59949 /* FabricEventsManager.swift */; };
 		43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */; };
+		43101B6F1C33D8DF00B855F2 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6E1C33D8DF00B855F2 /* SideMenuViewController.swift */; };
+		43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B751C33F41C00B855F2 /* WebViewController.xib */; };
+		43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */; };
+		43101B7B1C33F64900B855F2 /* KanjiPracticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */; };
 		431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 431A31311BFF59600080944E /* Fipps-Regular.otf */; };
 		4329D0EC1BBD36E2009BEABF /* resize.js in Resources */ = {isa = PBXBuildFile; fileRef = 4329D0EB1BBD36E2009BEABF /* resize.js */; };
 		432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 432C07171BB2E15A0031B3B1 /* notification.m4a */; };
@@ -119,6 +123,10 @@
 		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		430401001C1B18EA00D59949 /* FabricEventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FabricEventsManager.swift; sourceTree = "<group>"; };
 		43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiMetaDataView.swift; sourceTree = "<group>"; };
+		43101B6E1C33D8DF00B855F2 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		43101B751C33F41C00B855F2 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiPracticeViewController.swift; sourceTree = "<group>"; };
+		43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KanjiPracticeViewController.xib; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		4329D0EB1BBD36E2009BEABF /* resize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = resize.js; sourceTree = "<group>"; };
 		432C07171BB2E15A0031B3B1 /* notification.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.m4a; sourceTree = "<group>"; };
@@ -325,10 +333,14 @@
 				43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */,
 				43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */,
 				43AFAFC71B8CA1060016E55F /* WebViewController.swift */,
+				43101B751C33F41C00B855F2 /* WebViewController.xib */,
 				433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */,
 				43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */,
 				433A3FAC1BCFACDF009C0FF1 /* LoginWebViewController.swift */,
 				434673D71BDE53B80095A4A3 /* GameCenterViewController.swift */,
+				43101B6E1C33D8DF00B855F2 /* SideMenuViewController.swift */,
+				43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */,
+				43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -579,11 +591,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43101B7B1C33F64900B855F2 /* KanjiPracticeViewController.xib in Resources */,
 				432C073F1BB408AE0031B3B1 /* ignore.js in Resources */,
 				431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */,
 				432C072F1BB3272C0031B3B1 /* NextReviewCell.xib in Resources */,
 				434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */,
 				432C07351BB3272C0031B3B1 /* DashboardHeader.xib in Resources */,
+				43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */,
 				432C07331BB3272C0031B3B1 /* SettingsScriptCell.xib in Resources */,
 				4329D0EC1BBD36E2009BEABF /* resize.js in Resources */,
 				432C07311BB3272C0031B3B1 /* ReviewCell.xib in Resources */,
@@ -727,6 +741,7 @@
 				43BE27701C1B1188001A0DD7 /* NotificationCenterManager.swift in Sources */,
 				43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */,
 				433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */,
+				43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */,
 				43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */,
 				43AFAFC61B8C96130016E55F /* Utils.swift in Sources */,
 				432C07321BB3272C0031B3B1 /* SettingsScriptCell.swift in Sources */,
@@ -735,6 +750,7 @@
 				43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */,
 				432C072C1BB3272C0031B3B1 /* AvaliableItemCell.swift in Sources */,
 				433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */,
+				43101B6F1C33D8DF00B855F2 /* SideMenuViewController.swift in Sources */,
 				43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */,
 				437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */,
 				432C07391BB32CF90031B3B1 /* SettingsLayout.swift in Sources */,

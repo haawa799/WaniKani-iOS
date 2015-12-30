@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9531"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KanjiPracticeViewController" customModule="WaniKani" customModuleProvider="target">
+            <connections>
+                <outlet property="strokeDrawingView" destination="ij2-PP-hFo" id="19F-LH-dG4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAM-fW-jB0">
+                    <rect key="frame" x="171" y="0.0" width="428.5" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHy-IN-Lpl">
+                            <rect key="frame" x="8" y="8" width="412.5" height="412.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ij2-PP-hFo" customClass="StrokeDrawingView" customModule="StrokeDrawingView">
+                                    <rect key="frame" x="0.0" y="0.0" width="412.5" height="412.5"/>
+                                    <color key="backgroundColor" red="1" green="0.9882352941176471" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="ij2-PP-hFo" firstAttribute="leading" secondItem="NHy-IN-Lpl" secondAttribute="leading" id="CCP-ym-m1s"/>
+                                <constraint firstAttribute="trailing" secondItem="ij2-PP-hFo" secondAttribute="trailing" id="H7m-bI-aIQ"/>
+                                <constraint firstAttribute="trailing" secondItem="ij2-PP-hFo" secondAttribute="trailing" id="Ikw-oE-Skm"/>
+                                <constraint firstItem="ij2-PP-hFo" firstAttribute="top" secondItem="NHy-IN-Lpl" secondAttribute="top" id="ZSL-f3-r0X"/>
+                                <constraint firstAttribute="width" secondItem="NHy-IN-Lpl" secondAttribute="height" multiplier="1:1" id="ZtE-tT-ZUC"/>
+                                <constraint firstAttribute="bottom" secondItem="ij2-PP-hFo" secondAttribute="bottom" id="eBv-7w-TOC"/>
+                                <constraint firstItem="ij2-PP-hFo" firstAttribute="leading" secondItem="NHy-IN-Lpl" secondAttribute="leading" id="eFE-Tg-obR"/>
+                                <constraint firstItem="ij2-PP-hFo" firstAttribute="top" secondItem="NHy-IN-Lpl" secondAttribute="top" id="r5Z-Wp-vkZ"/>
+                                <constraint firstAttribute="bottom" secondItem="ij2-PP-hFo" secondAttribute="bottom" id="y2O-Ow-mac"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Ikw-oE-Skm"/>
+                                    <exclude reference="eBv-7w-TOC"/>
+                                    <exclude reference="eFE-Tg-obR"/>
+                                    <exclude reference="r5Z-Wp-vkZ"/>
+                                </mask>
+                            </variation>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9B-92-fs7">
+                            <rect key="frame" x="8" y="428" width="412.5" height="163.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="NHy-IN-Lpl" firstAttribute="leading" secondItem="BAM-fW-jB0" secondAttribute="leadingMargin" id="034-7c-0nb"/>
+                        <constraint firstItem="e9B-92-fs7" firstAttribute="trailing" secondItem="BAM-fW-jB0" secondAttribute="trailingMargin" id="7Lv-IP-JM8"/>
+                        <constraint firstItem="e9B-92-fs7" firstAttribute="leading" secondItem="BAM-fW-jB0" secondAttribute="leadingMargin" id="Eew-BR-NkJ"/>
+                        <constraint firstItem="e9B-92-fs7" firstAttribute="top" secondItem="NHy-IN-Lpl" secondAttribute="bottom" constant="8" symbolic="YES" id="MBf-Ti-UuG"/>
+                        <constraint firstItem="e9B-92-fs7" firstAttribute="height" secondItem="NHy-IN-Lpl" secondAttribute="height" id="T7t-9H-M0R"/>
+                        <constraint firstItem="NHy-IN-Lpl" firstAttribute="top" secondItem="BAM-fW-jB0" secondAttribute="topMargin" id="WuF-Mz-ma8"/>
+                        <constraint firstItem="NHy-IN-Lpl" firstAttribute="trailing" secondItem="BAM-fW-jB0" secondAttribute="trailingMargin" id="k5F-YV-GCc"/>
+                        <constraint firstItem="e9B-92-fs7" firstAttribute="bottom" secondItem="BAM-fW-jB0" secondAttribute="bottomMargin" id="opr-XF-xlB"/>
+                        <constraint firstItem="NHy-IN-Lpl" firstAttribute="leading" secondItem="e9B-92-fs7" secondAttribute="leading" id="ysR-Xp-Lp9"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="034-7c-0nb"/>
+                            <exclude reference="T7t-9H-M0R"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roU-RJ-pvb">
+                    <rect key="frame" x="0.0" y="0.0" width="171.5" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="BAM-fW-jB0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Na-vJ-RhH"/>
+                <constraint firstAttribute="bottom" secondItem="BAM-fW-jB0" secondAttribute="bottom" id="58N-Bs-NSo"/>
+                <constraint firstAttribute="bottom" secondItem="BAM-fW-jB0" secondAttribute="bottom" id="6DR-SJ-2vr"/>
+                <constraint firstAttribute="trailing" secondItem="BAM-fW-jB0" secondAttribute="trailing" id="7o5-bN-jyc"/>
+                <constraint firstAttribute="trailing" secondItem="BAM-fW-jB0" secondAttribute="trailing" id="93p-P7-BxS"/>
+                <constraint firstItem="roU-RJ-pvb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Dbh-8k-AwW"/>
+                <constraint firstItem="BAM-fW-jB0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GZM-Le-9on"/>
+                <constraint firstItem="BAM-fW-jB0" firstAttribute="leading" secondItem="roU-RJ-pvb" secondAttribute="trailing" id="Oih-hv-s0g"/>
+                <constraint firstItem="roU-RJ-pvb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cX9-yL-CiA"/>
+                <constraint firstItem="roU-RJ-pvb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1/3.5" id="dmD-1i-Omn"/>
+                <constraint firstAttribute="bottom" secondItem="roU-RJ-pvb" secondAttribute="bottom" id="f5E-u3-ejr"/>
+                <constraint firstItem="BAM-fW-jB0" firstAttribute="leading" secondItem="roU-RJ-pvb" secondAttribute="trailing" id="tHV-EX-FHI"/>
+                <constraint firstItem="BAM-fW-jB0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xsT-8l-VGY"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="58N-Bs-NSo"/>
+                    <exclude reference="93p-P7-BxS"/>
+                    <exclude reference="GZM-Le-9on"/>
+                    <exclude reference="Oih-hv-s0g"/>
+                    <exclude reference="xsT-8l-VGY"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>
