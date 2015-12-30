@@ -16,16 +16,24 @@ class KanjiCell: UICollectionViewCell {
   @IBOutlet weak var lockedBackground: UIImageView!
   
   let burnedColor = UIColor(red:0.33, green:0.33, blue:0.33, alpha:1)
+  let defaultBackground = UIColor(red:0.99, green:0, blue:0.65, alpha:1)
+  
   let numberOfDaysToCountAsNew = 5
   
   func setupWithKanji(kanji: KanjiInfo) {
     
     kanjiLabel?.text = kanji.character
     
-    guard let userSpecific = kanji.userSpecific else { return }
+    guard let userSpecific = kanji.userSpecific else {
+      lockedBackground?.hidden = false
+      atarashiMark?.hidden = true
+      return
+    }
     
     if userSpecific.burned {
       backgroundColor = burnedColor
+    } else {
+      backgroundColor = defaultBackground
     }
     
     if let unlockDate = userSpecific.unlockedDate {
@@ -33,9 +41,19 @@ class KanjiCell: UICollectionViewCell {
       
       if (unlockDate.numberOfDaysUntilDateTime(NSDate()) <= numberOfDaysToCountAsNew) {
         atarashiMark?.hidden = false
+      } else {
+        atarashiMark?.hidden = true
       }
+    } else {
+      lockedBackground?.hidden = false
     }
     
+  }
+  
+  private func makeClean() {
+    lockedBackground?.hidden = false
+    atarashiMark?.hidden = true
+    backgroundColor = defaultBackground
   }
   
 }
