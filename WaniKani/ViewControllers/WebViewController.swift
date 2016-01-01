@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import LGSideMenuController
 
 
 protocol WebViewControllerDelegate: class {
@@ -79,6 +78,13 @@ class WebViewController: UIViewController {
   override func prefersStatusBarHidden() -> Bool {
     return SettingsSuit.sharedInstance.hideStatusBarEnabled
   }
+  
+  func character() -> String? {
+    if let response = webView.stringByEvaluatingJavaScriptFromString("getCharacter();") {
+      return response
+    }
+    return nil
+  }
 }
 
 extension WebViewController: UIWebViewDelegate {
@@ -86,7 +92,6 @@ extension WebViewController: UIWebViewDelegate {
   private func checkForNewScore() {
     if let response = webView.stringByEvaluatingJavaScriptFromString("getScore();"),
       let score = Int(response) where score != 0 {
-        print("score: = \(newScoreEarned) + \(score)")
         newScoreEarned += score
     }
   }

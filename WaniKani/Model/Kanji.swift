@@ -21,6 +21,11 @@ class Kanji {
     self.bezierPathes = KanjiBezierPathesHelper.pathesForKanji(kanji) ?? [UIBezierPath]()
   }
   
+  class func kanjiFromString(kanjiChar: String) -> Kanji? {
+    let kanji = Kanji(kanji: kanjiChar)
+    return (kanji.bezierPathes.count > 0) ? kanji : nil
+  }
+  
 }
 
 

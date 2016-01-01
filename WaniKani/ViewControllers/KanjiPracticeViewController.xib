@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KanjiPracticeViewController" customModule="WaniKani" customModuleProvider="target">
             <connections>
                 <outlet property="drawingView" destination="M9W-7l-0ri" id="KO3-VF-qgn"/>
+                <outlet property="pageControl" destination="YA7-2V-vGe" id="7YK-8M-QbI"/>
                 <outlet property="strokeDrawingView" destination="ij2-PP-hFo" id="19F-LH-dG4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,12 +28,20 @@
                             <rect key="frame" x="8" y="8" width="412.5" height="412.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ij2-PP-hFo" customClass="StrokeDrawingView" customModule="StrokeDrawingView">
-                                    <rect key="frame" x="0.0" y="0.0" width="412.5" height="412.5"/>
+                                    <rect key="frame" x="0.0" y="13" width="412.5" height="399.5"/>
                                     <color key="backgroundColor" red="1" green="0.9882352941176471" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="YA7-2V-vGe">
+                                    <rect key="frame" x="404.5" y="8" width="0.0" height="0.0"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="pageIndicatorTintColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="currentPageIndicatorTintColor" red="0.63137254899999995" green="0.0" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </pageControl>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="ij2-PP-hFo" firstAttribute="top" secondItem="NHy-IN-Lpl" secondAttribute="topMargin" constant="5" id="4Kf-Pe-rqz"/>
+                                <constraint firstItem="YA7-2V-vGe" firstAttribute="top" secondItem="NHy-IN-Lpl" secondAttribute="topMargin" id="4p4-Pd-Zw5"/>
                                 <constraint firstItem="ij2-PP-hFo" firstAttribute="leading" secondItem="NHy-IN-Lpl" secondAttribute="leading" id="CCP-ym-m1s"/>
                                 <constraint firstAttribute="trailing" secondItem="ij2-PP-hFo" secondAttribute="trailing" id="H7m-bI-aIQ"/>
                                 <constraint firstAttribute="trailing" secondItem="ij2-PP-hFo" secondAttribute="trailing" id="Ikw-oE-Skm"/>
@@ -42,10 +51,12 @@
                                 <constraint firstItem="ij2-PP-hFo" firstAttribute="leading" secondItem="NHy-IN-Lpl" secondAttribute="leading" id="eFE-Tg-obR"/>
                                 <constraint firstItem="ij2-PP-hFo" firstAttribute="top" secondItem="NHy-IN-Lpl" secondAttribute="top" id="r5Z-Wp-vkZ"/>
                                 <constraint firstAttribute="bottom" secondItem="ij2-PP-hFo" secondAttribute="bottom" id="y2O-Ow-mac"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="YA7-2V-vGe" secondAttribute="trailing" id="zW2-wZ-rpt"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="Ikw-oE-Skm"/>
+                                    <exclude reference="ZSL-f3-r0X"/>
                                     <exclude reference="eBv-7w-TOC"/>
                                     <exclude reference="eFE-Tg-obR"/>
                                     <exclude reference="r5Z-Wp-vkZ"/>

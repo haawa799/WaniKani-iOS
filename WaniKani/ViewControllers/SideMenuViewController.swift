@@ -9,6 +9,7 @@
 import UIKit
 import RESideMenu
 import ACEDrawingView
+import StrokeDrawingView
 
 class SideMenuViewController: RESideMenu {
   
@@ -19,6 +20,8 @@ class SideMenuViewController: RESideMenu {
   private let kanjiPracticeController = KanjiPracticeViewController(nibName: "KanjiPracticeViewController", bundle: nil)
   
   override func viewDidLoad() {
+    
+    delegate = self
     
     contentViewController = webViewController
     webViewController.delegate = self
@@ -31,8 +34,6 @@ class SideMenuViewController: RESideMenu {
     contentViewController.view.backgroundColor = UIColor.clearColor()
     view.clipsToBounds = true
     
-    //
-    kanjiPracticeController.kanjiCharacter = "飲"
   }
   
   func dumpAnimation() {
@@ -55,13 +56,24 @@ class SideMenuViewController: RESideMenu {
   }
 }
 
+extension SideMenuViewController: RESideMenuDelegate {
+  func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
+    guard let word = webViewController.character() where word.characters.count > 0 else { return }
+    
+    kanjiPracticeController.kanjiCharacters = word.characters.map({ (c) -> String in
+      return "\(c)"
+    })
+  }
+}
+
 extension SideMenuViewController {
   
   override func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
 
     let locationPoint = touch.locationInView(view)
-        
-    if let _ = view.hitTest(locationPoint, withEvent: nil) as? ACEDrawingView {
+    
+    let hitView = view.hitTest(locationPoint, withEvent: nil)
+    if (hitView as? ACEDrawingView) != nil || (hitView as? StrokeDrawingView) != nil {
       return false
     }
     
