@@ -117,8 +117,6 @@ class WaniKaniUITests: XCTestCase {
   
   private func authentificate(app: XCUIApplication) {
     
-    sleep(7)
-    
     app.textFields.elementBoundByIndex(0).tap()
     sleep(1)
     app.textFields.elementBoundByIndex(0).typeText("paukan")
