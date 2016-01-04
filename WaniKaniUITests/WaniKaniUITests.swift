@@ -23,9 +23,9 @@ class WaniKaniUITests: XCTestCase {
   
   func test0() {
     
-    
+//    
     let app = XCUIApplication()
-
+//
     sleep(2)
     
     snapshot("Setup Login", waitForLoadingIndicator: true)
@@ -113,22 +113,16 @@ class WaniKaniUITests: XCTestCase {
     
     app.toolbars.buttons["Submit"].tap()
     
-    sleep(1)
-    
-    app.tabBars.buttons["Browser"].tap()
-    
-    sleep(4)
-    
-    authentificate(app)
-    
-    snapshot("Browser", waitForLoadingIndicator: true)
   }
   
   private func authentificate(app: XCUIApplication) {
+    
+    sleep(7)
+    
     app.textFields.elementBoundByIndex(0).tap()
     sleep(1)
     app.textFields.elementBoundByIndex(0).typeText("paukan")
-    
+  
     
     sleep(2)
     app.toolbars.buttons["Forward"].tap()

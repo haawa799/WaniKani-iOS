@@ -787,11 +787,11 @@
             </objects>
             <point key="canvasLocation" x="3616" y="2502"/>
         </scene>
-        <!--Item-->
+        <!--Data-->
         <scene sceneID="4w2-JM-aNF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XeO-jf-Lcm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="v9k-pJ-glV"/>
+                    <tabBarItem key="tabBarItem" title="Data" image="data" id="v9k-pJ-glV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KpU-1Z-vbZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1084,6 +1084,7 @@
         <image name="bg" width="465" height="808"/>
         <image name="browser" width="32" height="32"/>
         <image name="dashboard" width="25" height="25"/>
+        <image name="data" width="25" height="25"/>
         <image name="forums" width="32" height="32"/>
         <image name="home" width="32" height="32"/>
         <image name="kanji_locked_bg" width="255" height="255"/>
