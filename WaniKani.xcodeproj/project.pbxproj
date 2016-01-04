@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		430401011C1B18EA00D59949 /* FabricEventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430401001C1B18EA00D59949 /* FabricEventsManager.swift */; };
+		43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */; };
+		43101B6F1C33D8DF00B855F2 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6E1C33D8DF00B855F2 /* SideMenuViewController.swift */; };
+		43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B751C33F41C00B855F2 /* WebViewController.xib */; };
+		43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */; };
+		43101B7B1C33F64900B855F2 /* KanjiPracticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */; };
 		431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 431A31311BFF59600080944E /* Fipps-Regular.otf */; };
 		4329D0EC1BBD36E2009BEABF /* resize.js in Resources */ = {isa = PBXBuildFile; fileRef = 4329D0EB1BBD36E2009BEABF /* resize.js */; };
 		432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 432C07171BB2E15A0031B3B1 /* notification.m4a */; };
@@ -48,6 +53,11 @@
 		434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */; };
 		434673E01BDEC8840095A4A3 /* score.js in Resources */ = {isa = PBXBuildFile; fileRef = 434673DF1BDEC8840095A4A3 /* score.js */; };
 		434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434B00CB1C1D7F8E00ECCF20 /* RealmManager.swift */; };
+		437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */; };
+		437A33CC1C326A72007FE8F3 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CA1C326A72007FE8F3 /* LevelViewController.swift */; };
+		437A33CD1C326A72007FE8F3 /* LevelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */; };
+		437A33CF1C326A8D007FE8F3 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CE1C326A8D007FE8F3 /* Kanji.swift */; };
+		437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33D01C326A9F007FE8F3 /* KanjiCell.swift */; };
 		43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */ = {isa = PBXBuildFile; fileRef = 43850CF31B9DB86F00DFF6DD /* fast_forward.js */; };
 		43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */; };
 		43AABDA61BEB47BC00F2D5B8 /* WordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */; };
@@ -112,6 +122,11 @@
 		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		430401001C1B18EA00D59949 /* FabricEventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FabricEventsManager.swift; sourceTree = "<group>"; };
+		43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiMetaDataView.swift; sourceTree = "<group>"; };
+		43101B6E1C33D8DF00B855F2 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		43101B751C33F41C00B855F2 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiPracticeViewController.swift; sourceTree = "<group>"; };
+		43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KanjiPracticeViewController.xib; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		4329D0EB1BBD36E2009BEABF /* resize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = resize.js; sourceTree = "<group>"; };
 		432C07171BB2E15A0031B3B1 /* notification.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.m4a; sourceTree = "<group>"; };
@@ -156,6 +171,11 @@
 		434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCenterCollectionViewCell.xib; sourceTree = "<group>"; };
 		434673DF1BDEC8840095A4A3 /* score.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = score.js; sourceTree = "<group>"; };
 		434B00CB1C1D7F8E00ECCF20 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiStrokesViewController.swift; sourceTree = "<group>"; };
+		437A33CA1C326A72007FE8F3 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
+		437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPickerViewController.swift; sourceTree = "<group>"; };
+		437A33CE1C326A8D007FE8F3 /* Kanji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kanji.swift; sourceTree = "<group>"; };
+		437A33D01C326A9F007FE8F3 /* KanjiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiCell.swift; sourceTree = "<group>"; };
 		43850CF31B9DB86F00DFF6DD /* fast_forward.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fast_forward.js; path = ../Utils/fast_forward.js; sourceTree = "<group>"; };
 		43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 		43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordCell.xib; sourceTree = "<group>"; };
@@ -227,6 +247,7 @@
 		432C071D1BB3272C0031B3B1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				437A33D01C326A9F007FE8F3 /* KanjiCell.swift */,
 				432C071E1BB3272C0031B3B1 /* AvaliableItemCell.swift */,
 				432C071F1BB3272C0031B3B1 /* AvaliableItemCell.xib */,
 				432C07201BB3272C0031B3B1 /* NextReviewCell.swift */,
@@ -264,6 +285,7 @@
 				432C072B1BB3272C0031B3B1 /* DogeHintView.swift */,
 				432C073A1BB338820031B3B1 /* SliceView.swift */,
 				43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */,
+				43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +293,7 @@
 		4335B9B51C19CA4C0011746D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				437A33CE1C326A8D007FE8F3 /* Kanji.swift */,
 				4335B9B71C19CA6B0011746D /* LevelProgression.swift */,
 				4335B9B91C19CA6B0011746D /* StudyQueue.swift */,
 				4335B9BA1C19CA6B0011746D /* User.swift */,
@@ -304,13 +327,20 @@
 			isa = PBXGroup;
 			children = (
 				433BDC221BFB3BA40025EB24 /* Setup */,
+				437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */,
+				437A33CA1C326A72007FE8F3 /* LevelViewController.swift */,
+				437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */,
 				43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */,
 				43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */,
 				43AFAFC71B8CA1060016E55F /* WebViewController.swift */,
+				43101B751C33F41C00B855F2 /* WebViewController.xib */,
 				433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */,
 				43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */,
 				433A3FAC1BCFACDF009C0FF1 /* LoginWebViewController.swift */,
 				434673D71BDE53B80095A4A3 /* GameCenterViewController.swift */,
+				43101B6E1C33D8DF00B855F2 /* SideMenuViewController.swift */,
+				43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */,
+				43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -561,11 +591,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43101B7B1C33F64900B855F2 /* KanjiPracticeViewController.xib in Resources */,
 				432C073F1BB408AE0031B3B1 /* ignore.js in Resources */,
 				431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */,
 				432C072F1BB3272C0031B3B1 /* NextReviewCell.xib in Resources */,
 				434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */,
 				432C07351BB3272C0031B3B1 /* DashboardHeader.xib in Resources */,
+				43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */,
 				432C07331BB3272C0031B3B1 /* SettingsScriptCell.xib in Resources */,
 				4329D0EC1BBD36E2009BEABF /* resize.js in Resources */,
 				432C07311BB3272C0031B3B1 /* ReviewCell.xib in Resources */,
@@ -689,21 +721,27 @@
 				433E16521B846016007B7DE9 /* StudyQueueViewController.swift in Sources */,
 				433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */,
 				433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */,
+				437A33CC1C326A72007FE8F3 /* LevelViewController.swift in Sources */,
 				432C072E1BB3272C0031B3B1 /* NextReviewCell.swift in Sources */,
 				4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */,
 				43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */,
+				437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */,
 				432C073B1BB338820031B3B1 /* SliceView.swift in Sources */,
+				43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */,
 				432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */,
 				434673D81BDE53B80095A4A3 /* GameCenterViewController.swift in Sources */,
 				433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */,
+				437A33CF1C326A8D007FE8F3 /* Kanji.swift in Sources */,
 				43D748781BD7ADC200A11916 /* AwardsManager.swift in Sources */,
 				4335B9BF1C19CA6B0011746D /* User.swift in Sources */,
 				432C07361BB3272C0031B3B1 /* AIFlatSwitch.swift in Sources */,
 				430401011C1B18EA00D59949 /* FabricEventsManager.swift in Sources */,
 				434673DD1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift in Sources */,
+				437A33CD1C326A72007FE8F3 /* LevelPickerViewController.swift in Sources */,
 				43BE27701C1B1188001A0DD7 /* NotificationCenterManager.swift in Sources */,
 				43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */,
 				433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */,
+				43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */,
 				43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */,
 				43AFAFC61B8C96130016E55F /* Utils.swift in Sources */,
 				432C07321BB3272C0031B3B1 /* SettingsScriptCell.swift in Sources */,
@@ -712,7 +750,9 @@
 				43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */,
 				432C072C1BB3272C0031B3B1 /* AvaliableItemCell.swift in Sources */,
 				433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */,
+				43101B6F1C33D8DF00B855F2 /* SideMenuViewController.swift in Sources */,
 				43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */,
+				437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */,
 				432C07391BB32CF90031B3B1 /* SettingsLayout.swift in Sources */,
 				433E28061B79D5E900BBB45E /* AppDelegate.swift in Sources */,
 				43E851B51BEBA6340030E52E /* CriticalItemsLayout.swift in Sources */,
@@ -892,7 +932,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniKani;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -915,7 +955,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniKani;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -1,3 +1,4 @@
+
 $('#user-response').keydown( function(e) {
                             var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
                             
@@ -35,4 +36,17 @@ function checkScore()
 
 function getScore() {
   return score;
+}
+
+var character = "";
+
+function checkCharacter()
+{
+  var value = document.getElementById("character").getElementsByTagName("span")[0].innerHTML;
+  character = value;
+}
+
+function getCharacter() {
+  checkCharacter();
+  return character;
 }

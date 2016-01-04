@@ -90,7 +90,7 @@ class StudyQueueViewController: UIViewController {
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let vc = segue.destinationViewController as? WebViewController, let index = sender as? Int {
+    if let vc = segue.destinationViewController as? SideMenuViewController, let index = sender as? Int {
       switch index {
       case 0: vc.url = "https://www.wanikani.com/lesson/session"
       vc.type = .Lesson
@@ -205,7 +205,7 @@ extension StudyQueueViewController : UICollectionViewDelegate {
     if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AvaliableItemCell {
       if cell.enabled == true {
         if indexPath.section == 1 {
-          performSegueWithIdentifier("browserSegue", sender: indexPath.row)
+          performSegueWithIdentifier("qqq"/*"browserSegue"*/, sender: indexPath.row)
         }
       }
     }

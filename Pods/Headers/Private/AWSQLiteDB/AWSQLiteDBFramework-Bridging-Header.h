@@ -1,0 +1,1 @@
+../../../AWSQLiteDB/AWSQLiteDBFramework/AWSQLiteDBFramework-Bridging-Header.h

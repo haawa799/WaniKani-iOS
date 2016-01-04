@@ -8,48 +8,24 @@
 
 import UIKit
 
+
+protocol WebViewControllerDelegate: class {
+  func webViewControllerBecomeReadyForLoad(vc: WebViewController)
+  func startShowingKanji()
+  func endShowingKanji()
+}
+
+
 class WebViewController: UIViewController {
   
   // Public API:
-  var url: String?
-  var type = WebSessionType.Lesson {
-    didSet {
-      submitButton?.title = buttonTitle
-    }
-  }
   
-  var buttonTitle: String {
-    var title = "End session"
-    if (type == .Review) && (SettingsSuit.sharedInstance.shouldUseGameCenter == true) {
-      title = "Submit to GameCenter"
-    }
-    return title
-  }
+  weak var delegate: WebViewControllerDelegate?
   
-  private var newScoreEarned = 0
-  
-  
-  private var oldOffset: CGFloat?
-  
-  @IBOutlet weak var submitButton: UIBarButtonItem! {
-    didSet {
-      submitButton?.accessibilityIdentifier = "Submit"
-      submitButton?.title = buttonTitle
-    }
-  }
-  @IBOutlet weak var webView: UIWebView! {
-    didSet {
-      webView.scrollView.delegate = self
-      webView.delegate = self
-    }
-  }
-  @IBAction func cancelPressed(sender: AnyObject) {
-    checkForNewScore()
-    submitScore()
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  func loadInitialLink() {
+  func loadURL(url: String?, type: WebSessionType) {
+    self.url = url
+    self.type = type
+    
     if let url = url {
       if let realURL = NSURL(string: url) {
         let request = NSURLRequest(URL: realURL)
@@ -59,15 +35,55 @@ class WebViewController: UIViewController {
     }
   }
   
-  private var originalTintColor: UIColor?
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    loadInitialLink()
+  //
+  private var url: String?
+  private var type = WebSessionType.Lesson {
+    didSet {
+      submitButton?.title = buttonTitle
+    }
+  }
+  
+  private var buttonTitle: String {
+    var title = "End session"
+    if (type == .Review) && (SettingsSuit.sharedInstance.shouldUseGameCenter == true) {
+      title = "Submit to GameCenter"
+    }
+    return title
+  }
+  
+  private var newScoreEarned = 0
+  private var oldOffset: CGFloat?
+  
+  @IBOutlet weak var submitButton: UIBarButtonItem! {
+    didSet {
+      submitButton?.accessibilityIdentifier = "Submit"
+      submitButton?.title = buttonTitle
+    }
+  }
+  
+  @IBOutlet weak var webView: UIWebView! {
+    didSet {
+      webView.scrollView.delegate = self
+      webView.delegate = self
+      delegate?.webViewControllerBecomeReadyForLoad(self)
+    }
+  }
+  @IBAction func cancelPressed(sender: AnyObject) {
+    checkForNewScore()
+    submitScore()
+    dismissViewControllerAnimated(true, completion: nil)
   }
   
   override func prefersStatusBarHidden() -> Bool {
     return SettingsSuit.sharedInstance.hideStatusBarEnabled
+  }
+  
+  func character() -> String? {
+    if let response = webView.stringByEvaluatingJavaScriptFromString("getCharacter();") {
+      return response
+    }
+    return nil
   }
 }
 
@@ -76,7 +92,6 @@ extension WebViewController: UIWebViewDelegate {
   private func checkForNewScore() {
     if let response = webView.stringByEvaluatingJavaScriptFromString("getScore();"),
       let score = Int(response) where score != 0 {
-        print("score: = \(newScoreEarned) + \(score)")
         newScoreEarned += score
     }
   }
