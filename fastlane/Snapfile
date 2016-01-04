@@ -1,5 +1,5 @@
 
-# snapshot --reinstall_app
+reinstall_app true
 # snapshot reset_simulators
 
 devices([
@@ -13,6 +13,6 @@ languages([
   "en-US"
 ])
 
-workspace "../WaniKani.xcworkspace"
+workspace "/Users/haawa799/Google\ Drive/IOS\ Projects/WaniKani/WaniKani.xcworkspace"
 scheme "WaniKani"
 app_identifier "com.haawa.WaniKani"
