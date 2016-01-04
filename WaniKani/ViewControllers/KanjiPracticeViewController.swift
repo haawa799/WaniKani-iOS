@@ -106,6 +106,7 @@ class KanjiPracticeViewController: UIViewController {
       strokeDrawingView?.clean()
       strokeDrawingView?.dataSource = kanjiArray.first
       pageControl?.numberOfPages = kanjiArray.count
+      pageControl?.currentPage = 0
     }
   }
   
