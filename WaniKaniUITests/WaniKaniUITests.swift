@@ -35,11 +35,6 @@ class WaniKaniUITests: XCTestCase {
     sleep(4)
 
     authentificate(app)
-
-    //
-    
-    
-    //
     
     // Parsing for API key
     sleep(6)

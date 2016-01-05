@@ -48,6 +48,7 @@
 		433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433E280C1B79D5E900BBB45E /* Images.xcassets */; };
 		433E28101B79D5E900BBB45E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433E280E1B79D5E900BBB45E /* LaunchScreen.xib */; };
 		433E281C1B79D5E900BBB45E /* WaniKaniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E281B1B79D5E900BBB45E /* WaniKaniTests.swift */; };
+		43441E3E1C3BFBD6006A166B /* api_key_script.js in Resources */ = {isa = PBXBuildFile; fileRef = 43441E3D1C3BFBD6006A166B /* api_key_script.js */; };
 		434673D81BDE53B80095A4A3 /* GameCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434673D71BDE53B80095A4A3 /* GameCenterViewController.swift */; };
 		434673DD1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434673DB1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift */; };
 		434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */; };
@@ -166,6 +167,7 @@
 		433E28151B79D5E900BBB45E /* WaniKaniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaniKaniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		433E281A1B79D5E900BBB45E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		433E281B1B79D5E900BBB45E /* WaniKaniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaniKaniTests.swift; sourceTree = "<group>"; };
+		43441E3D1C3BFBD6006A166B /* api_key_script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = api_key_script.js; sourceTree = "<group>"; };
 		434673D71BDE53B80095A4A3 /* GameCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterViewController.swift; sourceTree = "<group>"; };
 		434673DB1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterCollectionViewCell.swift; sourceTree = "<group>"; };
 		434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCenterCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 		43AD052D1BA044BA000DBCBE /* User scripts */ = {
 			isa = PBXGroup;
 			children = (
+				43441E3D1C3BFBD6006A166B /* api_key_script.js */,
 				434673DF1BDEC8840095A4A3 /* score.js */,
 				4329D0EB1BBD36E2009BEABF /* resize.js */,
 				43850CF31B9DB86F00DFF6DD /* fast_forward.js */,
@@ -601,6 +604,7 @@
 				432C07331BB3272C0031B3B1 /* SettingsScriptCell.xib in Resources */,
 				4329D0EC1BBD36E2009BEABF /* resize.js in Resources */,
 				432C07311BB3272C0031B3B1 /* ReviewCell.xib in Resources */,
+				43441E3E1C3BFBD6006A166B /* api_key_script.js in Resources */,
 				43E456871BBC1FFE0043ECAE /* LevelInfoView.xib in Resources */,
 				432C072D1BB3272C0031B3B1 /* AvaliableItemCell.xib in Resources */,
 				433E280B1B79D5E900BBB45E /* Main.storyboard in Resources */,
@@ -921,6 +925,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 15;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -944,6 +949,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 15;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

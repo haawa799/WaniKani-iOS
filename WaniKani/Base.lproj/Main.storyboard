@@ -549,14 +549,19 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GFd-eT-uGp">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wuY-dj-dQ9" firstAttribute="centerY" secondItem="2Cd-k7-pac" secondAttribute="centerY" id="DA5-bl-dmg"/>
                             <constraint firstItem="iNz-Dz-xbi" firstAttribute="top" secondItem="wuY-dj-dQ9" secondAttribute="bottom" id="EXQ-co-KHx"/>
                             <constraint firstItem="wuY-dj-dQ9" firstAttribute="top" secondItem="2Cd-k7-pac" secondAttribute="top" id="N75-YH-l8H"/>
                             <constraint firstItem="iNz-Dz-xbi" firstAttribute="top" secondItem="wuY-dj-dQ9" secondAttribute="bottom" id="Ue7-jc-YUu"/>
                             <constraint firstItem="wuY-dj-dQ9" firstAttribute="leading" secondItem="2Cd-k7-pac" secondAttribute="leading" id="fuz-6p-in6"/>
+                            <constraint firstItem="GFd-eT-uGp" firstAttribute="centerX" secondItem="2Cd-k7-pac" secondAttribute="centerX" id="ggB-JH-5c8"/>
+                            <constraint firstItem="GFd-eT-uGp" firstAttribute="centerY" secondItem="2Cd-k7-pac" secondAttribute="centerY" id="hST-kb-NiJ"/>
                             <constraint firstAttribute="trailing" secondItem="wuY-dj-dQ9" secondAttribute="trailing" id="z2k-96-rDV"/>
                         </constraints>
                         <variation key="default">
