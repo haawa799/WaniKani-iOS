@@ -11,10 +11,11 @@ import RESideMenu
 import ACEDrawingView
 import StrokeDrawingView
 
+typealias WebViewData = (url: String, type: WebSessionType)
+
 class SideMenuViewController: RESideMenu {
   
-  var url: String?
-  var type = WebSessionType.Lesson
+  var webViewData: WebViewData?
   
   private let webViewController = WebViewController(nibName: "WebViewController", bundle: nil)
   private let kanjiPracticeController = KanjiPracticeViewController(nibName: "KanjiPracticeViewController", bundle: nil)
@@ -25,7 +26,9 @@ class SideMenuViewController: RESideMenu {
     
     contentViewController = webViewController
     webViewController.delegate = self
-    rightMenuViewController = kanjiPracticeController
+    if webViewData?.type == .Review {
+      self.rightMenuViewController = self.kanjiPracticeController
+    }
     CGAffineTransformIdentity
     
     super.viewDidLoad()
@@ -34,6 +37,11 @@ class SideMenuViewController: RESideMenu {
     contentViewController.view.backgroundColor = UIColor.clearColor()
     view.clipsToBounds = true
     
+    if webViewData?.type == .Review {
+      delay(45) { () -> () in
+        self.dumpAnimation()
+      }
+    }
   }
   
   func dumpAnimation() {
@@ -63,13 +71,17 @@ extension SideMenuViewController: RESideMenuDelegate {
     kanjiPracticeController.kanjiCharacters = word.characters.map({ (c) -> String in
       return "\(c)"
     })
+    
+    if let webViewData = webViewData {
+      appDelegate.fabricManager.postUserSwipedToKanjiPractice(webViewData.type)
+    }
   }
 }
 
 extension SideMenuViewController {
   
   override func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-
+    
     let locationPoint = touch.locationInView(view)
     
     let hitView = view.hitTest(locationPoint, withEvent: nil)
@@ -84,7 +96,9 @@ extension SideMenuViewController {
 extension SideMenuViewController: WebViewControllerDelegate {
   
   func webViewControllerBecomeReadyForLoad(vc: WebViewController) {
-    vc.loadURL(url, type: type)
+    
+    guard let data = webViewData else { return }
+    vc.loadURL(data)
   }
   
   func startShowingKanji() {
@@ -93,6 +107,10 @@ extension SideMenuViewController: WebViewControllerDelegate {
   
   func endShowingKanji() {
     
+  }
+  
+  func strokesPressed() {
+    presentRightMenuViewController()
   }
   
 }

@@ -25,22 +25,22 @@ class WaniKaniUITests: XCTestCase {
     
 //    
     let app = XCUIApplication()
-//
+    
     sleep(2)
     
-    snapshot("Setup Login", waitForLoadingIndicator: true)
+    snapshot("5 Setup Login", waitForLoadingIndicator: false)
     
-    app.buttons.elementBoundByIndex(1).tap()
+    app.buttons["Login"].tap()
     
     sleep(4)
 
     authentificate(app)
     
     // Parsing for API key
-    sleep(6)
+    sleep(8)
     
     
-    snapshot("Setup Notifications", waitForLoadingIndicator: true)
+//    snapshot("Setup Notifications", waitForLoadingIndicator: false)
     
     app.buttons["Setup notifications"].tap()
     sleep(1)
@@ -52,14 +52,14 @@ class WaniKaniUITests: XCTestCase {
     sleep(1)
     
     
-    snapshot("Setup GameCenter", waitForLoadingIndicator: true)
+//    snapshot("Setup GameCenter", waitForLoadingIndicator: false)
     
     app.navigationBars["WaniKani.GameCenterSetupVC"].buttons["Done"].tap()
     sleep(1)
     
     sleep(5)
     
-    snapshot("Study Queue", waitForLoadingIndicator: true)
+    snapshot("3 Study Queue", waitForLoadingIndicator: false)
     
     app.tabBars.buttons["Settings"].tap()
     
@@ -73,25 +73,26 @@ class WaniKaniUITests: XCTestCase {
     
 
     sleep(1)
-    snapshot("Settings", waitForLoadingIndicator: true)
+    snapshot("4 Settings", waitForLoadingIndicator: false)
     
     app.tabBars.buttons["Dashboard"].tap()
     
-    app.collectionViews.cells.elementBoundByIndex(0).tap()
     
-    sleep(3)
-    
-    authentificate(app)
-    
-    
-    sleep(3)
-    
-    snapshot("Lessons", waitForLoadingIndicator: true)
-
-    sleep(1)
-    
-    
-    app.toolbars.buttons["Submit"].tap()
+//    app.collectionViews.cells.elementBoundByIndex(0).tap()
+//    
+//    sleep(3)
+//    
+//    authentificate(app)
+//    
+//    
+//    sleep(4)
+//    
+//    snapshot("Lessons", waitForLoadingIndicator: false)
+//
+//    sleep(1)
+//    
+//    
+//    app.toolbars.buttons["Submit"].tap()
     
     
     sleep(1)
@@ -100,10 +101,22 @@ class WaniKaniUITests: XCTestCase {
     
     sleep(3)
     
-    snapshot("Review", waitForLoadingIndicator: false)
+    authentificate(app)
     
-    sleep(3)
+    sleep(6)
+    
+    snapshot("1 Review", waitForLoadingIndicator: false)
+    
+    sleep(2)
+    
     app.toolbars.buttons["Done"].tap()
+    app.toolbars.buttons["strokesButton"].tap()
+    
+    sleep(2)
+    
+    snapshot("2 Review stroke order", waitForLoadingIndicator: false)
+    app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(2).childrenMatchingType(.Button).element.tap()
+    
     sleep(1)
     
     app.toolbars.buttons["Submit"].tap()
@@ -114,13 +127,13 @@ class WaniKaniUITests: XCTestCase {
     
     app.textFields.elementBoundByIndex(0).tap()
     sleep(1)
-    app.textFields.elementBoundByIndex(0).typeText("paukan")
+    app.textFields.elementBoundByIndex(0).typeText("haawa")//("paukan")
   
     
     sleep(2)
     app.toolbars.buttons["Forward"].tap()
     sleep(2)
-    app.secureTextFields.elementBoundByIndex(0).typeText("1234567890\r")
+    app.secureTextFields.elementBoundByIndex(0).typeText("Googlie9\r")//("1234567890\r")
   }
   
 }

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController" customModule="WaniKani" customModuleProvider="target">
             <connections>
+                <outlet property="strokesButton" destination="FrM-fu-OMn" id="UQH-Uz-rtx"/>
                 <outlet property="submitButton" destination="BAR-Ea-X8Z" id="c28-tl-HC6"/>
                 <outlet property="view" destination="XJV-1E-X1A" id="0hd-b4-6uU"/>
                 <outlet property="webView" destination="fyd-Gy-8Ca" id="tC2-Hu-KQ2"/>
@@ -27,6 +28,12 @@
                         <barButtonItem title="Submit to GameCenter" style="plain" id="BAR-Ea-X8Z">
                             <connections>
                                 <action selector="cancelPressed:" destination="-1" id="z25-l8-Zhq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7OK-PW-r3G"/>
+                        <barButtonItem title="Strokes" id="FrM-fu-OMn">
+                            <connections>
+                                <action selector="strokesPressed:" destination="-1" id="6ca-4k-neF"/>
                             </connections>
                         </barButtonItem>
                     </items>

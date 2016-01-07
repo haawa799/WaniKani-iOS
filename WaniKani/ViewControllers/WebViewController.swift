@@ -13,6 +13,7 @@ protocol WebViewControllerDelegate: class {
   func webViewControllerBecomeReadyForLoad(vc: WebViewController)
   func startShowingKanji()
   func endShowingKanji()
+  func strokesPressed()
 }
 
 
@@ -22,16 +23,14 @@ class WebViewController: UIViewController {
   
   weak var delegate: WebViewControllerDelegate?
   
-  func loadURL(url: String?, type: WebSessionType) {
-    self.url = url
-    self.type = type
+  func loadURL(webViewData: WebViewData) {
+    self.url = webViewData.url
+    self.type = webViewData.type
     
-    if let url = url {
-      if let realURL = NSURL(string: url) {
-        let request = NSURLRequest(URL: realURL)
-        webView?.loadRequest(request)
-        webView?.keyboardDisplayRequiresUserAction = false
-      }
+    if let realURL = NSURL(string: webViewData.url) {
+      let request = NSURLRequest(URL: realURL)
+      webView?.loadRequest(request)
+      webView?.keyboardDisplayRequiresUserAction = false
     }
   }
   
@@ -61,9 +60,15 @@ class WebViewController: UIViewController {
       submitButton?.title = buttonTitle
     }
   }
+  @IBOutlet weak var strokesButton: UIBarButtonItem! {
+    didSet {
+      strokesButton?.accessibilityIdentifier = "strokesButton"
+    }
+  }
   
   @IBOutlet weak var webView: UIWebView! {
     didSet {
+      webView.accessibilityIdentifier = "WebView"
       webView.scrollView.delegate = self
       webView.delegate = self
       delegate?.webViewControllerBecomeReadyForLoad(self)
@@ -73,6 +78,10 @@ class WebViewController: UIViewController {
     checkForNewScore()
     submitScore()
     dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  @IBAction func strokesPressed(sender: AnyObject) {
+    delegate?.strokesPressed()
   }
   
   override func prefersStatusBarHidden() -> Bool {

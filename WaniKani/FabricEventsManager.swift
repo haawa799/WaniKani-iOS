@@ -24,11 +24,13 @@ struct FabricEventsManager {
   enum FabricEventName: String {
     case BackgroundFetch = "Background fetch"
     case NotificationScheduled = "Notification scheduled"
+    case KanjiStrokeOrderPractice = "Kanji stroke order practice"
   }
   
   enum FabricAttributesName: String {
     case Result = "Result"
     case IsBackgorundFetch = "isBackgroundFetch"
+    case WebSessionType = "Web session type"
   }
   
   init() {
@@ -38,6 +40,10 @@ struct FabricEventsManager {
     #else
       Crashlytics.sharedInstance().debugMode = false
     #endif
+  }
+  
+  func postUserSwipedToKanjiPractice(type: WebSessionType) {
+    postEvent(.KanjiStrokeOrderPractice, attributes: ["\(eventSuffix)\(FabricAttributesName.WebSessionType.rawValue)" : "\(type)"])
   }
   
   func postBackgroundFetchEvent(result: UIBackgroundFetchResult) {

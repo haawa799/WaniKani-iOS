@@ -87,16 +87,20 @@ class StudyQueueViewController: UIViewController {
     
     flipVisibleCells()
     collectionView.reloadData()
+    
+    //
+    delay(4) { () -> () in
+      self.performSegueWithIdentifier("webSession", sender: 1)
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let vc = segue.destinationViewController as? SideMenuViewController, let index = sender as? Int {
+    if let vc = segue.destinationViewController as? SideMenuContainerController, let index = sender as? Int {
       switch index {
-      case 0: vc.url = "https://www.wanikani.com/lesson/session"
-      vc.type = .Lesson
+      case 0:
+        vc.webViewData = ("https://www.wanikani.com/lesson/session", .Lesson)
       case 1:
-        vc.url = "https://www.wanikani.com/review/session"
-        vc.type = .Review
+        vc.webViewData = ("https://www.wanikani.com/review/session", .Review)
       default: break
       }
     }
@@ -205,7 +209,7 @@ extension StudyQueueViewController : UICollectionViewDelegate {
     if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AvaliableItemCell {
       if cell.enabled == true {
         if indexPath.section == 1 {
-          performSegueWithIdentifier("qqq"/*"browserSegue"*/, sender: indexPath.row)
+          performSegueWithIdentifier("webSession", sender: indexPath.row)
         }
       }
     }

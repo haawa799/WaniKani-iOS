@@ -1,6 +1,5 @@
 
 reinstall_app true
-# snapshot reset_simulators
 
 devices([
   "iPhone 6",
