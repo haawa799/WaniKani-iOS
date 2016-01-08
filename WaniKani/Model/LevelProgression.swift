@@ -29,7 +29,7 @@ extension LevelProgression {
   func updateWith(levelProgressInfo: LevelProgressionInfo) {
     radicalsProgress = levelProgressInfo.radicalsProgress ?? 0
     radicalsTotal = levelProgressInfo.radicalsTotal ?? 0
-    kanjiProgress = levelProgressInfo.radicalsProgress ?? 0
+    kanjiProgress = levelProgressInfo.kanjiProgress ?? 0
     kanjiTotal = levelProgressInfo.kanjiTotal ?? 0
   }
   
