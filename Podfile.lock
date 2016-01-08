@@ -13,7 +13,6 @@ PODS:
   - RealmSwift (0.95.2):
     - Realm (= 0.95.2)
   - RESideMenu (4.0.7)
-  - SimulatorStatusMagic (1.7)
   - StrokeDrawingView (0.1.1)
   - UICKeyChainStore (2.1.0)
   - WaniKit (0.1.0)
@@ -29,7 +28,6 @@ DEPENDENCIES:
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
   - RESideMenu
-  - SimulatorStatusMagic
   - StrokeDrawingView (from `https://github.com/haawa799/StrokeDrawingView.git`, branch
     `master`)
   - UICKeyChainStore
@@ -80,7 +78,6 @@ SPEC CHECKSUMS:
   Realm: 392c2662f18bd6d77c97a2cc1da1273b13c542c1
   RealmSwift: d59af58ee52301069b69468fab018919b591b0c1
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
-  SimulatorStatusMagic: 46c90a12f73abeda6d7c16876e1e0998b6ca5f4f
   StrokeDrawingView: 5d26664a4391804118fbfc2b3d4a5235a0057749
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
   WaniKit: d8ad22b1707fefc5559ab5b2b60429c4778b03aa

@@ -87,11 +87,6 @@ class StudyQueueViewController: UIViewController {
     
     flipVisibleCells()
     collectionView.reloadData()
-    
-    //
-    delay(4) { () -> () in
-      self.performSegueWithIdentifier("webSession", sender: 1)
-    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

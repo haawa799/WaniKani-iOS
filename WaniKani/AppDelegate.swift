@@ -9,7 +9,6 @@
 import UIKit
 import WaniKit
 import UICKeyChainStore
-import SimulatorStatusMagic
 
 
 @UIApplicationMain
@@ -58,13 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     return true
-  }
-  
-  func applicationDidBecomeActive(application: UIApplication) {
-    SDStatusBarManager.sharedInstance().enableOverrides()// sharedInstance] enableOverrides
-  }
-  func applicationWillResignActive(application: UIApplication) {
-    SDStatusBarManager.sharedInstance().disableOverrides()
   }
   
   func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
