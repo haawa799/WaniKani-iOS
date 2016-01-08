@@ -61,8 +61,24 @@ class DogeHintView: UIView {
     }
   }
   
+  var dogeImageFilename: String = {
+    
+    let date = NSDate()
+    let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
+    let components = calendar.components([.Month], fromDate: date)
+    
+    if [12, 1, 2].contains(components.month) {
+      return "dogeXMAS"
+    }
+    
+    return "doge"
+    
+  }()
+  
   @IBOutlet weak var dogeImageView: UIImageView! {
     didSet {
+      
+      dogeImageView.image = UIImage(named: dogeImageFilename)
       NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didEnterBackground"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
       NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("willEnterForeground"), name: UIApplicationWillEnterForegroundNotification, object: nil)
     }

@@ -1,5 +1,6 @@
 app_identifier "com.haawa.WaniKani" # The bundle identifier of your app
 apple_id "haawalabs@gmail.com" # Your Apple email address
+team_id "S55BP53VB8"
 
 # You can uncomment any of the lines below and add your own
 # team selection in case you're in multiple teams

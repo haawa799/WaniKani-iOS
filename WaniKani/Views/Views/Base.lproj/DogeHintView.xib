@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D13b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -38,8 +38,8 @@
                             </view>
                             <blurEffect style="extraLight"/>
                         </visualEffectView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="28N-FE-v3A">
-                            <rect key="frame" x="128" y="16" width="236" height="163"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="28N-FE-v3A">
+                            <rect key="frame" x="180" y="16" width="184" height="163"/>
                             <attributedString key="attributedText">
                                 <fragment>
                                     <string key="content">Hope you'll have much good time here.
@@ -75,8 +75,8 @@ I need you to log into your </string>
                             </attributedString>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="doge" translatesAutoresizingMaskIntoConstraints="NO" id="cte-cx-nwG">
-                            <rect key="frame" x="0.0" y="58" width="120" height="133.5"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dogeXMAS" translatesAutoresizingMaskIntoConstraints="NO" id="cte-cx-nwG">
+                            <rect key="frame" x="0.0" y="0.0" width="172" height="191.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="cte-cx-nwG" secondAttribute="height" multiplier="43:48" id="gzg-JP-Voq"/>
@@ -149,6 +149,6 @@ I need you to log into your </string>
         </view>
     </objects>
     <resources>
-        <image name="doge" width="120" height="126"/>
+        <image name="dogeXMAS" width="228" height="253"/>
     </resources>
 </document>

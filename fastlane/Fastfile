@@ -38,12 +38,21 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
     increment_build_number
-    sigh
-    gym # Build your app - more options available
+    cert(output_path: "./fastlane/certificate")
+    sigh(force: true, output_path: "./fastlane/provision")
+    gym(scheme: "WaniKani", output_directory: "./fastlane/build") # Build your app - more options available
     pilot
 
     # sh "your_script.sh"
     # You can also use other beta testing services here
+  end
+
+  desc "Build to check if works ok"
+  desc "This will also make sure the profile is up to date"
+  lane :try do
+    cert(output_path: "./fastlane/certificate")
+    sigh(force: true, output_path: "./fastlane/provision")
+    gym(scheme: "WaniKani", output_directory: "./fastlane/build") # Build your app - more options available
   end
 
   # desc "Deploy a new version to the App Store"
