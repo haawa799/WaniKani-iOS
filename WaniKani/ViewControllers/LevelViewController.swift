@@ -26,11 +26,7 @@ class LevelViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let manager = WaniApiManager()
-    manager.setApiKey("c6ce4072cf1bd37b407f2c86d69137e3")
-
-    
-    manager.fetchKanjiList(level) { (result) -> Void in
+    appDelegate.waniApiManager.fetchKanjiList(level) { (result) -> Void in
       switch result {
       case .Error(let error) : print(error())
       case .Response(let response) :
