@@ -10,6 +10,7 @@
 --------------------------------
 ### Want to get all latest features ASAP? This app needs beta testers! [Sign up page.](https://wanikani-ios.herokuapp.com)
 
+
 --------------------------------
 ### App is live [on the AppStore.](https://itunes.apple.com/us/app/wanikani/id1034355141?mt=8) 
 
@@ -18,7 +19,7 @@
 
 ![](http://cl.ly/0A23390u2f3q/Screen%20Shot%202016-01-07%20at%202.19.41%20AM.png)
 
-
+![](http://cl.ly/0N1u1N0C1u1y/ezgif.com-gif-maker%20(1).gif)
 
 | Features                             | Beta            | AppStore      |
 | -------------------------------------|:---------------:|:-------------:|
