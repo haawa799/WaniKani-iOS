@@ -22,11 +22,20 @@ class LevelViewController: UIViewController {
   
   var level: Int = 1
   
+  let apiManager: WaniApiManager = {
+    if user?.level > 3 {
+      return appDelegate.waniApiManager
+    } else {
+      let manager = WaniApiManager()
+      manager.setApiKey("")
+      return manager
+    }
+  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    appDelegate.waniApiManager.fetchKanjiList(level) { (result) -> Void in
+    apiManager.fetchKanjiList(level) { (result) -> Void in
       switch result {
       case .Error(let error) : print(error())
       case .Response(let response) :

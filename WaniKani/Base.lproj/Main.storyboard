@@ -887,26 +887,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOU-i0-1oQ">
-                                <rect key="frame" x="0.0" y="64" width="600" height="387"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="377"/>
                                 <connections>
                                     <segue destination="mWV-Fa-udQ" kind="embed" identifier="kanjiPick" id="jNG-CV-A9f"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0BS-a1-d1M">
-                                <rect key="frame" x="0.0" y="451" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="441" width="600" height="110"/>
                                 <subviews>
-                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sii-h0-r83">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sii-h0-r83">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Rap-wr-Epo">
                                             <size key="itemSize" width="80" height="80"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="10"/>
+                                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="kanjiCell" id="ZDG-cY-OaR" customClass="KanjiCell" customModule="WaniKani" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="5" width="80" height="80"/>
+                                                <rect key="frame" x="10" y="15" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -960,7 +960,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Sii-h0-r83" secondAttribute="trailing" id="L23-b9-wO6"/>
                                     <constraint firstItem="Sii-h0-r83" firstAttribute="leading" secondItem="0BS-a1-d1M" secondAttribute="leading" id="TiB-un-EOG"/>
                                     <constraint firstItem="Sii-h0-r83" firstAttribute="top" secondItem="0BS-a1-d1M" secondAttribute="top" id="mf0-ti-0Ki"/>
-                                    <constraint firstAttribute="height" constant="100" id="sbS-DX-waF"/>
+                                    <constraint firstAttribute="height" constant="110" id="sbS-DX-waF"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1122,17 +1122,17 @@
                         <viewControllerLayoutGuide type="bottom" id="jWu-SH-9Hb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XLi-UM-DJL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="387"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="377"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fB-ot-nJO">
-                                <rect key="frame" x="10" y="10" width="580" height="367"/>
+                                <rect key="frame" x="10" y="10" width="580" height="357"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4f-2V-7FG" customClass="KanjiMetaDataView" customModule="WaniKani" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="0.0" width="367" height="367"/>
+                                        <rect key="frame" x="111" y="0.0" width="357" height="357"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqh-xu-pF4">
-                                                <rect key="frame" x="0.0" y="0.0" width="367" height="367"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="357" height="357"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="漢" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEB-Mh-ct5">
                                                         <rect key="frame" x="8" y="8" width="40" height="47"/>
@@ -1141,13 +1141,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Meaning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000149011612" translatesAutoresizingMaskIntoConstraints="NO" id="Vin-oq-jVi">
-                                                        <rect key="frame" x="56" y="22" width="303" height="19.5"/>
+                                                        <rect key="frame" x="56" y="22" width="293" height="19.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <color key="textColor" red="0.26358173080000002" green="0.26358173080000002" blue="0.26358173080000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flip me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgl-il-j01">
-                                                        <rect key="frame" x="163" y="343" width="41" height="16"/>
+                                                        <rect key="frame" x="158" y="333" width="41" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
