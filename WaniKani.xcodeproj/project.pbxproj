@@ -68,6 +68,11 @@
 		43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */; };
 		43AFAFC61B8C96130016E55F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFAFC51B8C96130016E55F /* Utils.swift */; };
 		43AFAFC81B8CA1060016E55F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFAFC71B8CA1060016E55F /* WebViewController.swift */; };
+		43B273BC1C43BDCA00B57D8B /* DataTypePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273BB1C43BDCA00B57D8B /* DataTypePickerController.swift */; };
+		43B273BE1C43DA4700B57D8B /* LevelBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273BD1C43DA4700B57D8B /* LevelBlocksViewController.swift */; };
+		43B273C11C43DC5D00B57D8B /* LevelsBlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273BF1C43DC5D00B57D8B /* LevelsBlockCell.swift */; };
+		43B273C21C43DC5D00B57D8B /* LevelsBlockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B273C01C43DC5D00B57D8B /* LevelsBlockCell.xib */; };
+		43B273C41C43DE2C00B57D8B /* LevelsBlockLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273C31C43DE2C00B57D8B /* LevelsBlockLayout.swift */; };
 		43B5F8AA1C0C84C900DA9893 /* DogeHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B5F8AC1C0C84C900DA9893 /* DogeHintView.xib */; };
 		43BE27701C1B1188001A0DD7 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE276F1C1B1188001A0DD7 /* NotificationCenterManager.swift */; };
 		43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */; };
@@ -188,6 +193,11 @@
 		43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorfullTabBarController.swift; sourceTree = "<group>"; };
 		43AFAFC51B8C96130016E55F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		43AFAFC71B8CA1060016E55F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		43B273BB1C43BDCA00B57D8B /* DataTypePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTypePickerController.swift; sourceTree = "<group>"; };
+		43B273BD1C43DA4700B57D8B /* LevelBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelBlocksViewController.swift; sourceTree = "<group>"; };
+		43B273BF1C43DC5D00B57D8B /* LevelsBlockCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsBlockCell.swift; sourceTree = "<group>"; };
+		43B273C01C43DC5D00B57D8B /* LevelsBlockCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelsBlockCell.xib; sourceTree = "<group>"; };
+		43B273C31C43DE2C00B57D8B /* LevelsBlockLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsBlockLayout.swift; sourceTree = "<group>"; };
 		43B5F8AB1C0C84C900DA9893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DogeHintView.xib; sourceTree = "<group>"; };
 		43BE276F1C1B1188001A0DD7 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSuit.swift; sourceTree = "<group>"; };
@@ -264,6 +274,8 @@
 				434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */,
 				43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */,
 				43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */,
+				43B273BF1C43DC5D00B57D8B /* LevelsBlockCell.swift */,
+				43B273C01C43DC5D00B57D8B /* LevelsBlockCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -332,6 +344,8 @@
 			children = (
 				433BDC221BFB3BA40025EB24 /* Setup */,
 				437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */,
+				43B273BD1C43DA4700B57D8B /* LevelBlocksViewController.swift */,
+				43B273BB1C43BDCA00B57D8B /* DataTypePickerController.swift */,
 				437A33CA1C326A72007FE8F3 /* LevelViewController.swift */,
 				437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */,
 				43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */,
@@ -368,6 +382,7 @@
 				432C07381BB32CF90031B3B1 /* SettingsLayout.swift */,
 				43E456821BBBD1A20043ECAE /* StratchyLayout.swift */,
 				43E851B41BEBA6340030E52E /* CriticalItemsLayout.swift */,
+				43B273C31C43DE2C00B57D8B /* LevelsBlockLayout.swift */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -604,6 +619,7 @@
 				434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */,
 				432C07351BB3272C0031B3B1 /* DashboardHeader.xib in Resources */,
 				43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */,
+				43B273C21C43DC5D00B57D8B /* LevelsBlockCell.xib in Resources */,
 				432C07331BB3272C0031B3B1 /* SettingsScriptCell.xib in Resources */,
 				4329D0EC1BBD36E2009BEABF /* resize.js in Resources */,
 				432C07311BB3272C0031B3B1 /* ReviewCell.xib in Resources */,
@@ -755,7 +771,10 @@
 				432C07321BB3272C0031B3B1 /* SettingsScriptCell.swift in Sources */,
 				43E456831BBBD1A20043ECAE /* StratchyLayout.swift in Sources */,
 				4335B9BE1C19CA6B0011746D /* StudyQueue.swift in Sources */,
+				43B273BE1C43DA4700B57D8B /* LevelBlocksViewController.swift in Sources */,
 				43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */,
+				43B273C11C43DC5D00B57D8B /* LevelsBlockCell.swift in Sources */,
+				43B273BC1C43BDCA00B57D8B /* DataTypePickerController.swift in Sources */,
 				432C072C1BB3272C0031B3B1 /* AvaliableItemCell.swift in Sources */,
 				433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */,
 				43101B6F1C33D8DF00B855F2 /* SideMenuViewController.swift in Sources */,
@@ -766,6 +785,7 @@
 				43E851B51BEBA6340030E52E /* CriticalItemsLayout.swift in Sources */,
 				432C07341BB3272C0031B3B1 /* DashboardHeader.swift in Sources */,
 				43EBC09E1BA5F6C000C0B390 /* SettingsViewController.swift in Sources */,
+				43B273C41C43DE2C00B57D8B /* LevelsBlockLayout.swift in Sources */,
 				433E165F1B84A6D0007B7DE9 /* DataFetchManager.swift in Sources */,
 				43AD052F1BA044BA000DBCBE /* UserScript.swift in Sources */,
 			);

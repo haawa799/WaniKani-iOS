@@ -171,16 +171,10 @@ class DataFetchManager: NSObject {
     dispatch_async(dispatch_get_main_queue()) { () -> Void in
       //User leveled up
       
-      
-      //      if oldLevel < newLevel {
-      
       delay(7, closure: { () -> () in
-        //          AwardsManager.sharedInstance.resetAchievements()
         AwardsManager.sharedInstance.userLevelUp(oldLevel: oldLevel, newLevel: newLevel)
       })
       
-      
-      //      }
     }
     
   }

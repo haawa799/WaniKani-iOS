@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ivv-vk-yuo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D13b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ivv-vk-yuo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -745,10 +745,10 @@
             </objects>
             <point key="canvasLocation" x="2597" y="655"/>
         </scene>
-        <!--View Controller-->
+        <!--Data Type Picker Controller-->
         <scene sceneID="XeR-19-neC">
             <objects>
-                <viewController id="96U-Ur-pQO" sceneMemberID="viewController">
+                <viewController id="96U-Ur-pQO" customClass="DataTypePickerController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b57-iV-AmH"/>
                         <viewControllerLayoutGuide type="bottom" id="FXa-qk-nJQ"/>
@@ -757,30 +757,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cba-vn-aPX">
-                                <rect key="frame" x="283" y="285" width="33" height="30"/>
-                                <state key="normal" title="Kanji"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="data_bg" translatesAutoresizingMaskIntoConstraints="NO" id="P4c-jU-kRb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMu-s7-Gh1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Jhk-xP-LPB">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlP-DE-OQ8">
+                                <rect key="frame" x="10" y="74" width="580" height="149"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="部首 Radicals" backgroundImage="radical_bg_default"/>
+                                <state key="highlighted" backgroundImage="radical_bg_selected"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cba-vn-aPX">
+                                <rect key="frame" x="10" y="233" width="580" height="149"/>
+                                <accessibility key="accessibilityConfiguration" label="kanji"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="漢字  Kanji" backgroundImage="kanji_bg_default"/>
+                                <state key="highlighted" backgroundImage="kanji_bg_selected">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <segue destination="VB7-I2-Sri" kind="show" id="TT0-UQ-ou1"/>
+                                    <segue destination="p7g-tx-DCL" kind="show" id="DL0-Y2-U52"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: This part of app is in deep beta" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcF-pz-KYf">
-                                <rect key="frame" x="430" y="72" width="150" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8G-pU-95q">
+                                <rect key="frame" x="10" y="392" width="580" height="149"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="言葉 Words" backgroundImage="word_bg_default"/>
+                                <state key="highlighted" backgroundImage="word_bg_selected"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coming_soon_ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="Eic-wJ-pR3">
+                                <rect key="frame" x="515" y="392" width="74.5" height="74.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="fb4-B5-msl"/>
+                                    <constraint firstAttribute="width" secondItem="Eic-wJ-pR3" secondAttribute="height" multiplier="1:1" id="n39-ye-l5Y"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coming_soon_ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="q5h-ds-8ch">
+                                <rect key="frame" x="516" y="74" width="74" height="74.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="q5h-ds-8ch" secondAttribute="height" multiplier="1:1" id="m2U-1Z-bfm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Cba-vn-aPX" firstAttribute="centerY" secondItem="ZvY-Uj-Xml" secondAttribute="centerY" id="IjA-tn-1RG"/>
-                            <constraint firstItem="WcF-pz-KYf" firstAttribute="trailing" secondItem="ZvY-Uj-Xml" secondAttribute="trailingMargin" id="Mcy-lD-RWW"/>
-                            <constraint firstItem="Cba-vn-aPX" firstAttribute="centerX" secondItem="ZvY-Uj-Xml" secondAttribute="centerX" id="pSy-0d-iTc"/>
-                            <constraint firstItem="WcF-pz-KYf" firstAttribute="top" secondItem="b57-iV-AmH" secondAttribute="bottom" constant="8" id="sj0-aW-e2i"/>
+                            <constraint firstItem="l8G-pU-95q" firstAttribute="leading" secondItem="ZvY-Uj-Xml" secondAttribute="leading" constant="10" id="14G-uF-Agg"/>
+                            <constraint firstItem="q5h-ds-8ch" firstAttribute="trailing" secondItem="XlP-DE-OQ8" secondAttribute="trailing" id="7aP-Vl-C18"/>
+                            <constraint firstItem="XlP-DE-OQ8" firstAttribute="top" secondItem="b57-iV-AmH" secondAttribute="bottom" id="E8H-Ng-Cbw"/>
+                            <constraint firstAttribute="trailing" secondItem="P4c-jU-kRb" secondAttribute="trailing" id="EaE-d8-dsm"/>
+                            <constraint firstItem="q5h-ds-8ch" firstAttribute="height" relation="lessThanOrEqual" secondItem="XlP-DE-OQ8" secondAttribute="height" multiplier="0.5" id="KQi-3O-fVJ"/>
+                            <constraint firstItem="l8G-pU-95q" firstAttribute="height" secondItem="XlP-DE-OQ8" secondAttribute="height" id="MWQ-Yi-TIk"/>
+                            <constraint firstAttribute="bottom" secondItem="P4c-jU-kRb" secondAttribute="bottom" id="N9Y-aQ-WwL"/>
+                            <constraint firstItem="NMu-s7-Gh1" firstAttribute="leading" secondItem="ZvY-Uj-Xml" secondAttribute="leading" id="R9X-H3-6lY"/>
+                            <constraint firstAttribute="trailing" secondItem="Cba-vn-aPX" secondAttribute="trailing" constant="10" id="TMh-H1-1C3"/>
+                            <constraint firstAttribute="trailing" secondItem="XlP-DE-OQ8" secondAttribute="trailing" constant="10" id="ZRX-xR-sO7"/>
+                            <constraint firstItem="Eic-wJ-pR3" firstAttribute="height" relation="lessThanOrEqual" secondItem="l8G-pU-95q" secondAttribute="height" multiplier="0.5" id="aBu-Ik-HXi"/>
+                            <constraint firstItem="XlP-DE-OQ8" firstAttribute="leading" secondItem="ZvY-Uj-Xml" secondAttribute="leading" constant="10" id="b3J-As-Bx1"/>
+                            <constraint firstItem="XlP-DE-OQ8" firstAttribute="top" secondItem="b57-iV-AmH" secondAttribute="bottom" constant="10" id="bir-ys-xwC"/>
+                            <constraint firstItem="XlP-DE-OQ8" firstAttribute="height" secondItem="Cba-vn-aPX" secondAttribute="height" id="chs-d0-2KH"/>
+                            <constraint firstItem="l8G-pU-95q" firstAttribute="top" secondItem="Cba-vn-aPX" secondAttribute="bottom" constant="10" id="cwW-xd-K6U"/>
+                            <constraint firstItem="Eic-wJ-pR3" firstAttribute="width" secondItem="Eic-wJ-pR3" secondAttribute="height" multiplier="1:1" id="d0o-7O-vZd"/>
+                            <constraint firstAttribute="bottom" secondItem="NMu-s7-Gh1" secondAttribute="bottom" id="djR-8q-1oV"/>
+                            <constraint firstItem="XlP-DE-OQ8" firstAttribute="top" secondItem="ZvY-Uj-Xml" secondAttribute="top" id="f2a-OU-OcH"/>
+                            <constraint firstItem="XlP-DE-OQ8" firstAttribute="top" secondItem="b57-iV-AmH" secondAttribute="bottom" id="iSx-1Z-yy2"/>
+                            <constraint firstAttribute="trailing" secondItem="l8G-pU-95q" secondAttribute="trailing" constant="10" id="mRd-zo-Imo"/>
+                            <constraint firstItem="Cba-vn-aPX" firstAttribute="top" secondItem="XlP-DE-OQ8" secondAttribute="bottom" constant="10" id="nIi-Ea-XxA"/>
+                            <constraint firstItem="Eic-wJ-pR3" firstAttribute="trailing" secondItem="l8G-pU-95q" secondAttribute="trailing" id="okF-YQ-xgb"/>
+                            <constraint firstItem="P4c-jU-kRb" firstAttribute="leading" secondItem="ZvY-Uj-Xml" secondAttribute="leading" id="qci-Yk-paa"/>
+                            <constraint firstItem="P4c-jU-kRb" firstAttribute="top" secondItem="ZvY-Uj-Xml" secondAttribute="top" id="uMf-OI-XIB"/>
+                            <constraint firstItem="q5h-ds-8ch" firstAttribute="top" secondItem="XlP-DE-OQ8" secondAttribute="top" id="uzO-wI-cNN"/>
+                            <constraint firstItem="Eic-wJ-pR3" firstAttribute="top" secondItem="l8G-pU-95q" secondAttribute="top" id="wPG-zZ-1WO"/>
+                            <constraint firstAttribute="trailing" secondItem="NMu-s7-Gh1" secondAttribute="trailing" id="wpi-zq-fyc"/>
+                            <constraint firstItem="FXa-qk-nJQ" firstAttribute="top" secondItem="l8G-pU-95q" secondAttribute="bottom" constant="10" id="xGs-lt-SLD"/>
+                            <constraint firstItem="NMu-s7-Gh1" firstAttribute="top" secondItem="ZvY-Uj-Xml" secondAttribute="top" id="xOu-N1-eiU"/>
+                            <constraint firstItem="Cba-vn-aPX" firstAttribute="leading" secondItem="ZvY-Uj-Xml" secondAttribute="leading" constant="10" id="zJP-6P-cwC"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="E8H-Ng-Cbw"/>
+                                <exclude reference="f2a-OU-OcH"/>
+                                <exclude reference="iSx-1Z-yy2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="erB-R4-4jm"/>
                 </viewController>
@@ -984,7 +1051,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDp-V8-mM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4514" y="2502"/>
+            <point key="canvasLocation" x="4387" y="3316"/>
+        </scene>
+        <!--Level Blocks View Controller-->
+        <scene sceneID="fjR-oh-MHr">
+            <objects>
+                <viewController id="p7g-tx-DCL" customClass="LevelBlocksViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BFk-WW-o7p"/>
+                        <viewControllerLayoutGuide type="bottom" id="rMF-41-ztz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rj3-JI-ZvY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="data_bg" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-TM-1Lj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVy-jq-1gN">
+                                <rect key="frame" x="-5" y="0.0" width="605" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="I69-Q9-aOx">
+                                    <rect key="frame" x="0.0" y="0.0" width="605" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DAD-zN-iej">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gqL-ch-ca2" customClass="LevelsBlockLayout" customModule="WaniKani" customModuleProvider="target">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DAD-zN-iej" firstAttribute="leading" secondItem="rj3-JI-ZvY" secondAttribute="leading" id="8jS-iW-ade"/>
+                            <constraint firstItem="gVy-jq-1gN" firstAttribute="top" secondItem="rj3-JI-ZvY" secondAttribute="top" id="BTF-5f-5gY"/>
+                            <constraint firstAttribute="trailing" secondItem="nkV-TM-1Lj" secondAttribute="trailing" id="MQN-XJ-tlJ"/>
+                            <constraint firstAttribute="trailing" secondItem="DAD-zN-iej" secondAttribute="trailing" id="UXV-BK-b7W"/>
+                            <constraint firstAttribute="bottom" secondItem="gVy-jq-1gN" secondAttribute="bottom" id="WvM-Nb-ccO"/>
+                            <constraint firstAttribute="trailing" secondItem="gVy-jq-1gN" secondAttribute="trailing" id="iFW-Hi-786"/>
+                            <constraint firstAttribute="bottom" secondItem="nkV-TM-1Lj" secondAttribute="bottom" id="lr4-9L-3BT"/>
+                            <constraint firstItem="gVy-jq-1gN" firstAttribute="leading" secondItem="rj3-JI-ZvY" secondAttribute="leading" constant="-5" id="spF-uf-OKK"/>
+                            <constraint firstItem="nkV-TM-1Lj" firstAttribute="leading" secondItem="rj3-JI-ZvY" secondAttribute="leading" id="uyN-HH-fEu"/>
+                            <constraint firstItem="nkV-TM-1Lj" firstAttribute="top" secondItem="rj3-JI-ZvY" secondAttribute="top" id="vNU-NN-BIp"/>
+                            <constraint firstItem="rMF-41-ztz" firstAttribute="top" secondItem="DAD-zN-iej" secondAttribute="bottom" id="xBp-vF-eCi"/>
+                            <constraint firstItem="DAD-zN-iej" firstAttribute="top" secondItem="BFk-WW-o7p" secondAttribute="bottom" id="zr6-qj-2Mb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="DAD-zN-iej" id="xG7-g1-PAK"/>
+                        <segue destination="VB7-I2-Sri" kind="show" identifier="pickLevel" id="wCJ-te-UF7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EmK-h7-5Bb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3616" y="3316"/>
         </scene>
         <!--Kanji Strokes View Controller-->
         <scene sceneID="wIW-L7-5xH">
@@ -1020,7 +1147,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flip me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgl-il-j01">
-                                                        <rect key="frame" x="162.5" y="343" width="41" height="16"/>
+                                                        <rect key="frame" x="163" y="343" width="41" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -1091,12 +1218,20 @@
         <image name="back" width="12" height="20"/>
         <image name="bg" width="465" height="808"/>
         <image name="browser" width="32" height="32"/>
+        <image name="coming_soon_ribbon" width="100" height="100"/>
         <image name="dashboard" width="25" height="25"/>
         <image name="data" width="25" height="25"/>
+        <image name="data_bg" width="320" height="555"/>
         <image name="forums" width="32" height="32"/>
         <image name="home" width="32" height="32"/>
+        <image name="kanji_bg_default" width="32" height="32"/>
+        <image name="kanji_bg_selected" width="32" height="32"/>
         <image name="kanji_locked_bg" width="255" height="255"/>
         <image name="next" width="12" height="20"/>
+        <image name="radical_bg_default" width="32" height="32"/>
+        <image name="radical_bg_selected" width="32" height="32"/>
         <image name="settings" width="25" height="25"/>
+        <image name="word_bg_default" width="32" height="32"/>
+        <image name="word_bg_selected" width="32" height="32"/>
     </resources>
 </document>

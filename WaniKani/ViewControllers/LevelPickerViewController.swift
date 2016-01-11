@@ -10,12 +10,23 @@ import UIKit
 
 class LevelPickerViewController: UIViewController {
   
+  let numberOfLevels = 10
   
   @IBOutlet weak var tableView: UITableView! {
     didSet {
       tableView?.dataSource = self
       tableView?.delegate = self
     }
+  }
+  
+  var index = 0 {
+    didSet {
+      tableView?.reloadData()
+    }
+  }
+  
+  func levelForIndexPath(indexPath: NSIndexPath) -> Int {
+    return (index * numberOfLevels) + indexPath.row
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -33,12 +44,13 @@ class LevelPickerViewController: UIViewController {
 
 extension LevelPickerViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 60
+    return numberOfLevels
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("levelCell")!
-    cell.textLabel?.text = "Lvl:  \(indexPath.row + 1)"
+    let level = levelForIndexPath(indexPath)
+    cell.textLabel?.text = "Lvl:  \(level + 1)"
     return cell
   }
 }
@@ -46,7 +58,7 @@ extension LevelPickerViewController: UITableViewDataSource {
 extension LevelPickerViewController: UITableViewDelegate {
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("levelSelected", sender: indexPath.row)
+    performSegueWithIdentifier("levelSelected", sender: levelForIndexPath(indexPath))
   }
   
 }
