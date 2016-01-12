@@ -127,7 +127,7 @@ class WaniKaniUITests: XCTestCase {
     
     app.textFields.elementBoundByIndex(0).tap()
     sleep(1)
-    app.textFields.elementBoundByIndex(0).typeText("haawa")//("paukan")
+    app.textFields.elementBoundByIndex(0).typeText("paukan")
   
     
     sleep(2)
