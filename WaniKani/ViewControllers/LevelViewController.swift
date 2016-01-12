@@ -32,7 +32,7 @@ class LevelViewController: UIViewController {
       // For users with level 3 and lower apiManager.fetchKanjiList returns null
       // therefore I use my API key to let them see all the kanji that they will learn in future.
       // My API key is not commited to GithubFor obvious reasons
-      manager.setApiKey(myApiKey) // Insert your API key here or comment it out
+//      manager.setApiKey(myApiKey) // Insert your API key here or comment it out
       
       return manager
     }
