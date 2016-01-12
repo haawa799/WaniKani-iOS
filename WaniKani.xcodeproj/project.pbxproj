@@ -74,6 +74,9 @@
 		43B273C21C43DC5D00B57D8B /* LevelsBlockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B273C01C43DC5D00B57D8B /* LevelsBlockCell.xib */; };
 		43B273C41C43DE2C00B57D8B /* LevelsBlockLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273C31C43DE2C00B57D8B /* LevelsBlockLayout.swift */; };
 		43B273C81C44058E00B57D8B /* MyApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273C71C44058E00B57D8B /* MyApiKey.swift */; };
+		43B273CB1C4409CC00B57D8B /* LevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273C91C4409CC00B57D8B /* LevelCell.swift */; };
+		43B273CC1C4409CC00B57D8B /* LevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B273CA1C4409CC00B57D8B /* LevelCell.xib */; };
+		43B273CE1C4505A400B57D8B /* LevelsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273CD1C4505A400B57D8B /* LevelsLayout.swift */; };
 		43B5F8AA1C0C84C900DA9893 /* DogeHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B5F8AC1C0C84C900DA9893 /* DogeHintView.xib */; };
 		43BE27701C1B1188001A0DD7 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE276F1C1B1188001A0DD7 /* NotificationCenterManager.swift */; };
 		43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */; };
@@ -200,6 +203,9 @@
 		43B273C01C43DC5D00B57D8B /* LevelsBlockCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelsBlockCell.xib; sourceTree = "<group>"; };
 		43B273C31C43DE2C00B57D8B /* LevelsBlockLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsBlockLayout.swift; sourceTree = "<group>"; };
 		43B273C71C44058E00B57D8B /* MyApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyApiKey.swift; sourceTree = "<group>"; };
+		43B273C91C4409CC00B57D8B /* LevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCell.swift; sourceTree = "<group>"; };
+		43B273CA1C4409CC00B57D8B /* LevelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelCell.xib; sourceTree = "<group>"; };
+		43B273CD1C4505A400B57D8B /* LevelsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsLayout.swift; sourceTree = "<group>"; };
 		43B5F8AB1C0C84C900DA9893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DogeHintView.xib; sourceTree = "<group>"; };
 		43BE276F1C1B1188001A0DD7 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSuit.swift; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 				43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */,
 				43B273BF1C43DC5D00B57D8B /* LevelsBlockCell.swift */,
 				43B273C01C43DC5D00B57D8B /* LevelsBlockCell.xib */,
+				43B273C91C4409CC00B57D8B /* LevelCell.swift */,
+				43B273CA1C4409CC00B57D8B /* LevelCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -386,6 +394,7 @@
 				43E456821BBBD1A20043ECAE /* StratchyLayout.swift */,
 				43E851B41BEBA6340030E52E /* CriticalItemsLayout.swift */,
 				43B273C31C43DE2C00B57D8B /* LevelsBlockLayout.swift */,
+				43B273CD1C4505A400B57D8B /* LevelsLayout.swift */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -637,6 +646,7 @@
 				43E4567F1BBAD4A30043ECAE /* ProgressHeader.xib in Resources */,
 				43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */,
 				433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */,
+				43B273CC1C4409CC00B57D8B /* LevelCell.xib in Resources */,
 				434673E01BDEC8840095A4A3 /* score.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -746,8 +756,10 @@
 				43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */,
 				43AFAFC81B8CA1060016E55F /* WebViewController.swift in Sources */,
 				433E16521B846016007B7DE9 /* StudyQueueViewController.swift in Sources */,
+				43B273CE1C4505A400B57D8B /* LevelsLayout.swift in Sources */,
 				43B273C81C44058E00B57D8B /* MyApiKey.swift in Sources */,
 				433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */,
+				43B273CB1C4409CC00B57D8B /* LevelCell.swift in Sources */,
 				433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */,
 				437A33CC1C326A72007FE8F3 /* LevelViewController.swift in Sources */,
 				432C072E1BB3272C0031B3B1 /* NextReviewCell.swift in Sources */,

@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="47" width="102" height="47.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1G-Rg-jx3">
-                                <rect key="frame" x="0.0" y="23.5" width="102" height="23.5"/>
+                                <rect key="frame" x="0.0" y="23" width="102" height="23.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" red="0.060715675354003906" green="0.22924548387527466" blue="0.21634453535079956" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.060715675354003906" green="0.22924548387527466" blue="0.21634453535079956" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="u28-pz-dSN" secondAttribute="trailing" id="19w-YK-UyJ"/>
                 <constraint firstAttribute="bottom" secondItem="VDn-va-WUx" secondAttribute="bottom" id="6Sa-LZ-aqd"/>

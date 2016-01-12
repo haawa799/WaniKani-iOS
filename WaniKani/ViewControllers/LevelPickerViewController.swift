@@ -12,16 +12,18 @@ class LevelPickerViewController: UIViewController {
   
   let numberOfLevels = 10
   
-  @IBOutlet weak var tableView: UITableView! {
+  @IBOutlet weak var collectionView: UICollectionView! {
     didSet {
-      tableView?.dataSource = self
-      tableView?.delegate = self
+      collectionView?.dataSource = self
+      collectionView?.delegate = self
+      let nib = UINib(nibName: "LevelCell", bundle: nil)
+      collectionView?.registerNib(nib, forCellWithReuseIdentifier: LevelCell.identifier)
     }
   }
   
   var index = 0 {
     didSet {
-      tableView?.reloadData()
+      collectionView?.reloadData()
     }
   }
   
@@ -37,28 +39,33 @@ class LevelPickerViewController: UIViewController {
       let trueLevel = level + 1
       vc.title = "lvl: \(trueLevel)"
       vc.level = trueLevel
-      hidesBottomBarWhenPushed = true
+      
+      vc.hidesBottomBarWhenPushed = true
     }
   }
 }
 
-extension LevelPickerViewController: UITableViewDataSource {
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension LevelPickerViewController: UICollectionViewDataSource {
+  
+  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return numberOfLevels
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("levelCell")!
-    let level = levelForIndexPath(indexPath)
-    cell.textLabel?.text = "Lvl:  \(level + 1)"
+  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LevelCell.identifier, forIndexPath: indexPath)
+    
+    if let levelCell = cell as? LevelCell {
+      let level = levelForIndexPath(indexPath)
+      levelCell.levelLabel.text = "Lvl:  \(level + 1)"
+    }
+
     return cell
   }
+  
 }
 
-extension LevelPickerViewController: UITableViewDelegate {
-  
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+extension LevelPickerViewController: UICollectionViewDelegate {
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     performSegueWithIdentifier("levelSelected", sender: levelForIndexPath(indexPath))
   }
-  
 }

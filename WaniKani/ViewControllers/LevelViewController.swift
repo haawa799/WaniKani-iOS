@@ -63,12 +63,6 @@ class LevelViewController: UIViewController {
     }
   }
   
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    
-    showTabBar(true)
-  }
-  
   var kanjiArray: [KanjiInfo]?
 }
 
