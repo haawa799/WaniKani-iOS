@@ -133,7 +133,7 @@ class WaniKaniUITests: XCTestCase {
     sleep(2)
     app.toolbars.buttons["Forward"].tap()
     sleep(2)
-    app.secureTextFields.elementBoundByIndex(0).typeText("Googlie9\r")//("1234567890\r")
+    app.secureTextFields.elementBoundByIndex(0).typeText("1234567890\r")
   }
   
 }
