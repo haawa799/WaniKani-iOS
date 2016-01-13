@@ -1,0 +1,32 @@
+{
+  "default": {
+    "title": {
+      "fonts": [
+        {
+          "font": "./fonts/DogeSans-Regular.otf"
+        }
+      ],
+      "color": "#F87691"
+    },
+    "background": "./background.png",
+    "padding": 50
+  },
+
+  "data": [
+    {
+      "filter": "1 Review"
+    },
+    {
+      "filter": "2 Review stroke order"
+    },
+    {
+      "filter": "3 Study Queue"
+    },
+    {
+      "filter": "4 Settings"
+    },
+    {
+      "filter": "5 Kanji data"
+    }
+  ]
+}

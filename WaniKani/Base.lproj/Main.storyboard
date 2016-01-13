@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D13b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ivv-vk-yuo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ivv-vk-yuo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -929,6 +929,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="漢" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aae-uj-DzU">
                                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="kanjiCell"/>
                                                             <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="48"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -1163,15 +1164,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="406" height="406"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="漢" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEB-Mh-ct5">
-                                                        <rect key="frame" x="8" y="8" width="40" height="47"/>
-                                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="40"/>
+                                                        <rect key="frame" x="20" y="20" width="366" height="177"/>
+                                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="60"/>
                                                         <color key="textColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Meaning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000149011612" translatesAutoresizingMaskIntoConstraints="NO" id="Vin-oq-jVi">
-                                                        <rect key="frame" x="56" y="22" width="342" height="19.5"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <color key="textColor" red="0.26358173080000002" green="0.26358173080000002" blue="0.26358173080000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flip me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgl-il-j01">
@@ -1180,21 +1175,30 @@
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Meaning" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000149011612" translatesAutoresizingMaskIntoConstraints="NO" id="Vin-oq-jVi">
+                                                        <rect key="frame" x="20" y="197" width="366" height="177"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <color key="textColor" red="0.26358173080000002" green="0.26358173080000002" blue="0.26358173080000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="dgl-il-j01" firstAttribute="centerX" secondItem="oqh-xu-pF4" secondAttribute="centerX" id="GdO-GO-KCy"/>
-                                                    <constraint firstItem="Vin-oq-jVi" firstAttribute="leading" secondItem="WEB-Mh-ct5" secondAttribute="trailing" constant="8" id="Jc5-K6-mbb"/>
-                                                    <constraint firstItem="WEB-Mh-ct5" firstAttribute="leading" secondItem="oqh-xu-pF4" secondAttribute="leadingMargin" id="LLo-B2-h8I"/>
-                                                    <constraint firstItem="Vin-oq-jVi" firstAttribute="trailing" secondItem="oqh-xu-pF4" secondAttribute="trailingMargin" id="MJ3-rD-HYr"/>
                                                     <constraint firstItem="dgl-il-j01" firstAttribute="bottom" secondItem="oqh-xu-pF4" secondAttribute="bottomMargin" id="Vrh-JR-ZUv"/>
-                                                    <constraint firstItem="Vin-oq-jVi" firstAttribute="centerY" secondItem="WEB-Mh-ct5" secondAttribute="centerY" id="mBM-px-yYH"/>
-                                                    <constraint firstItem="WEB-Mh-ct5" firstAttribute="top" secondItem="oqh-xu-pF4" secondAttribute="topMargin" id="oQA-vY-FTW"/>
-                                                    <constraint firstItem="Vin-oq-jVi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oqh-xu-pF4" secondAttribute="topMargin" id="zds-Fq-rSd"/>
+                                                    <constraint firstItem="WEB-Mh-ct5" firstAttribute="leading" secondItem="oqh-xu-pF4" secondAttribute="leading" constant="20" symbolic="YES" id="VxE-bj-0ma"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WEB-Mh-ct5" secondAttribute="trailing" constant="20" symbolic="YES" id="mrX-sy-uMb"/>
+                                                    <constraint firstItem="Vin-oq-jVi" firstAttribute="top" secondItem="WEB-Mh-ct5" secondAttribute="bottom" id="oL9-Tf-dcr"/>
+                                                    <constraint firstItem="dgl-il-j01" firstAttribute="top" secondItem="Vin-oq-jVi" secondAttribute="bottom" constant="8" symbolic="YES" id="qA9-B2-VDU"/>
+                                                    <constraint firstItem="WEB-Mh-ct5" firstAttribute="top" secondItem="oqh-xu-pF4" secondAttribute="top" constant="20" symbolic="YES" id="rBy-Kt-tqX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Vin-oq-jVi" secondAttribute="trailing" constant="20" symbolic="YES" id="sng-Up-cjS"/>
+                                                    <constraint firstItem="Vin-oq-jVi" firstAttribute="leading" secondItem="oqh-xu-pF4" secondAttribute="leading" constant="20" symbolic="YES" id="w5q-9h-dRe"/>
+                                                    <constraint firstItem="Vin-oq-jVi" firstAttribute="height" secondItem="WEB-Mh-ct5" secondAttribute="height" id="yaE-sH-TEg"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="container"/>
                                         <constraints>
                                             <constraint firstItem="oqh-xu-pF4" firstAttribute="top" secondItem="k4f-2V-7FG" secondAttribute="top" id="TyW-ZR-ojZ"/>
                                             <constraint firstItem="oqh-xu-pF4" firstAttribute="leading" secondItem="k4f-2V-7FG" secondAttribute="leading" id="Znb-st-USk"/>

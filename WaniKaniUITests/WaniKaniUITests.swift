@@ -28,7 +28,7 @@ class WaniKaniUITests: XCTestCase {
     
     sleep(2)
     
-    snapshot("5 Setup Login", waitForLoadingIndicator: false)
+//    snapshot("5 Setup Login", waitForLoadingIndicator: false)
     
     app.buttons["Login"].tap()
     
@@ -121,6 +121,25 @@ class WaniKaniUITests: XCTestCase {
     
     app.toolbars.buttons["Submit"].tap()
     
+    sleep(2)
+    
+    
+    
+    app.tabBars.buttons["Data"].tap()
+    app.buttons["kanji"].tap()
+    
+    let collectionViewsQuery2 = app.collectionViews
+    collectionViewsQuery2.cells.elementBoundByIndex(1).tap()
+    
+    let collectionViewsQuery = collectionViewsQuery2
+    collectionViewsQuery.staticTexts["Lvl:  12"].tap()
+    collectionViewsQuery.cells.elementBoundByIndex(0).tap()
+    
+    app.otherElements["container"].childrenMatchingType(.Other).elementBoundByIndex(0).tap()
+    
+    sleep(2)
+    
+    snapshot("5 Kanji data", waitForLoadingIndicator: false)
   }
   
   private func authentificate(app: XCUIApplication) {
