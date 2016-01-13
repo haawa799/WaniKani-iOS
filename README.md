@@ -1,6 +1,7 @@
 
 
 [![Build Status](https://www.bitrise.io/app/f239dd7cb0f88557.svg?token=CGKNLjMOWmO_jit_I8AM4Q&branch=master)](https://www.bitrise.io/app/f239dd7cb0f88557)
+[![License](https://img.shields.io/badge/license-GNU-green.svg?style=flat)](https://github.com/haawa799/WaniKani-iOS/blob/master/LICENSE)
 [![Twitter: @haawa799](https://img.shields.io/badge/contact-@haawa799-blue.svg?style=flat)](https://twitter.com/haawa799)
 
 # WaniKani
