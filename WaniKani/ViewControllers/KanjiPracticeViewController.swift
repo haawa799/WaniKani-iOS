@@ -89,9 +89,9 @@ class KanjiPracticeViewController: UIViewController {
       trashAction(self)
       
       
-      var kanjiArray = [Kanji]()
+      var kanjiArray = [KanjiGraficInfo]()
       for kanjiCharacter in kanjiCharacters {
-        if let kanji = Kanji.kanjiFromString(kanjiCharacter) {
+        if let kanji = KanjiGraficInfo.kanjiFromString(kanjiCharacter) {
           kanjiArray.append(kanji)
         }
       }
@@ -99,7 +99,7 @@ class KanjiPracticeViewController: UIViewController {
     }
   }
   
-  private var kanjiArray: [Kanji]? {
+  private var kanjiArray: [KanjiGraficInfo]? {
     didSet {
       guard let kanjiArray = kanjiArray else { return }
       strokeDrawingView?.stopForeverAnimation()

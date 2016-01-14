@@ -58,9 +58,10 @@
 		437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */; };
 		437A33CC1C326A72007FE8F3 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CA1C326A72007FE8F3 /* LevelViewController.swift */; };
 		437A33CD1C326A72007FE8F3 /* LevelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */; };
-		437A33CF1C326A8D007FE8F3 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CE1C326A8D007FE8F3 /* Kanji.swift */; };
+		437A33CF1C326A8D007FE8F3 /* KanjiGraficInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CE1C326A8D007FE8F3 /* KanjiGraficInfo.swift */; };
 		437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33D01C326A9F007FE8F3 /* KanjiCell.swift */; };
 		43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */ = {isa = PBXBuildFile; fileRef = 43850CF31B9DB86F00DFF6DD /* fast_forward.js */; };
+		43A12D081C47B66500E18556 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A12D071C47B66500E18556 /* LevelData.swift */; };
 		43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */; };
 		43AABDA61BEB47BC00F2D5B8 /* WordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */; };
 		43AD052F1BA044BA000DBCBE /* UserScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD052E1BA044BA000DBCBE /* UserScript.swift */; };
@@ -186,9 +187,10 @@
 		437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiStrokesViewController.swift; sourceTree = "<group>"; };
 		437A33CA1C326A72007FE8F3 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPickerViewController.swift; sourceTree = "<group>"; };
-		437A33CE1C326A8D007FE8F3 /* Kanji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kanji.swift; sourceTree = "<group>"; };
+		437A33CE1C326A8D007FE8F3 /* KanjiGraficInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiGraficInfo.swift; sourceTree = "<group>"; };
 		437A33D01C326A9F007FE8F3 /* KanjiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiCell.swift; sourceTree = "<group>"; };
 		43850CF31B9DB86F00DFF6DD /* fast_forward.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fast_forward.js; path = ../Utils/fast_forward.js; sourceTree = "<group>"; };
+		43A12D071C47B66500E18556 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
 		43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 		43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordCell.xib; sourceTree = "<group>"; };
 		43AD052E1BA044BA000DBCBE /* UserScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserScript.swift; sourceTree = "<group>"; };
@@ -317,10 +319,11 @@
 		4335B9B51C19CA4C0011746D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				437A33CE1C326A8D007FE8F3 /* Kanji.swift */,
+				437A33CE1C326A8D007FE8F3 /* KanjiGraficInfo.swift */,
 				4335B9B71C19CA6B0011746D /* LevelProgression.swift */,
 				4335B9B91C19CA6B0011746D /* StudyQueue.swift */,
 				4335B9BA1C19CA6B0011746D /* User.swift */,
+				43A12D071C47B66500E18556 /* LevelData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 			files = (
 				43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */,
 				433A3FAD1BCFACDF009C0FF1 /* LoginWebViewController.swift in Sources */,
+				43A12D081C47B66500E18556 /* LevelData.swift in Sources */,
 				43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */,
 				43441E401C3C5ADB006A166B /* SideMenuContainerController.swift in Sources */,
 				433E16A11B8A3408007B7DE9 /* ApiKeyPickerController.swift in Sources */,
@@ -767,7 +771,7 @@
 				432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */,
 				434673D81BDE53B80095A4A3 /* GameCenterViewController.swift in Sources */,
 				433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */,
-				437A33CF1C326A8D007FE8F3 /* Kanji.swift in Sources */,
+				437A33CF1C326A8D007FE8F3 /* KanjiGraficInfo.swift in Sources */,
 				43D748781BD7ADC200A11916 /* AwardsManager.swift in Sources */,
 				4335B9BF1C19CA6B0011746D /* User.swift in Sources */,
 				432C07361BB3272C0031B3B1 /* AIFlatSwitch.swift in Sources */,
