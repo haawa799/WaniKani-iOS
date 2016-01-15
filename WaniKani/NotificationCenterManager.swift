@@ -14,6 +14,7 @@ struct NotificationCenterManager {
     case NoApiKeyNotification
     case NewStudyQueueReceivedNotification
     case NewLevelProgressionReceivedNotification
+    case UpdatedKanjiListNotification
     case CriticalItemsReceivedNotification
   }
   

@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import WaniKit
 
 class KanjiMetaDataView: UIView {
   
   @IBOutlet weak var characterLabel: UILabel!
   @IBOutlet weak var meaningLabel: UILabel!
   
-  func setupWithKanji(kanji: KanjiInfo?) {
+  func setupWithKanji(kanji: Kanji?) {
     
     characterLabel?.text = kanji?.character
     meaningLabel?.text = kanji?.meaning

@@ -8,7 +8,6 @@
 
 import UIKit
 import StrokeDrawingView
-import WaniKit
 
 class LevelViewController: UIViewController {
   
@@ -22,37 +21,23 @@ class LevelViewController: UIViewController {
   
   var level: Int = 1
   
-  let apiManager: WaniApiManager = {
-    if user?.level > 3 {
-      return appDelegate.waniApiManager
-    } else {
-      let manager = WaniApiManager()
-      
-      // ❗️❗️❗️❗️
-      // For users with level 3 and lower apiManager.fetchKanjiList returns null
-      // therefore I use my API key to let them see all the kanji that they will learn in future.
-      // My API key is not commited to GithubFor obvious reasons
-      manager.setApiKey("c6ce4072cf1bd37b407f2c86d69137e3") // Insert your API key here or comment it out
-      
-      return manager
-    }
-  }()
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    apiManager.fetchKanjiList(level) { (result) -> Void in
-      switch result {
-      case .Error(let error) : print(error())
-      case .Response(let response) :
-        let resp = response()
-        
-        self.kanjiArray = resp.kanji
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-          self.collectionView!.reloadData()
-        })
-      }
-    }
+//    self.kanjiArray = user?.levels.levels
+//    
+//    apiManager.fetchKanjiList(level) { (result) -> Void in
+//      switch result {
+//      case .Error(let error) : print(error())
+//      case .Response(let response) :
+//        let resp = response()
+//        
+//        self.kanjiArray = resp.kanji
+//        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//          self.collectionView!.reloadData()
+//        })
+//      }
+//    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -63,7 +48,7 @@ class LevelViewController: UIViewController {
     }
   }
   
-  var kanjiArray: [KanjiInfo]?
+  var kanjiArray: [Kanji]?
 }
 
 extension LevelViewController: UICollectionViewDataSource {

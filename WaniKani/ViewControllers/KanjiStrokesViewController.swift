@@ -8,7 +8,6 @@
 
 import UIKit
 import StrokeDrawingView
-import WaniKit
 
 class KanjiStrokesViewController: UIViewController {
   
@@ -76,7 +75,7 @@ class KanjiStrokesViewController: UIViewController {
     }
   }
   
-  var kanjiInfo: KanjiInfo? {
+  var kanjiInfo: Kanji? {
     didSet {
       if let kanjiInfo = kanjiInfo {
         container?.setupWithKanji(kanjiInfo)

@@ -20,7 +20,7 @@ class KanjiCell: UICollectionViewCell {
   
   let numberOfDaysToCountAsNew = 5
   
-  func setupWithKanji(kanji: KanjiInfo) {
+  func setupWithKanji(kanji: Kanji) {
     
     kanjiLabel?.text = kanji.character
     
@@ -36,10 +36,10 @@ class KanjiCell: UICollectionViewCell {
       backgroundColor = defaultBackground
     }
     
-    if let unlockDate = userSpecific.unlockedDate {
+    if userSpecific.unlocked {
       lockedBackground?.hidden = true
       
-      if (unlockDate.numberOfDaysUntilDateTime(NSDate()) <= numberOfDaysToCountAsNew) {
+      if (userSpecific.unlockedDate.numberOfDaysUntilDateTime(NSDate()) <= numberOfDaysToCountAsNew) {
         atarashiMark?.hidden = false
       } else {
         atarashiMark?.hidden = true

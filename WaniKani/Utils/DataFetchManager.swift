@@ -32,7 +32,7 @@ class DataFetchManager: NSObject {
   
   func performMigrationIfNeeded() {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 7,
+      schemaVersion: 8,
       migrationBlock: { migration, oldSchemaVersion in
         
     })
@@ -108,6 +108,63 @@ class DataFetchManager: NSObject {
         }
       }
     }
+  }
+  
+  func fetchLevelKanji(levelIndex: Int) {
+    
+    let apiManager: WaniApiManager = {
+      if user?.level > 3 {
+        return appDelegate.waniApiManager
+      } else {
+        let manager = WaniApiManager()
+        
+        // ❗️❗️❗️❗️
+        // For users with level 3 and lower apiManager.fetchKanjiList returns null
+        // therefore I use my API key to let them see all the kanji that they will learn in future.
+        // My API key is not commited to GithubFor obvious reasons
+        manager.setApiKey("c6ce4072cf1bd37b407f2c86d69137e3") // Insert your API key here or comment it out
+        
+        return manager
+      }
+    }()
+    
+    
+    apiManager.fetchKanjiList(levelIndex) { (result) -> Void in
+      //
+      switch result {
+      case .Error(let _): break
+      
+      case .Response(let response):
+        let resp = response()
+        
+        guard let userInfo = resp.userInfo, kanjiList = resp.kanji else {
+          return
+        }
+        
+        dispatch_async(realmQueue) { () -> Void in
+          
+          // Make sure that user exist
+          guard let user = realm().objects(User).first else { return }
+          
+          // Update study queue, and user info
+          try! realm().write({ () -> Void in
+            self.checkIfUserLeveledUp(user.level, newLevel: userInfo.level)
+            user.levels?.updateKanjiListForLevel(levelIndex, newList: kanjiList)
+            user.updateUserWithUserInfo(userInfo)
+          })
+          realm().refresh()
+          
+          dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            realm().refresh()
+            let user = realm().objects(User).first
+            guard let levels =  user?.levels?.levels else { return }
+            appDelegate.notificationCenterManager.postNotification(.UpdatedKanjiListNotification, object: levels)
+          })
+        }
+        
+      }
+    }
+    
   }
   
   func schedulePushNotificationIfNeededFor(studyQueue: StudyQueue) -> Bool {
