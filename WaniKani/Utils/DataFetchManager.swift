@@ -90,6 +90,9 @@ class DataFetchManager: NSObject {
           
           // Update study queue, and user info
           try! realm().write({ () -> Void in
+            if user.levels == nil {
+              user.levels = WaniKaniLevels()
+            }
             self.checkIfUserLeveledUp(user.level, newLevel: userInfo.level)
             user.studyQueue?.updateWith(studyQInfo)
             user.updateUserWithUserInfo(userInfo)

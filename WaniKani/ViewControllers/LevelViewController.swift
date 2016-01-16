@@ -24,20 +24,15 @@ class LevelViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    self.kanjiArray = user?.levels.levels
-//    
-//    apiManager.fetchKanjiList(level) { (result) -> Void in
-//      switch result {
-//      case .Error(let error) : print(error())
-//      case .Response(let response) :
-//        let resp = response()
-//        
-//        self.kanjiArray = resp.kanji
-//        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//          self.collectionView!.reloadData()
-//        })
-//      }
-//    }
+    DataFetchManager.sharedInstance.fetchLevelKanji(level)
+    
+    let q = user?.levels
+    
+    
+    print(q)
+    kanjiArray = user?.levels?.levels[level].kanjiList.map({ (kanji) -> Kanji in
+      return kanji
+    })
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -48,7 +43,11 @@ class LevelViewController: UIViewController {
     }
   }
   
-  var kanjiArray: [Kanji]?
+  var kanjiArray: [Kanji]? {
+    didSet {
+      print("Q")
+    }
+  }
 }
 
 extension LevelViewController: UICollectionViewDataSource {
