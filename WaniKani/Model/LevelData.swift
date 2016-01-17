@@ -26,14 +26,11 @@ public class WaniKaniLevels: Object {
     
     guard levels.count > level else { return }
     
-    let levelData = levels[level]
-    
     let realmArray = List<Kanji>()
     for kanjiInfo in newList {
       realmArray.append(Kanji(kanjiInfo: kanjiInfo))
     }
-    
-    levelData.kanjiList = realmArray
+    levels[level].kanjiList = realmArray
   }
 }
 
@@ -57,8 +54,8 @@ public class Kanji: Object {
   
   public dynamic var userSpecific: KanjiUserSpecific?
   
-  public init(kanjiInfo: KanjiInfo) {
-    super.init()
+  public convenience init(kanjiInfo: KanjiInfo) {
+    self.init()
     
     character = kanjiInfo.character ?? ""
     meaning = kanjiInfo.meaning ?? ""
@@ -71,10 +68,6 @@ public class Kanji: Object {
     if let userSpecificQ = kanjiInfo.userSpecific {
       userSpecific = KanjiUserSpecific(info: userSpecificQ)
     }
-  }
-  
-  public required init() {
-    super.init()
   }
 }
 
@@ -100,8 +93,8 @@ public class KanjiUserSpecific: Object {
   public dynamic var userSynonyms: String = ""
   public dynamic var readingNote: String = ""
   
-  public init(info: KanjiInfo.KanjiInfoUserSpecific) {
-    super.init()
+  public convenience init(info: KanjiInfo.KanjiInfoUserSpecific) {
+    self.init()
     
     srs = info.srs ?? ""
     srsNumeric = info.srsNumeric ?? 0
@@ -121,9 +114,5 @@ public class KanjiUserSpecific: Object {
     meaningNote = info.meaningNote ?? ""
     userSynonyms = info.userSynonyms ?? ""
     readingNote = info.readingNote ?? ""
-  }
-
-  public required init() {
-    super.init()
   }
 }

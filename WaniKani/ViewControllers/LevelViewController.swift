@@ -26,14 +26,14 @@ class LevelViewController: UIViewController {
     
     DataFetchManager.sharedInstance.fetchLevelKanji(level)
     
-    let q = user?.levels
     
+    let list = user?.levels?.levels[level].kanjiList
+    print("Count: \(list?.count)")
     
-    print(q)
     kanjiArray = user?.levels?.levels[level].kanjiList.map({ (kanji) -> Kanji in
+      print(kanji)
       return kanji
-    })
-  }
+    })  }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     super.prepareForSegue(segue, sender: sender)
@@ -45,7 +45,8 @@ class LevelViewController: UIViewController {
   
   var kanjiArray: [Kanji]? {
     didSet {
-      print("Q")
+      print(kanjiArray)
+      collectionView.reloadData()
     }
   }
 }
