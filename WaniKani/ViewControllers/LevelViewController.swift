@@ -8,6 +8,7 @@
 
 import UIKit
 import StrokeDrawingView
+import RealmSwift
 
 class LevelViewController: UIViewController {
   
@@ -24,16 +25,14 @@ class LevelViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    appDelegate.notificationCenterManager.addObserver(self, notification: .UpdatedKanjiListNotification, selector: "fetchNewDataFromRealm")
     DataFetchManager.sharedInstance.fetchLevelKanji(level)
-    
-    
-    let list = user?.levels?.levels[level].kanjiList
-    print("Count: \(list?.count)")
-    
-    kanjiArray = user?.levels?.levels[level].kanjiList.map({ (kanji) -> Kanji in
-      print(kanji)
-      return kanji
-    })  }
+    fetchNewDataFromRealm()
+  }
+  
+  deinit {
+    appDelegate.notificationCenterManager.removeObserver(self)
+  }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     super.prepareForSegue(segue, sender: sender)
@@ -43,9 +42,12 @@ class LevelViewController: UIViewController {
     }
   }
   
-  var kanjiArray: [Kanji]? {
+  func fetchNewDataFromRealm() {
+    kanjiArray = user?.levels?.levels[level].kanjiList
+  }
+  
+  var kanjiArray: List<Kanji>? {
     didSet {
-      print(kanjiArray)
       collectionView.reloadData()
     }
   }
@@ -65,11 +67,20 @@ extension LevelViewController: UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("kanjiCell", forIndexPath: indexPath)
     
     if let kanji = kanjiArray?[indexPath.item], let kanjiCell = cell as? KanjiCell {
+      print(kanji)
       kanjiCell.setupWithKanji(kanji)
     }
     
     return cell
   }
+}
+
+extension LevelViewController {
+  
+  func newData() {
+    
+  }
+  
 }
 
 extension LevelViewController: UICollectionViewDelegate {

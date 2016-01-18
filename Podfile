@@ -5,8 +5,7 @@ inhibit_all_warnings!
 
 
 pod 'Alamofire', '~> 2.0'
-pod 'Realm', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'swift-2.0'
-pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'swift-2.0'
+pod 'RealmSwift'
 pod 'PermissionScope'
 pod 'NJKScrollFullScreen'
 pod 'GCHelper', '~> 0.2'

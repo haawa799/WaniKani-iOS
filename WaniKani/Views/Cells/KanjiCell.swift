@@ -36,10 +36,11 @@ class KanjiCell: UICollectionViewCell {
       backgroundColor = defaultBackground
     }
     
-    if userSpecific.unlocked {
+    
+    if userSpecific.unlockedDate != nil {
       lockedBackground?.hidden = true
       
-      if (userSpecific.unlockedDate.numberOfDaysUntilDateTime(NSDate()) <= numberOfDaysToCountAsNew) {
+      if (userSpecific.unlockedDate!.numberOfDaysUntilDateTime(NSDate()) <= numberOfDaysToCountAsNew) {
         atarashiMark?.hidden = false
       } else {
         atarashiMark?.hidden = true

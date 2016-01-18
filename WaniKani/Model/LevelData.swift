@@ -24,13 +24,19 @@ public class WaniKaniLevels: Object {
   
   func updateKanjiListForLevel(level: Int, newList: [KanjiInfo]) {
     
-    guard levels.count > level else { return }
+    guard levels.count > level && newList.count > 0 else { return }
     
-    let realmArray = List<Kanji>()
+    let kanjiListEmpty = levels[level].kanjiList.count == 0
+    
     for kanjiInfo in newList {
-      realmArray.append(Kanji(kanjiInfo: kanjiInfo))
+      let k = Kanji(kanjiInfo: kanjiInfo)
+      realm?.add(k, update: true)
+      
+      if kanjiListEmpty {
+        levels[level].kanjiList.append(k)
+      }
     }
-    levels[level].kanjiList = realmArray
+    realm?.refresh()
   }
 }
 
@@ -44,25 +50,29 @@ public class LevelData: Object {
 
 public class Kanji: Object {
   
-  public var character: String = ""
-  public var meaning: String = ""
-  public var onyomi: String = ""
-  public var kunyomi: String = ""
-  public var nanori: String = ""
-  public var importantReading: String = ""
-  public var level: Int = 0
+  public dynamic var character: String = ""
+  public dynamic var meaning: String?
+  public dynamic var onyomi: String?
+  public dynamic var kunyomi: String?
+  public dynamic var nanori: String?
+  public dynamic var importantReading: String?
+  public dynamic var level: Int = 0
   
   public dynamic var userSpecific: KanjiUserSpecific?
+  
+  override public static func primaryKey() -> String? {
+    return "character"
+  }
   
   public convenience init(kanjiInfo: KanjiInfo) {
     self.init()
     
-    character = kanjiInfo.character ?? ""
-    meaning = kanjiInfo.meaning ?? ""
-    onyomi = kanjiInfo.onyomi ?? ""
-    kunyomi = kanjiInfo.kunyomi ?? ""
-    nanori = kanjiInfo.nanori ?? ""
-    importantReading = kanjiInfo.importantReading ?? ""
+    character = kanjiInfo.character
+    meaning = kanjiInfo.meaning
+    onyomi = kanjiInfo.onyomi
+    kunyomi = kanjiInfo.kunyomi
+    nanori = kanjiInfo.nanori
+    importantReading = kanjiInfo.importantReading
     level = kanjiInfo.level
     
     if let userSpecificQ = kanjiInfo.userSpecific {
@@ -74,45 +84,43 @@ public class Kanji: Object {
 public class KanjiUserSpecific: Object {
   
   // Fields
-  public dynamic var srs: String = ""
-  public dynamic var srsNumeric: Int = 0
-  public dynamic var unlocked: Bool = false
-  public dynamic var unlockedDate: NSDate = NSDate()
-  public dynamic var availableDate: NSDate = NSDate()
+  public dynamic var srs: String?
+  public var srsNumeric = RealmOptional<Int>()
+  public dynamic var unlockedDate: NSDate?
+  public dynamic var availableDate: NSDate?
   public dynamic var burned: Bool = false
-  public dynamic var burnedDate: NSDate = NSDate()
-  public dynamic var meaningCorrect: Int = 0
-  public dynamic var meaningIncorrect: Int = 0
-  public dynamic var meaningMaxStreak: Int = 0
-  public dynamic var meaningCurrentStreak: Int = 0
-  public dynamic var readingCorrect: Int = 0
-  public dynamic var readingIncorrect: Int = 0
-  public dynamic var readingMaxStreak: Int = 0
-  public dynamic var readingCurrentStreak: Int = 0
-  public dynamic var meaningNote: String = ""
-  public dynamic var userSynonyms: String = ""
-  public dynamic var readingNote: String = ""
+  public dynamic var burnedDate: NSDate?
+  public var meaningCorrect = RealmOptional<Int>()
+  public var meaningIncorrect = RealmOptional<Int>()
+  public var meaningMaxStreak = RealmOptional<Int>()
+  public var meaningCurrentStreak = RealmOptional<Int>()
+  public var readingCorrect = RealmOptional<Int>()
+  public var readingIncorrect = RealmOptional<Int>()
+  public var readingMaxStreak = RealmOptional<Int>()
+  public var readingCurrentStreak = RealmOptional<Int>()
+  public dynamic var meaningNote: String?
+  public dynamic var userSynonyms: String?
+  public dynamic var readingNote: String?
   
   public convenience init(info: KanjiInfo.KanjiInfoUserSpecific) {
     self.init()
     
-    srs = info.srs ?? ""
-    srsNumeric = info.srsNumeric ?? 0
-    unlocked = (info.unlockedDate != nil)
-    unlockedDate = info.unlockedDate ?? NSDate()
-    availableDate = info.availableDate ?? NSDate()
+    srs = info.srs
+    srsNumeric = RealmOptional(info.srsNumeric)
+    unlockedDate = info.unlockedDate
+    availableDate = info.availableDate
     burned = info.burned
-    burnedDate = info.burnedDate ?? NSDate()
-    meaningCorrect = info.meaningCorrect ?? 0
-    meaningIncorrect = info.meaningIncorrect ?? 0
-    meaningMaxStreak = info.meaningMaxStreak ?? 0
-    meaningCurrentStreak = info.meaningCurrentStreak ?? 0
-    readingCorrect = info.readingCorrect ?? 0
-    readingIncorrect = info.readingIncorrect ?? 0
-    readingMaxStreak = info.readingMaxStreak ?? 0
-    readingCurrentStreak = info.readingCurrentStreak ?? 0
-    meaningNote = info.meaningNote ?? ""
-    userSynonyms = info.userSynonyms ?? ""
-    readingNote = info.readingNote ?? ""
+    burnedDate = info.burnedDate
+    meaningCorrect = RealmOptional(info.meaningCorrect)
+    meaningIncorrect = RealmOptional(info.meaningIncorrect)
+    meaningMaxStreak = RealmOptional(info.meaningMaxStreak)
+    meaningCurrentStreak = RealmOptional(info.meaningCurrentStreak)
+    readingCorrect = RealmOptional(info.readingCorrect)
+    readingIncorrect = RealmOptional(info.readingIncorrect)
+    readingMaxStreak = RealmOptional(info.readingMaxStreak)
+    readingCurrentStreak = RealmOptional(info.readingCurrentStreak)
+    meaningNote = info.meaningNote
+    userSynonyms = info.userSynonyms
+    readingNote = info.readingNote
   }
 }

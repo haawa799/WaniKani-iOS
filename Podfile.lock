@@ -7,11 +7,11 @@ PODS:
     - AWSQLiteDB
   - NJKScrollFullScreen (0.2.6)
   - PermissionScope (1.0.1)
-  - Realm (0.95.2):
-    - Realm/Headers (= 0.95.2)
-  - Realm/Headers (0.95.2)
-  - RealmSwift (0.95.2):
-    - Realm (= 0.95.2)
+  - Realm (0.97.0):
+    - Realm/Headers (= 0.97.0)
+  - Realm/Headers (0.97.0)
+  - RealmSwift (0.97.0):
+    - Realm (= 0.97.0)
   - RESideMenu (4.0.7)
   - StrokeDrawingView (0.1.1)
   - UICKeyChainStore (2.1.0)
@@ -25,8 +25,7 @@ DEPENDENCIES:
     `master`)
   - NJKScrollFullScreen
   - PermissionScope
-  - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
-  - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
+  - RealmSwift
   - RESideMenu
   - StrokeDrawingView (from `https://github.com/haawa799/StrokeDrawingView.git`, branch
     `master`)
@@ -37,12 +36,6 @@ EXTERNAL SOURCES:
   KanjiBezierPaths:
     :branch: master
     :git: https://github.com/haawa799/KanjiBezierPaths.git
-  Realm:
-    :branch: swift-2.0
-    :git: https://github.com/realm/realm-cocoa.git
-  RealmSwift:
-    :branch: swift-2.0
-    :git: https://github.com/realm/realm-cocoa.git
   StrokeDrawingView:
     :branch: master
     :git: https://github.com/haawa799/StrokeDrawingView.git
@@ -54,12 +47,6 @@ CHECKOUT OPTIONS:
   KanjiBezierPaths:
     :commit: b5da424af2261b8209de89f46a17af83770d7167
     :git: https://github.com/haawa799/KanjiBezierPaths.git
-  Realm:
-    :commit: c65d743f862254854c09b49d6beb71626b040bdb
-    :git: https://github.com/realm/realm-cocoa.git
-  RealmSwift:
-    :commit: c65d743f862254854c09b49d6beb71626b040bdb
-    :git: https://github.com/realm/realm-cocoa.git
   StrokeDrawingView:
     :commit: 769b88a4e6dd2d190e35c74bee54d45dd8e80fa8
     :git: https://github.com/haawa799/StrokeDrawingView.git
@@ -75,8 +62,8 @@ SPEC CHECKSUMS:
   KanjiBezierPaths: ea25ba285699b1b506492597df9e02a93ffbc1ef
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
   PermissionScope: 9767066cedefd211d90a8c4f92f6f1a987085ee8
-  Realm: 392c2662f18bd6d77c97a2cc1da1273b13c542c1
-  RealmSwift: d59af58ee52301069b69468fab018919b591b0c1
+  Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
+  RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   StrokeDrawingView: 5d26664a4391804118fbfc2b3d4a5235a0057749
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
