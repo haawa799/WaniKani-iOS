@@ -47,6 +47,12 @@ class KanjiStrokesViewController: UIViewController {
     container.setupWithKanji(kanjiInfo)
   }
   
+  override func updateUserActivityState(activity: NSUserActivity) {
+    guard let userInfo = kanjiInfo?.userActivityUserInfo else { return }
+    
+    activity.addUserInfoEntriesFromDictionary(userInfo)
+  }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     
@@ -80,6 +86,12 @@ class KanjiStrokesViewController: UIViewController {
       if let kanjiInfo = kanjiInfo {
         container?.setupWithKanji(kanjiInfo)
         kanji = KanjiGraficInfo(kanji: kanjiInfo.character)
+        
+        let activity = kanjiInfo.userActivity
+        if #available(iOS 9.0, *) {
+          activity.eligibleForSearch = true
+        }
+        userActivity = activity
       }
     }
   }

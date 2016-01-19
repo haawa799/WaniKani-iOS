@@ -13,6 +13,7 @@
 		43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B751C33F41C00B855F2 /* WebViewController.xib */; };
 		43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */; };
 		43101B7B1C33F64900B855F2 /* KanjiPracticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */; };
+		4311B32D1C4D2C8A00062CE8 /* KanjiSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */; };
 		431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 431A31311BFF59600080944E /* Fipps-Regular.otf */; };
 		4329D0EC1BBD36E2009BEABF /* resize.js in Resources */ = {isa = PBXBuildFile; fileRef = 4329D0EB1BBD36E2009BEABF /* resize.js */; };
 		432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 432C07171BB2E15A0031B3B1 /* notification.m4a */; };
@@ -94,6 +95,7 @@
 		43EBC09E1BA5F6C000C0B390 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */; };
 		43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */; };
 		43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */; };
+		43F4EB041C4E58C400A25840 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4EB031C4E58C400A25840 /* CanvasView.swift */; };
 		43FD50F81BE01F1800944AC0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FD50F71BE01F1800944AC0 /* GameKit.framework */; };
 		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -138,6 +140,7 @@
 		43101B751C33F41C00B855F2 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiPracticeViewController.swift; sourceTree = "<group>"; };
 		43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KanjiPracticeViewController.xib; sourceTree = "<group>"; };
+		4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiSearch.swift; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		4329D0EB1BBD36E2009BEABF /* resize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = resize.js; sourceTree = "<group>"; };
 		432C07171BB2E15A0031B3B1 /* notification.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.m4a; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 		43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		43F4EB031C4E58C400A25840 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		43FD50F71BE01F1800944AC0 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -312,6 +316,7 @@
 				432C073A1BB338820031B3B1 /* SliceView.swift */,
 				43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */,
 				43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */,
+				43F4EB031C4E58C400A25840 /* CanvasView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				4335B9B91C19CA6B0011746D /* StudyQueue.swift */,
 				4335B9BA1C19CA6B0011746D /* User.swift */,
 				43A12D071C47B66500E18556 /* LevelData.swift */,
+				4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -748,6 +754,7 @@
 			files = (
 				43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */,
 				433A3FAD1BCFACDF009C0FF1 /* LoginWebViewController.swift in Sources */,
+				43F4EB041C4E58C400A25840 /* CanvasView.swift in Sources */,
 				43A12D081C47B66500E18556 /* LevelData.swift in Sources */,
 				43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */,
 				43441E401C3C5ADB006A166B /* SideMenuContainerController.swift in Sources */,
@@ -772,6 +779,7 @@
 				434673D81BDE53B80095A4A3 /* GameCenterViewController.swift in Sources */,
 				433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */,
 				437A33CF1C326A8D007FE8F3 /* KanjiGraficInfo.swift in Sources */,
+				4311B32D1C4D2C8A00062CE8 /* KanjiSearch.swift in Sources */,
 				43D748781BD7ADC200A11916 /* AwardsManager.swift in Sources */,
 				4335B9BF1C19CA6B0011746D /* User.swift in Sources */,
 				432C07361BB3272C0031B3B1 /* AIFlatSwitch.swift in Sources */,
