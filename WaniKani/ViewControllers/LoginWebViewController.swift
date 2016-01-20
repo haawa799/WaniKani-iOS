@@ -88,7 +88,7 @@ extension LoginWebViewController: WKScriptMessageHandler {
   func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
     guard let apiKey = message.body as? String else { return }
     
-    if apiKey == "no" {
+    if apiKey == "no" || apiKey == "" {
       
       if isDeepParsing == false {
         isDeepParsing = true

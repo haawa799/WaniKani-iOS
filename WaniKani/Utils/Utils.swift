@@ -8,7 +8,7 @@
 
 import UIKit
 
-let hideSubscribitionsSkript = "$('a[href=\"/account/subscription\"]').hide();"
+let hideSubscribitionsSkript = "$('a[href=\"/account/subscription\"]').remove();document.getElementsByClassName('upgrade')[0].remove();document.getElementsByClassName('newbie')[0].remove();"
 
 func delay(delay:Double, closure:()->()) {
   dispatch_after(
