@@ -80,6 +80,7 @@ class StudyQueueViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    addBackground(BackgroundOptions.Dashboard.rawValue)
     
     appDelegate.notificationCenterManager.addObserver(self, notification: .NoApiKeyNotification, selector: "noApiKeyNotification")
     appDelegate.notificationCenterManager.addObserver(self, notification: .NewStudyQueueReceivedNotification, selector: "newStudyQueueData")

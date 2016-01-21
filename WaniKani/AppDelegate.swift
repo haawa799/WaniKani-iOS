@@ -59,6 +59,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
+  
+  func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+    guard userActivity.activityType == Kanji.domainIdentifier,
+      let kanjiChar = userActivity.userInfo?["id"] as? String else {
+        return false
+    }
+    
+    guard let kanji = realm().objects(Kanji).filter("character = '\(kanjiChar)'").first else { return false }
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    guard let nav = storyboard.instantiateViewControllerWithIdentifier("NavSearchedKanjiViewController") as? UINavigationController, let searchedKanjiVC = nav.topViewController as? SearchedKanjiViewController  else { return false }
+    searchedKanjiVC.kanjiInfo = kanji
+    rootViewController.presentViewController(nav, animated: true, completion: nil)
+    return false
+  }
+  
   func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
     
     isBackgroundFetching = true
