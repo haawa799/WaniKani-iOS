@@ -57,6 +57,7 @@
 		434673E01BDEC8840095A4A3 /* score.js in Resources */ = {isa = PBXBuildFile; fileRef = 434673DF1BDEC8840095A4A3 /* score.js */; };
 		434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434B00CB1C1D7F8E00ECCF20 /* RealmManager.swift */; };
 		4375F00E1C50F98400A3895D /* SearchedKanjiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375F00D1C50F98400A3895D /* SearchedKanjiViewController.swift */; };
+		4375F0101C52765300A3895D /* UserActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375F00F1C52765300A3895D /* UserActivityManager.swift */; };
 		437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */; };
 		437A33CC1C326A72007FE8F3 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CA1C326A72007FE8F3 /* LevelViewController.swift */; };
 		437A33CD1C326A72007FE8F3 /* LevelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */; };
@@ -189,6 +190,7 @@
 		434673DF1BDEC8840095A4A3 /* score.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = score.js; sourceTree = "<group>"; };
 		434B00CB1C1D7F8E00ECCF20 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		4375F00D1C50F98400A3895D /* SearchedKanjiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedKanjiViewController.swift; sourceTree = "<group>"; };
+		4375F00F1C52765300A3895D /* UserActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityManager.swift; sourceTree = "<group>"; };
 		437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiStrokesViewController.swift; sourceTree = "<group>"; };
 		437A33CA1C326A72007FE8F3 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPickerViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			children = (
 				43AFAFC51B8C96130016E55F /* Utils.swift */,
 				433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */,
+				4375F00F1C52765300A3895D /* UserActivityManager.swift */,
 				433E164D1B846016007B7DE9 /* NotificationManager.swift */,
 				43D748771BD7ADC200A11916 /* AwardsManager.swift */,
 			);
@@ -804,6 +807,7 @@
 				43B273C11C43DC5D00B57D8B /* LevelsBlockCell.swift in Sources */,
 				43B273BC1C43BDCA00B57D8B /* DataTypePickerController.swift in Sources */,
 				432C072C1BB3272C0031B3B1 /* AvaliableItemCell.swift in Sources */,
+				4375F0101C52765300A3895D /* UserActivityManager.swift in Sources */,
 				433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */,
 				43101B6F1C33D8DF00B855F2 /* SideMenuViewController.swift in Sources */,
 				43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */,
