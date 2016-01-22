@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    addBackground(BackgroundOptions.Dashboard.rawValue)
   }
   
   @IBOutlet weak var collectionView: UICollectionView! {

@@ -41,7 +41,7 @@ class SearchedKanjiViewController: UIViewController {
 enum BackgroundOptions: String {
   case Data = "data_bg"
   case Dashboard = "art0"
-  case Setup = "login"
+  case Setup = "bg"
 }
 
 protocol BluredBackground {

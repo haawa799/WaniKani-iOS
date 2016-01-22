@@ -23,4 +23,8 @@ class DataTypePickerController: UIViewController {
     super.viewWillDisappear(animated)
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    addBackground(BackgroundOptions.Data.rawValue)
+  }
 }

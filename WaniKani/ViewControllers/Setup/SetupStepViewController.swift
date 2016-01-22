@@ -13,6 +13,7 @@ class SetupStepViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    addBackground(BackgroundOptions.Setup.rawValue)
     setupNavigationButtons()
   }
   

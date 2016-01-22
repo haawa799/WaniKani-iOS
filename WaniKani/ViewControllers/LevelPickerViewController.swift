@@ -31,6 +31,11 @@ class LevelPickerViewController: UIViewController {
     return (index * numberOfLevels) + indexPath.row
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    addBackground(BackgroundOptions.Data.rawValue)
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     super.prepareForSegue(segue, sender: sender)
     
