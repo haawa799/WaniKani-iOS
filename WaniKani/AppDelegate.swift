@@ -14,9 +14,10 @@ import UICKeyChainStore
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
-  private(set) lazy var notificationCenterManager = NotificationCenterManager()
-  private(set) lazy var fabricManager = FabricEventsManager()
-  private(set) lazy var waniApiManager = WaniApiManager()
+  private(set) var notificationCenterManager: NotificationCenterManager!
+  private(set) var fabricManager: FabricEventsManager!
+  private(set) var waniApiManager: WaniApiManager!
+  private(set) var activityManager: UserActivityManager!
   
   let apiKeyStoreKey = "WaniKaniApiKey"
   let keychain = UICKeyChainStore(service: "com.haawa.WaniKani")
@@ -39,7 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   }
   
+  private func setupManagers() {
+    notificationCenterManager = NotificationCenterManager()
+    fabricManager = FabricEventsManager()
+    waniApiManager = WaniApiManager()
+    activityManager = UserActivityManager()
+  }
+  
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    
     
     cleanKeychainIfNeeded()
     
@@ -49,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if NSUserDefaults.standardUserDefaults().valueForKey(NotificationManager.notificationsAllowedKey) == nil {
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: NotificationManager.notificationsAllowedKey)
     }
+    
+    setupManagers()
     
     waniApiManager.delegate = self
     if let key = keychain[apiKeyStoreKey] {
@@ -61,8 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-    guard userActivity.activityType == Kanji.domainIdentifier,
-      let kanjiChar = userActivity.userInfo?["id"] as? String else {
+    guard let kanjiChar = userActivity.userInfo?["id"] as? String else {
         return false
     }
     

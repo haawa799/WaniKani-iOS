@@ -41,8 +41,9 @@ class IntUserDefault {
   let key: String
   
   weak var delegate: SettingsDelegate?
+  private var internalValue: AnyObject!
   
-  var value: Int = 0 {
+  var value: Int {
     didSet {
       if value != oldValue {
         NSUserDefaults.standardUserDefaults().setInteger(value, forKey: key)
@@ -51,7 +52,7 @@ class IntUserDefault {
     }
   }
   
-  init(key: String) {
+  required init(key: String) {
     self.key = key
     self.value = NSUserDefaults.standardUserDefaults().integerForKey(key)
   }

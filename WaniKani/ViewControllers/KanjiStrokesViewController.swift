@@ -87,11 +87,11 @@ class KanjiStrokesViewController: UIViewController {
         container?.setupWithKanji(kanjiInfo)
         kanji = KanjiGraficInfo(kanji: kanjiInfo.character)
         
-        let activity = kanjiInfo.userActivity
-        if #available(iOS 9.0, *) {
-          activity.eligibleForSearch = true
-        }
-        userActivity = activity
+//        let activity = kanjiInfo.userActivity
+//        if #available(iOS 9.0, *) {
+//          activity.eligibleForSearch = true
+//        }
+//        userActivity = activity
       }
     }
   }

@@ -14,17 +14,27 @@ import CoreSpotlight
 extension Kanji {
   
   override public static func ignoredProperties() -> [String] {
-    return ["domainIdentifier", "userActivityUserInfo", "userActivity", "attributeSet"]
+    return ["domainIdentifier", "uniqueIdentifier", "userActivityUserInfo", "userActivity", "attributeSet"]
   }
   
-  @nonobjc public static let domainIdentifier = "com.haawa.WaniKani.kanji"
+  public var domainIdentifier: String {
+    return Kanji.searchIdentifierForLevel(level)
+  }
+  
+  public var uniqueIdentifier: String {
+    return domainIdentifier + ".\(character)"
+  }
+  
+  public static func searchIdentifierForLevel(level: Int) -> String {
+    return "com.haawa.WaniKani.kanji.\(level)"
+  }
   
   public var userActivityUserInfo: [NSObject: AnyObject] {
     return ["id": character]
   }
   
   public var userActivity: NSUserActivity {
-    let activity = NSUserActivity(activityType: Kanji.domainIdentifier)
+    let activity = NSUserActivity(activityType: domainIdentifier)
     activity.userInfo = userActivityUserInfo
     if #available(iOS 9.0, *) {
       activity.contentAttributeSet = attributeSet

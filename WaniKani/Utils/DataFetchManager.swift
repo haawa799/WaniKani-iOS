@@ -118,6 +118,7 @@ class DataFetchManager: NSObject {
     let apiManager: WaniApiManager = {
       
       let level = user?.level
+      
       if level > 3 {
         return appDelegate.waniApiManager
       } else {
@@ -162,7 +163,7 @@ class DataFetchManager: NSObject {
             realm().refresh()
             let user = realm().objects(User).first
             guard let levels =  user?.levels?.levels else { return }
-            appDelegate.notificationCenterManager.postNotification(.UpdatedKanjiListNotification, object: levels)
+            appDelegate.notificationCenterManager.postNotification(.UpdatedKanjiListNotification, object: levelIndex)
           })
         }
         
@@ -232,11 +233,12 @@ class DataFetchManager: NSObject {
     dispatch_async(dispatch_get_main_queue()) { () -> Void in
       //User leveled up
       
-      
       delay(7, closure: { () -> () in
         AwardsManager.sharedInstance.userLevelUp(oldLevel: oldLevel, newLevel: newLevel)
       })
+      
     }
+    
   }
   
   

@@ -14,13 +14,7 @@ import Realm
 
 public class WaniKaniLevels: Object {
   
-  public var levels: List<LevelData> = {
-    let list = List<LevelData>()
-    for i in 0..<100 {
-      list.append(LevelData())
-    }
-    return list
-  }()
+  public var levels = List<LevelData>()
   
   func updateKanjiListForLevel(level: Int, newList: [KanjiInfo]) {
     
