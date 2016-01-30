@@ -44,7 +44,9 @@ class LevelViewController: UIViewController {
   }
   
   func fetchNewDataFromRealm() {
-    kanjiArray = user?.levels?.levels[level].kanjiList
+    if let levelData = user?.levels?.levelDataForLevel(level) {
+      kanjiArray = levelData.kanjiList
+    }
   }
   
   var kanjiArray: List<Kanji>? {

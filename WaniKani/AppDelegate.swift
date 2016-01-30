@@ -10,6 +10,10 @@ import UIKit
 import WaniKit
 import UICKeyChainStore
 
+enum ShortcutIdentifier: String {
+  case Lessons
+  case Reviews
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -49,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
-    
     cleanKeychainIfNeeded()
     
     DataFetchManager.sharedInstance.makeInitialPreperations()
@@ -67,12 +70,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       waniApiManager.setApiKey(key)
     }
     
+    if #available(iOS 9.0, *) {
+      if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+        handleShortcut(shortcutItem)
+        return false
+      }
+    }
+    
+    return true
+  }
+  
+  @available(iOS 9.0, *)
+  func application(application: UIApplication,
+    performActionForShortcutItem shortcutItem: UIApplicationShortcutItem,
+    completionHandler: (Bool) -> Void) {
+      
+      completionHandler(handleShortcut(shortcutItem))
+  }
+  
+  @available(iOS 9.0, *)
+  private func handleShortcut(shortcutItem: UIApplicationShortcutItem) -> Bool {
+    guard let shortcutType = ShortcutIdentifier(rawValue: shortcutItem.type) else { return false }
+    
+    
+    var index: Int
+    
+    switch shortcutType {
+    case ShortcutIdentifier.Lessons: index = 0
+    case ShortcutIdentifier.Reviews: index = 1
+    }
+    
+    delay(1) { () -> () in
+      if let tabBar = (self.rootViewController as? UITabBarController) {
+        tabBar.selectedIndex = 0
+        if let vc = tabBar.viewControllers?.first {
+          vc.performSegueWithIdentifier("webSession", sender: index)
+        }
+      }
+    }
+    
     return true
   }
   
   
   func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-    guard let kanjiChar = userActivity.userInfo?["id"] as? String else {
+    guard let kanjiChar = userActivity.userInfo?["kCSSearchableItemActivityIdentifier"] as? String else {
         return false
     }
     

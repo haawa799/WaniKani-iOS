@@ -15,11 +15,31 @@ class UserActivityManager: NSObject {
   
   override init() {
     super.init()
+    appDelegate.notificationCenterManager.addObserver(self, notification: .NewStudyQueueReceivedNotification, selector: "newStudyQueueData:")
     appDelegate.notificationCenterManager.addObserver(self, notification: .UpdatedKanjiListNotification, selector: "newKanjiData:")
   }
   
   deinit {
     appDelegate.notificationCenterManager.removeObserver(self)
+  }
+  
+  func newStudyQueueData(notification: NSNotification) {
+    guard #available(iOS 9.0, *) else { return }
+    guard let studyQueue = user?.studyQueue else { return }
+    
+    var updatedShortcutItems = [UIMutableApplicationShortcutItem]()
+    
+    if studyQueue.reviewsAvaliable > 0 {
+      let reviewItem = UIMutableApplicationShortcutItem(type: "Review", localizedTitle: "Review")
+      updatedShortcutItems.append(reviewItem)
+    }
+    
+    if studyQueue.lessonsAvaliable > 0 {
+      let lessonsItem = UIMutableApplicationShortcutItem(type: "Lessons", localizedTitle: "Lessons")
+      updatedShortcutItems.append(lessonsItem)
+    }
+    
+    UIApplication.sharedApplication().shortcutItems = updatedShortcutItems
   }
   
   func newKanjiData(notification: NSNotification) {
@@ -28,28 +48,29 @@ class UserActivityManager: NSObject {
     
     guard let level = notification.object as? Int, let currentLvl = user?.level where level <= currentLvl else { return }
     
-    let lastIndexedLevel = lastInexedLevelSetting.value // 11
+    let lastIndexedLevel = lastInexedLevelSetting.value
     
     let numberOfLevelsToIndex = 5
     
-    guard (lastIndexedLevel != 0) && (lastIndexedLevel != currentLvl) else { return }
-    let oldMinIndexedLevel = max(lastIndexedLevel - numberOfLevelsToIndex + 1, 1)
-    let minLevelToIndex = max(currentLvl - numberOfLevelsToIndex + 1, 1)
-    
-    let levelsToRemoveFromIndex = [Int](oldMinIndexedLevel..<min(minLevelToIndex, oldMinIndexedLevel + lastIndexedLevel))
-    let domainIdentifiersToRemove = levelsToRemoveFromIndex.map { (index) -> String in
-      return Kanji.searchIdentifierForLevel(index)
-    }
-    
-    CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(domainIdentifiersToRemove, completionHandler: { (error) -> Void in
+    if (lastIndexedLevel != 0) && (lastIndexedLevel != currentLvl) {
+      let oldMinIndexedLevel = max(lastIndexedLevel - numberOfLevelsToIndex + 1, 1)
+      let minLevelToIndex = max(currentLvl - numberOfLevelsToIndex + 1, 1)
+      
+      let levelsToRemoveFromIndex = [Int](oldMinIndexedLevel..<min(minLevelToIndex, oldMinIndexedLevel + lastIndexedLevel))
+      let domainIdentifiersToRemove = levelsToRemoveFromIndex.map { (index) -> String in
+        return Kanji.searchIdentifierForLevel(index)
+      }
+      
+      CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(domainIdentifiersToRemove, completionHandler: { (error) -> Void in
         print(error)
       })
+    }
   
     let levelsToIndex = [Int](max(lastIndexedLevel + 1, currentLvl - numberOfLevelsToIndex + 1)...currentLvl)
     
     if levelsToIndex.contains(level) {
       
-      if let levelKanji = user?.levels?.levels[level].kanjiList {
+      if let levelKanji = user?.levels?.levelDataForLevel(level)?.kanjiList {
         let kanjiSearchableItems = levelKanji.map({ (kanji) -> CSSearchableItem in
           let item = CSSearchableItem(uniqueIdentifier: kanji.uniqueIdentifier, domainIdentifier: kanji.domainIdentifier, attributeSet: kanji.attributeSet)
           return item

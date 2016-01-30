@@ -32,8 +32,12 @@ class DataFetchManager: NSObject {
   
   func performMigrationIfNeeded() {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 9,
+      schemaVersion: 10,
       migrationBlock: { migration, oldSchemaVersion in
+        
+        migration.enumerate(LevelData.className()) { oldObject, newObject in
+          newObject!["kanjiList"] = List<Kanji>()
+        }
         
     })
     _ = try! Realm()
@@ -138,7 +142,10 @@ class DataFetchManager: NSObject {
     apiManager.fetchKanjiList(levelIndex) { (result) -> Void in
       //
       switch result {
-      case .Error(let _): break
+      case .Error(let error):
+        
+        print(error())
+        break
       
       case .Response(let response):
         let resp = response()

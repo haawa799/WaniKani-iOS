@@ -22,7 +22,7 @@ extension Kanji {
   }
   
   public var uniqueIdentifier: String {
-    return domainIdentifier + ".\(character)"
+    return character
   }
   
   public static func searchIdentifierForLevel(level: Int) -> String {

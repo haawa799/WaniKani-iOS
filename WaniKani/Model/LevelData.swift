@@ -16,18 +16,39 @@ public class WaniKaniLevels: Object {
   
   public var levels = List<LevelData>()
   
+  func levelDataForLevel(level: Int) -> LevelData? {
+    return (levels.filter{ $0.level == level }).first
+  }
+  
   func updateKanjiListForLevel(level: Int, newList: [KanjiInfo]) {
     
-    guard levels.count > level && newList.count > 0 else { return }
+    guard newList.count > 0 else {
+      return
+    }
     
-    let kanjiListEmpty = levels[level].kanjiList.count == 0
+    var curLevelData: LevelData
+    
+    if let currentLevelData = levelDataForLevel(level) {
+      curLevelData = currentLevelData
+      print(currentLevelData)
+    } else {
+      // LevelData object not created yet
+      let newLeveData = LevelData()
+      realm?.add(newLeveData)
+      levels.append(newLeveData)
+      
+      curLevelData = newLeveData
+    }
+    
+    curLevelData.level = level
+    let kanjiListEmpty = curLevelData.kanjiList.count == 0
     
     for kanjiInfo in newList {
       let k = Kanji(kanjiInfo: kanjiInfo)
       realm?.add(k, update: true)
       
       if kanjiListEmpty {
-        levels[level].kanjiList.append(k)
+        curLevelData.kanjiList.append(k)
       }
     }
     realm?.refresh()
@@ -35,6 +56,8 @@ public class WaniKaniLevels: Object {
 }
 
 public class LevelData: Object {
+  
+  public dynamic var level: Int = 0
   
   //public dynamic var radicalsList: [Radical]?
   public var kanjiList = List<Kanji>()
