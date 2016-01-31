@@ -133,7 +133,7 @@ function addIgnoreAnswerBtn()
 {
   var fontSize = "30px";
   //get element
-//  $('[lang="ja"], #user-response').css = $('[lang="ja"], #user-response').css + "font-size: 250%;";  //document.getElementById("character");
+  //  $('[lang="ja"], #user-response').css = $('[lang="ja"], #user-response').css + "font-size: 250%;";  //document.getElementById("character");
   //add style
   
   $("#additional-content ul").append('<li id="option-double-check"><span title="Change Result"><i class="icon-thumbs-up"></i></span></li>');
@@ -198,4 +198,5 @@ var barStyle = document.createElement("style");
 barStyle.type = "text/css";
 barStyle.innerHTML = "#answer-form fieldset.WKO_ignored input[type=\"text\"]:-moz-placeholder, #answer-form fieldset.WKO_ignored input[type=\"text\"]:-moz-placeholder {color: #FFFFFF; font-family: \"Source Sans Pro\",sans-serif; font-weight: 300; text-shadow: none; transition: color 0.15s linear 0s; } #answer-form fieldset.WKO_ignored button, #answer-form fieldset.WKO_ignored input[type=\"text\"], #answer-form fieldset.WKO_ignored input[type=\"text\"]:disabled { background-color: #FFCC00 !important; }";
 document.getElementsByTagName("head")[0].appendChild(barStyle);
+
 

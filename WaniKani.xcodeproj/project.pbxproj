@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		430401011C1B18EA00D59949 /* FabricEventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430401001C1B18EA00D59949 /* FabricEventsManager.swift */; };
+		430D080D1C5E3E170097C72C /* reorder.js in Resources */ = {isa = PBXBuildFile; fileRef = 430D080C1C5E3E170097C72C /* reorder.js */; };
 		43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */; };
 		43101B6F1C33D8DF00B855F2 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6E1C33D8DF00B855F2 /* SideMenuViewController.swift */; };
 		43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B751C33F41C00B855F2 /* WebViewController.xib */; };
@@ -137,6 +138,7 @@
 		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		430401001C1B18EA00D59949 /* FabricEventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FabricEventsManager.swift; sourceTree = "<group>"; };
+		430D080C1C5E3E170097C72C /* reorder.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = reorder.js; sourceTree = "<group>"; };
 		43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiMetaDataView.swift; sourceTree = "<group>"; };
 		43101B6E1C33D8DF00B855F2 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		43101B751C33F41C00B855F2 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 				4329D0EB1BBD36E2009BEABF /* resize.js */,
 				43850CF31B9DB86F00DFF6DD /* fast_forward.js */,
 				432C073E1BB408AE0031B3B1 /* ignore.js */,
+				430D080C1C5E3E170097C72C /* reorder.js */,
 				43AD05301BA05648000DBCBE /* UserScriptsSuit.swift */,
 				43AD052E1BA044BA000DBCBE /* UserScript.swift */,
 				43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */,
@@ -655,6 +658,7 @@
 				43AABDA61BEB47BC00F2D5B8 /* WordCell.xib in Resources */,
 				43B5F8AA1C0C84C900DA9893 /* DogeHintView.xib in Resources */,
 				432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */,
+				430D080D1C5E3E170097C72C /* reorder.js in Resources */,
 				43E4567F1BBAD4A30043ECAE /* ProgressHeader.xib in Resources */,
 				43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */,
 				433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */,
@@ -903,7 +907,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -953,7 +957,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -984,7 +988,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1009,7 +1013,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

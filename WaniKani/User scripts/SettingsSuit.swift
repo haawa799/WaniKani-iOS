@@ -71,7 +71,8 @@ class SettingsSuit: NSObject {
   // === First section ===================
   let fastForwardSetting:SettingOption = (Setting(key: fastForwardEnabledKey, script: fastForwardScript, description: fastForwardScript.name), NSIndexPath(forItem: 0, inSection: 0))
   let ignoreButtonSetting:SettingOption = (Setting(key: ignoreButtonEnabledKey, script: ignoreButtonScript, description: ignoreButtonScript.name), NSIndexPath(forItem: 1, inSection: 0))
-  let smartResizingSetting:SettingOption = (Setting(key: smartResizingEnabledKey, script: smartResizingScript, description: smartResizingScript.name), NSIndexPath(forItem: 2, inSection: 0))
+  let reorderSetting:SettingOption = (Setting(key: reorderEnabledKey, script: reorderScript, description: reorderScript.name), NSIndexPath(forItem: 2, inSection: 0))
+  let smartResizingSetting:SettingOption = (Setting(key: smartResizingEnabledKey, script: smartResizingScript, description: smartResizingScript.name), NSIndexPath(forItem: 3, inSection: 0))
   // === Second section ===================
   let hideStatusBarSetting:SettingOption = (Setting(key: hideStatusBarKey, script: nil, description: "Status bar hidden on Reviews"), NSIndexPath(forItem: 0, inSection: 1))
   let shouldUseGCSetting:SettingOption = (Setting(key: shouldUseGameCenterKey, script: nil, description: "Use GameCenter"), NSIndexPath(forItem: 1, inSection: 1))
@@ -87,6 +88,7 @@ class SettingsSuit: NSObject {
     var scriptsSettings = [Setting]()
     scriptsSettings.append(self.fastForwardSetting.setting)
     scriptsSettings.append(self.ignoreButtonSetting.setting)
+    scriptsSettings.append(self.reorderSetting.setting)
     if PhoneModel.myModel() != .iPhone4 {
       scriptsSettings.append(self.smartResizingSetting.setting)
     }
@@ -109,8 +111,14 @@ class SettingsSuit: NSObject {
   
   var userScriptsForReview: [UserScript] {
     var scripts = [SettingsSuit.scoreScript]
-    for q in settings[0]!.settings {
+    let firstSection = settings[0]!.settings
+    
+    print(firstSection)
+    
+    for q in firstSection {
+      
       if let script = q.script where q.enabled == true {
+        
         if script.name == SettingsSuit.smartResizingScript.name {
           var resizingScriptCopy = script
           resizingScriptCopy.modifyScript({ (script) -> (String) in
@@ -157,6 +165,8 @@ class SettingsSuit: NSObject {
   static let fastForwardEnabledKey = "fastForwardEnabledKey"
   static let ignoreButtonEnabledKey = "ignoreButtonEnabledKey"
   static let smartResizingEnabledKey = "smartResizingEnabledKey"
+  static let reorderEnabledKey = "reorderEnabledKey"
+  
   static let hideStatusBarKey = "hideStatusBarKey"
   static let gameCenterKey = "gameCenterKey"
   static let shouldUseGameCenterKey = "shouldUSeGameCenter"
@@ -166,6 +176,7 @@ class SettingsSuit: NSObject {
   private(set) static var fastForwardScript = UserScript(filename: "fast_forward", scriptName: "Fast forward")
   private(set) static var ignoreButtonScript = UserScript(filename: "ignore", scriptName: "Ignore button")
   private(set) static var smartResizingScript = UserScript(filename: "resize", scriptName: "Smart resize")
+  private(set) static var reorderScript = UserScript(filename: "reorder", scriptName: "Reorder script")
   private(set) static var scoreScript = UserScript(filename: "score", scriptName: "Score script")
   
 }

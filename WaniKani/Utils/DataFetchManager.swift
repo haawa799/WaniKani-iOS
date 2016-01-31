@@ -34,10 +34,8 @@ class DataFetchManager: NSObject {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
       schemaVersion: 10,
       migrationBlock: { migration, oldSchemaVersion in
+
         
-        migration.enumerate(LevelData.className()) { oldObject, newObject in
-          newObject!["kanjiList"] = List<Kanji>()
-        }
         
     })
     _ = try! Realm()
