@@ -20,18 +20,15 @@ function init(){
   var t = document.createElement('div');
   stats.appendChild(t);
   
-  t.innerHTML = '<div id="wkroStatus"><table align="right"><tbody>'+
-  '<tr><td>Rad</td><td align="right"><span id="wkroRadCount"></span></td></tr>'+
-  '<tr><td>Kan</td><td align="right"><span id="wkroKanCount"></span></td></tr>'+
-  '<tr><td>Voc</td><td align="right"><span id="wkroVocCount"></span></td></tr>'+
-  '<button id="reorderBtn1" type="button" onclick="window.dispatchEvent(new Event(\'reorderWKBulk\'));">Bulk Mode</button>'+
-  '<button id="reorderBtn2" type="button" onclick="window.dispatchEvent(new Event(\'reorderWKSingle\'));">Single Mode</button>'+
+  t.innerHTML = '<div id="wkroStatus">'+
+  '<tr><td>Rad  </td><td align="right"><span id="wkroRadCount"></span></td></tr>'+
+  '<tr><td>       Kan  </td><td align="right"><span id="wkroKanCount"></span></td></tr>'+
+  '<tr><td>       Voc  </td><td align="right"><span id="wkroVocCount"></span></td></tr>'+
+  '</div><div id="divSt">Not Ordered!</div>'+
   '</div>';
-  $('#wkroStatus').hide();
+  
   $('#divSt').hide();
   $.jStorage.listenKeyChange("activeQueue",displayUpdate);
-  window.addEventListener('reorderWKSingle',reorderSingle);
-  window.addEventListener('reorderWKBulk',reorderBulk);
   displayUpdate();
   console.log('init() end');
 }
@@ -56,26 +53,22 @@ function reorderSingle(){
 
 function reorder(){
   console.log('reorder() start');
-  var divSt = get("divSt");
-  var reorderBtn1= get("reorderBtn1");
-  var reorderBtn2= get("reorderBtn2");
-  reorderBtn1.style.visibility="hidden";
-  reorderBtn2.style.visibility="hidden";
-  divSt.innerHTML = 'Reordering.. please wait!';
   
   var cur = $.jStorage.get("currentItem");
   var qt = $.jStorage.get("questionType");
   var actList = $.jStorage.get("activeQueue");
   var revList = $.jStorage.get("reviewQueue");
   
-  console.log('current item: '+cur);
+  console.log('current item: ' + cur);
+  
+  console.log('actList: ' + actList);
+  
   var curt = cur.kan?'kan':cur.voc?'voc':'rad';
   
   var removedCount = 0;
   for(var i=0;i<actList.length;i++){
     var it = actList[i];
     var itt = cur.kan?'kan':cur.voc?'voc':'rad';
-    console.log(it);
     if(!(curt==itt&&cur.id==it.id)){
       actList.splice(i--,1);
       revList.push(it);
@@ -84,24 +77,11 @@ function reorder(){
   }
   console.log('Items removed from ActiveQueue: '+removedCount);
   
-  //
-  for(var i2=0; i2<=10; i2++){
-    for(var i=revList.length-1;i>=0;i--){
-      var it=revList[i];
-      if(it.srs==i2){
-        revList.splice(i,1);
-        revList.push(it);
-      }
-    }
-  }
-  //
-  
   for(var i=revList.length-1;i>=0;i--){
     var it=revList[i];
     if(it.kan){
       revList.splice(i,1);
       revList.push(it);
-      //console.log('kan '+it.kan);
     }
   }
   for(var i=revList.length-1;i>=0;i--){
@@ -109,7 +89,6 @@ function reorder(){
     if(it.rad){
       revList.splice(i,1);
       revList.push(it);
-      //console.log('rad '+it.rad);
     }
   }
   
@@ -130,6 +109,8 @@ function reorder(){
   
   $.jStorage.set("reviewQueue",revList);
   $.jStorage.set("activeQueue",actList);
+  
+  $.jStorage.set('questionType', 'meaning');
   
   divSt.innerHTML = 'Done!';
   console.log('reorder() end');
@@ -159,4 +140,5 @@ function displayUpdate(){
 var method = "";
 init();
 console.log('script load end');
+
 reorderSingle();

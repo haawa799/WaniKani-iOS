@@ -12,7 +12,7 @@ import UICKeyChainStore
 
 enum ShortcutIdentifier: String {
   case Lessons
-  case Reviews
+  case Review
 }
 
 @UIApplicationMain
@@ -81,15 +81,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   @available(iOS 9.0, *)
-  func application(application: UIApplication,
-    performActionForShortcutItem shortcutItem: UIApplicationShortcutItem,
-    completionHandler: (Bool) -> Void) {
-      
-      completionHandler(handleShortcut(shortcutItem))
+  func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem,completionHandler: (Bool) -> Void) {
+    completionHandler(handleShortcut(shortcutItem))
   }
   
   @available(iOS 9.0, *)
   private func handleShortcut(shortcutItem: UIApplicationShortcutItem) -> Bool {
+    
+    
+    
     guard let shortcutType = ShortcutIdentifier(rawValue: shortcutItem.type) else { return false }
     
     
@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     switch shortcutType {
     case ShortcutIdentifier.Lessons: index = 0
-    case ShortcutIdentifier.Reviews: index = 1
+    case ShortcutIdentifier.Review: index = 1
     }
     
     delay(1) { () -> () in
@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
     guard let kanjiChar = userActivity.userInfo?["kCSSearchableItemActivityIdentifier"] as? String else {
-        return false
+      return false
     }
     
     guard let kanji = realm().objects(Kanji).filter("character = '\(kanjiChar)'").first else { return false }
