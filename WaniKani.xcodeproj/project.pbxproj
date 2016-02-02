@@ -42,7 +42,7 @@
 		433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC251BFB407F0025EB24 /* SetupStepViewController.swift */; };
 		433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC271BFB4B290025EB24 /* GameCenterSetupVC.swift */; };
 		433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164D1B846016007B7DE9 /* NotificationManager.swift */; };
-		433E16521B846016007B7DE9 /* StudyQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */; };
+		433E16521B846016007B7DE9 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164F1B846016007B7DE9 /* DashboardViewController.swift */; };
 		433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E16581B8465D1007B7DE9 /* DashboardLayout.swift */; };
 		433E165F1B84A6D0007B7DE9 /* DataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */; };
 		433E16A11B8A3408007B7DE9 /* ApiKeyPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E16A01B8A3408007B7DE9 /* ApiKeyPickerController.swift */; };
@@ -172,7 +172,7 @@
 		433BDC251BFB407F0025EB24 /* SetupStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupStepViewController.swift; sourceTree = "<group>"; };
 		433BDC271BFB4B290025EB24 /* GameCenterSetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterSetupVC.swift; sourceTree = "<group>"; };
 		433E164D1B846016007B7DE9 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueueViewController.swift; sourceTree = "<group>"; };
+		433E164F1B846016007B7DE9 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		433E16581B8465D1007B7DE9 /* DashboardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardLayout.swift; sourceTree = "<group>"; };
 		433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetchManager.swift; sourceTree = "<group>"; };
 		433E16A01B8A3408007B7DE9 /* ApiKeyPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiKeyPickerController.swift; path = ../ApiKeyPickerController.swift; sourceTree = "<group>"; };
@@ -376,7 +376,7 @@
 				43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */,
 				43AFAFC71B8CA1060016E55F /* WebViewController.swift */,
 				43101B751C33F41C00B855F2 /* WebViewController.xib */,
-				433E164F1B846016007B7DE9 /* StudyQueueViewController.swift */,
+				433E164F1B846016007B7DE9 /* DashboardViewController.swift */,
 				43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */,
 				433A3FAC1BCFACDF009C0FF1 /* LoginWebViewController.swift */,
 				434673D71BDE53B80095A4A3 /* GameCenterViewController.swift */,
@@ -773,7 +773,7 @@
 				434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */,
 				43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */,
 				43AFAFC81B8CA1060016E55F /* WebViewController.swift in Sources */,
-				433E16521B846016007B7DE9 /* StudyQueueViewController.swift in Sources */,
+				433E16521B846016007B7DE9 /* DashboardViewController.swift in Sources */,
 				43B273CE1C4505A400B57D8B /* LevelsLayout.swift in Sources */,
 				433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */,
 				43B273CB1C4409CC00B57D8B /* LevelCell.swift in Sources */,
@@ -907,7 +907,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -957,7 +957,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -988,7 +988,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1013,7 +1013,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

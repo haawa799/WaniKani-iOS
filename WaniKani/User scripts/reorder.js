@@ -110,8 +110,6 @@ function reorder(){
   $.jStorage.set("reviewQueue",revList);
   $.jStorage.set("activeQueue",actList);
   
-  $.jStorage.set('questionType', 'meaning');
-  
   divSt.innerHTML = 'Done!';
   console.log('reorder() end');
 }

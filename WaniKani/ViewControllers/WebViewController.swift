@@ -126,12 +126,12 @@ extension WebViewController: UIWebViewDelegate {
 
 extension WebViewController: UIScrollViewDelegate {
   func scrollViewDidScroll(scrollView: UIScrollView) {
-    let new = scrollView.contentOffset.y
-    let old = oldOffset ?? new
-    let delta = max((old - new), -(old - new))
-    if delta > 35 {
-      scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: 0)
-    }
-    oldOffset = new
+//    let new = scrollView.contentOffset.y
+//    let old = oldOffset ?? new
+//    let delta = max((old - new), -(old - new))
+//    if delta > 35 {
+//      scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: 0)
+//    }
+//    oldOffset = new
   }
 }

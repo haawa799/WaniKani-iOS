@@ -30,9 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   var isBackgroundFetching = false
-  lazy var rootViewController: UIViewController = {
-    let q = self.window?.rootViewController
-    return q!
+  
+  private lazy var firstTabViewController: DashboardViewController = {
+    return self.rootViewController.viewControllers?.first as! DashboardViewController
+  }()
+  
+  lazy var rootViewController: UITabBarController = {
+    return self.window?.rootViewController as! UITabBarController
   }()
   
   private func cleanKeychainIfNeeded() {
@@ -88,24 +92,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   @available(iOS 9.0, *)
   private func handleShortcut(shortcutItem: UIApplicationShortcutItem) -> Bool {
     
-    
-    
     guard let shortcutType = ShortcutIdentifier(rawValue: shortcutItem.type) else { return false }
     
-    
-    var index: Int
-    
-    switch shortcutType {
-    case ShortcutIdentifier.Lessons: index = 0
-    case ShortcutIdentifier.Review: index = 1
-    }
-    
     delay(1) { () -> () in
-      if let tabBar = (self.rootViewController as? UITabBarController) {
-        tabBar.selectedIndex = 0
-        if let vc = tabBar.viewControllers?.first {
-          vc.performSegueWithIdentifier("webSession", sender: index)
-        }
+      switch shortcutType {
+      case ShortcutIdentifier.Lessons: self.firstTabViewController.openReviews()
+      case ShortcutIdentifier.Review: self.firstTabViewController.openLessons()
       }
     }
     

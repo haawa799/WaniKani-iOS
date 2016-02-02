@@ -10,7 +10,15 @@ import UIKit
 import WaniKit
 import RealmSwift
 
-class StudyQueueViewController: UIViewController {
+class DashboardViewController: UIViewController {
+  
+  func openReviews() {
+    performSegueWithIdentifier("webSession", sender: 0)
+  }
+  
+  func openLessons() {
+    performSegueWithIdentifier("webSession", sender: 1)
+  }
   
   private var loadedQueue: StudyQueue?
   var studyQueue: StudyQueue? {
@@ -35,7 +43,6 @@ class StudyQueueViewController: UIViewController {
     return loadedProgressData
   }
   
-  @IBOutlet weak var blurView: UIVisualEffectView!
   var refreshControl: UIRefreshControl?
   
   @IBOutlet weak var collectionView: UICollectionView! {
@@ -168,7 +175,7 @@ class StudyQueueViewController: UIViewController {
 }
 
 // Notifications
-extension StudyQueueViewController {
+extension DashboardViewController {
   
   func noApiKeyNotification() {
     if isPresented == false {
@@ -199,7 +206,7 @@ extension StudyQueueViewController {
   
 }
 
-extension StudyQueueViewController : UICollectionViewDelegate {
+extension DashboardViewController : UICollectionViewDelegate {
   
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AvaliableItemCell {
@@ -212,7 +219,7 @@ extension StudyQueueViewController : UICollectionViewDelegate {
   }
 }
 
-extension StudyQueueViewController : UICollectionViewDataSource {
+extension DashboardViewController : UICollectionViewDataSource {
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 3
@@ -295,13 +302,13 @@ extension StudyQueueViewController : UICollectionViewDataSource {
   }
 }
 
-extension StudyQueueViewController: NextReviewCellDelegate {
+extension DashboardViewController: NextReviewCellDelegate {
   func notificationsEnabled(enabled: Bool) {
     NotificationManager.sharedInstance.notificationsEnabled = enabled
   }
 }
 
-extension StudyQueueViewController: ProgressHeaderDelegate {
+extension DashboardViewController: ProgressHeaderDelegate {
   func fullStretch() {
     refresh()
     stratchyHeader?.displayLoading = true
