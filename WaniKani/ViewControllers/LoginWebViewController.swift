@@ -13,6 +13,12 @@ protocol LoginWebViewControllerDelegate: class {
   func apiKeyReceived(apiKey: String)
 }
 
+
+private enum ScriptHandler: String {
+  case ApiKey = "apikey"
+  case Credentials = "credentials"
+}
+
 class LoginWebViewController: UIViewController {
   
   weak var delegate: LoginWebViewControllerDelegate?
@@ -24,35 +30,7 @@ class LoginWebViewController: UIViewController {
     setupWebView()
   }
   
-  /*
-  $.get('/account').done(function(data, textStatus, jqXHR) {
-  var apiKey = findKey();
-  window.webkit.messageHandlers.notification.postMessage(apiKey)
-  });
-  
-  function findKey()  {
-  var apiKey = $('#api-button').parent().find('input').attr('value');
-  if (apiKey == null || apiKey.length == 0) {
-		apiKey = 'no';
-  }
-  return apiKey;
-  }
-  
-  window.location.href = '/account';
-  
-  setTimeout(function() {
-  $('#api-button').click();
-  }, 1000);
-  
-  var t = findKey();
-  window.webkit.messageHandlers.notification.postMessage(t)
-  */
-  
-  private let script0 = "$.get('/account').done(function(data, textStatus, jqXHR) {var apiKey = findKey();window.webkit.messageHandlers.notification.postMessage(apiKey)});"
-  private let script1 = ""
-  
   private let script = UserScript(filename: "api_key_script", scriptName: "api_key_script")
-  
   
   private func setupWebView() {
     let source = script.script
@@ -60,7 +38,8 @@ class LoginWebViewController: UIViewController {
     
     let userContentController = WKUserContentController()
     userContentController.addUserScript(userScript)
-    userContentController.addScriptMessageHandler(self, name: "notification")
+    userContentController.addScriptMessageHandler(self, name: ScriptHandler.ApiKey.rawValue)
+    userContentController.addScriptMessageHandler(self, name: ScriptHandler.Credentials.rawValue)
     
     let configuration = WKWebViewConfiguration()
     configuration.userContentController = userContentController
@@ -86,38 +65,46 @@ class LoginWebViewController: UIViewController {
 extension LoginWebViewController: WKScriptMessageHandler {
   
   func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-    guard let apiKey = message.body as? String else { return }
     
-    if apiKey == "no" || apiKey == "" {
-      
-      if isDeepParsing == false {
-        isDeepParsing = true
-        
-        webView.evaluateJavaScript("openSettings()", completionHandler: { (response, error) -> Void in
-          print(response)
-          
-          delay(2.0, closure: { () -> () in
-            self.webView.evaluateJavaScript("generateNewKey();", completionHandler: { (response, error) -> Void in
-              print(response)
-              
-              delay(2.0, closure: { () -> () in
-                self.webView.evaluateJavaScript("findKey();", completionHandler: { (response, error) -> Void in
-                  if let apiK = response as? String where apiK.characters.count == 32 {
-                    self.submitApiKey(apiK)
-                  }
-                  self.isDeepParsing = false
+    guard let handler = ScriptHandler(rawValue: message.name) else { return }
+    
+    switch handler {
+    case .ApiKey:
+      guard let apiKey = message.body as? String else { return }
+      if apiKey == "no" || apiKey == "" {
+        if isDeepParsing == false {
+          isDeepParsing = true
+          webView.evaluateJavaScript("openSettings()", completionHandler: { (response, error) -> Void in
+            delay(2.0, closure: { () -> () in
+              self.webView.evaluateJavaScript("generateNewKey();", completionHandler: { (response, error) -> Void in
+                delay(2.0, closure: { () -> () in
+                  self.webView.evaluateJavaScript("findKey();", completionHandler: { (response, error) -> Void in
+                    if let apiK = response as? String where apiK.characters.count == 32 {
+                      self.submitApiKey(apiK)
+                    }
+                    self.isDeepParsing = false
+                  })
                 })
               })
             })
           })
-          
-          
-        })
+        }
+        
+      } else {
+        submitApiKey(apiKey)
       }
-
-    } else {
-      submitApiKey(apiKey)
+      
+      
+    case .Credentials:
+      
+      print(message.body)
     }
+    
+    
+  }
+  
+  func grabApiKeyIfNeeded(apiKey: String) {
+    
   }
   
   func submitApiKey(apiKey: String) {
