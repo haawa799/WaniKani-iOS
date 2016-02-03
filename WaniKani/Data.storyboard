@@ -10,7 +10,6 @@
         <!--Searched Kanji View Controller-->
         <scene sceneID="KBl-8i-5OZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xhr-x1-hca" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="MSJ-bS-HfQ" customClass="SearchedKanjiViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cKC-02-itD"/>
@@ -43,13 +42,13 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xhr-x1-hca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6064" y="2722"/>
         </scene>
         <!--Level View Controller-->
         <scene sceneID="LT8-lP-9n2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8o7-EZ-Hnl" sceneMemberID="firstResponder"/>
                 <viewController id="PgW-ft-kfm" customClass="LevelViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F31-gw-Qud"/>
@@ -160,13 +159,13 @@
                         <outlet property="collectionView" destination="6NR-wb-0Og" id="V5N-gC-VzE"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8o7-EZ-Hnl" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6064" y="1824"/>
         </scene>
         <!--Pick level-->
         <scene sceneID="Phw-lD-7U7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v8h-GT-aV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="J5Y-bu-OmY" customClass="LevelPickerViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vJ2-iX-ZTz"/>
@@ -212,13 +211,13 @@
                         </segue>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v8h-GT-aV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5204" y="1824"/>
         </scene>
         <!--Levels blocks-->
         <scene sceneID="71e-WH-Chj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P76-OZ-5Na" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="qW5-Vg-FKQ" customClass="LevelBlocksViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UqB-Jh-SmR"/>
@@ -256,13 +255,13 @@
                         </segue>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P76-OZ-5Na" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4370" y="1824"/>
         </scene>
         <!--Kanji Strokes View Controller-->
         <scene sceneID="PYX-1c-IxJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfu-xM-g6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="KanjiVC" id="2LV-gC-50s" customClass="KanjiStrokesViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gAd-Y7-sKB"/>
@@ -357,14 +356,14 @@
                         <outlet property="container" destination="p4H-cl-UrD" id="muf-9u-JzV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfu-xM-g6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7126" y="2245"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lEx-KJ-qjC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b8o-um-KAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController storyboardIdentifier="NavSearchedKanjiViewController" automaticallyAdjustsScrollViewInsets="NO" id="SCl-8F-sKg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SearchKanjiViewController" automaticallyAdjustsScrollViewInsets="NO" id="SCl-8F-sKg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kX0-43-Nwk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -375,6 +374,7 @@
                         <segue destination="MSJ-bS-HfQ" kind="relationship" relationship="rootViewController" id="lT0-0i-Pf3"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b8o-um-KAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5204" y="2722"/>
         </scene>

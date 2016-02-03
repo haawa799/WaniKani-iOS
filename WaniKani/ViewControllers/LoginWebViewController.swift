@@ -53,10 +53,9 @@ class LoginWebViewController: UIViewController {
     let userContentController = WKUserContentController()
     userContentController.addUserScript(userScript)
     userContentController.addScriptMessageHandler(self, name: ScriptHandler.ApiKey.rawValue)
-    if credentials != nil {
-      userContentController.addScriptMessageHandler(self, name: ScriptHandler.Username.rawValue)
-      userContentController.addScriptMessageHandler(self, name: ScriptHandler.Password.rawValue)
-    }
+
+    userContentController.addScriptMessageHandler(self, name: ScriptHandler.Username.rawValue)
+    userContentController.addScriptMessageHandler(self, name: ScriptHandler.Password.rawValue)
     
     let configuration = WKWebViewConfiguration()
     configuration.userContentController = userContentController
