@@ -1,0 +1,6 @@
+framework module UIImageView_PlayGIF {
+  umbrella header "UIImageView-PlayGIF-umbrella.h"
+
+  export *
+  module * { export * }
+}

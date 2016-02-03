@@ -12,6 +12,9 @@ import UICKeyChainStore
 struct KeychainManager {
   
   let apiKeyStoreKey = "WaniKaniApiKey"
+  let userKey = "userKey"
+  let passwordKey = "passwordKey"
+  
   let keychain = UICKeyChainStore(service: "com.haawa.WaniKani")
   let firstRunDefaultsKey = "FirstRun"
   let firstRunValue = "1strun"
@@ -32,4 +35,21 @@ struct KeychainManager {
   func setNewApiKey(key: String) {
     keychain[apiKeyStoreKey] = key
   }
+  
+  var user: String? {
+    return keychain[userKey]
+  }
+  
+  func setUsername(usr: String) {
+    keychain[userKey] = usr
+  }
+  
+  var password: String? {
+    return keychain[passwordKey]
+  }
+  
+  func setPassword(passw: String) {
+    keychain[passwordKey] = passw
+  }
+  
 }

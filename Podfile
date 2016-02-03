@@ -15,3 +15,4 @@ pod 'WaniKit', :git => 'https://github.com/haawa799/WaniKit.git', :branch => 'ma
 pod "KanjiBezierPaths", :git => 'https://github.com/haawa799/KanjiBezierPaths.git', :branch => 'master'
 pod 'RESideMenu'
 pod 'ACEDrawingView'
+pod 'UIImageView-PlayGIF'

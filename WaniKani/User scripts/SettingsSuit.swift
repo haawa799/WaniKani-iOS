@@ -151,6 +151,11 @@ class SettingsSuit: NSObject {
     for script in scripts {
       webView.stringByEvaluatingJavaScriptFromString(script.script)
     }
+    
+    /////
+    if let user = appDelegate.keychainManager.user, let password = appDelegate.keychainManager.password {
+      webView.stringByEvaluatingJavaScriptFromString("loginIfNeeded('\(user)','\(password)');");
+    }
   }
   
   var hideStatusBarEnabled: Bool {

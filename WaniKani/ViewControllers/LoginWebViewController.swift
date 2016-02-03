@@ -8,26 +8,40 @@
 
 import UIKit
 import WebKit
+import UIImageView_PlayGIF
 
 protocol LoginWebViewControllerDelegate: class {
   func apiKeyReceived(apiKey: String)
 }
 
-
 private enum ScriptHandler: String {
   case ApiKey = "apikey"
-  case Credentials = "credentials"
+  case Password = "password"
+  case Username = "username"
 }
 
 class LoginWebViewController: UIViewController {
   
   weak var delegate: LoginWebViewControllerDelegate?
   private var webView: WKWebView!
+  private var credentials: (user: String, password: String)? = {
+    if let usr = appDelegate.keychainManager.user, let psw = appDelegate.keychainManager.password {
+      return (usr, psw)
+    }
+    return nil
+  }()
+  
+  @IBOutlet weak var shibaSpinnerImageView: UIImageView! {
+    didSet {
+      shibaSpinnerImageView?.gifPath = NSBundle.mainBundle().pathForResource("3dDoge", ofType: "gif")
+      shibaSpinnerImageView?.startGIF()
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     setupWebView()
+    addBackground(BackgroundOptions.Dashboard.rawValue)
   }
   
   private let script = UserScript(filename: "api_key_script", scriptName: "api_key_script")
@@ -39,16 +53,25 @@ class LoginWebViewController: UIViewController {
     let userContentController = WKUserContentController()
     userContentController.addUserScript(userScript)
     userContentController.addScriptMessageHandler(self, name: ScriptHandler.ApiKey.rawValue)
-    userContentController.addScriptMessageHandler(self, name: ScriptHandler.Credentials.rawValue)
+    if credentials != nil {
+      userContentController.addScriptMessageHandler(self, name: ScriptHandler.Username.rawValue)
+      userContentController.addScriptMessageHandler(self, name: ScriptHandler.Password.rawValue)
+    }
     
     let configuration = WKWebViewConfiguration()
     configuration.userContentController = userContentController
     webView = WKWebView(frame: self.view.bounds, configuration: configuration)
     let request = NSURLRequest(URL: NSURL(string: "https://www.wanikani.com/dashboard")!, cachePolicy: NSURLRequestCachePolicy.ReloadRevalidatingCacheData, timeoutInterval: 15.0)
     webView.loadRequest(request)
+    webView.navigationDelegate = self
     view.addSubview(webView)
+    
+    if credentials != nil {
+      webView.userInteractionEnabled = false
+      webView.hidden = true
+    }
   }
- 
+  
   @IBAction func donePressed(sender: AnyObject) {
     dismissViewControllerAnimated(true, completion: nil)
   }
@@ -58,6 +81,15 @@ class LoginWebViewController: UIViewController {
       if isDeepParsing == true {
         webView.alpha = 0
       }
+    }
+  }
+}
+
+extension LoginWebViewController: WKNavigationDelegate {
+  
+  func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+    if let credentials = credentials {
+      webView.evaluateJavaScript("loginIfNeeded('\(credentials.user)','\(credentials.password)');", completionHandler: nil)
     }
   }
 }
@@ -89,22 +121,20 @@ extension LoginWebViewController: WKScriptMessageHandler {
             })
           })
         }
-        
       } else {
         submitApiKey(apiKey)
       }
       
+    case .Username:
+      if let string = message.body as? String {
+        appDelegate.keychainManager.setUsername(string)
+      }
       
-    case .Credentials:
-      
-      print(message.body)
+    case .Password:
+      if let string = message.body as? String {
+        appDelegate.keychainManager.setPassword(string)
+      }
     }
-    
-    
-  }
-  
-  func grabApiKeyIfNeeded(apiKey: String) {
-    
   }
   
   func submitApiKey(apiKey: String) {
@@ -114,5 +144,3 @@ extension LoginWebViewController: WKScriptMessageHandler {
   }
   
 }
-
-

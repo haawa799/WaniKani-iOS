@@ -44,6 +44,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Fipps-Regular.otf</string>
+		<string>DogeSans-Regular.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '35C6BF9F378A7B968C2D9C16'
-               BlueprintName = 'ACEDrawingView'
+               BlueprintIdentifier = 'A1ECECDDF33244FFEFC71BDD'
+               BlueprintName = 'UIImageView-PlayGIF'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ACEDrawingView.framework'>
+               BuildableName = 'UIImageView_PlayGIF.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

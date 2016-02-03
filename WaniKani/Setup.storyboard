@@ -4,8 +4,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DogeSans-Regular.otf">
+            <string>DogeSans-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Api Key Picker Controller-->
         <scene sceneID="s7U-hY-wsl">
@@ -367,19 +373,31 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GFd-eT-uGp">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9gF-ex-XaD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shiba recognised you! Wait for him to do his magic.." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeA-cZ-DbS">
+                                <rect key="frame" x="20" y="20" width="560" height="120"/>
+                                <fontDescription key="fontDescription" name="DogeSans-Regular" family="Doge Sans" pointSize="23"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LeA-cZ-DbS" firstAttribute="trailing" secondItem="2Cd-k7-pac" secondAttribute="trailingMargin" id="2RJ-n7-jMj"/>
                             <constraint firstItem="wuY-dj-dQ9" firstAttribute="centerY" secondItem="2Cd-k7-pac" secondAttribute="centerY" id="DA5-bl-dmg"/>
                             <constraint firstItem="iNz-Dz-xbi" firstAttribute="top" secondItem="wuY-dj-dQ9" secondAttribute="bottom" id="EXQ-co-KHx"/>
+                            <constraint firstItem="wuY-dj-dQ9" firstAttribute="top" secondItem="9gF-ex-XaD" secondAttribute="bottom" id="Fja-b8-LwP"/>
                             <constraint firstItem="wuY-dj-dQ9" firstAttribute="top" secondItem="2Cd-k7-pac" secondAttribute="top" id="N75-YH-l8H"/>
+                            <constraint firstAttribute="trailing" secondItem="9gF-ex-XaD" secondAttribute="trailing" id="PQs-eT-YOG"/>
                             <constraint firstItem="iNz-Dz-xbi" firstAttribute="top" secondItem="wuY-dj-dQ9" secondAttribute="bottom" id="Ue7-jc-YUu"/>
+                            <constraint firstItem="LeA-cZ-DbS" firstAttribute="leading" secondItem="2Cd-k7-pac" secondAttribute="leadingMargin" id="f6L-eL-wzi"/>
                             <constraint firstItem="wuY-dj-dQ9" firstAttribute="leading" secondItem="2Cd-k7-pac" secondAttribute="leading" id="fuz-6p-in6"/>
-                            <constraint firstItem="GFd-eT-uGp" firstAttribute="centerX" secondItem="2Cd-k7-pac" secondAttribute="centerX" id="ggB-JH-5c8"/>
-                            <constraint firstItem="GFd-eT-uGp" firstAttribute="centerY" secondItem="2Cd-k7-pac" secondAttribute="centerY" id="hST-kb-NiJ"/>
+                            <constraint firstItem="LeA-cZ-DbS" firstAttribute="height" secondItem="2Cd-k7-pac" secondAttribute="height" multiplier="0.2" id="txU-dZ-F4P"/>
+                            <constraint firstItem="9gF-ex-XaD" firstAttribute="top" secondItem="2Cd-k7-pac" secondAttribute="top" id="v3r-a8-MYB"/>
+                            <constraint firstItem="9gF-ex-XaD" firstAttribute="leading" secondItem="2Cd-k7-pac" secondAttribute="leading" id="wXq-EX-F3c"/>
+                            <constraint firstItem="LeA-cZ-DbS" firstAttribute="top" secondItem="8Xg-07-iu3" secondAttribute="bottom" id="y7I-tz-HYb"/>
                             <constraint firstAttribute="trailing" secondItem="wuY-dj-dQ9" secondAttribute="trailing" id="z2k-96-rDV"/>
                         </constraints>
                         <variation key="default">
@@ -390,6 +408,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="shibaSpinnerImageView" destination="9gF-ex-XaD" id="wE0-bT-i3U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vw0-Wy-WQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

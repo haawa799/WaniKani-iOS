@@ -88,6 +88,8 @@
 		43B273CE1C4505A400B57D8B /* LevelsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273CD1C4505A400B57D8B /* LevelsLayout.swift */; };
 		43B5F8AA1C0C84C900DA9893 /* DogeHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B5F8AC1C0C84C900DA9893 /* DogeHintView.xib */; };
 		43BE27701C1B1188001A0DD7 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE276F1C1B1188001A0DD7 /* NotificationCenterManager.swift */; };
+		43C012251C62265800E07303 /* 3dDoge.gif in Resources */ = {isa = PBXBuildFile; fileRef = 43C012241C62265800E07303 /* 3dDoge.gif */; };
+		43C012271C62299100E07303 /* DogeSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43C012261C62299100E07303 /* DogeSans-Regular.otf */; };
 		43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */; };
 		43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */; };
 		43D506C21C22CFE40020F03B /* WaniKaniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D506C11C22CFE40020F03B /* WaniKaniUITests.swift */; };
@@ -226,6 +228,8 @@
 		43B273CD1C4505A400B57D8B /* LevelsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsLayout.swift; sourceTree = "<group>"; };
 		43B5F8AB1C0C84C900DA9893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DogeHintView.xib; sourceTree = "<group>"; };
 		43BE276F1C1B1188001A0DD7 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		43C012241C62265800E07303 /* 3dDoge.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3dDoge.gif; sourceTree = "<group>"; };
+		43C012261C62299100E07303 /* DogeSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DogeSans-Regular.otf"; sourceTree = "<group>"; };
 		43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSuit.swift; sourceTree = "<group>"; };
 		43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		43D506BF1C22CFE40020F03B /* WaniKaniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaniKaniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -470,6 +474,8 @@
 		433E28031B79D5E900BBB45E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				43C012241C62265800E07303 /* 3dDoge.gif */,
+				43C012261C62299100E07303 /* DogeSans-Regular.otf */,
 				431A31311BFF59600080944E /* Fipps-Regular.otf */,
 				432C07171BB2E15A0031B3B1 /* notification.m4a */,
 				43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */,
@@ -661,9 +667,11 @@
 			files = (
 				43101B7B1C33F64900B855F2 /* KanjiPracticeViewController.xib in Resources */,
 				432C073F1BB408AE0031B3B1 /* ignore.js in Resources */,
+				43C012251C62265800E07303 /* 3dDoge.gif in Resources */,
 				431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */,
 				43AC6C0B1C60BFB100D8CA48 /* Setup.storyboard in Resources */,
 				43AC6C151C60C48400D8CA48 /* Data.storyboard in Resources */,
+				43C012271C62299100E07303 /* DogeSans-Regular.otf in Resources */,
 				432C072F1BB3272C0031B3B1 /* NextReviewCell.xib in Resources */,
 				434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */,
 				432C07351BB3272C0031B3B1 /* DashboardHeader.xib in Resources */,

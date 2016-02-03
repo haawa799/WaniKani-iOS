@@ -113,7 +113,7 @@ class DogeHintView: UIView {
   private func applyDefaultAttributes() {
     guard let atributedString = textLabel.attributedText else {return}
     let mutableString = NSMutableAttributedString(attributedString: atributedString)
-    let font = UIFont(name: "Fipps", size: 13)!
+    let font = UIFont(name: "Doge Sans", size: 30)!
     mutableString.addAttribute(NSFontAttributeName, value: font, range: NSRange(location: 0, length: atributedString.length - 1))
     textLabel.attributedText = mutableString
   }

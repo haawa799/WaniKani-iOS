@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D13b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -46,29 +46,22 @@
 I need you to log into your </string>
                                     <attributes>
                                         <color key="NSColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="13" name="Fipps-Regular"/>
+                                        <font key="NSFont" size="11" name="DogeSans-Regular"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="WaniKani">
                                     <attributes>
                                         <color key="NSColor" red="0.86666666670000003" green="0.15162741517027567" blue="0.39185213194798835" alpha="0.74221443965517242" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="15" name="Fipps-Regular"/>
+                                        <font key="NSFont" size="11" name="DogeSans-Regular"/>
                                         <font key="NSOriginalFont" size="14" name="Fipps-Regular"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content=" account">
+                                <fragment content=" account.">
                                     <attributes>
                                         <color key="NSColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="13" name="Fipps-Regular"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment content=".">
-                                    <attributes>
-                                        <color key="NSColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="4" name="Fipps-Regular"/>
+                                        <font key="NSFont" size="11" name="DogeSans-Regular"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
