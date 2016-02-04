@@ -4,7 +4,7 @@ reinstall_app true
 devices([
   "iPhone 6",
   "iPhone 6 Plus",
-  "iPhone 5"
+  "iPhone 5",
   "iPhone 4s"
 ])
 
@@ -14,4 +14,4 @@ languages([
 
 workspace "/Users/haawa799/Google\ Drive/IOS\ Projects/WaniKani/WaniKani.xcworkspace"
 scheme "WaniKani"
-app_identifier "com.haawa.WaniKani.dev"
+app_identifier "com.haawa.WaniKani.debug"

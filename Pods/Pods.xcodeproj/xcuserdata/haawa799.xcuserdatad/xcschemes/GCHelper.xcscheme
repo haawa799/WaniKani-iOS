@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EAD7E8326067803511751704'
+               BlueprintIdentifier = '5084A2F1DBFC9E20BB180884'
                BlueprintName = 'GCHelper'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'GCHelper.framework'>

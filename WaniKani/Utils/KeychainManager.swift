@@ -28,6 +28,12 @@ struct KeychainManager {
     }
   }
   
+  func wipeKeychain() {
+    keychain[apiKeyStoreKey] = nil
+    keychain[userKey] = nil
+    keychain[passwordKey] = nil
+  }
+  
   var apiKey: String? {
     return keychain[apiKeyStoreKey]
   }

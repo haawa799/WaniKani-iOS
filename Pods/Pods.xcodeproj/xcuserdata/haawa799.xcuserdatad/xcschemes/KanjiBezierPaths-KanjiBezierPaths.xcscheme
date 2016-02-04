@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '682A25C8404BAFCF96662ADF'
+               BlueprintIdentifier = 'BD26E7F52643025F8F95FD42'
                BlueprintName = 'KanjiBezierPaths-KanjiBezierPaths'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'KanjiBezierPaths.bundle'>

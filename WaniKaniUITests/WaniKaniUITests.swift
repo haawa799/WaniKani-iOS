@@ -101,7 +101,7 @@ class WaniKaniUITests: XCTestCase {
     
     sleep(3)
     
-    authentificate(app)
+//    authentificate(app)
     
     sleep(6)
     

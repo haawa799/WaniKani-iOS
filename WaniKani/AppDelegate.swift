@@ -46,6 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
     setupManagers()
+    
+    if NSUserDefaults.standardUserDefaults().boolForKey("FASTLANE_SNAPSHOT") {
+      keychainManager.wipeKeychain()
+    }
+    
     keychainManager.cleanKeychainIfNeeded()
     waniApiManager.delegate = self
     if let key = keychainManager.apiKey {
