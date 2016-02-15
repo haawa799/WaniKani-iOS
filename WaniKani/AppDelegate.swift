@@ -47,9 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     setupManagers()
     
-    if NSUserDefaults.standardUserDefaults().boolForKey("FASTLANE_SNAPSHOT") {
-      keychainManager.wipeKeychain()
-    }
+//    if NSUserDefaults.standardUserDefaults().boolForKey("FASTLANE_SNAPSHOT") {
+      
+//    }
     
     keychainManager.cleanKeychainIfNeeded()
     waniApiManager.delegate = self

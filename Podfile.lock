@@ -16,7 +16,6 @@ PODS:
   - StrokeDrawingView (0.1.1)
   - UICKeyChainStore (2.1.0)
   - UIImageView-PlayGIF (1.0.5)
-  - WaniKit (0.1.0)
 
 DEPENDENCIES:
   - ACEDrawingView
@@ -32,7 +31,6 @@ DEPENDENCIES:
     `master`)
   - UICKeyChainStore
   - UIImageView-PlayGIF
-  - WaniKit (from `https://github.com/haawa799/WaniKit.git`, branch `master`)
 
 EXTERNAL SOURCES:
   KanjiBezierPaths:
@@ -41,9 +39,6 @@ EXTERNAL SOURCES:
   StrokeDrawingView:
     :branch: master
     :git: https://github.com/haawa799/StrokeDrawingView.git
-  WaniKit:
-    :branch: master
-    :git: https://github.com/haawa799/WaniKit.git
 
 CHECKOUT OPTIONS:
   KanjiBezierPaths:
@@ -52,9 +47,6 @@ CHECKOUT OPTIONS:
   StrokeDrawingView:
     :commit: 769b88a4e6dd2d190e35c74bee54d45dd8e80fa8
     :git: https://github.com/haawa799/StrokeDrawingView.git
-  WaniKit:
-    :commit: fea1ca114bf3fcd219b00e3bcfa365ba997593b4
-    :git: https://github.com/haawa799/WaniKit.git
 
 SPEC CHECKSUMS:
   ACEDrawingView: 325b5cd00125766c6df9b30aa3a7b68866d2ce16
@@ -70,6 +62,5 @@ SPEC CHECKSUMS:
   StrokeDrawingView: 5d26664a4391804118fbfc2b3d4a5235a0057749
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
   UIImageView-PlayGIF: 445c8b31b3a43271dd3d565d9c0c612fa59ae830
-  WaniKit: d8ad22b1707fefc5559ab5b2b60429c4778b03aa
 
 COCOAPODS: 0.39.0

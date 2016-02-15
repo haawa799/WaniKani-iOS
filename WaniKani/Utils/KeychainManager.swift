@@ -23,8 +23,10 @@ struct KeychainManager {
     
     if (NSUserDefaults.standardUserDefaults().objectForKey(firstRunDefaultsKey) == nil) {
       keychain[apiKeyStoreKey] = nil
+      
       NSUserDefaults.standardUserDefaults().setValue(firstRunValue, forKey: firstRunDefaultsKey)
       NSUserDefaults.standardUserDefaults().synchronize()
+      wipeKeychain()
     }
   }
   

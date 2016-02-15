@@ -139,4 +139,7 @@ var method = "";
 init();
 console.log('script load end');
 
-reorderSingle();
+
+setTimeout(function() {
+           reorderSingle();
+           }, 3000);
