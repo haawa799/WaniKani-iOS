@@ -51,13 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
 //    }
     
+    DataFetchManager.sharedInstance.makeInitialPreperations()
+    
     keychainManager.cleanKeychainIfNeeded()
     waniApiManager.delegate = self
     if let key = keychainManager.apiKey {
       waniApiManager.setApiKey(key)
     }
     
-    DataFetchManager.sharedInstance.makeInitialPreperations()
     UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
     if NSUserDefaults.standardUserDefaults().valueForKey(NotificationManager.notificationsAllowedKey) == nil {
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: NotificationManager.notificationsAllowedKey)

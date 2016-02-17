@@ -9,7 +9,7 @@
 import UIKit
 import KanjiBezierPaths
 
-class KanjiGraficInfo {
+class KanjiGraphicInfo {
   
   let color0 = UIColor(red:0.95, green:0, blue:0.63, alpha:1)
   
@@ -21,8 +21,8 @@ class KanjiGraficInfo {
     self.bezierPathes = KanjiBezierPathesHelper.pathesForKanji(kanji) ?? [UIBezierPath]()
   }
   
-  class func kanjiFromString(kanjiChar: String) -> KanjiGraficInfo? {
-    let kanji = KanjiGraficInfo(kanji: kanjiChar)
+  class func kanjiFromString(kanjiChar: String) -> KanjiGraphicInfo? {
+    let kanji = KanjiGraphicInfo(kanji: kanjiChar)
     return (kanji.bezierPathes.count > 0) ? kanji : nil
   }
   

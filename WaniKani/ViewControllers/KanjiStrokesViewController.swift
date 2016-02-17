@@ -71,7 +71,7 @@ class KanjiStrokesViewController: UIViewController {
     
   }
   
-  private var kanji: KanjiGraficInfo? {
+  private var kanji: KanjiGraphicInfo? {
     didSet {
       guard let kanji = kanji else { return }
       strokeDrawingView?.stopForeverAnimation()
@@ -85,7 +85,7 @@ class KanjiStrokesViewController: UIViewController {
     didSet {
       if let kanjiInfo = kanjiInfo {
         container?.setupWithKanji(kanjiInfo)
-        kanji = KanjiGraficInfo(kanji: kanjiInfo.character)
+        kanji = KanjiGraphicInfo(kanji: kanjiInfo.character)
         
 //        let activity = kanjiInfo.userActivity
 //        if #available(iOS 9.0, *) {
@@ -106,7 +106,7 @@ extension KanjiStrokesViewController: StrokeDrawingViewDataDelegate {
 }
 
 
-extension KanjiGraficInfo: StrokeDrawingViewDataSource {
+extension KanjiGraphicInfo: StrokeDrawingViewDataSource {
   func sizeOfDrawing() -> CGSize {
     return CGSize(width: 109, height: 109)
   }

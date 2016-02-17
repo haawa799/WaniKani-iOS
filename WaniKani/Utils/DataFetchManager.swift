@@ -9,6 +9,7 @@
 import UIKit
 import WaniKit
 import RealmSwift
+import Realm
 import PermissionScope
 
 
@@ -26,13 +27,42 @@ class DataFetchManager: NSObject {
   static let sharedInstance = DataFetchManager()
   
   func makeInitialPreperations() {
+    moveRealmToAppGroupIfNeeded()
     performMigrationIfNeeded()
     initialUserCreation()
   }
   
+  func moveRealmToAppGroupIfNeeded() {
+    let fileManager = NSFileManager.defaultManager()
+    
+    //Cache original realm path (documents directory)
+    
+    
+    guard let originalDefaultRealmPath = Realm.Configuration.defaultConfiguration.path else { return }
+    
+    //Generate new realm path based on app group
+    let appGroupURL: NSURL = fileManager.containerURLForSecurityApplicationGroupIdentifier("group.com.haawa.WaniKani")!
+    let realmPath = appGroupURL.path! + "/default.realm"
+    
+    //Moves the realm to the new location if it hasn't been done previously
+    if (fileManager.fileExistsAtPath(originalDefaultRealmPath) && !fileManager.fileExistsAtPath(realmPath)) {
+      
+      do {
+        try fileManager.moveItemAtPath(originalDefaultRealmPath, toPath: realmPath)
+      } catch _ {
+        print("error")
+      }
+    }
+    
+    //Set the realm path to the new directory
+    var config = Realm.Configuration()
+    config.path = realmPath
+    Realm.Configuration.defaultConfiguration = config
+  }
+  
   func performMigrationIfNeeded() {
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 10,
+      schemaVersion: 12,
       migrationBlock: { migration, oldSchemaVersion in
 
         
@@ -167,7 +197,7 @@ class DataFetchManager: NSObject {
           dispatch_async(dispatch_get_main_queue(), { () -> Void in
             realm().refresh()
             let user = realm().objects(User).first
-            guard let levels =  user?.levels?.levels else { return }
+            guard let _ =  user?.levels?.levels else { return }
             appDelegate.notificationCenterManager.postNotification(.UpdatedKanjiListNotification, object: levelIndex)
           })
         }

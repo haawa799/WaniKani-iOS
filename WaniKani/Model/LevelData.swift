@@ -75,7 +75,7 @@ public class Kanji: Object {
   public dynamic var importantReading: String?
   public dynamic var level: Int = 0
   
-  public dynamic var userSpecific: KanjiUserSpecific?
+  public dynamic var userSpecific: ItemUserSpecific?
   
   override public static func primaryKey() -> String? {
     return "character"
@@ -93,12 +93,60 @@ public class Kanji: Object {
     level = kanjiInfo.level
     
     if let userSpecificQ = kanjiInfo.userSpecific {
-      userSpecific = KanjiUserSpecific(info: userSpecificQ)
+      userSpecific = ItemUserSpecific(info: userSpecificQ)
     }
   }
 }
 
-public class KanjiUserSpecific: Object {
+public class Radical: Object {
+  
+  public dynamic var character: String?
+  public dynamic var meaning: String?
+  public dynamic var image: String?
+  public var level: Int = 0
+  
+  public dynamic var userSpecific: ItemUserSpecific?
+  
+  public convenience init(radicalInfo: RadicalInfo) {
+    self.init()
+    
+    character = radicalInfo.character
+    meaning = radicalInfo.meaning
+    image = radicalInfo.image
+    level = radicalInfo.level
+    
+    if let userSpecificQ = radicalInfo.userSpecific {
+      userSpecific = ItemUserSpecific(info: userSpecificQ)
+    }
+  }
+  
+}
+
+public class Word: Object {
+  
+  public dynamic var character: String = ""
+  public dynamic var meaning: String?
+  public dynamic var kana: String?
+  public var level: Int = 0
+  
+  public dynamic var userSpecific: ItemUserSpecific?
+  
+  public convenience init(wordInfo: WordInfo) {
+    self.init()
+    
+    character = wordInfo.character
+    meaning = wordInfo.meaning
+    kana = wordInfo.kana
+    level = wordInfo.level
+    
+    if let userSpecificQ = wordInfo.userSpecific {
+      userSpecific = ItemUserSpecific(info: userSpecificQ)
+    }
+  }
+  
+}
+
+public class ItemUserSpecific: Object {
   
   // Fields
   public dynamic var srs: String?
@@ -119,7 +167,7 @@ public class KanjiUserSpecific: Object {
   public dynamic var userSynonyms: String?
   public dynamic var readingNote: String?
   
-  public convenience init(info: KanjiInfo.KanjiInfoUserSpecific) {
+  public convenience init(info: UserSpecific) {
     self.init()
     
     srs = info.srs

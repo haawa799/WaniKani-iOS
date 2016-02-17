@@ -1,0 +1,18 @@
+//
+//  StudyQueueOperation.swift
+//  Pods
+//
+//  Created by Andriy K. on 12/10/15.
+//
+//
+
+import UIKit
+
+public class DownloadStudyQueueOperation: DownloadOperation {
+  
+  override init(url: NSURL, cacheFile: NSURL) {
+    
+    super.init(url: url, cacheFile: cacheFile)
+    name = "Download Study Queue data"
+  }
+}

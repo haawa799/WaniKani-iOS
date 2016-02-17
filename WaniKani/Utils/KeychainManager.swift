@@ -26,7 +26,6 @@ struct KeychainManager {
       
       NSUserDefaults.standardUserDefaults().setValue(firstRunValue, forKey: firstRunDefaultsKey)
       NSUserDefaults.standardUserDefaults().synchronize()
-      wipeKeychain()
     }
   }
   

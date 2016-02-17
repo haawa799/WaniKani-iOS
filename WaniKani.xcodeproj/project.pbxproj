@@ -62,7 +62,7 @@
 		437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */; };
 		437A33CC1C326A72007FE8F3 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CA1C326A72007FE8F3 /* LevelViewController.swift */; };
 		437A33CD1C326A72007FE8F3 /* LevelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */; };
-		437A33CF1C326A8D007FE8F3 /* KanjiGraficInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CE1C326A8D007FE8F3 /* KanjiGraficInfo.swift */; };
+		437A33CF1C326A8D007FE8F3 /* KanjiGraphicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CE1C326A8D007FE8F3 /* KanjiGraphicInfo.swift */; };
 		437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33D01C326A9F007FE8F3 /* KanjiCell.swift */; };
 		43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */ = {isa = PBXBuildFile; fileRef = 43850CF31B9DB86F00DFF6DD /* fast_forward.js */; };
 		43A12D081C47B66500E18556 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A12D071C47B66500E18556 /* LevelData.swift */; };
@@ -202,10 +202,11 @@
 		437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiStrokesViewController.swift; sourceTree = "<group>"; };
 		437A33CA1C326A72007FE8F3 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPickerViewController.swift; sourceTree = "<group>"; };
-		437A33CE1C326A8D007FE8F3 /* KanjiGraficInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiGraficInfo.swift; sourceTree = "<group>"; };
+		437A33CE1C326A8D007FE8F3 /* KanjiGraphicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiGraphicInfo.swift; sourceTree = "<group>"; };
 		437A33D01C326A9F007FE8F3 /* KanjiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiCell.swift; sourceTree = "<group>"; };
 		43850CF31B9DB86F00DFF6DD /* fast_forward.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fast_forward.js; path = ../Utils/fast_forward.js; sourceTree = "<group>"; };
 		43A12D071C47B66500E18556 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		43A667901C7461D70072614B /* WaniKani.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WaniKani.entitlements; sourceTree = "<group>"; };
 		43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 		43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordCell.xib; sourceTree = "<group>"; };
 		43AC6C001C60BAEA00D8CA48 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -342,7 +343,7 @@
 		4335B9B51C19CA4C0011746D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				437A33CE1C326A8D007FE8F3 /* KanjiGraficInfo.swift */,
+				437A33CE1C326A8D007FE8F3 /* KanjiGraphicInfo.swift */,
 				4335B9B71C19CA6B0011746D /* LevelProgression.swift */,
 				4335B9B91C19CA6B0011746D /* StudyQueue.swift */,
 				4335B9BA1C19CA6B0011746D /* User.swift */,
@@ -451,6 +452,7 @@
 		433E28021B79D5E900BBB45E /* WaniKani */ = {
 			isa = PBXGroup;
 			children = (
+				43A667901C7461D70072614B /* WaniKani.entitlements */,
 				4335B9B51C19CA4C0011746D /* Model */,
 				43AD052D1BA044BA000DBCBE /* User scripts */,
 				433E164C1B846016007B7DE9 /* Utils */,
@@ -622,6 +624,9 @@
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = S55BP53VB8;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -820,7 +825,7 @@
 				433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */,
 				43AC6C011C60BAEA00D8CA48 /* DashboardViewController.swift in Sources */,
 				4375F00E1C50F98400A3895D /* SearchedKanjiViewController.swift in Sources */,
-				437A33CF1C326A8D007FE8F3 /* KanjiGraficInfo.swift in Sources */,
+				437A33CF1C326A8D007FE8F3 /* KanjiGraphicInfo.swift in Sources */,
 				4311B32D1C4D2C8A00062CE8 /* KanjiSearch.swift in Sources */,
 				43D748781BD7ADC200A11916 /* AwardsManager.swift in Sources */,
 				4335B9BF1C19CA6B0011746D /* User.swift in Sources */,
@@ -1026,6 +1031,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
 				BUNDLE_ID_SUFFIX = .debug;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WaniKani/WaniKani.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 29;
@@ -1051,6 +1057,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
 				BUNDLE_ID_SUFFIX = "";
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WaniKani/WaniKani.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 29;
