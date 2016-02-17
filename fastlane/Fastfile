@@ -31,7 +31,9 @@ platform :ios do
 
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
-    increment_build_number
+    increment_build_number({
+      build_number: latest_testflight_build_number + 1
+    })
     cert(output_path: "./fastlane/certificate")
     sigh(force: true, output_path: "./fastlane/provision")
     gym(scheme: "WaniKani", output_directory: "./fastlane/build")
