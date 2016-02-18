@@ -2,86 +2,62 @@
 //  ComplicationController.swift
 //  WaniTimie Extension
 //
-//  Created by Andriy K. on 2/17/16.
+//  Created by Andriy K. on 2/18/16.
 //  Copyright © 2016 Andriy K. All rights reserved.
 //
 
 import ClockKit
 
-struct Item {
-  var A: String
-  var B: String
-  var C: String?
+
+class ComplicationController: NSObject, CLKComplicationDataSource {
+    
+    // MARK: - Timeline Configuration
+    
+    func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
+        handler([.Forward, .Backward])
+    }
+    
+    func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
+        handler(nil)
+    }
+    
+    func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
+        handler(nil)
+    }
+    
+    func getPrivacyBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationPrivacyBehavior) -> Void) {
+        handler(.ShowOnLockScreen)
+    }
+    
+    // MARK: - Timeline Population
+    
+    func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
+        // Call the handler with the current timeline entry
+        handler(nil)
+    }
+    
+    func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
+        // Call the handler with the timeline entries prior to the given date
+        handler(nil)
+    }
+    
+    func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
+        // Call the handler with the timeline entries after to the given date
+        handler(nil)
+    }
+    
+    // MARK: - Update Scheduling
+    
+    func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
+        // Call the handler with the date when you would next like to be given the opportunity to update your complication content
+        handler(nil);
+    }
+    
+    // MARK: - Placeholder Templates
+    
+    func getPlaceholderTemplateForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void) {
+        // This method will be called once per supported complication, and the results will be cached
+        handler(nil)
+    }
+    
 }
-
-var numberOfItems: Int {
-  return originalItems.count
-}
-
-let originalItems: [Item] = {
-  
-  let q = [
-    Item(A: "A",B: "",C: "0"),
-    Item(A: "B",B: "",C: "1"),
-    Item(A: "C",B: "",C: "2"),
-    Item(A: "D",B: "",C: "3"),
-    Item(A: "E",B: "",C: "4"),
-    Item(A: "F",B: "",C: "5"),
-    Item(A: "G",B: "",C: "6"),
-    Item(A: "H",B: "",C: "7"),
-    Item(A: "I",B: "",C: "8"),
-    Item(A: "J",B: "",C: "9"),
-    Item(A: "K",B: "",C: "10"),
-    Item(A: "L",B: "",C: "11"),
-    Item(A: "M",B: "",C: "12"),
-    Item(A: "N",B: "",C: "13"),
-    Item(A: "O",B: "",C: "14"),
-    Item(A: "P",B: "",C: "15"),
-    Item(A: "Q",B: "",C: "16"),
-    Item(A: "R",B: "",C: "17"),
-    Item(A: "S",B: "",C: "18"),
-    Item(A: "T",B: "",C: "19"),
-    Item(A: "U",B: "",C: "20"),
-    Item(A: "V",B: "",C: "21"),
-    Item(A: "W",B: "",C: "22"),
-    Item(A: "X",B: "",C: "23"),
-    Item(A: "Y",B: "",C: "24"),
-    Item(A: "Z",B: "",C: "25")
-  ]
-  return q
-  
-  //  var items = [Item]()
-  //  for var i = 0; i < numberOfItems; i++ {
-  //    let item = Item(A: "#\(i)",B: "",C: nil)
-  //    items.append(item)
-  //  }
-  //  return items
-}()
-
-
-
-//class ComplicationController: NSObject, CLKComplicationDataSource {
-//  
-//  // MARK: Register
-//  func getPlaceholderTemplateForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void) {
-//
-//    if complication.family == .UtilitarianLarge {
-//      let largeFlat = CLKComplicationTemplateUtilitarianLargeFlat()
-//      largeFlat.textProvider = CLKSimpleTextProvider(text: "Long text", shortText:"QQ")
-//      largeFlat.imageProvider = nil
-//      handler(largeFlat)
-//    }
-//  }
-//  
-//  // MARK: Refresh Data
-//  func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
-//    let tideConditions = TideConditions.loadConditions()
-//    if let waterLevel = tideConditions.waterLevels.last {
-//      handler(waterLevel.date)
-//    } else {
-//      // Refresh Now!
-//      handler(NSDate())
-//    }
-//  }
-//  
-//}

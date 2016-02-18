@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "431E0D491C74C141008C78D6"
+               BlueprintIdentifier = "43C0BD731C75B43B00847BE3"
                BuildableName = "WaniTimie.app"
                BlueprintName = "WaniTimie"
                ReferencedContainer = "container:WaniKani.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "431E0D551C74C141008C78D6"
+               BlueprintIdentifier = "43C0BD7F1C75B43B00847BE3"
                BuildableName = "WaniTimie Extension.appex"
                BlueprintName = "WaniTimie Extension"
                ReferencedContainer = "container:WaniKani.xcodeproj">
@@ -60,7 +60,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "431E0D491C74C141008C78D6"
+            BlueprintIdentifier = "43C0BD731C75B43B00847BE3"
             BuildableName = "WaniTimie.app"
             BlueprintName = "WaniTimie"
             ReferencedContainer = "container:WaniKani.xcodeproj">
@@ -85,7 +85,7 @@
          RemotePath = "/WaniKani">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "431E0D491C74C141008C78D6"
+            BlueprintIdentifier = "43C0BD731C75B43B00847BE3"
             BuildableName = "WaniTimie.app"
             BlueprintName = "WaniTimie"
             ReferencedContainer = "container:WaniKani.xcodeproj">
@@ -94,7 +94,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "431E0D491C74C141008C78D6"
+            BlueprintIdentifier = "43C0BD731C75B43B00847BE3"
             BuildableName = "WaniTimie.app"
             BlueprintName = "WaniTimie"
             ReferencedContainer = "container:WaniKani.xcodeproj">
@@ -115,7 +115,7 @@
          RemotePath = "/WaniKani">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "431E0D491C74C141008C78D6"
+            BlueprintIdentifier = "43C0BD731C75B43B00847BE3"
             BuildableName = "WaniTimie.app"
             BlueprintName = "WaniTimie"
             ReferencedContainer = "container:WaniKani.xcodeproj">
@@ -124,7 +124,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "431E0D491C74C141008C78D6"
+            BlueprintIdentifier = "43C0BD731C75B43B00847BE3"
             BuildableName = "WaniTimie.app"
             BlueprintName = "WaniTimie"
             ReferencedContainer = "container:WaniKani.xcodeproj">

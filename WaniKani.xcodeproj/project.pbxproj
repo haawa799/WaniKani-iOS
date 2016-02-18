@@ -58,6 +58,14 @@
 		434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */; };
 		434673E01BDEC8840095A4A3 /* score.js in Resources */ = {isa = PBXBuildFile; fileRef = 434673DF1BDEC8840095A4A3 /* score.js */; };
 		434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434B00CB1C1D7F8E00ECCF20 /* RealmManager.swift */; };
+		434DBC741C75BB3500426B4F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 434DBC721C75BB3500426B4F /* Interface.storyboard */; };
+		434DBC761C75BB3500426B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434DBC751C75BB3500426B4F /* Assets.xcassets */; };
+		434DBC7D1C75BB3500426B4F /* WaniTimie Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 434DBC7C1C75BB3500426B4F /* WaniTimie Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		434DBC821C75BB3500426B4F /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434DBC811C75BB3500426B4F /* InterfaceController.swift */; };
+		434DBC841C75BB3500426B4F /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434DBC831C75BB3500426B4F /* ExtensionDelegate.swift */; };
+		434DBC861C75BB3500426B4F /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434DBC851C75BB3500426B4F /* ComplicationController.swift */; };
+		434DBC881C75BB3500426B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434DBC871C75BB3500426B4F /* Assets.xcassets */; };
+		434DBC8C1C75BB3500426B4F /* WaniTimie.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 434DBC701C75BB3400426B4F /* WaniTimie.app */; };
 		4375F00E1C50F98400A3895D /* SearchedKanjiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375F00D1C50F98400A3895D /* SearchedKanjiViewController.swift */; };
 		4375F0101C52765300A3895D /* UserActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375F00F1C52765300A3895D /* UserActivityManager.swift */; };
 		437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */; };
@@ -117,6 +125,20 @@
 			remoteGlobalIDString = 433E27FF1B79D5E900BBB45E;
 			remoteInfo = WaniKani;
 		};
+		434DBC7E1C75BB3500426B4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 434DBC7B1C75BB3500426B4F;
+			remoteInfo = "WaniTimie Extension";
+		};
+		434DBC8A1C75BB3500426B4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 434DBC6F1C75BB3400426B4F;
+			remoteInfo = WaniTimie;
+		};
 		43D506C41C22CFE40020F03B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
@@ -133,8 +155,20 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				434DBC8C1C75BB3500426B4F /* WaniTimie.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		434DBC901C75BB3500426B4F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				434DBC7D1C75BB3500426B4F /* WaniTimie Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		43C3068C1B79D75D00DEB6A4 /* Embed Frameworks */ = {
@@ -161,15 +195,6 @@
 		43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KanjiPracticeViewController.xib; sourceTree = "<group>"; };
 		4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiSearch.swift; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
-		431E0D4D1C74C141008C78D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		431E0D4F1C74C141008C78D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		431E0D511C74C141008C78D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		431E0D5B1C74C141008C78D6 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		431E0D5D1C74C141008C78D6 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		431E0D5F1C74C141008C78D6 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		431E0D611C74C141008C78D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		431E0D631C74C141008C78D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		431E0D701C74CCC1008C78D6 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		4329D0EB1BBD36E2009BEABF /* resize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = resize.js; sourceTree = "<group>"; };
 		432C07171BB2E15A0031B3B1 /* notification.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.m4a; sourceTree = "<group>"; };
 		432C071E1BB3272C0031B3B1 /* AvaliableItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliableItemCell.swift; sourceTree = "<group>"; };
@@ -214,6 +239,16 @@
 		434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCenterCollectionViewCell.xib; sourceTree = "<group>"; };
 		434673DF1BDEC8840095A4A3 /* score.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = score.js; sourceTree = "<group>"; };
 		434B00CB1C1D7F8E00ECCF20 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		434DBC701C75BB3400426B4F /* WaniTimie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaniTimie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		434DBC731C75BB3500426B4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		434DBC751C75BB3500426B4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		434DBC771C75BB3500426B4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		434DBC7C1C75BB3500426B4F /* WaniTimie Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WaniTimie Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		434DBC811C75BB3500426B4F /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		434DBC831C75BB3500426B4F /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		434DBC851C75BB3500426B4F /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		434DBC871C75BB3500426B4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		434DBC891C75BB3500426B4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4375F00D1C50F98400A3895D /* SearchedKanjiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedKanjiViewController.swift; sourceTree = "<group>"; };
 		4375F00F1C52765300A3895D /* UserActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityManager.swift; sourceTree = "<group>"; };
 		437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiStrokesViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +326,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		434DBC791C75BB3500426B4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		43D506BC1C22CFE40020F03B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,29 +352,6 @@
 				7F9B0C5E73425F447CFA3BBA /* Pods_WaniTimie_Extension.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		431E0D4B1C74C141008C78D6 /* WaniTimie */ = {
-			isa = PBXGroup;
-			children = (
-				431E0D4C1C74C141008C78D6 /* Interface.storyboard */,
-				431E0D4F1C74C141008C78D6 /* Assets.xcassets */,
-				431E0D511C74C141008C78D6 /* Info.plist */,
-			);
-			path = WaniTimie;
-			sourceTree = "<group>";
-		};
-		431E0D5A1C74C141008C78D6 /* WaniTimie Extension */ = {
-			isa = PBXGroup;
-			children = (
-				431E0D5B1C74C141008C78D6 /* InterfaceController.swift */,
-				431E0D5D1C74C141008C78D6 /* ExtensionDelegate.swift */,
-				431E0D5F1C74C141008C78D6 /* ComplicationController.swift */,
-				431E0D701C74CCC1008C78D6 /* DateExtensions.swift */,
-				431E0D611C74C141008C78D6 /* Assets.xcassets */,
-				431E0D631C74C141008C78D6 /* Info.plist */,
-			);
-			path = "WaniTimie Extension";
 			sourceTree = "<group>";
 		};
 		432C071D1BB3272C0031B3B1 /* Cells */ = {
@@ -479,8 +498,8 @@
 				433E28021B79D5E900BBB45E /* WaniKani */,
 				433E28181B79D5E900BBB45E /* WaniKaniTests */,
 				43D506C01C22CFE40020F03B /* WaniKaniUITests */,
-				431E0D4B1C74C141008C78D6 /* WaniTimie */,
-				431E0D5A1C74C141008C78D6 /* WaniTimie Extension */,
+				434DBC711C75BB3500426B4F /* WaniTimie */,
+				434DBC801C75BB3500426B4F /* WaniTimie Extension */,
 				433E28011B79D5E900BBB45E /* Products */,
 				4C7149E8EDAB8FE705410AF3 /* Pods */,
 				2481F23E0E9C1BDFB82D2F93 /* Frameworks */,
@@ -493,6 +512,8 @@
 				433E28001B79D5E900BBB45E /* WaniKani.app */,
 				433E28151B79D5E900BBB45E /* WaniKaniTests.xctest */,
 				43D506BF1C22CFE40020F03B /* WaniKaniUITests.xctest */,
+				434DBC701C75BB3400426B4F /* WaniTimie.app */,
+				434DBC7C1C75BB3500426B4F /* WaniTimie Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -550,6 +571,28 @@
 				433E281A1B79D5E900BBB45E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		434DBC711C75BB3500426B4F /* WaniTimie */ = {
+			isa = PBXGroup;
+			children = (
+				434DBC721C75BB3500426B4F /* Interface.storyboard */,
+				434DBC751C75BB3500426B4F /* Assets.xcassets */,
+				434DBC771C75BB3500426B4F /* Info.plist */,
+			);
+			path = WaniTimie;
+			sourceTree = "<group>";
+		};
+		434DBC801C75BB3500426B4F /* WaniTimie Extension */ = {
+			isa = PBXGroup;
+			children = (
+				434DBC811C75BB3500426B4F /* InterfaceController.swift */,
+				434DBC831C75BB3500426B4F /* ExtensionDelegate.swift */,
+				434DBC851C75BB3500426B4F /* ComplicationController.swift */,
+				434DBC871C75BB3500426B4F /* Assets.xcassets */,
+				434DBC891C75BB3500426B4F /* Info.plist */,
+			);
+			path = "WaniTimie Extension";
 			sourceTree = "<group>";
 		};
 		43AC6BFF1C60BAEA00D8CA48 /* Tab0 Dashboard */ = {
@@ -613,6 +656,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				434DBC8B1C75BB3500426B4F /* PBXTargetDependency */,
 			);
 			name = WaniKani;
 			productName = WaniKani;
@@ -637,6 +681,40 @@
 			productName = WaniKaniTests;
 			productReference = 433E28151B79D5E900BBB45E /* WaniKaniTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		434DBC6F1C75BB3400426B4F /* WaniTimie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 434DBC911C75BB3500426B4F /* Build configuration list for PBXNativeTarget "WaniTimie" */;
+			buildPhases = (
+				434DBC6E1C75BB3400426B4F /* Resources */,
+				434DBC901C75BB3500426B4F /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				434DBC7F1C75BB3500426B4F /* PBXTargetDependency */,
+			);
+			name = WaniTimie;
+			productName = WaniTimie;
+			productReference = 434DBC701C75BB3400426B4F /* WaniTimie.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		434DBC7B1C75BB3500426B4F /* WaniTimie Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 434DBC8D1C75BB3500426B4F /* Build configuration list for PBXNativeTarget "WaniTimie Extension" */;
+			buildPhases = (
+				434DBC781C75BB3500426B4F /* Sources */,
+				434DBC791C75BB3500426B4F /* Frameworks */,
+				434DBC7A1C75BB3500426B4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WaniTimie Extension";
+			productName = "WaniTimie Extension";
+			productReference = 434DBC7C1C75BB3500426B4F /* WaniTimie Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		43D506BE1C22CFE40020F03B /* WaniKaniUITests */ = {
 			isa = PBXNativeTarget;
@@ -686,6 +764,13 @@
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 433E27FF1B79D5E900BBB45E;
 					};
+					434DBC6F1C75BB3400426B4F = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = S55BP53VB8;
+					};
+					434DBC7B1C75BB3500426B4F = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					43D506BE1C22CFE40020F03B = {
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 433E27FF1B79D5E900BBB45E;
@@ -708,6 +793,8 @@
 				433E27FF1B79D5E900BBB45E /* WaniKani */,
 				433E28141B79D5E900BBB45E /* WaniKaniTests */,
 				43D506BE1C22CFE40020F03B /* WaniKaniUITests */,
+				434DBC6F1C75BB3400426B4F /* WaniTimie */,
+				434DBC7B1C75BB3500426B4F /* WaniTimie Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -754,6 +841,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		434DBC6E1C75BB3400426B4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				434DBC761C75BB3500426B4F /* Assets.xcassets in Resources */,
+				434DBC741C75BB3500426B4F /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		434DBC7A1C75BB3500426B4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				434DBC881C75BB3500426B4F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -889,6 +993,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		434DBC781C75BB3500426B4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				434DBC841C75BB3500426B4F /* ExtensionDelegate.swift in Sources */,
+				434DBC821C75BB3500426B4F /* InterfaceController.swift in Sources */,
+				434DBC861C75BB3500426B4F /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		43D506BB1C22CFE40020F03B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -906,6 +1020,16 @@
 			target = 433E27FF1B79D5E900BBB45E /* WaniKani */;
 			targetProxy = 433E28161B79D5E900BBB45E /* PBXContainerItemProxy */;
 		};
+		434DBC7F1C75BB3500426B4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 434DBC7B1C75BB3500426B4F /* WaniTimie Extension */;
+			targetProxy = 434DBC7E1C75BB3500426B4F /* PBXContainerItemProxy */;
+		};
+		434DBC8B1C75BB3500426B4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 434DBC6F1C75BB3400426B4F /* WaniTimie */;
+			targetProxy = 434DBC8A1C75BB3500426B4F /* PBXContainerItemProxy */;
+		};
 		43D506C51C22CFE40020F03B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 433E27FF1B79D5E900BBB45E /* WaniKani */;
@@ -914,14 +1038,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		431E0D4C1C74C141008C78D6 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				431E0D4D1C74C141008C78D6 /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
 		433E28091B79D5E900BBB45E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -936,6 +1052,14 @@
 				433E280F1B79D5E900BBB45E /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		434DBC721C75BB3500426B4F /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				434DBC731C75BB3500426B4F /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 		43AC6C071C60BF6600D8CA48 /* WebViewSession.storyboard */ = {
@@ -1000,6 +1124,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PARENT_APP_BUNDLE_ID = "";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1042,6 +1167,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PARENT_APP_BUNDLE_ID = "";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1068,6 +1194,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
+				PARENT_APP_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.WaniKani${BUNDLE_ID_SUFFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1094,6 +1221,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
+				PARENT_APP_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.WaniKani${BUNDLE_ID_SUFFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1134,6 +1262,82 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.haawa.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaniKani.app/WaniKani";
+			};
+			name = Release;
+		};
+		434DBC8E1C75BB3500426B4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "WaniTimie Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp.complication";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCH_APP_BUNDLE_ID = "$(PARENT_APP_BUNDLE_ID).watchapp";
+			};
+			name = Debug;
+		};
+		434DBC8F1C75BB3500426B4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "WaniTimie Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp.complication";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCH_APP_BUNDLE_ID = "$(PARENT_APP_BUNDLE_ID).watchapp";
+			};
+			name = Release;
+		};
+		434DBC921C75BB3500426B4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPLICATION_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER).complication";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = WaniTimie_Extension;
+				INFOPLIST_FILE = WaniTimie/Info.plist;
+				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		434DBC931C75BB3500426B4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COMPLICATION_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER).complication";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = WaniTimie_Extension;
+				INFOPLIST_FILE = WaniTimie/Info.plist;
+				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Release;
 		};
@@ -1193,6 +1397,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		434DBC8D1C75BB3500426B4F /* Build configuration list for PBXNativeTarget "WaniTimie Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				434DBC8E1C75BB3500426B4F /* Debug */,
+				434DBC8F1C75BB3500426B4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		434DBC911C75BB3500426B4F /* Build configuration list for PBXNativeTarget "WaniTimie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				434DBC921C75BB3500426B4F /* Debug */,
+				434DBC931C75BB3500426B4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		43D506C81C22CFE50020F03B /* Build configuration list for PBXNativeTarget "WaniKaniUITests" */ = {
 			isa = XCConfigurationList;
