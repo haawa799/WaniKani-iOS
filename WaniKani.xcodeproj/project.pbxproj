@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		249EF5301CB8BC07BBAE6FC2 /* Pods_WaniKani.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0160F152D9584CEC7DE353 /* Pods_WaniKani.framework */; };
 		430401011C1B18EA00D59949 /* FabricEventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430401001C1B18EA00D59949 /* FabricEventsManager.swift */; };
 		430D080D1C5E3E170097C72C /* reorder.js in Resources */ = {isa = PBXBuildFile; fileRef = 430D080C1C5E3E170097C72C /* reorder.js */; };
 		430D080F1C5F7A8B0097C72C /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430D080E1C5F7A8B0097C72C /* GameKit.framework */; };
@@ -106,7 +107,6 @@
 		43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */; };
 		43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */; };
 		43F4EB041C4E58C400A25840 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4EB031C4E58C400A25840 /* CanvasView.swift */; };
-		6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CAC6D6A8578DF22EC21F90 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +127,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		431E0D6E1C74C141008C78D6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		43C3068C1B79D75D00DEB6A4 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,9 +150,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		430401001C1B18EA00D59949 /* FabricEventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FabricEventsManager.swift; sourceTree = "<group>"; };
 		430D080C1C5E3E170097C72C /* reorder.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = reorder.js; sourceTree = "<group>"; };
 		430D080E1C5F7A8B0097C72C /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -153,6 +161,15 @@
 		43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KanjiPracticeViewController.xib; sourceTree = "<group>"; };
 		4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiSearch.swift; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
+		431E0D4D1C74C141008C78D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		431E0D4F1C74C141008C78D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		431E0D511C74C141008C78D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		431E0D5B1C74C141008C78D6 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		431E0D5D1C74C141008C78D6 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		431E0D5F1C74C141008C78D6 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		431E0D611C74C141008C78D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		431E0D631C74C141008C78D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		431E0D701C74CCC1008C78D6 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		4329D0EB1BBD36E2009BEABF /* resize.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = resize.js; sourceTree = "<group>"; };
 		432C07171BB2E15A0031B3B1 /* notification.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.m4a; sourceTree = "<group>"; };
 		432C071E1BB3272C0031B3B1 /* AvaliableItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliableItemCell.swift; sourceTree = "<group>"; };
@@ -249,6 +266,10 @@
 		43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		43F4EB031C4E58C400A25840 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		7C75F479D4C903CBF52460A6 /* Pods-WaniKani.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKani.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani.release.xcconfig"; sourceTree = "<group>"; };
+		7F9B0C5E73425F447CFA3BBA /* Pods_WaniTimie_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaniTimie_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C0160F152D9584CEC7DE353 /* Pods_WaniKani.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaniKani.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD46FC48DC10E601ED62A331 /* Pods-WaniKani.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKani.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,10 +277,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F1845F366BFB2647DFD5ABE /* Pods.framework in Frameworks */,
 				43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */,
 				43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */,
 				430D080F1C5F7A8B0097C72C /* GameKit.framework in Frameworks */,
+				249EF5301CB8BC07BBAE6FC2 /* Pods_WaniKani.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,8 +306,33 @@
 			children = (
 				430D080E1C5F7A8B0097C72C /* GameKit.framework */,
 				08CAC6D6A8578DF22EC21F90 /* Pods.framework */,
+				9C0160F152D9584CEC7DE353 /* Pods_WaniKani.framework */,
+				7F9B0C5E73425F447CFA3BBA /* Pods_WaniTimie_Extension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		431E0D4B1C74C141008C78D6 /* WaniTimie */ = {
+			isa = PBXGroup;
+			children = (
+				431E0D4C1C74C141008C78D6 /* Interface.storyboard */,
+				431E0D4F1C74C141008C78D6 /* Assets.xcassets */,
+				431E0D511C74C141008C78D6 /* Info.plist */,
+			);
+			path = WaniTimie;
+			sourceTree = "<group>";
+		};
+		431E0D5A1C74C141008C78D6 /* WaniTimie Extension */ = {
+			isa = PBXGroup;
+			children = (
+				431E0D5B1C74C141008C78D6 /* InterfaceController.swift */,
+				431E0D5D1C74C141008C78D6 /* ExtensionDelegate.swift */,
+				431E0D5F1C74C141008C78D6 /* ComplicationController.swift */,
+				431E0D701C74CCC1008C78D6 /* DateExtensions.swift */,
+				431E0D611C74C141008C78D6 /* Assets.xcassets */,
+				431E0D631C74C141008C78D6 /* Info.plist */,
+			);
+			path = "WaniTimie Extension";
 			sourceTree = "<group>";
 		};
 		432C071D1BB3272C0031B3B1 /* Cells */ = {
@@ -433,6 +479,8 @@
 				433E28021B79D5E900BBB45E /* WaniKani */,
 				433E28181B79D5E900BBB45E /* WaniKaniTests */,
 				43D506C01C22CFE40020F03B /* WaniKaniUITests */,
+				431E0D4B1C74C141008C78D6 /* WaniTimie */,
+				431E0D5A1C74C141008C78D6 /* WaniTimie Extension */,
 				433E28011B79D5E900BBB45E /* Products */,
 				4C7149E8EDAB8FE705410AF3 /* Pods */,
 				2481F23E0E9C1BDFB82D2F93 /* Frameworks */,
@@ -541,8 +589,8 @@
 		4C7149E8EDAB8FE705410AF3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */,
-				00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */,
+				DD46FC48DC10E601ED62A331 /* Pods-WaniKani.debug.xcconfig */,
+				7C75F479D4C903CBF52460A6 /* Pods-WaniKani.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -554,14 +602,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 433E281F1B79D5E900BBB45E /* Build configuration list for PBXNativeTarget "WaniKani" */;
 			buildPhases = (
-				B7B362596755079541161286 /* Check Pods Manifest.lock */,
 				433E27FC1B79D5E900BBB45E /* Sources */,
 				433E27FD1B79D5E900BBB45E /* Frameworks */,
 				433E27FE1B79D5E900BBB45E /* Resources */,
 				A84150EEB50626DD7E095E66 /* Embed Pods Frameworks */,
-				8A779B57D099C1CAB69D47C0 /* Copy Pods Resources */,
 				43C3068C1B79D75D00DEB6A4 /* Embed Frameworks */,
 				43EBC09F1BA5FB7200C0B390 /* ShellScript */,
+				431E0D6E1C74C141008C78D6 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -746,21 +793,6 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run d2e6cfd499572eade933f1e9b057bb480b76a6bf d205f448d0aa1e376b0eabab2a41a9bc57f0ba649ffacce809e2a504008cd420";
 		};
-		8A779B57D099C1CAB69D47C0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A84150EEB50626DD7E095E66 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -773,22 +805,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7B362596755079541161286 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -897,6 +914,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		431E0D4C1C74C141008C78D6 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				431E0D4D1C74C141008C78D6 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		433E28091B79D5E900BBB45E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1026,7 +1051,7 @@
 		};
 		433E28201B79D5E900BBB45E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A92639A6694898D4DC3DEDB /* Pods.debug.xcconfig */;
+			baseConfigurationReference = DD46FC48DC10E601ED62A331 /* Pods-WaniKani.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
 				BUNDLE_ID_SUFFIX = .debug;
@@ -1052,7 +1077,7 @@
 		};
 		433E28211B79D5E900BBB45E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00FAC170856032B3D23D6BF7 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 7C75F479D4C903CBF52460A6 /* Pods-WaniKani.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
 				BUNDLE_ID_SUFFIX = "";

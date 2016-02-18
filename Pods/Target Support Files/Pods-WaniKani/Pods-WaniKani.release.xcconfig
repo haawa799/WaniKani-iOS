@@ -1,0 +1,8 @@
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/ACEDrawingView.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/AWSQLiteDB.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Alamofire.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/GCHelper.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/KanjiBezierPaths.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/NJKScrollFullScreen.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/PermissionScope.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/RESideMenu.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Realm.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/RealmSwift.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/StrokeDrawingView.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/UICKeyChainStore.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/UIImageView_PlayGIF.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/WaniKit.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "ACEDrawingView" -framework "AWSQLiteDB" -framework "Alamofire" -framework "GCHelper" -framework "KanjiBezierPaths" -framework "NJKScrollFullScreen" -framework "PermissionScope" -framework "RESideMenu" -framework "Realm" -framework "RealmSwift" -framework "StrokeDrawingView" -framework "UICKeyChainStore" -framework "UIImageView_PlayGIF" -framework "WaniKit"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-WaniKani
+PODS_ROOT = ${SRCROOT}/Pods

@@ -41,7 +41,7 @@ public struct KanjiBezierPathesHelper {
     
     let rows = db.query("SELECT * FROM KANJI WHERE ID == ?", parameters: kanji)
     if let row = rows.first, let data = row["VALUE"]?.value?.data {
-      if let result = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [UIBezierPath] {//unarchiveObjectWithFile(path) as? [UIBezierPath] {
+      if let result = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [UIBezierPath] {
         return result
       }
     }

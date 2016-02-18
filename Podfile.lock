@@ -2,16 +2,16 @@ PODS:
   - ACEDrawingView (1.3.7)
   - Alamofire (2.0.2)
   - AWSQLiteDB (0.1.2)
-  - GCHelper (0.2.6)
+  - GCHelper (0.3)
   - KanjiBezierPaths (0.1.0):
     - AWSQLiteDB
   - NJKScrollFullScreen (0.2.6)
-  - PermissionScope (1.0.1)
-  - Realm (0.97.0):
-    - Realm/Headers (= 0.97.0)
-  - Realm/Headers (0.97.0)
-  - RealmSwift (0.97.0):
-    - Realm (= 0.97.0)
+  - PermissionScope (1.0.2)
+  - Realm (0.98.1):
+    - Realm/Headers (= 0.98.1)
+  - Realm/Headers (0.98.1)
+  - RealmSwift (0.98.1):
+    - Realm (= 0.98.1)
   - RESideMenu (4.0.7)
   - StrokeDrawingView (0.1.1)
   - UICKeyChainStore (2.1.0)
@@ -47,29 +47,29 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   KanjiBezierPaths:
-    :commit: b5da424af2261b8209de89f46a17af83770d7167
+    :commit: 88cf68b1735b8c0717abc056422b98dbf5aac040
     :git: https://github.com/haawa799/KanjiBezierPaths.git
   StrokeDrawingView:
     :commit: 769b88a4e6dd2d190e35c74bee54d45dd8e80fa8
     :git: https://github.com/haawa799/StrokeDrawingView.git
   WaniKit:
-    :commit: 1c7e5849b9dbd3aee69e5f1a1d46b7a997544fe8
+    :commit: e2d6bda3b9baf13d13f948f77a6edf7042a66984
     :git: https://github.com/haawa799/WaniKit.git
 
 SPEC CHECKSUMS:
   ACEDrawingView: 325b5cd00125766c6df9b30aa3a7b68866d2ce16
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   AWSQLiteDB: 233c76f09d185268b77102860e4435773e93dbc1
-  GCHelper: 4a31dac6834c2a2f037cfe61a19303e351fbfb15
+  GCHelper: 35d1e47f11be4249e13aafd3caf21c3359f03085
   KanjiBezierPaths: ea25ba285699b1b506492597df9e02a93ffbc1ef
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
-  PermissionScope: 9767066cedefd211d90a8c4f92f6f1a987085ee8
-  Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
-  RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
+  PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
+  Realm: ca4a4122e939e228e10694fc49011386cb2ecb07
+  RealmSwift: 7d3c7033427816a2c3417ba0d004d694987e503a
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   StrokeDrawingView: 5d26664a4391804118fbfc2b3d4a5235a0057749
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
   UIImageView-PlayGIF: 445c8b31b3a43271dd3d565d9c0c612fa59ae830
-  WaniKit: d8ad22b1707fefc5559ab5b2b60429c4778b03aa
+  WaniKit: 1d6c27f9ecda4074585ce33d21c94236aee09263
 
 COCOAPODS: 0.39.0
