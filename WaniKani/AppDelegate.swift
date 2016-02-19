@@ -53,6 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     DataFetchManager.sharedInstance.makeInitialPreperations()
     
+    let q = realm.objects(Kanji)
+    print("appD kanji: \(q.count)")
+    
     keychainManager.cleanKeychainIfNeeded()
     waniApiManager.delegate = self
     if let key = keychainManager.apiKey {
@@ -101,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return false
     }
     
-    guard let kanji = realm().objects(Kanji).filter("character = '\(kanjiChar)'").first else { return false }
+    guard let kanji = realm.objects(Kanji).filter("character = '\(kanjiChar)'").first else { return false }
     let storyboard = UIStoryboard(name: "Data", bundle: nil)
     guard let nav = storyboard.instantiateViewControllerWithIdentifier("SearchKanjiViewController") as? UINavigationController, let searchedKanjiVC = nav.topViewController as? SearchedKanjiViewController  else { return false }
     searchedKanjiVC.kanjiInfo = kanji

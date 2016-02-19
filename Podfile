@@ -2,8 +2,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 inhibit_all_warnings!
 
-#install! 'cocoapods', :deterministic_uuids => false
-
 platform :ios, '8.0'
 
 link_with 'WaniKani'
@@ -13,7 +11,6 @@ def shared_pods
 end
 
 target 'WaniKani' do
-  
   shared_pods
   pod 'Alamofire', '~> 2.0'
   pod 'PermissionScope'
@@ -31,6 +28,5 @@ target 'WaniKani' do
 end
 
 # target 'WaniTimie Extension' do
-#  platform :watchos, '2.0'
-# #  shared_pods
+#  	shared_pods
 # end

@@ -7,7 +7,19 @@
 //
 
 import ClockKit
+import RealmSwift
 
+//let realm: Realm = {
+//  let q = try! Realm()
+//  print("p:  \(q.path)")
+//  return q
+//}()
+
+let kanji: Results<Kanji> = {
+  let q = realm.objects(Kanji)
+  print("kanji: \(q.count)")
+  return q
+}()
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
@@ -15,6 +27,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
         handler([.Forward, .Backward])
+      print("kanji: \(kanji.count)")
     }
     
     func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {

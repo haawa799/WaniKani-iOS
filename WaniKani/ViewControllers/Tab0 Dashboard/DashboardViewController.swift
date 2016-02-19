@@ -35,7 +35,7 @@ class DashboardViewController: UIViewController {
   private var loadedProgressData: ProgressHeaderData?
   private var progressData: ProgressHeaderData? {
     if loadedProgressData == nil {
-      let users = try! Realm().objects(User)
+      let users = realm.objects(User)
       if let user = users.first, let progression = user.levelProgression {
         loadedProgressData = ProgressHeaderData(level: user.level, maxTopValue: progression.kanjiTotal, topValue: progression.kanjiProgress, maxBotValue: progression.radicalsTotal,botValue: progression.radicalsProgress)
       }
@@ -294,7 +294,7 @@ extension DashboardViewController : UICollectionViewDataSource {
       if let progressData = progressData {
         stratchyHeader?.setupWithProgressionData(progressData)
       }
-    case 1: (header as? DashboardHeader)?.titleLabel?.text = "Available"
+    case 1: (header as? DashboardHeader)?.titleLabel?.text = "\(realm.path)"//"Available"
     case 2: (header as? DashboardHeader)?.titleLabel?.text = "Reviews"
     default: break
     }

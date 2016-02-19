@@ -35,6 +35,14 @@
 		432C07391BB32CF90031B3B1 /* SettingsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C07381BB32CF90031B3B1 /* SettingsLayout.swift */; };
 		432C073B1BB338820031B3B1 /* SliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C073A1BB338820031B3B1 /* SliceView.swift */; };
 		432C073F1BB408AE0031B3B1 /* ignore.js in Resources */ = {isa = PBXBuildFile; fileRef = 432C073E1BB408AE0031B3B1 /* ignore.js */; };
+		4334B6661C75FDFF003F1C92 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6651C75FDFF003F1C92 /* Kanji.swift */; };
+		4334B66F1C75FEC2003F1C92 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6651C75FDFF003F1C92 /* Kanji.swift */; };
+		4334B6721C75FEF8003F1C92 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4334B6701C75FEF8003F1C92 /* Realm.framework */; };
+		4334B6731C75FEF8003F1C92 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4334B6701C75FEF8003F1C92 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4334B6741C75FEF8003F1C92 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4334B6711C75FEF8003F1C92 /* RealmSwift.framework */; };
+		4334B6751C75FEF8003F1C92 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4334B6711C75FEF8003F1C92 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4334B6781C75FF9B003F1C92 /* ItemUserSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6771C75FF9B003F1C92 /* ItemUserSpecific.swift */; };
+		4334B6791C75FF9B003F1C92 /* ItemUserSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6771C75FF9B003F1C92 /* ItemUserSpecific.swift */; };
 		4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9B71C19CA6B0011746D /* LevelProgression.swift */; };
 		4335B9BE1C19CA6B0011746D /* StudyQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9B91C19CA6B0011746D /* StudyQueue.swift */; };
 		4335B9BF1C19CA6B0011746D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9BA1C19CA6B0011746D /* User.swift */; };
@@ -42,6 +50,8 @@
 		433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC231BFB3BCC0025EB24 /* NotificationsSetupVC.swift */; };
 		433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC251BFB407F0025EB24 /* SetupStepViewController.swift */; };
 		433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC271BFB4B290025EB24 /* GameCenterSetupVC.swift */; };
+		433BEF831C76642B000596F4 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BEF821C76642B000596F4 /* RealmHelper.swift */; };
+		433BEF841C76642B000596F4 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BEF821C76642B000596F4 /* RealmHelper.swift */; };
 		433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164D1B846016007B7DE9 /* NotificationManager.swift */; };
 		433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E16581B8465D1007B7DE9 /* DashboardLayout.swift */; };
 		433E165F1B84A6D0007B7DE9 /* DataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */; };
@@ -160,6 +170,18 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4334B6761C75FEF8003F1C92 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4334B6751C75FEF8003F1C92 /* RealmSwift.framework in Embed Frameworks */,
+				4334B6731C75FEF8003F1C92 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		434DBC901C75BB3500426B4F /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,16 +191,6 @@
 				434DBC7D1C75BB3500426B4F /* WaniTimie Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43C3068C1B79D75D00DEB6A4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -212,6 +224,16 @@
 		432C07381BB32CF90031B3B1 /* SettingsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLayout.swift; sourceTree = "<group>"; };
 		432C073A1BB338820031B3B1 /* SliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliceView.swift; sourceTree = "<group>"; };
 		432C073E1BB408AE0031B3B1 /* ignore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ignore.js; sourceTree = "<group>"; };
+		4334B6531C75FABE003F1C92 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../Downloads/realm-swift-0.98.1 2/ios/swift-2.1.1/Realm.framework"; sourceTree = "<group>"; };
+		4334B6541C75FABE003F1C92 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../Downloads/realm-swift-0.98.1 2/ios/swift-2.1.1/RealmSwift.framework"; sourceTree = "<group>"; };
+		4334B6591C75FC6F003F1C92 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		4334B65A1C75FC6F003F1C92 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		4334B6651C75FDFF003F1C92 /* Kanji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kanji.swift; sourceTree = "<group>"; };
+		4334B6701C75FEF8003F1C92 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = frameworks/Realm.framework; sourceTree = "<group>"; };
+		4334B6711C75FEF8003F1C92 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = frameworks/RealmSwift.framework; sourceTree = "<group>"; };
+		4334B6771C75FF9B003F1C92 /* ItemUserSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemUserSpecific.swift; sourceTree = "<group>"; };
+		4334B67B1C76061E003F1C92 /* WaniTimie Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WaniTimie Extension.entitlements"; sourceTree = "<group>"; };
+		4334B67C1C7608C5003F1C92 /* WaniTimie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WaniTimie.entitlements; sourceTree = "<group>"; };
 		4335B9B71C19CA6B0011746D /* LevelProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProgression.swift; sourceTree = "<group>"; };
 		4335B9B91C19CA6B0011746D /* StudyQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueue.swift; sourceTree = "<group>"; };
 		4335B9BA1C19CA6B0011746D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -219,6 +241,7 @@
 		433BDC231BFB3BCC0025EB24 /* NotificationsSetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsSetupVC.swift; sourceTree = "<group>"; };
 		433BDC251BFB407F0025EB24 /* SetupStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupStepViewController.swift; sourceTree = "<group>"; };
 		433BDC271BFB4B290025EB24 /* GameCenterSetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterSetupVC.swift; sourceTree = "<group>"; };
+		433BEF821C76642B000596F4 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		433E164D1B846016007B7DE9 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		433E16581B8465D1007B7DE9 /* DashboardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardLayout.swift; sourceTree = "<group>"; };
 		433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetchManager.swift; sourceTree = "<group>"; };
@@ -330,6 +353,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4334B6741C75FEF8003F1C92 /* RealmSwift.framework in Frameworks */,
+				4334B6721C75FEF8003F1C92 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +371,10 @@
 		2481F23E0E9C1BDFB82D2F93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4334B6591C75FC6F003F1C92 /* Realm.framework */,
+				4334B65A1C75FC6F003F1C92 /* RealmSwift.framework */,
+				4334B6531C75FABE003F1C92 /* Realm.framework */,
+				4334B6541C75FABE003F1C92 /* RealmSwift.framework */,
 				430D080E1C5F7A8B0097C72C /* GameKit.framework */,
 				08CAC6D6A8578DF22EC21F90 /* Pods.framework */,
 				9C0160F152D9584CEC7DE353 /* Pods_WaniKani.framework */,
@@ -413,6 +442,8 @@
 				4335B9B91C19CA6B0011746D /* StudyQueue.swift */,
 				4335B9BA1C19CA6B0011746D /* User.swift */,
 				43A12D071C47B66500E18556 /* LevelData.swift */,
+				4334B6651C75FDFF003F1C92 /* Kanji.swift */,
+				4334B6771C75FF9B003F1C92 /* ItemUserSpecific.swift */,
 				4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */,
 			);
 			path = Model;
@@ -438,6 +469,7 @@
 				433E164D1B846016007B7DE9 /* NotificationManager.swift */,
 				43D748771BD7ADC200A11916 /* AwardsManager.swift */,
 				43AC6C161C60F95000D8CA48 /* KeychainManager.swift */,
+				433BEF821C76642B000596F4 /* RealmHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -495,6 +527,8 @@
 		433E27F71B79D5E900BBB45E = {
 			isa = PBXGroup;
 			children = (
+				4334B6701C75FEF8003F1C92 /* Realm.framework */,
+				4334B6711C75FEF8003F1C92 /* RealmSwift.framework */,
 				433E28021B79D5E900BBB45E /* WaniKani */,
 				433E28181B79D5E900BBB45E /* WaniKaniTests */,
 				43D506C01C22CFE40020F03B /* WaniKaniUITests */,
@@ -576,6 +610,7 @@
 		434DBC711C75BB3500426B4F /* WaniTimie */ = {
 			isa = PBXGroup;
 			children = (
+				4334B67C1C7608C5003F1C92 /* WaniTimie.entitlements */,
 				434DBC721C75BB3500426B4F /* Interface.storyboard */,
 				434DBC751C75BB3500426B4F /* Assets.xcassets */,
 				434DBC771C75BB3500426B4F /* Info.plist */,
@@ -586,6 +621,7 @@
 		434DBC801C75BB3500426B4F /* WaniTimie Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4334B67B1C76061E003F1C92 /* WaniTimie Extension.entitlements */,
 				434DBC811C75BB3500426B4F /* InterfaceController.swift */,
 				434DBC831C75BB3500426B4F /* ExtensionDelegate.swift */,
 				434DBC851C75BB3500426B4F /* ComplicationController.swift */,
@@ -649,7 +685,6 @@
 				433E27FD1B79D5E900BBB45E /* Frameworks */,
 				433E27FE1B79D5E900BBB45E /* Resources */,
 				A84150EEB50626DD7E095E66 /* Embed Pods Frameworks */,
-				43C3068C1B79D75D00DEB6A4 /* Embed Frameworks */,
 				43EBC09F1BA5FB7200C0B390 /* ShellScript */,
 				431E0D6E1C74C141008C78D6 /* Embed Watch Content */,
 			);
@@ -706,6 +741,8 @@
 				434DBC781C75BB3500426B4F /* Sources */,
 				434DBC791C75BB3500426B4F /* Frameworks */,
 				434DBC7A1C75BB3500426B4F /* Resources */,
+				4334B6761C75FEF8003F1C92 /* Embed Frameworks */,
+				4334B67A1C76007C003F1C92 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -767,9 +804,20 @@
 					434DBC6F1C75BB3400426B4F = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = S55BP53VB8;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					434DBC7B1C75BB3500426B4F = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = S55BP53VB8;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					43D506BE1C22CFE40020F03B = {
 						CreatedOnToolsVersion = 7.2;
@@ -871,6 +919,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4334B67A1C76007C003F1C92 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
 		433C0DAA1C281B8200F714C9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -926,6 +987,8 @@
 				43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */,
 				43441E401C3C5ADB006A166B /* SideMenuContainerController.swift in Sources */,
 				433E16A11B8A3408007B7DE9 /* ApiKeyPickerController.swift in Sources */,
+				433BEF831C76642B000596F4 /* RealmHelper.swift in Sources */,
+				4334B6781C75FF9B003F1C92 /* ItemUserSpecific.swift in Sources */,
 				432C07301BB3272C0031B3B1 /* ReviewCell.swift in Sources */,
 				434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */,
 				43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */,
@@ -938,6 +1001,7 @@
 				432C072E1BB3272C0031B3B1 /* NextReviewCell.swift in Sources */,
 				4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */,
 				43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */,
+				4334B6661C75FDFF003F1C92 /* Kanji.swift in Sources */,
 				437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */,
 				432C073B1BB338820031B3B1 /* SliceView.swift in Sources */,
 				43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */,
@@ -998,8 +1062,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				434DBC841C75BB3500426B4F /* ExtensionDelegate.swift in Sources */,
+				433BEF841C76642B000596F4 /* RealmHelper.swift in Sources */,
 				434DBC821C75BB3500426B4F /* InterfaceController.swift in Sources */,
+				4334B6791C75FF9B003F1C92 /* ItemUserSpecific.swift in Sources */,
 				434DBC861C75BB3500426B4F /* ComplicationController.swift in Sources */,
+				4334B66F1C75FEC2003F1C92 /* Kanji.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1269,12 +1336,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WaniTimie Extension/WaniTimie Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/frameworks",
+				);
 				INFOPLIST_FILE = "WaniTimie Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani.debug;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp.complication";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp.compl";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "c889fc06-05b3-4d19-bd66-925592f39a3e";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1287,11 +1363,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WaniTimie Extension/WaniTimie Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/frameworks",
+				);
 				INFOPLIST_FILE = "WaniTimie Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp.complication";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp.compl";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "c889fc06-05b3-4d19-bd66-925592f39a3e";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1304,8 +1389,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WaniTimie/WaniTimie.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				COMPLICATION_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER).complication";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1314,6 +1401,7 @@
 				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani.debug;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "44faa5ce-a06a-4115-ad29-178319dd30ab";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1325,8 +1413,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = WaniTimie/WaniTimie.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				COMPLICATION_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER).complication";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WaniTimie_Extension;
@@ -1334,6 +1424,7 @@
 				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "44faa5ce-a06a-4115-ad29-178319dd30ab";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1405,6 +1496,7 @@
 				434DBC8F1C75BB3500426B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		434DBC911C75BB3500426B4F /* Build configuration list for PBXNativeTarget "WaniTimie" */ = {
 			isa = XCConfigurationList;
@@ -1413,6 +1505,7 @@
 				434DBC931C75BB3500426B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43D506C81C22CFE50020F03B /* Build configuration list for PBXNativeTarget "WaniKaniUITests" */ = {
 			isa = XCConfigurationList;

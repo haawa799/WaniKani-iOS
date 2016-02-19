@@ -13,13 +13,8 @@ import Realm
 import PermissionScope
 
 
-let realmQueue = dispatch_queue_create("REALM", DISPATCH_QUEUE_SERIAL)
-var realm = {
-  return try! Realm()
-}
-
 var user: User? {
-  return realm().objects(User).first
+  return realm.objects(User).first
 }
 
 class DataFetchManager: NSObject {
@@ -27,37 +22,26 @@ class DataFetchManager: NSObject {
   static let sharedInstance = DataFetchManager()
   
   func makeInitialPreperations() {
-    moveRealmToAppGroupIfNeeded()
     performMigrationIfNeeded()
+    moveRealmToAppGroupIfNeeded()
     initialUserCreation()
   }
   
   func moveRealmToAppGroupIfNeeded() {
-    let fileManager = NSFileManager.defaultManager()
-    
-    //Cache original realm path (documents directory)
-    
     
     guard let originalDefaultRealmPath = Realm.Configuration.defaultConfiguration.path else { return }
+    guard let realmPath = waniRealmConfiguration.path else { return }
     
-    //Generate new realm path based on app group
-    let appGroupURL: NSURL = fileManager.containerURLForSecurityApplicationGroupIdentifier("group.com.haawa.WaniKani")!
-    let realmPath = appGroupURL.path! + "/default.realm"
+    let fileManager = NSFileManager.defaultManager()
     
     //Moves the realm to the new location if it hasn't been done previously
     if (fileManager.fileExistsAtPath(originalDefaultRealmPath) && !fileManager.fileExistsAtPath(realmPath)) {
-      
       do {
         try fileManager.moveItemAtPath(originalDefaultRealmPath, toPath: realmPath)
       } catch _ {
-        print("error")
+        print("error moving realm")
       }
     }
-    
-    //Set the realm path to the new directory
-    var config = Realm.Configuration()
-    config.path = realmPath
-    Realm.Configuration.defaultConfiguration = config
   }
   
   func performMigrationIfNeeded() {
@@ -68,7 +52,6 @@ class DataFetchManager: NSObject {
         
         
     })
-    _ = try! Realm()
   }
   
   func fetchAllData() {
@@ -85,9 +68,8 @@ class DataFetchManager: NSObject {
         let studyQ = StudyQueue()
         let levelProgression = LevelProgression()
         dispatch_sync(realmQueue) { () -> Void in
-          let r = try! Realm()
-          try! r.write({ () -> Void in
-            r.add(usr)
+          try! realm.write({ () -> Void in
+            realm.add(usr)
             usr.studyQueue = studyQ
             usr.levelProgression = levelProgression
           })
@@ -118,10 +100,10 @@ class DataFetchManager: NSObject {
         dispatch_async(realmQueue) { () -> Void in
           
           // Make sure that user exist
-          guard let user = realm().objects(User).first else { return }
+          guard let user = realm.objects(User).first else { return }
           
           // Update study queue, and user info
-          try! realm().write({ () -> Void in
+          try! realm.write({ () -> Void in
             if user.levels == nil {
               user.levels = WaniKaniLevels()
             }
@@ -129,12 +111,12 @@ class DataFetchManager: NSObject {
             user.studyQueue?.updateWith(studyQInfo)
             user.updateUserWithUserInfo(userInfo)
           })
-          realm().refresh()
+          realm.refresh()
           
           // Do some stuff with data
           dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            realm().refresh()
-            let user = realm().objects(User).first
+            realm.refresh()
+            let user = realm.objects(User).first
             guard let studyQ =  user?.studyQueue else { return }
             let result: UIBackgroundFetchResult = self.schedulePushNotificationIfNeededFor(studyQ) ? .NewData : .NoData
             appDelegate.notificationCenterManager.postNotification(.NewStudyQueueReceivedNotification, object: studyQ)
@@ -185,18 +167,18 @@ class DataFetchManager: NSObject {
         dispatch_async(realmQueue) { () -> Void in
           
           // Make sure that user exist
-          guard let user = realm().objects(User).first else { return }
+          guard let user = realm.objects(User).first else { return }
           
           // Update study queue, and user info
-          try! realm().write({ () -> Void in
+          try! realm.write({ () -> Void in
             self.checkIfUserLeveledUp(user.level, newLevel: userInfo.level)
             user.levels?.updateKanjiListForLevel(levelIndex, newList: kanjiList)
           })
-          realm().refresh()
+          realm.refresh()
           
           dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            realm().refresh()
-            let user = realm().objects(User).first
+            realm.refresh()
+            let user = realm.objects(User).first
             guard let _ =  user?.levels?.levels else { return }
             appDelegate.notificationCenterManager.postNotification(.UpdatedKanjiListNotification, object: levelIndex)
           })
@@ -240,19 +222,19 @@ class DataFetchManager: NSObject {
         dispatch_async(realmQueue) { () -> Void in
           
           // Make sure that user exist
-          guard let user = realm().objects(User).first else { return }
+          guard let user = realm.objects(User).first else { return }
           
           // Update study queue, and user info
-          try! realm().write({ () -> Void in
+          try! realm.write({ () -> Void in
             self.checkIfUserLeveledUp(user.level, newLevel: userInfo.level)
             user.levelProgression?.updateWith(levelProgressionInfo)
             user.updateUserWithUserInfo(userInfo)
           })
-          realm().refresh()
+          realm.refresh()
           
           dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            realm().refresh()
-            let user = realm().objects(User).first
+            realm.refresh()
+            let user = realm.objects(User).first
             guard let levelProgression =  user?.levelProgression else { return}
             appDelegate.notificationCenterManager.postNotification(.NewLevelProgressionReceivedNotification, object: levelProgression)
           })

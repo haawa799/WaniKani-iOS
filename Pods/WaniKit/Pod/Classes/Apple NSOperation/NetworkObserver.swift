@@ -84,22 +84,14 @@ private class NetworkIndicatorController {
     visibilityTimer?.cancel()
     visibilityTimer = nil
     
-    if #available(watchOS 2, *) {
-      // We are on watch, so no network indicator
-    } else {
-      UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-    }
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
   }
   
   private func hideIndicator() {
     visibilityTimer?.cancel()
     visibilityTimer = nil
     
-    if #available(watchOS 2, *) {
-      // We are on watch, so no network indicator
-    } else {
-      UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-    }
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
   }
 }
 

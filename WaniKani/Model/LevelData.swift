@@ -65,21 +65,7 @@ public class LevelData: Object {
   
 }
 
-public class Kanji: Object {
-  
-  public dynamic var character: String = ""
-  public dynamic var meaning: String?
-  public dynamic var onyomi: String?
-  public dynamic var kunyomi: String?
-  public dynamic var nanori: String?
-  public dynamic var importantReading: String?
-  public dynamic var level: Int = 0
-  
-  public dynamic var userSpecific: ItemUserSpecific?
-  
-  override public static func primaryKey() -> String? {
-    return "character"
-  }
+public extension Kanji {
   
   public convenience init(kanjiInfo: KanjiInfo) {
     self.init()
@@ -146,26 +132,7 @@ public class Word: Object {
   
 }
 
-public class ItemUserSpecific: Object {
-  
-  // Fields
-  public dynamic var srs: String?
-  public var srsNumeric = RealmOptional<Int>()
-  public dynamic var unlockedDate: NSDate?
-  public dynamic var availableDate: NSDate?
-  public dynamic var burned: Bool = false
-  public dynamic var burnedDate: NSDate?
-  public var meaningCorrect = RealmOptional<Int>()
-  public var meaningIncorrect = RealmOptional<Int>()
-  public var meaningMaxStreak = RealmOptional<Int>()
-  public var meaningCurrentStreak = RealmOptional<Int>()
-  public var readingCorrect = RealmOptional<Int>()
-  public var readingIncorrect = RealmOptional<Int>()
-  public var readingMaxStreak = RealmOptional<Int>()
-  public var readingCurrentStreak = RealmOptional<Int>()
-  public dynamic var meaningNote: String?
-  public dynamic var userSynonyms: String?
-  public dynamic var readingNote: String?
+public extension ItemUserSpecific {
   
   public convenience init(info: UserSpecific) {
     self.init()
@@ -188,4 +155,5 @@ public class ItemUserSpecific: Object {
     userSynonyms = info.userSynonyms
     readingNote = info.readingNote
   }
+  
 }
