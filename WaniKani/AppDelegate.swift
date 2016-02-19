@@ -8,6 +8,7 @@
 
 import UIKit
 import WaniKit
+import DataKit
 
 enum ShortcutIdentifier: String {
   case Lessons

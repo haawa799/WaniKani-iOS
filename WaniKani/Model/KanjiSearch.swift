@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 import CoreSpotlight
+import DataKit
 
 
 extension Kanji {

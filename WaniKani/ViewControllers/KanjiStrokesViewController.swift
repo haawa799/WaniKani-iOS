@@ -8,6 +8,7 @@
 
 import UIKit
 import StrokeDrawingView
+import DataKit
 
 class KanjiStrokesViewController: UIViewController {
   

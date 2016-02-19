@@ -9,6 +9,7 @@
 import Foundation
 import WatchConnectivity
 import RealmSwift
+import DataKit
 
 extension AppDelegate {
   

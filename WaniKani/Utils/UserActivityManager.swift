@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreSpotlight
+import DataKit
 
 class UserActivityManager: NSObject {
   

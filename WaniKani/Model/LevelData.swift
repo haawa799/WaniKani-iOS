@@ -10,6 +10,7 @@ import UIKit
 import WaniKit
 import RealmSwift
 import Realm
+import DataKit
 
 
 public class WaniKaniLevels: Object {

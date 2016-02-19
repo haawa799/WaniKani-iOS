@@ -8,6 +8,7 @@
 
 import UIKit
 import WaniKit
+import DataKit
 
 class KanjiCell: UICollectionViewCell {
   
