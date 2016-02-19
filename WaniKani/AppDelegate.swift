@@ -75,6 +75,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     }
     
+    setupWatchConnectivity()
+    
+    delay(3) { () -> () in
+      self.sendThisLevelKanjiData()
+    }
+    
     return true
   }
   

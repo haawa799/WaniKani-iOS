@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 private let appGroupIdentifier = "group.com.haawa.WaniKani"
+private let realmFileName = "/default.realm"
 
 public let realmQueue = dispatch_queue_create("REALM", DISPATCH_QUEUE_SERIAL)
 public let waniRealmConfiguration: Realm.Configuration = {
@@ -18,7 +19,7 @@ public let waniRealmConfiguration: Realm.Configuration = {
   
   //Generate new realm path based on app group
   let appGroupURL: NSURL = fileManager.containerURLForSecurityApplicationGroupIdentifier(appGroupIdentifier)!
-  let realmPath = appGroupURL.path! + "/default.realm"
+  let realmPath = appGroupURL.path! + realmFileName
   
   //Set the realm path to the new directory
   var config = Realm.Configuration.defaultConfiguration
@@ -29,16 +30,8 @@ public let waniRealmConfiguration: Realm.Configuration = {
 
 public var realm: Realm {
   let q = try! Realm(configuration: waniRealmConfiguration)
-  print("")
-  print("")
-  print("")
-  print("")
-  
-  print("e: \(q.path)")
-  
-  print("")
-  print("")
-  print("")
-  print("")
   return q
 }
+
+
+

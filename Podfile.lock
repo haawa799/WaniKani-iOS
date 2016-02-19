@@ -7,11 +7,11 @@ PODS:
     - AWSQLiteDB
   - NJKScrollFullScreen (0.2.6)
   - PermissionScope (1.0.2)
-  - Realm (0.98.1):
-    - Realm/Headers (= 0.98.1)
-  - Realm/Headers (0.98.1)
-  - RealmSwift (0.98.1):
-    - Realm (= 0.98.1)
+  - Realm (0.98.2):
+    - Realm/Headers (= 0.98.2)
+  - Realm/Headers (0.98.2)
+  - RealmSwift (0.98.2):
+    - Realm (= 0.98.2)
   - RESideMenu (4.0.7)
   - StrokeDrawingView (0.1.1)
   - UICKeyChainStore (2.1.0)
@@ -64,8 +64,8 @@ SPEC CHECKSUMS:
   KanjiBezierPaths: b2949705dbd1873649adaedef9f1a18e82d704f0
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
   PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
-  Realm: ca4a4122e939e228e10694fc49011386cb2ecb07
-  RealmSwift: 7d3c7033427816a2c3417ba0d004d694987e503a
+  Realm: 88a147fe04b8f07191a676b15c779b2b448991de
+  RealmSwift: 9907c7415b3e19ef2ab9f89878fc890f03f93aea
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   StrokeDrawingView: 5d26664a4391804118fbfc2b3d4a5235a0057749
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432

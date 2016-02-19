@@ -294,7 +294,7 @@ extension DashboardViewController : UICollectionViewDataSource {
       if let progressData = progressData {
         stratchyHeader?.setupWithProgressionData(progressData)
       }
-    case 1: (header as? DashboardHeader)?.titleLabel?.text = "\(realm.path)"//"Available"
+    case 1: (header as? DashboardHeader)?.titleLabel?.text = "Available"
     case 2: (header as? DashboardHeader)?.titleLabel?.text = "Reviews"
     default: break
     }

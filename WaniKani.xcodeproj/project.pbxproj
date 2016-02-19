@@ -37,10 +37,6 @@
 		432C073F1BB408AE0031B3B1 /* ignore.js in Resources */ = {isa = PBXBuildFile; fileRef = 432C073E1BB408AE0031B3B1 /* ignore.js */; };
 		4334B6661C75FDFF003F1C92 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6651C75FDFF003F1C92 /* Kanji.swift */; };
 		4334B66F1C75FEC2003F1C92 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6651C75FDFF003F1C92 /* Kanji.swift */; };
-		4334B6721C75FEF8003F1C92 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4334B6701C75FEF8003F1C92 /* Realm.framework */; };
-		4334B6731C75FEF8003F1C92 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4334B6701C75FEF8003F1C92 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4334B6741C75FEF8003F1C92 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4334B6711C75FEF8003F1C92 /* RealmSwift.framework */; };
-		4334B6751C75FEF8003F1C92 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4334B6711C75FEF8003F1C92 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4334B6781C75FF9B003F1C92 /* ItemUserSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6771C75FF9B003F1C92 /* ItemUserSpecific.swift */; };
 		4334B6791C75FF9B003F1C92 /* ItemUserSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6771C75FF9B003F1C92 /* ItemUserSpecific.swift */; };
 		4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9B71C19CA6B0011746D /* LevelProgression.swift */; };
@@ -51,7 +47,6 @@
 		433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC251BFB407F0025EB24 /* SetupStepViewController.swift */; };
 		433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC271BFB4B290025EB24 /* GameCenterSetupVC.swift */; };
 		433BEF831C76642B000596F4 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BEF821C76642B000596F4 /* RealmHelper.swift */; };
-		433BEF841C76642B000596F4 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BEF821C76642B000596F4 /* RealmHelper.swift */; };
 		433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164D1B846016007B7DE9 /* NotificationManager.swift */; };
 		433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E16581B8465D1007B7DE9 /* DashboardLayout.swift */; };
 		433E165F1B84A6D0007B7DE9 /* DataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */; };
@@ -68,6 +63,7 @@
 		434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */; };
 		434673E01BDEC8840095A4A3 /* score.js in Resources */ = {isa = PBXBuildFile; fileRef = 434673DF1BDEC8840095A4A3 /* score.js */; };
 		434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434B00CB1C1D7F8E00ECCF20 /* RealmManager.swift */; };
+		434C08691C775F9200667424 /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C08681C775F9200667424 /* WatchManager.swift */; };
 		434DBC741C75BB3500426B4F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 434DBC721C75BB3500426B4F /* Interface.storyboard */; };
 		434DBC761C75BB3500426B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434DBC751C75BB3500426B4F /* Assets.xcassets */; };
 		434DBC7D1C75BB3500426B4F /* WaniTimie Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 434DBC7C1C75BB3500426B4F /* WaniTimie Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -83,6 +79,11 @@
 		437A33CD1C326A72007FE8F3 /* LevelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */; };
 		437A33CF1C326A8D007FE8F3 /* KanjiGraphicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CE1C326A8D007FE8F3 /* KanjiGraphicInfo.swift */; };
 		437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33D01C326A9F007FE8F3 /* KanjiCell.swift */; };
+		438345D51C7764FD00FE1530 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438345D31C7764FD00FE1530 /* Realm.framework */; };
+		438345D61C7764FD00FE1530 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 438345D31C7764FD00FE1530 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		438345D71C7764FD00FE1530 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438345D41C7764FD00FE1530 /* RealmSwift.framework */; };
+		438345D81C7764FD00FE1530 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 438345D41C7764FD00FE1530 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		438345DB1C77659900FE1530 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BEF821C76642B000596F4 /* RealmHelper.swift */; };
 		43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */ = {isa = PBXBuildFile; fileRef = 43850CF31B9DB86F00DFF6DD /* fast_forward.js */; };
 		43A12D081C47B66500E18556 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A12D071C47B66500E18556 /* LevelData.swift */; };
 		43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */; };
@@ -170,18 +171,6 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4334B6761C75FEF8003F1C92 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4334B6751C75FEF8003F1C92 /* RealmSwift.framework in Embed Frameworks */,
-				4334B6731C75FEF8003F1C92 /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		434DBC901C75BB3500426B4F /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,10 +182,23 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		438345D91C7764FD00FE1530 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				438345D81C7764FD00FE1530 /* RealmSwift.framework in Embed Frameworks */,
+				438345D61C7764FD00FE1530 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		08CAC6D6A8578DF22EC21F90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		110851671D94685B7C283A99 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		430401001C1B18EA00D59949 /* FabricEventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FabricEventsManager.swift; sourceTree = "<group>"; };
 		430D080C1C5E3E170097C72C /* reorder.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = reorder.js; sourceTree = "<group>"; };
 		430D080E1C5F7A8B0097C72C /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -262,6 +264,7 @@
 		434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCenterCollectionViewCell.xib; sourceTree = "<group>"; };
 		434673DF1BDEC8840095A4A3 /* score.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = score.js; sourceTree = "<group>"; };
 		434B00CB1C1D7F8E00ECCF20 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		434C08681C775F9200667424 /* WatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
 		434DBC701C75BB3400426B4F /* WaniTimie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaniTimie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		434DBC731C75BB3500426B4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		434DBC751C75BB3500426B4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -279,6 +282,10 @@
 		437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPickerViewController.swift; sourceTree = "<group>"; };
 		437A33CE1C326A8D007FE8F3 /* KanjiGraphicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiGraphicInfo.swift; sourceTree = "<group>"; };
 		437A33D01C326A9F007FE8F3 /* KanjiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiCell.swift; sourceTree = "<group>"; };
+		438345CC1C77623C00FE1530 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = frameworks/Realm.framework; sourceTree = "<group>"; };
+		438345CD1C77623C00FE1530 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = frameworks/RealmSwift.framework; sourceTree = "<group>"; };
+		438345D31C7764FD00FE1530 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = frameworks/Realm.framework; sourceTree = "<group>"; };
+		438345D41C7764FD00FE1530 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = frameworks/RealmSwift.framework; sourceTree = "<group>"; };
 		43850CF31B9DB86F00DFF6DD /* fast_forward.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fast_forward.js; path = ../Utils/fast_forward.js; sourceTree = "<group>"; };
 		43A12D071C47B66500E18556 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
 		43A667901C7461D70072614B /* WaniKani.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WaniKani.entitlements; sourceTree = "<group>"; };
@@ -325,9 +332,12 @@
 		43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		43F4EB031C4E58C400A25840 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		7C75F479D4C903CBF52460A6 /* Pods-WaniKani.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKani.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani.release.xcconfig"; sourceTree = "<group>"; };
+		7EE875CAA40AFEEF34714939 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7F9B0C5E73425F447CFA3BBA /* Pods_WaniTimie_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaniTimie_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0160F152D9584CEC7DE353 /* Pods_WaniKani.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaniKani.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD46FC48DC10E601ED62A331 /* Pods-WaniKani.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKani.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani.debug.xcconfig"; sourceTree = "<group>"; };
+		ED064D343165BD114ACDEEBB /* Pods-WaniTimie Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniTimie Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaniTimie Extension/Pods-WaniTimie Extension.release.xcconfig"; sourceTree = "<group>"; };
+		F4FD0ECF128399B193FEA4F9 /* Pods-WaniTimie Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniTimie Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaniTimie Extension/Pods-WaniTimie Extension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,8 +363,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4334B6741C75FEF8003F1C92 /* RealmSwift.framework in Frameworks */,
-				4334B6721C75FEF8003F1C92 /* Realm.framework in Frameworks */,
+				438345D71C7764FD00FE1530 /* RealmSwift.framework in Frameworks */,
+				438345D51C7764FD00FE1530 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +480,7 @@
 				43D748771BD7ADC200A11916 /* AwardsManager.swift */,
 				43AC6C161C60F95000D8CA48 /* KeychainManager.swift */,
 				433BEF821C76642B000596F4 /* RealmHelper.swift */,
+				434C08681C775F9200667424 /* WatchManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -527,6 +538,10 @@
 		433E27F71B79D5E900BBB45E = {
 			isa = PBXGroup;
 			children = (
+				438345D31C7764FD00FE1530 /* Realm.framework */,
+				438345D41C7764FD00FE1530 /* RealmSwift.framework */,
+				438345CC1C77623C00FE1530 /* Realm.framework */,
+				438345CD1C77623C00FE1530 /* RealmSwift.framework */,
 				4334B6701C75FEF8003F1C92 /* Realm.framework */,
 				4334B6711C75FEF8003F1C92 /* RealmSwift.framework */,
 				433E28021B79D5E900BBB45E /* WaniKani */,
@@ -670,6 +685,10 @@
 			children = (
 				DD46FC48DC10E601ED62A331 /* Pods-WaniKani.debug.xcconfig */,
 				7C75F479D4C903CBF52460A6 /* Pods-WaniKani.release.xcconfig */,
+				7EE875CAA40AFEEF34714939 /* Pods.debug.xcconfig */,
+				110851671D94685B7C283A99 /* Pods.release.xcconfig */,
+				F4FD0ECF128399B193FEA4F9 /* Pods-WaniTimie Extension.debug.xcconfig */,
+				ED064D343165BD114ACDEEBB /* Pods-WaniTimie Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -684,9 +703,9 @@
 				433E27FC1B79D5E900BBB45E /* Sources */,
 				433E27FD1B79D5E900BBB45E /* Frameworks */,
 				433E27FE1B79D5E900BBB45E /* Resources */,
-				A84150EEB50626DD7E095E66 /* Embed Pods Frameworks */,
 				43EBC09F1BA5FB7200C0B390 /* ShellScript */,
 				431E0D6E1C74C141008C78D6 /* Embed Watch Content */,
+				346BAA3BE3C929395051B7E9 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -741,8 +760,8 @@
 				434DBC781C75BB3500426B4F /* Sources */,
 				434DBC791C75BB3500426B4F /* Frameworks */,
 				434DBC7A1C75BB3500426B4F /* Resources */,
-				4334B6761C75FEF8003F1C92 /* Embed Frameworks */,
-				4334B67A1C76007C003F1C92 /* ShellScript */,
+				438345D91C7764FD00FE1530 /* Embed Frameworks */,
+				438345DA1C77653700FE1530 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -919,18 +938,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4334B67A1C76007C003F1C92 /* ShellScript */ = {
+		346BAA3BE3C929395051B7E9 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		433C0DAA1C281B8200F714C9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -945,6 +966,19 @@
 			shellPath = /bin/sh;
 			shellScript = "";
 		};
+		438345DA1C77653700FE1530 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
 		43EBC09F1BA5FB7200C0B390 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -957,21 +991,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run d2e6cfd499572eade933f1e9b057bb480b76a6bf d205f448d0aa1e376b0eabab2a41a9bc57f0ba649ffacce809e2a504008cd420";
-		};
-		A84150EEB50626DD7E095E66 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1000,6 +1019,7 @@
 				437A33CC1C326A72007FE8F3 /* LevelViewController.swift in Sources */,
 				432C072E1BB3272C0031B3B1 /* NextReviewCell.swift in Sources */,
 				4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */,
+				434C08691C775F9200667424 /* WatchManager.swift in Sources */,
 				43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */,
 				4334B6661C75FDFF003F1C92 /* Kanji.swift in Sources */,
 				437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */,
@@ -1062,9 +1082,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				434DBC841C75BB3500426B4F /* ExtensionDelegate.swift in Sources */,
-				433BEF841C76642B000596F4 /* RealmHelper.swift in Sources */,
 				434DBC821C75BB3500426B4F /* InterfaceController.swift in Sources */,
 				4334B6791C75FF9B003F1C92 /* ItemUserSpecific.swift in Sources */,
+				438345DB1C77659900FE1530 /* RealmHelper.swift in Sources */,
 				434DBC861C75BB3500426B4F /* ComplicationController.swift in Sources */,
 				4334B66F1C75FEC2003F1C92 /* Kanji.swift in Sources */,
 			);
