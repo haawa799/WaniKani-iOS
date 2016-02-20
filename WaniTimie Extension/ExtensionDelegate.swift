@@ -10,6 +10,37 @@ import WatchKit
 import WatchConnectivity
 import DataKitWatch
 
+extension ExtensionDelegate: WCSessionDelegate {
+  
+  func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
+    
+    guard let updateData = userInfo["update"] as? NSData else { return }
+    NSKeyedUnarchiver.setClass(KanjiUpdateObject.self, forClassName: "DataKit.KanjiUpdateObject")
+    NSKeyedUnarchiver.setClass(KanjiMainData.self, forClassName: "DataKit.KanjiMainData")
+    
+    let update = NSKeyedUnarchiver.unarchiveObjectWithData(updateData)
+    print("\(update)")
+    
+    guard let kanjiUpdate = update as? KanjiUpdateObject else { return }
+    
+    NSKeyedArchiver.archiveRootObject(kanjiUpdate, toFile: updatePath)
+  }
+  
+  func session(session: WCSession, didFinishUserInfoTransfer userInfoTransfer: WCSessionUserInfoTransfer, error: NSError?) {
+
+  }
+}
+
+let updatePath: String = {
+  
+  let fileManager = NSFileManager.defaultManager()
+  let appGroupIdentifier = "group.com.haawa.WaniKani"
+  
+  let appGroupURL: NSURL = fileManager.containerURLForSecurityApplicationGroupIdentifier(appGroupIdentifier)!
+  let path = appGroupURL.path! + "/levelKanji.bin"
+  return path
+}()
+
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
   
   func applicationDidFinishLaunching() {
@@ -37,15 +68,4 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
   
 }
 
-
-extension ExtensionDelegate: WCSessionDelegate {
-  
-  func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
-  guard let kanjiData = userInfo["hi"] as? NSData else { return }
-    NSKeyedUnarchiver.setClass(KanjiMainData.self, forClassName: "DataKit.KanjiMainData")
-    if let kanji = NSKeyedUnarchiver.unarchiveObjectWithData(kanjiData) {
-      print("\(kanji.character)")
-    }
-  }
-}
 

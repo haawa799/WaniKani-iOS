@@ -27,21 +27,6 @@ extension AppDelegate {
 @available(iOS 9.0, *)
 extension AppDelegate: WCSessionDelegate {
   
-  func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
-    
-  }
-  
-  func session(session: WCSession, didFinishUserInfoTransfer userInfoTransfer: WCSessionUserInfoTransfer, error: NSError?) {
-    
-  }
-  
-  func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
-    
-  }
-  
-  func session(session: WCSession, didFinishFileTransfer fileTransfer: WCSessionFileTransfer, error: NSError?) {
-    
-  }
 }
 
 extension AppDelegate {
@@ -55,13 +40,19 @@ extension AppDelegate {
     
     let kanji = realm.objects(Kanji).filter { return $0.level == user.level }
     
-    
+    var mainDataArray = [KanjiMainData]()
     
     for k in kanji {
-      let mainData = k.mainData
-      let data = NSKeyedArchiver.archivedDataWithRootObject(mainData)
-      session.transferUserInfo(["hi" : data])
+      mainDataArray.append(k.mainData)
     }
+    
+    let update = KanjiUpdateObject()
+    update.kanji = mainDataArray
+    
+    let updateData = NSKeyedArchiver.archivedDataWithRootObject(update)
+    
+    session.transferUserInfo(["dummy" : ""])
+    session.transferUserInfo(["update" : updateData])
     
   }
   

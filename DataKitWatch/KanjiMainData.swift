@@ -53,3 +53,24 @@ public class KanjiMainData: NSObject, NSCoding {
     self.level = aDecoder.decodeIntegerForKey(keyLevel)
   }
 }
+
+public class KanjiUpdateObject: NSObject, NSCoding {
+  
+  public var kanji = [KanjiMainData]()
+  
+  public override init() {
+    super.init()
+  }
+  
+  // Coding
+  let keyKanji = "kanji"
+  
+  public func encodeWithCoder(aCoder: NSCoder) {
+    aCoder.encodeObject(self.kanji, forKey: keyKanji)
+  }
+  
+  required public init(coder aDecoder: NSCoder) {
+    self.kanji = aDecoder.decodeObjectForKey(keyKanji) as! [KanjiMainData]
+  }
+}
+

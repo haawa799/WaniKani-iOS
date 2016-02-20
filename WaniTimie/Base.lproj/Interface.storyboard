@@ -5,17 +5,43 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--lvl15 kanji-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WaniTimie" customModuleProvider="target">
+                <controller title="lvl15 kanji" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WaniTimie" customModuleProvider="target">
                     <items>
-                        <label width="136" height="157.5" alignment="left" text="Label" textAlignment="left" numberOfLines="15" id="YVJ-y8-43z">
-                            <fontDescription key="font" type="system" pointSize="9"/>
-                        </label>
+                        <table alignment="left" id="gOV-pD-A8B">
+                            <items>
+                                <tableRow identifier="cell" selectable="NO" id="fa3-0O-THk" customClass="KanjiRowController" customModule="WaniTimie_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="pwU-UW-ATT">
+                                        <items>
+                                            <label width="32" alignment="left" text="電" textAlignment="left" id="akO-ba-OMX">
+                                                <fontDescription key="font" type="system" weight="semibold" pointSize="31"/>
+                                            </label>
+                                            <group alignment="right" layout="vertical" id="Fnb-ds-VX5">
+                                                <items>
+                                                    <label width="100" alignment="center" text="electricity" textAlignment="left" id="Bfv-Dy-yFc">
+                                                        <fontDescription key="font" type="system" pointSize="13"/>
+                                                    </label>
+                                                    <label width="85.5" alignment="left" text="でん, ゆう" minimumScaleFactor="0.69999999999999996" id="EVl-MW-lwh">
+                                                        <fontDescription key="font" type="system" weight="medium" pointSize="13"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <color key="backgroundColor" red="0.86666666670000003" green="0.1529411765" blue="0.38823529410000002" alpha="0.828125" colorSpace="calibratedRGB"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="kanjiLabel" destination="akO-ba-OMX" id="Hnv-fD-PKz"/>
+                                        <outlet property="meaningLabel" destination="Bfv-Dy-yFc" id="RPs-D6-gED"/>
+                                        <outlet property="readingLabel" destination="EVl-MW-lwh" id="ZfG-s5-B5Z"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
                     <connections>
-                        <outlet property="label" destination="YVJ-y8-43z" id="BcZ-YA-gT5"/>
+                        <outlet property="table" destination="gOV-pD-A8B" id="2Ii-Pa-SQ9"/>
                     </connections>
                 </controller>
             </objects>
