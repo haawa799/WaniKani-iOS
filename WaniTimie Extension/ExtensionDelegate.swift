@@ -8,6 +8,7 @@
 
 import WatchKit
 import WatchConnectivity
+import DataKitWatch
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
   
@@ -41,9 +42,9 @@ extension ExtensionDelegate: WCSessionDelegate {
   
   func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
   guard let kanjiData = userInfo["hi"] as? NSData else { return }
-  
+    NSKeyedUnarchiver.setClass(KanjiMainData.self, forClassName: "DataKit.KanjiMainData")
     if let kanji = NSKeyedUnarchiver.unarchiveObjectWithData(kanjiData) {
-      print("\(kanji)")
+      print("\(kanji.character)")
     }
   }
 }

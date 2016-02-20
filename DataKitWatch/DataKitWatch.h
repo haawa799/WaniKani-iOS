@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andriy K. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <WatchKit/WatchKit.h>
 
 //! Project version number for DataKitWatch.
 FOUNDATION_EXPORT double DataKitWatchVersionNumber;

@@ -71,11 +71,13 @@
 		43686D621C77C81400043D54 /* DataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43686D5B1C77C81400043D54 /* DataKit.framework */; };
 		43686D631C77C81400043D54 /* DataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43686D5B1C77C81400043D54 /* DataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43686D6A1C77C82F00043D54 /* DataKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 43686D681C77C82F00043D54 /* DataKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		43686D6B1C77C82F00043D54 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43686D691C77C82F00043D54 /* Info.plist */; };
-		43686D7B1C77C87700043D54 /* DataKitWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 43686D791C77C87700043D54 /* DataKitWatch.h */; };
-		43686D7C1C77C87700043D54 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43686D7A1C77C87700043D54 /* Info.plist */; };
 		43686D7D1C77C89E00043D54 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6651C75FDFF003F1C92 /* Kanji.swift */; };
 		43686D7E1C77C89E00043D54 /* ItemUserSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334B6771C75FF9B003F1C92 /* ItemUserSpecific.swift */; };
+		43686D941C77CADD00043D54 /* DataKitWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43686D8D1C77CADD00043D54 /* DataKitWatch.framework */; };
+		43686D951C77CADD00043D54 /* DataKitWatch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43686D8D1C77CADD00043D54 /* DataKitWatch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		43686D9B1C77CB0800043D54 /* DataKitWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 43686D991C77CB0800043D54 /* DataKitWatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43686DAC1C78914B00043D54 /* KanjiMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43686DAB1C78914B00043D54 /* KanjiMainData.swift */; };
+		43686DAD1C78914E00043D54 /* KanjiMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43686DAB1C78914B00043D54 /* KanjiMainData.swift */; };
 		4375F00E1C50F98400A3895D /* SearchedKanjiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375F00D1C50F98400A3895D /* SearchedKanjiViewController.swift */; };
 		4375F0101C52765300A3895D /* UserActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375F00F1C52765300A3895D /* UserActivityManager.swift */; };
 		437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */; };
@@ -125,6 +127,7 @@
 		43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */; };
 		43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */; };
 		43F4EB041C4E58C400A25840 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4EB031C4E58C400A25840 /* CanvasView.swift */; };
+		65D0F369D897B888415469E8 /* Pods_DataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6975A39F1B1AF7A957D8EAC0 /* Pods_DataKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +158,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 43686D5A1C77C81400043D54;
 			remoteInfo = DataKit;
+		};
+		43686D921C77CADD00043D54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 433E27F81B79D5E900BBB45E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43686D8C1C77CADD00043D54;
+			remoteInfo = DataKitWatch;
 		};
 		43D506C41C22CFE40020F03B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -205,6 +215,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				43686D951C77CADD00043D54 /* DataKitWatch.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,9 +302,12 @@
 		43686D5B1C77C81400043D54 /* DataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43686D681C77C82F00043D54 /* DataKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataKit.h; sourceTree = "<group>"; };
 		43686D691C77C82F00043D54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43686D711C77C86800043D54 /* DataKitWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataKitWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		43686D791C77C87700043D54 /* DataKitWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataKitWatch.h; sourceTree = "<group>"; };
-		43686D7A1C77C87700043D54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43686D861C77CA8A00043D54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		43686D8D1C77CADD00043D54 /* DataKitWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataKitWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43686D991C77CB0800043D54 /* DataKitWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataKitWatch.h; sourceTree = "<group>"; };
+		43686D9A1C77CB0800043D54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43686DA51C77CCC300043D54 /* WaniKani.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = WaniKani.xcodeproj; sourceTree = "<group>"; };
+		43686DAB1C78914B00043D54 /* KanjiMainData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiMainData.swift; sourceTree = "<group>"; };
 		4375F00D1C50F98400A3895D /* SearchedKanjiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedKanjiViewController.swift; sourceTree = "<group>"; };
 		4375F00F1C52765300A3895D /* UserActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityManager.swift; sourceTree = "<group>"; };
 		437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiStrokesViewController.swift; sourceTree = "<group>"; };
@@ -346,10 +360,13 @@
 		43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		43F4EB031C4E58C400A25840 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		6975A39F1B1AF7A957D8EAC0 /* Pods_DataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		724353B300FF67CFAFD69D89 /* Pods-DataKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataKit/Pods-DataKit.release.xcconfig"; sourceTree = "<group>"; };
 		7C75F479D4C903CBF52460A6 /* Pods-WaniKani.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKani.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani.release.xcconfig"; sourceTree = "<group>"; };
 		7EE875CAA40AFEEF34714939 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7F9B0C5E73425F447CFA3BBA /* Pods_WaniTimie_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaniTimie_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0160F152D9584CEC7DE353 /* Pods_WaniKani.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaniKani.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8DBA83E0EE632D8B63CDACB /* Pods-DataKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataKit/Pods-DataKit.debug.xcconfig"; sourceTree = "<group>"; };
 		DD46FC48DC10E601ED62A331 /* Pods-WaniKani.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniKani.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani.debug.xcconfig"; sourceTree = "<group>"; };
 		ED064D343165BD114ACDEEBB /* Pods-WaniTimie Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniTimie Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaniTimie Extension/Pods-WaniTimie Extension.release.xcconfig"; sourceTree = "<group>"; };
 		F4FD0ECF128399B193FEA4F9 /* Pods-WaniTimie Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaniTimie Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaniTimie Extension/Pods-WaniTimie Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -379,6 +396,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43686D941C77CADD00043D54 /* DataKitWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,10 +404,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D0F369D897B888415469E8 /* Pods_DataKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43686D6D1C77C86800043D54 /* Frameworks */ = {
+		43686D891C77CADD00043D54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -409,6 +428,8 @@
 		2481F23E0E9C1BDFB82D2F93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43686DA51C77CCC300043D54 /* WaniKani.xcodeproj */,
+				43686D861C77CA8A00043D54 /* Foundation.framework */,
 				4334B6591C75FC6F003F1C92 /* Realm.framework */,
 				4334B65A1C75FC6F003F1C92 /* RealmSwift.framework */,
 				4334B6531C75FABE003F1C92 /* Realm.framework */,
@@ -417,6 +438,7 @@
 				08CAC6D6A8578DF22EC21F90 /* Pods.framework */,
 				9C0160F152D9584CEC7DE353 /* Pods_WaniKani.framework */,
 				7F9B0C5E73425F447CFA3BBA /* Pods_WaniTimie_Extension.framework */,
+				6975A39F1B1AF7A957D8EAC0 /* Pods_DataKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -570,7 +592,7 @@
 				434DBC711C75BB3500426B4F /* WaniTimie */,
 				434DBC801C75BB3500426B4F /* WaniTimie Extension */,
 				43686D5C1C77C81400043D54 /* DataKit */,
-				43686D721C77C86800043D54 /* DataKitWatch */,
+				43686D8E1C77CADD00043D54 /* DataKitWatch */,
 				433E28011B79D5E900BBB45E /* Products */,
 				4C7149E8EDAB8FE705410AF3 /* Pods */,
 				2481F23E0E9C1BDFB82D2F93 /* Frameworks */,
@@ -586,7 +608,7 @@
 				434DBC701C75BB3400426B4F /* WaniTimie.app */,
 				434DBC7C1C75BB3500426B4F /* WaniTimie Extension.appex */,
 				43686D5B1C77C81400043D54 /* DataKit.framework */,
-				43686D711C77C86800043D54 /* DataKitWatch.framework */,
+				43686D8D1C77CADD00043D54 /* DataKitWatch.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -681,13 +703,21 @@
 			path = DataKit;
 			sourceTree = "<group>";
 		};
-		43686D721C77C86800043D54 /* DataKitWatch */ = {
+		43686D8E1C77CADD00043D54 /* DataKitWatch */ = {
 			isa = PBXGroup;
 			children = (
-				43686D791C77C87700043D54 /* DataKitWatch.h */,
-				43686D7A1C77C87700043D54 /* Info.plist */,
+				43686D991C77CB0800043D54 /* DataKitWatch.h */,
+				43686D9A1C77CB0800043D54 /* Info.plist */,
+				43686DAB1C78914B00043D54 /* KanjiMainData.swift */,
 			);
 			path = DataKitWatch;
+			sourceTree = "<group>";
+		};
+		43686DA61C77CCC300043D54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		43AC6BFF1C60BAEA00D8CA48 /* Tab0 Dashboard */ = {
@@ -733,6 +763,8 @@
 				110851671D94685B7C283A99 /* Pods.release.xcconfig */,
 				F4FD0ECF128399B193FEA4F9 /* Pods-WaniTimie Extension.debug.xcconfig */,
 				ED064D343165BD114ACDEEBB /* Pods-WaniTimie Extension.release.xcconfig */,
+				B8DBA83E0EE632D8B63CDACB /* Pods-DataKit.debug.xcconfig */,
+				724353B300FF67CFAFD69D89 /* Pods-DataKit.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -748,11 +780,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43686D6E1C77C86800043D54 /* Headers */ = {
+		43686D8A1C77CADD00043D54 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43686D7B1C77C87700043D54 /* DataKitWatch.h in Headers */,
+				43686D9B1C77CB0800043D54 /* DataKitWatch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,6 +862,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				43686D931C77CADD00043D54 /* PBXTargetDependency */,
 			);
 			name = "WaniTimie Extension";
 			productName = "WaniTimie Extension";
@@ -840,10 +873,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43686D641C77C81500043D54 /* Build configuration list for PBXNativeTarget "DataKit" */;
 			buildPhases = (
+				3675A437903FED73DE935659 /* Check Pods Manifest.lock */,
 				43686D561C77C81400043D54 /* Sources */,
 				43686D571C77C81400043D54 /* Frameworks */,
 				43686D581C77C81400043D54 /* Headers */,
 				43686D591C77C81400043D54 /* Resources */,
+				8119460117E9CD1308EFC6D0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -854,14 +889,14 @@
 			productReference = 43686D5B1C77C81400043D54 /* DataKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		43686D701C77C86800043D54 /* DataKitWatch */ = {
+		43686D8C1C77CADD00043D54 /* DataKitWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43686D761C77C86800043D54 /* Build configuration list for PBXNativeTarget "DataKitWatch" */;
+			buildConfigurationList = 43686D961C77CADE00043D54 /* Build configuration list for PBXNativeTarget "DataKitWatch" */;
 			buildPhases = (
-				43686D6C1C77C86800043D54 /* Sources */,
-				43686D6D1C77C86800043D54 /* Frameworks */,
-				43686D6E1C77C86800043D54 /* Headers */,
-				43686D6F1C77C86800043D54 /* Resources */,
+				43686D881C77CADD00043D54 /* Sources */,
+				43686D891C77CADD00043D54 /* Frameworks */,
+				43686D8A1C77CADD00043D54 /* Headers */,
+				43686D8B1C77CADD00043D54 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -869,7 +904,7 @@
 			);
 			name = DataKitWatch;
 			productName = DataKitWatch;
-			productReference = 43686D711C77C86800043D54 /* DataKitWatch.framework */;
+			productReference = 43686D8D1C77CADD00043D54 /* DataKitWatch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		43D506BE1C22CFE40020F03B /* WaniKaniUITests */ = {
@@ -942,8 +977,9 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = S55BP53VB8;
 					};
-					43686D701C77C86800043D54 = {
+					43686D8C1C77CADD00043D54 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = S55BP53VB8;
 					};
 					43D506BE1C22CFE40020F03B = {
 						CreatedOnToolsVersion = 7.2;
@@ -962,6 +998,12 @@
 			mainGroup = 433E27F71B79D5E900BBB45E;
 			productRefGroup = 433E28011B79D5E900BBB45E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 43686DA61C77CCC300043D54 /* Products */;
+					ProjectRef = 43686DA51C77CCC300043D54 /* WaniKani.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				433E27FF1B79D5E900BBB45E /* WaniKani */,
@@ -970,7 +1012,7 @@
 				434DBC6F1C75BB3400426B4F /* WaniTimie */,
 				434DBC7B1C75BB3500426B4F /* WaniTimie Extension */,
 				43686D5A1C77C81400043D54 /* DataKit */,
-				43686D701C77C86800043D54 /* DataKitWatch */,
+				43686D8C1C77CADD00043D54 /* DataKitWatch */,
 			);
 		};
 /* End PBXProject section */
@@ -1041,15 +1083,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43686D6B1C77C82F00043D54 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43686D6F1C77C86800043D54 /* Resources */ = {
+		43686D8B1C77CADD00043D54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43686D7C1C77C87700043D54 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1078,6 +1118,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaniKani/Pods-WaniKani-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3675A437903FED73DE935659 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		433C0DAA1C281B8200F714C9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1103,6 +1158,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run d2e6cfd499572eade933f1e9b057bb480b76a6bf d205f448d0aa1e376b0eabab2a41a9bc57f0ba649ffacce809e2a504008cd420";
+		};
+		8119460117E9CD1308EFC6D0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DataKit/Pods-DataKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1203,13 +1273,15 @@
 			files = (
 				43686D7D1C77C89E00043D54 /* Kanji.swift in Sources */,
 				43686D7E1C77C89E00043D54 /* ItemUserSpecific.swift in Sources */,
+				43686DAD1C78914E00043D54 /* KanjiMainData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43686D6C1C77C86800043D54 /* Sources */ = {
+		43686D881C77CADD00043D54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43686DAC1C78914B00043D54 /* KanjiMainData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1244,6 +1316,11 @@
 			isa = PBXTargetDependency;
 			target = 43686D5A1C77C81400043D54 /* DataKit */;
 			targetProxy = 43686D601C77C81400043D54 /* PBXContainerItemProxy */;
+		};
+		43686D931C77CADD00043D54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43686D8C1C77CADD00043D54 /* DataKitWatch */;
+			targetProxy = 43686D921C77CADD00043D54 /* PBXContainerItemProxy */;
 		};
 		43D506C51C22CFE40020F03B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1490,12 +1567,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/frameworks",
 					"$(PROJECT_DIR)/WaniTimie",
 					Extension,
+					"$(PROJECT_DIR)/DataKitWatch",
 				);
 				INFOPLIST_FILE = "WaniTimie Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1518,12 +1597,14 @@
 				CODE_SIGN_ENTITLEMENTS = "WaniTimie Extension/WaniTimie Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/frameworks",
 					"$(PROJECT_DIR)/WaniTimie",
 					Extension,
+					"$(PROJECT_DIR)/DataKitWatch",
 				);
 				INFOPLIST_FILE = "WaniTimie Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1588,6 +1669,7 @@
 		};
 		43686D651C77C81500043D54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8DBA83E0EE632D8B63CDACB /* Pods-DataKit.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1597,6 +1679,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DataKitWatch",
+				);
 				INFOPLIST_FILE = DataKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1611,6 +1697,7 @@
 		};
 		43686D661C77C81500043D54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 724353B300FF67CFAFD69D89 /* Pods-DataKit.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -1619,6 +1706,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DataKitWatch",
+				);
 				INFOPLIST_FILE = DataKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1631,48 +1722,65 @@
 			};
 			name = Release;
 		};
-		43686D771C77C86800043D54 /* Debug */ = {
+		43686D971C77CADE00043D54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DataKitWatch",
+				);
 				INFOPLIST_FILE = DataKitWatch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniKani.DataKitWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Debug;
 		};
-		43686D781C77C86800043D54 /* Release */ = {
+		43686D981C77CADE00043D54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DataKitWatch",
+				);
 				INFOPLIST_FILE = DataKitWatch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniKani.DataKitWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Release;
 		};
@@ -1758,14 +1866,16 @@
 				43686D661C77C81500043D54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		43686D761C77C86800043D54 /* Build configuration list for PBXNativeTarget "DataKitWatch" */ = {
+		43686D961C77CADE00043D54 /* Build configuration list for PBXNativeTarget "DataKitWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				43686D771C77C86800043D54 /* Debug */,
-				43686D781C77C86800043D54 /* Release */,
+				43686D971C77CADE00043D54 /* Debug */,
+				43686D981C77CADE00043D54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43D506C81C22CFE50020F03B /* Build configuration list for PBXNativeTarget "WaniKaniUITests" */ = {
 			isa = XCConfigurationList;

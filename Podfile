@@ -3,7 +3,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 
-link_with 'WaniKani'
+link_with 'WaniKani', 'DataKit'
 platform :ios, '8.0'
 
 target 'WaniKani' do
@@ -21,4 +21,8 @@ target 'WaniKani' do
   pod "StrokeDrawingView", :git => 'https://github.com/haawa799/StrokeDrawingView.git', :branch => 'master'
   pod "KanjiBezierPaths", :git => 'https://github.com/haawa799/KanjiBezierPaths.git', :branch => 'master'
   pod 'WaniKit', :git => 'https://github.com/haawa799/WaniKit.git', :branch => 'master'
+end
+
+target 'DataKit' do
+  pod 'RealmSwift'
 end

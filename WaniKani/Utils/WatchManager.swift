@@ -55,8 +55,12 @@ extension AppDelegate {
     
     let kanji = realm.objects(Kanji).filter { return $0.level == user.level }
     
+    
+    
     for k in kanji {
-      session.transferUserInfo(["hi" : k.mainData])
+      let mainData = k.mainData
+      let data = NSKeyedArchiver.archivedDataWithRootObject(mainData)
+      session.transferUserInfo(["hi" : data])
     }
     
   }

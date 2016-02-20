@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C3F2C4D5E7EE26FFAB1E8FC5'
+               BlueprintIdentifier = '197908553383370D8994FD0F'
                BlueprintName = 'Pods-WaniKani'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_WaniKani.framework'>
