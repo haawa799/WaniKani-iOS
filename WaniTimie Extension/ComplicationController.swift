@@ -9,6 +9,7 @@
 import ClockKit
 
 
+// guard let levelData = dataManager.currentLevel else { return }
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Configuration

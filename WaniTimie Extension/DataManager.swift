@@ -48,6 +48,7 @@ extension DataManager {
   func updateCurrentLevelKanji(kanjiUpdate: KanjiUpdateObject) {
     guard let currentLevelPath = currentLevelPath else { return }
     NSKeyedArchiver.archiveRootObject(kanjiUpdate, toFile: currentLevelPath)
+    internalCurrentLevelObject = nil
     NSNotificationCenter.defaultCenter().postNotificationName(Notification.currentLevelUpdate, object: nil)
   }
   

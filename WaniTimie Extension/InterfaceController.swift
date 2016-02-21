@@ -12,6 +12,11 @@ import DataKitWatch
 
 class InterfaceController: WKInterfaceController {
   
+  // MARK: - Constants
+  let kanjiLockedColor = UIColor(red:0.96, green:0.49, blue:0.79, alpha:1)
+  let kanjiUnlockedColor = UIColor(red:0.99, green:0, blue:0.66, alpha:1)
+  let kanjiBurnedColor = UIColor(red:0.33, green:0.33, blue:0.33, alpha:1)
+  
   // MARK: - Outlets
   @IBOutlet var label: WKInterfaceLabel!
   @IBOutlet var table: WKInterfaceTable! {
@@ -62,6 +67,14 @@ extension InterfaceController {
       controller.kanjiLabel.setText(element.character)
       controller.meaningLabel.setText(element.meaning)
       controller.readingLabel.setText("\(element.on),\(element.kun)")
+      
+      if element.burned {
+        controller.backgroundGroup.setBackgroundColor(kanjiBurnedColor)
+      } else if element.unlocked {
+        controller.backgroundGroup.setBackgroundColor(kanjiUnlockedColor)
+      } else {
+        controller.backgroundGroup.setBackgroundColor(kanjiLockedColor)
+      }
     }
   }
   

@@ -27,20 +27,18 @@ extension AppDelegate {
 @available(iOS 9.0, *)
 extension AppDelegate: WCSessionDelegate {
   func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
-    guard let levelOnWatch = message[Communication.myLevel] as? Int, let curLevel = user?.level else { return }
-    if levelOnWatch == 0 || curLevel != levelOnWatch {
-      sendThisLevelKanjiData()
-    }
+    guard let _ = message[Communication.myLevel] as? Int, let _ = user?.level else { return }
+    sendThisLevelKanjiData()
   }
 }
 
 extension AppDelegate {
   
-  func sendThisLevelKanjiData() {
+  func sendThisLevelKanjiData(level: Int? = nil) {
     
     guard #available(iOS 9.0, *) else { return }
     guard let user = user else { return }
-    let levelOfInterest = user.level
+    let levelOfInterest = level ?? user.level
     let session = WCSession.defaultSession()
     guard session.watchAppInstalled else { return }
     
