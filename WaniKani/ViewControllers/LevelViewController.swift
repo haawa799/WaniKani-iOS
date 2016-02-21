@@ -28,7 +28,11 @@ class LevelViewController: UIViewController {
     addBackground(BackgroundOptions.Data.rawValue)
     
     appDelegate.notificationCenterManager.addObserver(self, notification: .UpdatedKanjiListNotification, selector: "fetchNewDataFromRealm")
-    DataFetchManager.sharedInstance.fetchLevelKanji(level)
+    DataFetchManager.sharedInstance.fetchLevelKanji(level) { () -> () in
+      if self.level == user?.level {
+        appDelegate.sendThisLevelKanjiData()
+      }
+    }
     fetchNewDataFromRealm()
   }
   

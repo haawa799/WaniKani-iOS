@@ -12,8 +12,7 @@ import DataKitWatch
 
 class InterfaceController: WKInterfaceController {
   
-  var levelData: KanjiUpdateObject?
-  
+  // MARK: - Outlets
   @IBOutlet var label: WKInterfaceLabel!
   @IBOutlet var table: WKInterfaceTable! {
     didSet {
@@ -21,27 +20,41 @@ class InterfaceController: WKInterfaceController {
     }
   }
   
+}
+
+// MARK: - WKInterfaceController
+extension InterfaceController {
   
   override func awakeWithContext(context: AnyObject?) {
     super.awakeWithContext(context)
-    updateKanjiList()
   }
   
-  func updateKanjiList() {
-    levelData = NSKeyedUnarchiver.unarchiveObjectWithFile(updatePath) as? KanjiUpdateObject
-    
-    label?.setText("count: \(levelData?.kanji.count)")
-    
-    updateTableView()
+  override func willActivate() {
+    super.willActivate()
+    dataManager.registerObjectForNotification(self, selector: Selector("dataReceived"), notificationName: DataManager.Notification.currentLevelUpdate)
   }
+  
+  override func willDisappear() {
+    super.willDisappear()
+    dataManager.removeObserver(self)
+  }
+  
+}
+
+// Update UI
+extension InterfaceController {
   
   func updateTableView() {
-    guard let kanji = levelData?.kanji else { return }
+    
+    guard let levelData = dataManager.currentLevel else { return }
+    let kanji = levelData.kanji
+    guard kanji.count > 0 else { return }
+    setTitle("Kanji lvl\(kanji[0].level)")
     
     guard let table = table else { return }
     
     table.setNumberOfRows(kanji.count,
-      withRowType: "cell")
+      withRowType: KanjiRowController.cellIdentifier)
     
     for (index, element) in kanji.enumerate() {
       let controller = table.rowControllerAtIndex(index)
@@ -52,15 +65,12 @@ class InterfaceController: WKInterfaceController {
     }
   }
   
-  override func willActivate() {
-    // This method is called when watch view controller is about to be visible to user
-    super.willActivate()
+}
+
+// Notifications
+extension InterfaceController {
+  
+  func dataReceived() {
     updateTableView()
   }
-  
-  override func didDeactivate() {
-    // This method is called when watch view controller is no longer visible
-    super.didDeactivate()
-  }
-  
 }

@@ -5,33 +5,39 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
-        <!--lvl15 kanji-->
+        <!--Loading...-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="lvl15 kanji" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WaniTimie" customModuleProvider="target">
+                <controller title="Loading..." id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WaniTimie" customModuleProvider="target">
                     <items>
                         <table alignment="left" id="gOV-pD-A8B">
                             <items>
                                 <tableRow identifier="cell" selectable="NO" id="fa3-0O-THk" customClass="KanjiRowController" customModule="WaniTimie_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="pwU-UW-ATT">
+                                    <group key="rootItem" width="1" height="44" alignment="left" id="pwU-UW-ATT">
                                         <items>
-                                            <label width="32" alignment="left" text="電" textAlignment="left" id="akO-ba-OMX">
-                                                <fontDescription key="font" type="system" weight="semibold" pointSize="31"/>
-                                            </label>
-                                            <group alignment="right" layout="vertical" id="Fnb-ds-VX5">
+                                            <group height="1" alignment="left" verticalAlignment="center" id="3sq-fg-qSp">
                                                 <items>
-                                                    <label width="100" alignment="center" text="electricity" textAlignment="left" id="Bfv-Dy-yFc">
-                                                        <fontDescription key="font" type="system" pointSize="13"/>
-                                                    </label>
-                                                    <label width="85.5" alignment="left" text="でん, ゆう" minimumScaleFactor="0.69999999999999996" id="EVl-MW-lwh">
-                                                        <fontDescription key="font" type="system" weight="medium" pointSize="13"/>
+                                                    <label width="32" height="1" alignment="left" verticalAlignment="center" text="電" textAlignment="left" id="akO-ba-OMX">
+                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="34"/>
                                                     </label>
                                                 </items>
                                             </group>
+                                            <group width="83" alignment="right" verticalAlignment="center" layout="vertical" id="Fnb-ds-VX5">
+                                                <items>
+                                                    <label width="100" alignment="center" text="electricity" textAlignment="left" id="Bfv-Dy-yFc">
+                                                        <fontDescription key="font" type="boldSystem" pointSize="13"/>
+                                                    </label>
+                                                    <label width="85.5" alignment="left" text="でん, ゆう" minimumScaleFactor="0.69999999999999996" id="EVl-MW-lwh">
+                                                        <fontDescription key="font" type="system" weight="heavy" pointSize="15"/>
+                                                    </label>
+                                                </items>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </group>
                                         </items>
-                                        <color key="backgroundColor" red="0.86666666670000003" green="0.1529411765" blue="0.38823529410000002" alpha="0.828125" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.85064458847045898" green="0.0" blue="0.52006745338439941" alpha="1" colorSpace="calibratedRGB"/>
                                     </group>
                                     <connections>
+                                        <outlet property="backgroundGroup" destination="pwU-UW-ATT" id="UHH-Ei-pG2"/>
                                         <outlet property="kanjiLabel" destination="akO-ba-OMX" id="Hnv-fD-PKz"/>
                                         <outlet property="meaningLabel" destination="Bfv-Dy-yFc" id="RPs-D6-gED"/>
                                         <outlet property="readingLabel" destination="EVl-MW-lwh" id="ZfG-s5-B5Z"/>
@@ -45,7 +51,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="197" y="168"/>
+            <point key="canvasLocation" x="16" y="103"/>
         </scene>
     </scenes>
 </document>

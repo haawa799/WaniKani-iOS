@@ -127,7 +127,7 @@ class DataFetchManager: NSObject {
     }
   }
   
-  func fetchLevelKanji(levelIndex: Int) {
+  func fetchLevelKanji(levelIndex: Int, completion: (()->())? = nil) {
     
     let apiManager: WaniApiManager = {
       
@@ -160,7 +160,7 @@ class DataFetchManager: NSObject {
       case .Response(let response):
         let resp = response()
         
-        guard let userInfo = resp.userInfo, kanjiList = resp.kanji else {
+        guard let kanjiList = resp.kanji else {
           return
         }
         
@@ -171,13 +171,13 @@ class DataFetchManager: NSObject {
           
           // Update study queue, and user info
           try! realm.write({ () -> Void in
-            self.checkIfUserLeveledUp(user.level, newLevel: userInfo.level)
             user.levels?.updateKanjiListForLevel(levelIndex, newList: kanjiList)
           })
           realm.refresh()
           
           dispatch_async(dispatch_get_main_queue(), { () -> Void in
             realm.refresh()
+            completion?()
             let user = realm.objects(User).first
             guard let _ =  user?.levels?.levels else { return }
             appDelegate.notificationCenterManager.postNotification(.UpdatedKanjiListNotification, object: levelIndex)
@@ -247,9 +247,14 @@ class DataFetchManager: NSObject {
     
     guard let newLevel = newLevel else { return }
     
+    if newLevel != oldLevel {
+      fetchLevelKanji(newLevel, completion: { () -> () in
+        appDelegate.sendThisLevelKanjiData()
+      })
+    }
+    
     dispatch_async(dispatch_get_main_queue()) { () -> Void in
       //User leveled up
-      
       delay(7, closure: { () -> () in
         AwardsManager.sharedInstance.userLevelUp(oldLevel: oldLevel, newLevel: newLevel)
       })

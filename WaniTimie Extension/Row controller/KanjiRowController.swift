@@ -10,8 +10,11 @@ import WatchKit
 
 class KanjiRowController: NSObject {
   
+  static let cellIdentifier = "cell"
+  
   @IBOutlet weak var kanjiLabel: WKInterfaceLabel!
   @IBOutlet weak var meaningLabel: WKInterfaceLabel!
   @IBOutlet weak var readingLabel: WKInterfaceLabel!
   
+  @IBOutlet var backgroundGroup: WKInterfaceGroup!
 }
