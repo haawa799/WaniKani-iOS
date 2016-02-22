@@ -18,6 +18,7 @@
 		43101B7B1C33F64900B855F2 /* KanjiPracticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */; };
 		4311B32D1C4D2C8A00062CE8 /* KanjiSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */; };
 		431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 431A31311BFF59600080944E /* Fipps-Regular.otf */; };
+		431AC42E1C7A545F00CCB881 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AC42D1C7A545F00CCB881 /* DateExtensions.swift */; };
 		4322937A1C79D6480008F172 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432293791C79D6480008F172 /* DataManager.swift */; };
 		4322937C1C79DDFA0008F172 /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322937B1C79DDFA0008F172 /* Communication.swift */; };
 		4322937D1C79DDFA0008F172 /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322937B1C79DDFA0008F172 /* Communication.swift */; };
@@ -240,6 +241,7 @@
 		43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KanjiPracticeViewController.xib; sourceTree = "<group>"; };
 		4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiSearch.swift; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
+		431AC42D1C7A545F00CCB881 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		432293791C79D6480008F172 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4322937B1C79DDFA0008F172 /* Communication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communication.swift; sourceTree = "<group>"; };
 		4322937E1C79E0630008F172 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 				434DBC811C75BB3500426B4F /* InterfaceController.swift */,
 				434DBC831C75BB3500426B4F /* ExtensionDelegate.swift */,
 				434DBC851C75BB3500426B4F /* ComplicationController.swift */,
+				431AC42D1C7A545F00CCB881 /* DateExtensions.swift */,
 				432293791C79D6480008F172 /* DataManager.swift */,
 				43C1B6DD1C78C65600563FBB /* Row controller */,
 				434DBC871C75BB3500426B4F /* Assets.xcassets */,
@@ -1287,6 +1290,7 @@
 				434DBC841C75BB3500426B4F /* ExtensionDelegate.swift in Sources */,
 				434DBC821C75BB3500426B4F /* InterfaceController.swift in Sources */,
 				434DBC861C75BB3500426B4F /* ComplicationController.swift in Sources */,
+				431AC42E1C7A545F00CCB881 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
