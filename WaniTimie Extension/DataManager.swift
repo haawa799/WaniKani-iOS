@@ -8,6 +8,7 @@
 
 import WatchKit
 import DataKitWatch
+import ClockKit
 
 
 class DataManager {
@@ -47,9 +48,16 @@ extension DataManager {
   
   func updateCurrentLevelKanji(kanjiUpdate: KanjiUpdateObject) {
     guard let currentLevelPath = currentLevelPath else { return }
+    
+    let oldLevel = currentLevel?.kanji.first?.level ?? 0
+    
     NSKeyedArchiver.archiveRootObject(kanjiUpdate, toFile: currentLevelPath)
     internalCurrentLevelObject = nil
     NSNotificationCenter.defaultCenter().postNotificationName(Notification.currentLevelUpdate, object: nil)
+    
+    if oldLevel == 0 || (oldLevel < kanjiUpdate.kanji.first?.level) {
+      reloadComplications()
+    }
   }
   
   var currentLevel: KanjiUpdateObject? {
@@ -63,6 +71,16 @@ extension DataManager {
       }
     }
     return nil
+  }
+  
+  private func reloadComplications() {
+    if let complications: [CLKComplication] = CLKComplicationServer.sharedInstance().activeComplications {
+      if complications.count > 0 {
+        for complication in complications {
+          CLKComplicationServer.sharedInstance().reloadTimelineForComplication(complication)
+        }
+      }
+    }
   }
   
 }

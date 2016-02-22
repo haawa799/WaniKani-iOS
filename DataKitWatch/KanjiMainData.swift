@@ -18,7 +18,7 @@ public class KanjiMainData: NSObject, NSCoding {
   public var burned: Bool = false
   public var level: Int = 0
   
-  override init() {
+  public override init() {
     super.init()
   }
   
