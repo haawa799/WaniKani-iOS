@@ -81,7 +81,7 @@ class DataFetchManager: NSObject {
   func fetchStudyQueue(completionHandler: ((result: UIBackgroundFetchResult)->())? = nil) {
     
     // Fetch data
-    appDelegate.waniApiManager.fetchStudyQueue { result -> Void in
+    appDelegate.waniApiManager?.fetchStudyQueue { result -> Void in
       
       switch result {
       case .Error(let _):
