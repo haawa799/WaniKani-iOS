@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "438345E01C77843400FE1530"
+               BlueprintIdentifier = "43686D5A1C77C81400043D54"
                BuildableName = "DataKit.framework"
                BlueprintName = "DataKit"
                ReferencedContainer = "container:WaniKani.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "438345E01C77843400FE1530"
+            BlueprintIdentifier = "43686D5A1C77C81400043D54"
             BuildableName = "DataKit.framework"
             BlueprintName = "DataKit"
             ReferencedContainer = "container:WaniKani.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "438345E01C77843400FE1530"
+            BlueprintIdentifier = "43686D5A1C77C81400043D54"
             BuildableName = "DataKit.framework"
             BlueprintName = "DataKit"
             ReferencedContainer = "container:WaniKani.xcodeproj">
