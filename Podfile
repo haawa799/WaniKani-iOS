@@ -1,9 +1,7 @@
+
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 inhibit_all_warnings!
-
-
-link_with 'WaniKani', 'DataKit'
 platform :ios, '8.0'
 
 target 'WaniKani' do

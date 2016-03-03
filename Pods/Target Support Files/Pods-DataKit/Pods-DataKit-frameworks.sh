@@ -84,10 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-DataKit/Realm.framework"
-  install_framework "Pods-DataKit/RealmSwift.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Realm/Realm.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/RealmSwift/RealmSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-DataKit/Realm.framework"
-  install_framework "Pods-DataKit/RealmSwift.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Realm/Realm.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/RealmSwift/RealmSwift.framework"
 fi

@@ -12,7 +12,6 @@
         <!--Dashboard-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="DashboardViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -76,6 +75,7 @@
                         <segue destination="lJO-wL-4Cg" kind="presentation" identifier="webSession" id="adG-W2-ac8"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2597" y="-535"/>
         </scene>
@@ -226,7 +226,6 @@
         <!--Data Type Picker Controller-->
         <scene sceneID="XeR-19-neC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PlE-Jm-hcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="96U-Ur-pQO" customClass="DataTypePickerController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b57-iV-AmH"/>
@@ -311,6 +310,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="erB-R4-4jm"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PlE-Jm-hcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3514" y="1824"/>
         </scene>

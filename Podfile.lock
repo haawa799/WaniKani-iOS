@@ -7,11 +7,11 @@ PODS:
     - AWSQLiteDB
   - NJKScrollFullScreen (0.2.6)
   - PermissionScope (1.0.2)
-  - Realm (0.98.2):
-    - Realm/Headers (= 0.98.2)
-  - Realm/Headers (0.98.2)
-  - RealmSwift (0.98.2):
-    - Realm (= 0.98.2)
+  - Realm (0.98.3):
+    - Realm/Headers (= 0.98.3)
+  - Realm/Headers (0.98.3)
+  - RealmSwift (0.98.3):
+    - Realm (= 0.98.3)
   - RESideMenu (4.0.7)
   - StrokeDrawingView (0.1.1)
   - UICKeyChainStore (2.1.0)
@@ -22,14 +22,12 @@ DEPENDENCIES:
   - ACEDrawingView
   - Alamofire (~> 2.0)
   - GCHelper (~> 0.2)
-  - KanjiBezierPaths (from `https://github.com/haawa799/KanjiBezierPaths.git`, branch
-    `master`)
+  - KanjiBezierPaths (from `https://github.com/haawa799/KanjiBezierPaths.git`, branch `master`)
   - NJKScrollFullScreen
   - PermissionScope
   - RealmSwift
   - RESideMenu
-  - StrokeDrawingView (from `https://github.com/haawa799/StrokeDrawingView.git`, branch
-    `master`)
+  - StrokeDrawingView (from `https://github.com/haawa799/StrokeDrawingView.git`, branch `master`)
   - UICKeyChainStore
   - UIImageView-PlayGIF
   - WaniKit (from `https://github.com/haawa799/WaniKit.git`, branch `master`)
@@ -64,12 +62,14 @@ SPEC CHECKSUMS:
   KanjiBezierPaths: b2949705dbd1873649adaedef9f1a18e82d704f0
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
   PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
-  Realm: 88a147fe04b8f07191a676b15c779b2b448991de
-  RealmSwift: 9907c7415b3e19ef2ab9f89878fc890f03f93aea
+  Realm: c6a7d00221a2d5177810a674aebd40c5e0b70b0f
+  RealmSwift: d6ecad6e4c2a645d6ac956c2c7e9efb375f39c31
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   StrokeDrawingView: 5d26664a4391804118fbfc2b3d4a5235a0057749
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
   UIImageView-PlayGIF: 445c8b31b3a43271dd3d565d9c0c612fa59ae830
   WaniKit: 1d6c27f9ecda4074585ce33d21c94236aee09263
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 05e96487943bcf27e912bfe8e2640949775b263e
+
+COCOAPODS: 1.0.0.beta.4

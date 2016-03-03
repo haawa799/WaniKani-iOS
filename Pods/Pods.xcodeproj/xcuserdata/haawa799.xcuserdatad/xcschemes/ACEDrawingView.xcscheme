@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E0B3E0D782908D3A46A2F4B7'
+               BlueprintIdentifier = 'F23EF643357DE4902A2E6096F77BF758'
                BlueprintName = 'ACEDrawingView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'ACEDrawingView.framework'>
