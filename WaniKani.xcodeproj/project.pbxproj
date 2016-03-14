@@ -1477,6 +1477,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 35;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1528,6 +1529,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 35;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1780,7 +1782,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				IBSC_MODULE = WaniTimie_Extension;
 				INFOPLIST_FILE = WaniTimie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @executable_path/Frameworks";
 				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani.debug;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1806,7 +1808,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				IBSC_MODULE = WaniTimie_Extension;
 				INFOPLIST_FILE = WaniTimie/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks @executable_path/Frameworks";
 				PARENT_APP_BUNDLE_ID = com.haawa.WaniKani;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PARENT_APP_BUNDLE_ID).watchapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";

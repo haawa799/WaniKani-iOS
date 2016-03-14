@@ -14,11 +14,11 @@ target 'WaniKani' do
   pod 'RESideMenu'
   pod 'ACEDrawingView'
   pod 'UIImageView-PlayGIF'
-  
+
   #my pods
+  pod 'WaniKit'
   pod "StrokeDrawingView", :git => 'https://github.com/haawa799/StrokeDrawingView.git', :branch => 'master'
   pod "KanjiBezierPaths", :git => 'https://github.com/haawa799/KanjiBezierPaths.git', :branch => 'master'
-  pod 'WaniKit', :git => 'https://github.com/haawa799/WaniKit.git', :branch => 'master'
 end
 
 target 'DataKit' do
