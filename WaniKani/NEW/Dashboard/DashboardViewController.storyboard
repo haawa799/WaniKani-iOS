@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kxs-gJ-Lru">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dashboard View Controller-->
+        <scene sceneID="IM4-aA-2hj">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="kxs-gJ-Lru" customClass="DashboardViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7te-Df-Dhe"/>
+                        <viewControllerLayoutGuide type="bottom" id="isT-5e-j3w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9qV-25-cYy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-Be-2Zg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EOk-Ov-fcv" customClass="DashboardLayout" customModule="WaniKani" customModuleProvider="target">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="9qV-25-cYy" secondAttribute="topMargin" id="8zt-DV-iNU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jZj-Be-2Zg" secondAttribute="trailing" id="DYa-BG-l1X"/>
+                            <constraint firstItem="isT-5e-j3w" firstAttribute="top" secondItem="jZj-Be-2Zg" secondAttribute="bottom" id="FHu-EZ-uAY"/>
+                            <constraint firstAttribute="trailing" secondItem="jZj-Be-2Zg" secondAttribute="trailing" id="Fnv-nH-CgN"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="7te-Df-Dhe" secondAttribute="bottom" id="JGl-kf-jnM"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="9qV-25-cYy" secondAttribute="top" id="Jmx-0g-ghD"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="7te-Df-Dhe" secondAttribute="bottom" id="N4z-FH-8DG"/>
+                            <constraint firstAttribute="bottom" secondItem="jZj-Be-2Zg" secondAttribute="bottom" id="RPn-VJ-tgd"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="leading" secondItem="9qV-25-cYy" secondAttribute="leadingMargin" id="bIK-2e-e5W"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="leading" secondItem="9qV-25-cYy" secondAttribute="leading" id="kZi-Ks-SQG"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="7te-Df-Dhe" secondAttribute="bottom" id="p9o-qa-5kG"/>
+                            <constraint firstItem="isT-5e-j3w" firstAttribute="top" secondItem="jZj-Be-2Zg" secondAttribute="bottom" id="qTr-IL-P5h"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8zt-DV-iNU"/>
+                                <exclude reference="JGl-kf-jnM"/>
+                                <exclude reference="p9o-qa-5kG"/>
+                                <exclude reference="DYa-BG-l1X"/>
+                                <exclude reference="N4z-FH-8DG"/>
+                                <exclude reference="bIK-2e-e5W"/>
+                                <exclude reference="qTr-IL-P5h"/>
+                                <exclude reference="FHu-EZ-uAY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="jZj-Be-2Zg" id="L0D-Ej-QsR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZ0-M4-Otq" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2011" y="-279"/>
+        </scene>
+    </scenes>
+</document>
