@@ -12,7 +12,6 @@
 		430D080D1C5E3E170097C72C /* reorder.js in Resources */ = {isa = PBXBuildFile; fileRef = 430D080C1C5E3E170097C72C /* reorder.js */; };
 		430D080F1C5F7A8B0097C72C /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430D080E1C5F7A8B0097C72C /* GameKit.framework */; };
 		43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */; };
-		43101B6F1C33D8DF00B855F2 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6E1C33D8DF00B855F2 /* SideMenuViewController.swift */; };
 		43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B751C33F41C00B855F2 /* WebViewController.xib */; };
 		43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */; };
 		43101B7B1C33F64900B855F2 /* KanjiPracticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */; };
@@ -43,27 +42,20 @@
 		4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9B71C19CA6B0011746D /* LevelProgression.swift */; };
 		4335B9BE1C19CA6B0011746D /* StudyQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9B91C19CA6B0011746D /* StudyQueue.swift */; };
 		4335B9BF1C19CA6B0011746D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9BA1C19CA6B0011746D /* User.swift */; };
-		433A3FAD1BCFACDF009C0FF1 /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433A3FAC1BCFACDF009C0FF1 /* LoginWebViewController.swift */; };
 		433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC231BFB3BCC0025EB24 /* NotificationsSetupVC.swift */; };
 		433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC251BFB407F0025EB24 /* SetupStepViewController.swift */; };
-		433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BDC271BFB4B290025EB24 /* GameCenterSetupVC.swift */; };
 		433BEF831C76642B000596F4 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433BEF821C76642B000596F4 /* RealmHelper.swift */; };
-		433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E164D1B846016007B7DE9 /* NotificationManager.swift */; };
 		433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E16581B8465D1007B7DE9 /* DashboardLayout.swift */; };
-		433E165F1B84A6D0007B7DE9 /* DataFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E165E1B84A6D0007B7DE9 /* DataFetchManager.swift */; };
-		433E16A11B8A3408007B7DE9 /* ApiKeyPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E16A01B8A3408007B7DE9 /* ApiKeyPickerController.swift */; };
 		433E280B1B79D5E900BBB45E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433E28091B79D5E900BBB45E /* Main.storyboard */; };
 		433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 433E280C1B79D5E900BBB45E /* Images.xcassets */; };
 		433E28101B79D5E900BBB45E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433E280E1B79D5E900BBB45E /* LaunchScreen.xib */; };
 		433E281C1B79D5E900BBB45E /* WaniKaniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E281B1B79D5E900BBB45E /* WaniKaniTests.swift */; };
 		43441E3E1C3BFBD6006A166B /* api_key_script.js in Resources */ = {isa = PBXBuildFile; fileRef = 43441E3D1C3BFBD6006A166B /* api_key_script.js */; };
-		43441E401C3C5ADB006A166B /* SideMenuContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43441E3F1C3C5ADB006A166B /* SideMenuContainerController.swift */; };
 		434673D81BDE53B80095A4A3 /* GameCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434673D71BDE53B80095A4A3 /* GameCenterViewController.swift */; };
 		434673DD1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434673DB1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift */; };
 		434673DE1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434673DC1BDE6F240095A4A3 /* GameCenterCollectionViewCell.xib */; };
 		434673E01BDEC8840095A4A3 /* score.js in Resources */ = {isa = PBXBuildFile; fileRef = 434673DF1BDEC8840095A4A3 /* score.js */; };
 		434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434B00CB1C1D7F8E00ECCF20 /* RealmManager.swift */; };
-		434C08691C775F9200667424 /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C08681C775F9200667424 /* WatchManager.swift */; };
 		434DBC741C75BB3500426B4F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 434DBC721C75BB3500426B4F /* Interface.storyboard */; };
 		434DBC761C75BB3500426B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434DBC751C75BB3500426B4F /* Assets.xcassets */; };
 		434DBC7D1C75BB3500426B4F /* WaniTimie Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 434DBC7C1C75BB3500426B4F /* WaniTimie Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -83,15 +75,18 @@
 		43686DAC1C78914B00043D54 /* KanjiMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43686DAB1C78914B00043D54 /* KanjiMainData.swift */; };
 		43686DAD1C78914E00043D54 /* KanjiMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43686DAB1C78914B00043D54 /* KanjiMainData.swift */; };
 		4375F00E1C50F98400A3895D /* SearchedKanjiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375F00D1C50F98400A3895D /* SearchedKanjiViewController.swift */; };
-		4375F0101C52765300A3895D /* UserActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375F00F1C52765300A3895D /* UserActivityManager.swift */; };
 		437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */; };
-		437A33CC1C326A72007FE8F3 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CA1C326A72007FE8F3 /* LevelViewController.swift */; };
-		437A33CD1C326A72007FE8F3 /* LevelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */; };
 		437A33CF1C326A8D007FE8F3 /* KanjiGraphicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CE1C326A8D007FE8F3 /* KanjiGraphicInfo.swift */; };
 		437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33D01C326A9F007FE8F3 /* KanjiCell.swift */; };
 		43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */ = {isa = PBXBuildFile; fileRef = 43850CF31B9DB86F00DFF6DD /* fast_forward.js */; };
-		43960D471C9750C1009AD9AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E28051B79D5E900BBB45E /* AppDelegate.swift */; };
-		43960D481C9750CE009AD9AB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AC6C001C60BAEA00D8CA48 /* DashboardViewController.swift */; };
+		43960D581C975195009AD9AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D4A1C975195009AD9AB /* AppDelegate.swift */; };
+		43960D591C975195009AD9AB /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D4B1C975195009AD9AB /* ApplicationCoordinator.swift */; };
+		43960D5A1C975195009AD9AB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D4C1C975195009AD9AB /* Coordinator.swift */; };
+		43960D5B1C975195009AD9AB /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D4E1C975195009AD9AB /* DashboardCoordinator.swift */; };
+		43960D5C1C975195009AD9AB /* DashboardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43960D4F1C975195009AD9AB /* DashboardViewController.storyboard */; };
+		43960D5D1C975195009AD9AB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D501C975195009AD9AB /* DashboardViewController.swift */; };
+		43960D621C975195009AD9AB /* ScreenBackgound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D561C975195009AD9AB /* ScreenBackgound.swift */; };
+		43960D631C975195009AD9AB /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D571C975195009AD9AB /* UIViewControllerUtils.swift */; };
 		43A12D081C47B66500E18556 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A12D071C47B66500E18556 /* LevelData.swift */; };
 		43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */; };
 		43AABDA61BEB47BC00F2D5B8 /* WordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */; };
@@ -103,9 +98,7 @@
 		43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD05301BA05648000DBCBE /* UserScriptsSuit.swift */; };
 		43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */; };
 		43AFAFC61B8C96130016E55F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFAFC51B8C96130016E55F /* Utils.swift */; };
-		43AFAFC81B8CA1060016E55F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFAFC71B8CA1060016E55F /* WebViewController.swift */; };
 		43B273BC1C43BDCA00B57D8B /* DataTypePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273BB1C43BDCA00B57D8B /* DataTypePickerController.swift */; };
-		43B273BE1C43DA4700B57D8B /* LevelBlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273BD1C43DA4700B57D8B /* LevelBlocksViewController.swift */; };
 		43B273C11C43DC5D00B57D8B /* LevelsBlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273BF1C43DC5D00B57D8B /* LevelsBlockCell.swift */; };
 		43B273C21C43DC5D00B57D8B /* LevelsBlockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B273C01C43DC5D00B57D8B /* LevelsBlockCell.xib */; };
 		43B273C41C43DE2C00B57D8B /* LevelsBlockLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273C31C43DE2C00B57D8B /* LevelsBlockLayout.swift */; };
@@ -117,11 +110,9 @@
 		43C012251C62265800E07303 /* 3dDoge.gif in Resources */ = {isa = PBXBuildFile; fileRef = 43C012241C62265800E07303 /* 3dDoge.gif */; };
 		43C012271C62299100E07303 /* DogeSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 43C012261C62299100E07303 /* DogeSans-Regular.otf */; };
 		43C1B6DF1C78C65600563FBB /* KanjiRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1B6DE1C78C65600563FBB /* KanjiRowController.swift */; };
-		43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */; };
 		43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */; };
 		43D506C21C22CFE40020F03B /* WaniKaniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D506C11C22CFE40020F03B /* WaniKaniUITests.swift */; };
 		43D506CA1C22D0250020F03B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D506C91C22D0250020F03B /* SnapshotHelper.swift */; };
-		43D748781BD7ADC200A11916 /* AwardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D748771BD7ADC200A11916 /* AwardsManager.swift */; };
 		43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E4567C1BBAD47A0043ECAE /* ProgressHeader.swift */; };
 		43E4567F1BBAD4A30043ECAE /* ProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E4567E1BBAD4A30043ECAE /* ProgressHeader.xib */; };
 		43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */; };
@@ -129,7 +120,6 @@
 		43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456841BBC1FEF0043ECAE /* LevelInfoView.swift */; };
 		43E456871BBC1FFE0043ECAE /* LevelInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E456861BBC1FFE0043ECAE /* LevelInfoView.xib */; };
 		43E851B51BEBA6340030E52E /* CriticalItemsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E851B41BEBA6340030E52E /* CriticalItemsLayout.swift */; };
-		43EBC09E1BA5F6C000C0B390 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBC09D1BA5F6C000C0B390 /* SettingsViewController.swift */; };
 		43EBC0A21BA5FD7A00C0B390 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A01BA5FD7A00C0B390 /* Fabric.framework */; };
 		43EBC0A31BA5FD7A00C0B390 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBC0A11BA5FD7A00C0B390 /* Crashlytics.framework */; };
 		43F4EB041C4E58C400A25840 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4EB031C4E58C400A25840 /* CanvasView.swift */; };
@@ -324,6 +314,14 @@
 		437A33CE1C326A8D007FE8F3 /* KanjiGraphicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiGraphicInfo.swift; sourceTree = "<group>"; };
 		437A33D01C326A9F007FE8F3 /* KanjiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiCell.swift; sourceTree = "<group>"; };
 		43850CF31B9DB86F00DFF6DD /* fast_forward.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fast_forward.js; path = ../Utils/fast_forward.js; sourceTree = "<group>"; };
+		43960D4A1C975195009AD9AB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		43960D4B1C975195009AD9AB /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		43960D4C1C975195009AD9AB /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		43960D4E1C975195009AD9AB /* DashboardCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
+		43960D4F1C975195009AD9AB /* DashboardViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DashboardViewController.storyboard; sourceTree = "<group>"; };
+		43960D501C975195009AD9AB /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		43960D561C975195009AD9AB /* ScreenBackgound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenBackgound.swift; sourceTree = "<group>"; };
+		43960D571C975195009AD9AB /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		43A12D071C47B66500E18556 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
 		43A667901C7461D70072614B /* WaniKani.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WaniKani.entitlements; sourceTree = "<group>"; };
 		43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
@@ -622,6 +620,7 @@
 		433E28021B79D5E900BBB45E /* WaniKani */ = {
 			isa = PBXGroup;
 			children = (
+				43960D491C975195009AD9AB /* NEW */,
 				43A667901C7461D70072614B /* WaniKani.entitlements */,
 				4335B9B51C19CA4C0011746D /* Model */,
 				43AD052D1BA044BA000DBCBE /* User scripts */,
@@ -729,6 +728,37 @@
 			children = (
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		43960D491C975195009AD9AB /* NEW */ = {
+			isa = PBXGroup;
+			children = (
+				43960D4A1C975195009AD9AB /* AppDelegate.swift */,
+				43960D4B1C975195009AD9AB /* ApplicationCoordinator.swift */,
+				43960D4C1C975195009AD9AB /* Coordinator.swift */,
+				43960D4D1C975195009AD9AB /* Dashboard */,
+				43960D551C975195009AD9AB /* Utils */,
+			);
+			path = NEW;
+			sourceTree = "<group>";
+		};
+		43960D4D1C975195009AD9AB /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				43960D4E1C975195009AD9AB /* DashboardCoordinator.swift */,
+				43960D4F1C975195009AD9AB /* DashboardViewController.storyboard */,
+				43960D501C975195009AD9AB /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		43960D551C975195009AD9AB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				43960D561C975195009AD9AB /* ScreenBackgound.swift */,
+				43960D571C975195009AD9AB /* UIViewControllerUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		43AC6BFF1C60BAEA00D8CA48 /* Tab0 Dashboard */ = {
@@ -1064,6 +1094,7 @@
 				433E280B1B79D5E900BBB45E /* Main.storyboard in Resources */,
 				433E28101B79D5E900BBB45E /* LaunchScreen.xib in Resources */,
 				43AABDA61BEB47BC00F2D5B8 /* WordCell.xib in Resources */,
+				43960D5C1C975195009AD9AB /* DashboardViewController.storyboard in Resources */,
 				43B5F8AA1C0C84C900DA9893 /* DogeHintView.xib in Resources */,
 				432C07181BB2E15A0031B3B1 /* notification.m4a in Resources */,
 				430D080D1C5E3E170097C72C /* reorder.js in Resources */,
@@ -1257,70 +1288,59 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43CA14101BC4FB6A00FBAD92 /* SettingsSuit.swift in Sources */,
-				433A3FAD1BCFACDF009C0FF1 /* LoginWebViewController.swift in Sources */,
+				43960D631C975195009AD9AB /* UIViewControllerUtils.swift in Sources */,
+				43960D581C975195009AD9AB /* AppDelegate.swift in Sources */,
 				43F4EB041C4E58C400A25840 /* CanvasView.swift in Sources */,
 				43A12D081C47B66500E18556 /* LevelData.swift in Sources */,
 				43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */,
-				43441E401C3C5ADB006A166B /* SideMenuContainerController.swift in Sources */,
-				433E16A11B8A3408007B7DE9 /* ApiKeyPickerController.swift in Sources */,
-				43960D481C9750CE009AD9AB /* DashboardViewController.swift in Sources */,
 				433BEF831C76642B000596F4 /* RealmHelper.swift in Sources */,
 				432C07301BB3272C0031B3B1 /* ReviewCell.swift in Sources */,
 				434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */,
 				43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */,
-				43AFAFC81B8CA1060016E55F /* WebViewController.swift in Sources */,
 				43B273CE1C4505A400B57D8B /* LevelsLayout.swift in Sources */,
 				433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */,
 				43B273CB1C4409CC00B57D8B /* LevelCell.swift in Sources */,
-				433E16511B846016007B7DE9 /* NotificationManager.swift in Sources */,
-				437A33CC1C326A72007FE8F3 /* LevelViewController.swift in Sources */,
 				432C072E1BB3272C0031B3B1 /* NextReviewCell.swift in Sources */,
 				4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */,
-				434C08691C775F9200667424 /* WatchManager.swift in Sources */,
 				43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */,
 				437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */,
 				432C073B1BB338820031B3B1 /* SliceView.swift in Sources */,
 				43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */,
 				432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */,
 				434673D81BDE53B80095A4A3 /* GameCenterViewController.swift in Sources */,
-				433BDC281BFB4B290025EB24 /* GameCenterSetupVC.swift in Sources */,
 				4375F00E1C50F98400A3895D /* SearchedKanjiViewController.swift in Sources */,
 				437A33CF1C326A8D007FE8F3 /* KanjiGraphicInfo.swift in Sources */,
 				4311B32D1C4D2C8A00062CE8 /* KanjiSearch.swift in Sources */,
-				43D748781BD7ADC200A11916 /* AwardsManager.swift in Sources */,
 				4335B9BF1C19CA6B0011746D /* User.swift in Sources */,
 				432C07361BB3272C0031B3B1 /* AIFlatSwitch.swift in Sources */,
 				430401011C1B18EA00D59949 /* FabricEventsManager.swift in Sources */,
 				434673DD1BDE6F240095A4A3 /* GameCenterCollectionViewCell.swift in Sources */,
-				437A33CD1C326A72007FE8F3 /* LevelPickerViewController.swift in Sources */,
 				43BE27701C1B1188001A0DD7 /* NotificationCenterManager.swift in Sources */,
 				43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */,
 				433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */,
 				43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */,
-				43960D471C9750C1009AD9AB /* AppDelegate.swift in Sources */,
+				43960D5B1C975195009AD9AB /* DashboardCoordinator.swift in Sources */,
 				43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */,
+				43960D5A1C975195009AD9AB /* Coordinator.swift in Sources */,
 				43AFAFC61B8C96130016E55F /* Utils.swift in Sources */,
 				432C07321BB3272C0031B3B1 /* SettingsScriptCell.swift in Sources */,
 				43E456831BBBD1A20043ECAE /* StratchyLayout.swift in Sources */,
 				4335B9BE1C19CA6B0011746D /* StudyQueue.swift in Sources */,
-				43B273BE1C43DA4700B57D8B /* LevelBlocksViewController.swift in Sources */,
 				43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */,
 				43B273C11C43DC5D00B57D8B /* LevelsBlockCell.swift in Sources */,
 				43B273BC1C43BDCA00B57D8B /* DataTypePickerController.swift in Sources */,
 				432C072C1BB3272C0031B3B1 /* AvaliableItemCell.swift in Sources */,
-				4375F0101C52765300A3895D /* UserActivityManager.swift in Sources */,
+				43960D591C975195009AD9AB /* ApplicationCoordinator.swift in Sources */,
+				43960D5D1C975195009AD9AB /* DashboardViewController.swift in Sources */,
 				433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */,
-				43101B6F1C33D8DF00B855F2 /* SideMenuViewController.swift in Sources */,
 				43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */,
 				437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */,
 				432C07391BB32CF90031B3B1 /* SettingsLayout.swift in Sources */,
 				43E851B51BEBA6340030E52E /* CriticalItemsLayout.swift in Sources */,
 				432C07341BB3272C0031B3B1 /* DashboardHeader.swift in Sources */,
 				43AC6C171C60F95000D8CA48 /* KeychainManager.swift in Sources */,
-				43EBC09E1BA5F6C000C0B390 /* SettingsViewController.swift in Sources */,
 				43B273C41C43DE2C00B57D8B /* LevelsBlockLayout.swift in Sources */,
-				433E165F1B84A6D0007B7DE9 /* DataFetchManager.swift in Sources */,
+				43960D621C975195009AD9AB /* ScreenBackgound.swift in Sources */,
 				43AD052F1BA044BA000DBCBE /* UserScript.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
