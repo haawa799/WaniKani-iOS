@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CE1312587FAA6AE06C6BF531FD04709C'
-               BlueprintName = 'WaniKit'
+               BlueprintIdentifier = '115824B7CB2E76E5ACB836A251E79404'
+               BlueprintName = 'DGElasticPullToRefresh'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'WaniKit.framework'>
+               BuildableName = 'DGElasticPullToRefresh.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

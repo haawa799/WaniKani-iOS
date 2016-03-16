@@ -8,16 +8,16 @@
 
 import UIKit
 
-class DashboardCoordinator: Coordinator {
+public class DashboardCoordinator: Coordinator {
   
   let presenter: UINavigationController
   private let dashboardViewController: DashboardViewController
+  let childrenCoordinators: [Coordinator]
   
-  
-  init(presenter: UINavigationController) {
+  public init(presenter: UINavigationController) {
     self.presenter = presenter
-    
     dashboardViewController = DashboardViewController.instantiateViewController()
+    childrenCoordinators = []
   }
   
   func start() {

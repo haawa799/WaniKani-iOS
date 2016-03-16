@@ -10,20 +10,26 @@ import UIKit
 
 public class ApplicationCoordinator: Coordinator {
   
+  private let dashboardNavigationController = UINavigationController()
+  private let dashboardCoordinator: DashboardCoordinator
+  
   let window: UIWindow
   let rootViewController = UITabBarController()
-  let dashboardNavigationController = UINavigationController()
-  let dashboardCoordinator: DashboardCoordinator
-  
+  let childrenCoordinators: [Coordinator]
   
   init(window: UIWindow) {
     self.window = window
     dashboardNavigationController.navigationBarHidden = true
     let viewControllers = [dashboardNavigationController]
-    self.rootViewController.setViewControllers(viewControllers, animated: false)
-    self.dashboardCoordinator = DashboardCoordinator(presenter: dashboardNavigationController)
+    rootViewController.setViewControllers(viewControllers, animated: false)
+    dashboardCoordinator = DashboardCoordinator(presenter: dashboardNavigationController)
+    childrenCoordinators = [dashboardCoordinator]
   }
   
+}
+
+// MARK: - Coordinator
+extension ApplicationCoordinator {
   func start() {
     window.rootViewController = rootViewController
     dashboardCoordinator.start()

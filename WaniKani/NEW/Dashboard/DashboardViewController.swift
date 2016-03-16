@@ -7,49 +7,13 @@
 //
 
 import UIKit
-//import WaniKit
-//import RealmSwift
 
 class DashboardViewController: UIViewController, StoryboardInstantiable {
-  
-  func openReviews() {
-    performSegueWithIdentifier("webSession", sender: 0)
-  }
-  
-  func openLessons() {
-    performSegueWithIdentifier("webSession", sender: 1)
-  }
-  
-//  private var loadedQueue: StudyQueue?
-//  var studyQueue: StudyQueue? {
-//    if loadedQueue == nil {
-//      if let user = user {
-//        if let q = user.studyQueue {
-//          loadedQueue = q
-//        }
-//      }
-//    }
-//    return loadedQueue
-//  }
-  
-//  private var loadedProgressData: ProgressHeaderData?
-//  private var progressData: ProgressHeaderData? {
-//    if loadedProgressData == nil {
-//      let users = realm.objects(User)
-//      if let user = users.first, let progression = user.levelProgression {
-//        loadedProgressData = ProgressHeaderData(level: user.level, maxTopValue: progression.kanjiTotal, topValue: progression.kanjiProgress, maxBotValue: progression.radicalsTotal,botValue: progression.radicalsProgress)
-//      }
-//    }
-//    return loadedProgressData
-//  }
-  
-  private var refreshControl: UIRefreshControl?
   
   @IBOutlet private weak var collectionView: UICollectionView! {
     didSet {
       collectionView?.alwaysBounceVertical = true
       collectionView?.dataSource = self
-      collectionView?.delegate = self
       let avaliableCellNib = UINib(nibName: "AvaliableItemCell", bundle: nil)
       collectionView?.registerNib(avaliableCellNib, forCellWithReuseIdentifier: AvaliableItemCell.identifier)
       let reviewCellNib = UINib(nibName: "ReviewCell", bundle: nil)
@@ -88,82 +52,15 @@ class DashboardViewController: UIViewController, StoryboardInstantiable {
   override func viewDidLoad() {
     super.viewDidLoad()
     addBackground(BackgroundOptions.Dashboard.rawValue)
-//
-//    appDelegate.notificationCenterManager.addObserver(self, notification: .NoApiKeyNotification, selector: "noApiKeyNotification")
-//    appDelegate.notificationCenterManager.addObserver(self, notification: .NewStudyQueueReceivedNotification, selector: "newStudyQueueData")
-//    appDelegate.notificationCenterManager.addObserver(self, notification: .NewLevelProgressionReceivedNotification, selector: "newLevelProgressionData")
     
     flipVisibleCells()
     collectionView.reloadData()
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//    if let vc = segue.destinationViewController as? SideMenuContainerController, let index = sender as? Int {
-//      switch index {
-//      case 0:
-//        vc.webViewData = ("https://www.wanikani.com/lesson/session", .Lesson)
-//      case 1:
-//        vc.webViewData = ("https://www.wanikani.com/review/session", .Review)
-//      default: break
-//      }
-//    }
-  }
-  
-  deinit {
-//    appDelegate.notificationCenterManager.removeObserver(self)
-  }
   
   private var stratchyLayout: DashboardLayout {
     return collectionView.collectionViewLayout as! DashboardLayout
   }
-  
-  private var isPresented = false {
-    didSet {
-      if isPresented == true && needsToPresentAPIPrompt == true {
-        needsToPresentAPIPrompt = false
-        promptForAPIKey()
-      }
-    }
-  }
-  private var needsToPresentAPIPrompt = false
-  
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
-    
-    var needsUpdate = true
-    
-    if let lastUpdateDate = lastUpdateDate {
-      let time = NSDate().timeIntervalSinceDate(lastUpdateDate)
-      if time < waitingTime {
-        needsUpdate = false
-      }
-    }
-    
-//    if needsUpdate {
-//      if (UIApplication.sharedApplication().delegate as? AppDelegate)?.isBackgroundFetching == false {
-//        refresh()
-//      }
-//      lastUpdateDate = NSDate()
-//    }
-//    
-//    if appDelegate.waniApiManager.apiKey() != nil {
-//      var token: dispatch_once_t = 0
-//      dispatch_once(&token) {
-//        AwardsManager.sharedInstance.authenticateLocalPlayer()
-//      }
-//    }
-    
-    isPresented = true
-  }
-  
-  override func viewDidDisappear(animated: Bool) {
-    super.viewDidDisappear(animated)
-    isPresented = false
-  }
-  
-  private var lastUpdateDate: NSDate?
-  private var waitingTime: NSTimeInterval = 20
-  private var stratchyHeader: ProgressHeader?
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
@@ -171,51 +68,6 @@ class DashboardViewController: UIViewController, StoryboardInstantiable {
     let bottom = self.bottomLayoutGuide.length
     let newInsets = UIEdgeInsets(top: top, left: 0, bottom: bottom, right: 0)
     self.collectionView.contentInset = newInsets
-  }
-}
-
-// Notifications
-extension DashboardViewController {
-  
-  func noApiKeyNotification() {
-    if isPresented == false {
-      needsToPresentAPIPrompt = true
-    } else {
-      promptForAPIKey()
-    }
-  }
-  
-  private func promptForAPIKey() {
-    performSegueWithIdentifier("apiKeyPicker", sender: nil)
-  }
-  
-  func newStudyQueueData() {
-//    stratchyHeader?.displayLoading = false
-//    loadedQueue = nil
-//    dispatch_async(dispatch_get_main_queue(), {
-//      self.flipVisibleCells()
-//      self.collectionView.reloadData()
-//    })
-  }
-  
-  func newLevelProgressionData() {
-//    loadedProgressData = nil
-//    guard let progressData = progressData else {return}
-//    stratchyHeader?.setupWithProgressionData(progressData)
-  }
-  
-}
-
-extension DashboardViewController : UICollectionViewDelegate {
-  
-  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AvaliableItemCell {
-      if cell.enabled == true {
-        if indexPath.section == 1 {
-          performSegueWithIdentifier("webSession", sender: indexPath.row)
-        }
-      }
-    }
   }
 }
 
@@ -246,37 +98,7 @@ extension DashboardViewController : UICollectionViewDataSource {
     default: break
     }
     cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath)
-    
-//    if let q = studyQueue {
-//      switch (indexPath.section, indexPath.row) {
-//      case (1, 0): (cell as? AvaliableItemCell)?.setupWith("\(q.lessonsAvaliable) Lessons", enabled: (q.lessonsAvaliable > 0))
-//      case (1, 1): (cell as? AvaliableItemCell)?.setupWith("\(q.reviewsAvaliable) Reviews", enabled: (q.reviewsAvaliable > 0))
-//      case (2, 0):
-//        if let c = cell as? NextReviewCell {
-//          c.setupWith("Next review \(q.nextReviewWaitingData().string)", notifications: NotificationManager.sharedInstance.notificationsEnabled)
-//          c.delegate = self
-//        }
-//      case (2, 1): (cell as? ReviewCell)?.setupWith("Next hour", numberText: "\(q.reviewsNextHour)")
-//      case (2, 2): (cell as? ReviewCell)?.setupWith("Next day", numberText: "\(q.reviewsNextDay)")
-//      default: break
-//      }
-//    }
     return cell
-  }
-  
-  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-    switch section {
-    case 0:
-      if let stratchyLayout = collectionViewLayout as? StratchyHeaderLayout {
-        return stratchyLayout.stratchyHeaderSize
-      }
-      return CGSizeZero
-    default :
-      if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
-        return flowLayout.headerReferenceSize
-      }
-      return CGSizeZero
-    }
   }
   
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -286,31 +108,6 @@ extension DashboardViewController : UICollectionViewDataSource {
     case 0: header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: ProgressHeader.identifier, forIndexPath: indexPath)
     default: header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier, forIndexPath: indexPath)
     }
-    //ProgressHeader
-//    switch indexPath.section {
-//    case 0:
-//      stratchyHeader = (header as? ProgressHeader)
-//      stratchyHeader?.progressHeaderDelegate = self
-//      if let progressData = progressData {
-//        stratchyHeader?.setupWithProgressionData(progressData)
-//      }
-//    case 1: (header as? DashboardHeader)?.titleLabel?.text = "Available"
-//    case 2: (header as? DashboardHeader)?.titleLabel?.text = "Reviews"
-//    default: break
-//    }
     return header
-  }
-}
-
-extension DashboardViewController: NextReviewCellDelegate {
-  func notificationsEnabled(enabled: Bool) {
-//    NotificationManager.sharedInstance.notificationsEnabled = enabled
-  }
-}
-
-extension DashboardViewController: ProgressHeaderDelegate {
-  func fullStretch() {
-    refresh()
-    stratchyHeader?.displayLoading = true
   }
 }

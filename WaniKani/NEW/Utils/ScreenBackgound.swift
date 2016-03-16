@@ -15,17 +15,13 @@ enum BackgroundOptions: String {
 }
 
 protocol BluredBackground {
-  
-  
-  
-  func addBackground(imageName: String)
+  func addBackground(imageName: String) -> Bool
 }
 
 extension BluredBackground where Self: UIViewController {
-  func addBackground(imageName: String) {
-    guard let image = UIImage(named: imageName) else { return }
+  func addBackground(imageName: String) -> Bool {
+    guard let image = UIImage(named: imageName) else { return false }
     
-    //
     let effect = UIBlurEffect(style: UIBlurEffectStyle.Light)
     let bluredView = UIVisualEffectView(effect: effect)
     bluredView.frame = view.bounds
@@ -46,6 +42,8 @@ extension BluredBackground where Self: UIViewController {
     view.addConstraints(hConstraints)
     let wConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[imageView]-0-|", options: NSLayoutFormatOptions.AlignAllCenterY, metrics: nil, views: views)
     view.addConstraints(wConstraints)
+    
+    return true
   }
 }
 

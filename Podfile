@@ -8,6 +8,7 @@ target 'WaniKani' do
 #  pod 'RealmSwift'
 #  pod 'Fabric'
 #  pod 'Crashlytics'
+  pod 'DGElasticPullToRefresh'
   pod 'Alamofire', '~> 2.0'
   pod 'PermissionScope'
   pod 'NJKScrollFullScreen'
