@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Crashlytics
+//import Crashlytics
 
 
 class NotificationManager: NSObject {

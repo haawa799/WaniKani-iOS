@@ -5,7 +5,9 @@ inhibit_all_warnings!
 platform :ios, '8.0'
 
 target 'WaniKani' do
-  pod 'RealmSwift'
+#  pod 'RealmSwift'
+#  pod 'Fabric'
+#  pod 'Crashlytics'
   pod 'Alamofire', '~> 2.0'
   pod 'PermissionScope'
   pod 'NJKScrollFullScreen'
@@ -21,6 +23,6 @@ target 'WaniKani' do
   pod "KanjiBezierPaths", :git => 'https://github.com/haawa799/KanjiBezierPaths.git', :branch => 'master'
 end
 
-target 'DataKit' do
-  pod 'RealmSwift'
-end
+#target 'DataKit' do
+#  pod 'RealmSwift'
+#end

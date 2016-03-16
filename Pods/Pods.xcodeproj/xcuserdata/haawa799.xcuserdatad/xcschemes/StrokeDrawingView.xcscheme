@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '171B90B98C7943D62B6B9005E99CD9FB'
+               BlueprintIdentifier = 'DC45C00C29A35BA5D66C3E38E4FB1608'
                BlueprintName = 'StrokeDrawingView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'StrokeDrawingView.framework'>

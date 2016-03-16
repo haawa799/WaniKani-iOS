@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Crashlytics
-import Fabric
+//import Crashlytics
+//import Fabric
 
 
 struct FabricEventsManager {
