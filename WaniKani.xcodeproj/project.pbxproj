@@ -17,6 +17,8 @@
 		4311B32D1C4D2C8A00062CE8 /* KanjiSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */; };
 		431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 431A31311BFF59600080944E /* Fipps-Regular.otf */; };
 		431AC42E1C7A545F00CCB881 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AC42D1C7A545F00CCB881 /* DateExtensions.swift */; };
+		431B32F51C99997C00324323 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B32F41C99997C00324323 /* ProgressView.swift */; };
+		431B32F91C99A80700324323 /* LabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B32F81C99A80700324323 /* LabelExtensions.swift */; };
 		4322937A1C79D6480008F172 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432293791C79D6480008F172 /* DataManager.swift */; };
 		4322937C1C79DDFA0008F172 /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322937B1C79DDFA0008F172 /* Communication.swift */; };
 		4322937D1C79DDFA0008F172 /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322937B1C79DDFA0008F172 /* Communication.swift */; };
@@ -238,6 +240,8 @@
 		4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiSearch.swift; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		431AC42D1C7A545F00CCB881 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		431B32F41C99997C00324323 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		431B32F81C99A80700324323 /* LabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtensions.swift; sourceTree = "<group>"; };
 		432293791C79D6480008F172 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4322937B1C79DDFA0008F172 /* Communication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communication.swift; sourceTree = "<group>"; };
 		4322937E1C79E0630008F172 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -468,6 +472,14 @@
 				3683C84B97D901613B8FFE9A /* Pods_WaniKani.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		431B32F31C99991000324323 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				431B32F41C99997C00324323 /* ProgressView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		432C071D1BB3272C0031B3B1 /* Cells */ = {
@@ -808,6 +820,7 @@
 		43960D4D1C975195009AD9AB /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				431B32F31C99991000324323 /* View */,
 				43960D4E1C975195009AD9AB /* DashboardCoordinator.swift */,
 				43960D4F1C975195009AD9AB /* DashboardViewController.storyboard */,
 				43960D501C975195009AD9AB /* DashboardViewController.swift */,
@@ -820,6 +833,7 @@
 			children = (
 				43960D561C975195009AD9AB /* ScreenBackgound.swift */,
 				43960D571C975195009AD9AB /* UIViewControllerUtils.swift */,
+				431B32F81C99A80700324323 /* LabelExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1292,6 +1306,7 @@
 				43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */,
 				433BEF831C76642B000596F4 /* RealmHelper.swift in Sources */,
 				432C07301BB3272C0031B3B1 /* ReviewCell.swift in Sources */,
+				431B32F91C99A80700324323 /* LabelExtensions.swift in Sources */,
 				434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */,
 				43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */,
 				43B273CE1C4505A400B57D8B /* LevelsLayout.swift in Sources */,
@@ -1303,6 +1318,7 @@
 				437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */,
 				437D7B521C9956B200CB93B1 /* ApplicationCoordinator.swift in Sources */,
 				437D7B511C9956B200CB93B1 /* AppDelegate.swift in Sources */,
+				431B32F51C99997C00324323 /* ProgressView.swift in Sources */,
 				432C073B1BB338820031B3B1 /* SliceView.swift in Sources */,
 				43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */,
 				432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */,
@@ -2076,6 +2092,7 @@
 				437D7B221C9939A300CB93B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43D506C81C22CFE50020F03B /* Build configuration list for PBXNativeTarget "WaniKaniUITests" */ = {
 			isa = XCConfigurationList;

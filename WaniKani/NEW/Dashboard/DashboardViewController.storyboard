@@ -3,7 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Dashboard View Controller-->
@@ -18,8 +20,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-Bq-PFo" customClass="ProgressView" customModule="WaniKani" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="102"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNC-Jt-E3M">
+                                        <rect key="frame" x="0.0" y="20" width="600" height="82"/>
+                                        <subviews>
+                                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="5aa-H9-VSg" customClass="DoubleProgressBar" customModule="WaniKani" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="82"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="botProgress">
+                                                        <real key="value" value="0.69999999999999996"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="topProgress">
+                                                        <real key="value" value="0.40000000000000002"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZl-Al-fBI">
+                                                <rect key="frame" x="518" y="0.0" width="82" height="82"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="zZl-Al-fBI" secondAttribute="height" multiplier="1:1" id="B6a-Id-Hi6"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="5aa-H9-VSg" secondAttribute="trailing" id="BsG-mI-um3"/>
+                                            <constraint firstItem="5aa-H9-VSg" firstAttribute="leading" secondItem="CNC-Jt-E3M" secondAttribute="leading" id="FBU-QT-UJg"/>
+                                            <constraint firstAttribute="bottom" secondItem="zZl-Al-fBI" secondAttribute="bottom" id="NBl-wZ-rko"/>
+                                            <constraint firstAttribute="trailing" secondItem="zZl-Al-fBI" secondAttribute="trailing" id="NaI-zC-5qe"/>
+                                            <constraint firstItem="5aa-H9-VSg" firstAttribute="top" secondItem="CNC-Jt-E3M" secondAttribute="top" id="cTv-ZP-frF"/>
+                                            <constraint firstItem="zZl-Al-fBI" firstAttribute="top" secondItem="CNC-Jt-E3M" secondAttribute="top" id="dWH-cS-pWz"/>
+                                            <constraint firstAttribute="bottom" secondItem="5aa-H9-VSg" secondAttribute="bottom" id="fmm-mu-vvL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eyr-Bq-PFo" secondAttribute="height" multiplier="150:23" id="Cbm-Bz-bAW"/>
+                                    <constraint firstAttribute="trailing" secondItem="CNC-Jt-E3M" secondAttribute="trailing" id="M9m-aT-MN3"/>
+                                    <constraint firstItem="CNC-Jt-E3M" firstAttribute="leading" secondItem="eyr-Bq-PFo" secondAttribute="leading" id="WZg-j7-eAy"/>
+                                    <constraint firstAttribute="bottom" secondItem="CNC-Jt-E3M" secondAttribute="bottom" id="grh-xl-aKH"/>
+                                    <constraint firstItem="CNC-Jt-E3M" firstAttribute="top" secondItem="eyr-Bq-PFo" secondAttribute="top" constant="20" symbolic="YES" id="xMT-ab-UZg"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Cbm-Bz-bAW"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="doubleProgressBar" destination="5aa-H9-VSg" id="0kc-U3-1t1"/>
+                                </connections>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-Be-2Zg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="102" width="600" height="498"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EOk-Ov-fcv" customClass="DashboardLayout" customModule="WaniKani" customModuleProvider="target">
                                     <size key="itemSize" width="50" height="50"/>
@@ -39,22 +96,32 @@
                             <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="7te-Df-Dhe" secondAttribute="bottom" id="JGl-kf-jnM"/>
                             <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="9qV-25-cYy" secondAttribute="top" id="Jmx-0g-ghD"/>
                             <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="7te-Df-Dhe" secondAttribute="bottom" id="N4z-FH-8DG"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="9qV-25-cYy" secondAttribute="topMargin" id="O3D-P4-pWx"/>
                             <constraint firstAttribute="bottom" secondItem="jZj-Be-2Zg" secondAttribute="bottom" id="RPn-VJ-tgd"/>
+                            <constraint firstItem="eyr-Bq-PFo" firstAttribute="top" secondItem="9qV-25-cYy" secondAttribute="top" id="aJ2-Ky-OJP"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="eyr-Bq-PFo" secondAttribute="bottom" id="afJ-J6-zxI"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="eyr-Bq-PFo" secondAttribute="bottom" id="alj-Rd-I0A"/>
                             <constraint firstItem="jZj-Be-2Zg" firstAttribute="leading" secondItem="9qV-25-cYy" secondAttribute="leadingMargin" id="bIK-2e-e5W"/>
+                            <constraint firstItem="eyr-Bq-PFo" firstAttribute="leading" secondItem="9qV-25-cYy" secondAttribute="leading" id="cdF-RY-yI0"/>
                             <constraint firstItem="jZj-Be-2Zg" firstAttribute="leading" secondItem="9qV-25-cYy" secondAttribute="leading" id="kZi-Ks-SQG"/>
                             <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="7te-Df-Dhe" secondAttribute="bottom" id="p9o-qa-5kG"/>
                             <constraint firstItem="isT-5e-j3w" firstAttribute="top" secondItem="jZj-Be-2Zg" secondAttribute="bottom" id="qTr-IL-P5h"/>
+                            <constraint firstAttribute="trailing" secondItem="eyr-Bq-PFo" secondAttribute="trailing" id="uUa-Uf-Kf0"/>
+                            <constraint firstItem="eyr-Bq-PFo" firstAttribute="height" secondItem="9qV-25-cYy" secondAttribute="height" multiplier="0.17" id="wZK-s2-byN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="8zt-DV-iNU"/>
-                                <exclude reference="JGl-kf-jnM"/>
-                                <exclude reference="p9o-qa-5kG"/>
                                 <exclude reference="DYa-BG-l1X"/>
+                                <exclude reference="JGl-kf-jnM"/>
+                                <exclude reference="Jmx-0g-ghD"/>
                                 <exclude reference="N4z-FH-8DG"/>
+                                <exclude reference="O3D-P4-pWx"/>
+                                <exclude reference="afJ-J6-zxI"/>
                                 <exclude reference="bIK-2e-e5W"/>
-                                <exclude reference="qTr-IL-P5h"/>
+                                <exclude reference="p9o-qa-5kG"/>
                                 <exclude reference="FHu-EZ-uAY"/>
+                                <exclude reference="qTr-IL-P5h"/>
                             </mask>
                         </variation>
                     </view>
@@ -64,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZ0-M4-Otq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2011" y="-279"/>
+            <point key="canvasLocation" x="1852" y="-341"/>
         </scene>
     </scenes>
 </document>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardLayout: StratchyHeaderLayout {
+class DashboardLayout: UICollectionViewFlowLayout {
   
   let defaultCellInset: CGFloat = 7
   let rowsSpacing: CGFloat = 1
@@ -31,13 +31,12 @@ class DashboardLayout: StratchyHeaderLayout {
     
     let width = contentSize.width - (leftInset + rightInset)
     let height = min(width / aspectRatio, maxHeight)
-    stratchyHeaderSize = CGSize(width: width * 0.85, height: 85)
     
     let headerHeight = height * 0.5
     
     if let collectionView = collectionView, let numberOfSections = collectionView.dataSource?.numberOfSectionsInCollectionView!(collectionView) {
-      var usedHeight = headerHeight * CGFloat(numberOfSections) + stratchyHeaderSize.height
-      for var i = 0; i < numberOfSections; i++ {
+      var usedHeight = headerHeight * CGFloat(numberOfSections)
+      for i in 0...numberOfSections {
         if let numberOfCells = collectionView.dataSource?.collectionView(collectionView, numberOfItemsInSection: i) {
           usedHeight += height * CGFloat(numberOfCells)
         }
@@ -59,7 +58,7 @@ class DashboardLayout: StratchyHeaderLayout {
   }
   
   override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
-    return true
+    return false
   }
   
 }

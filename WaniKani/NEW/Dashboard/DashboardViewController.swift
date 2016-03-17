@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import DGElasticPullToRefresh
 
-class DashboardViewController: UIViewController, StoryboardInstantiable {
+class DashboardViewController: UIViewController, StoryboardInstantiable, UICollectionViewDelegate {
   
   @IBOutlet private weak var collectionView: UICollectionView! {
     didSet {
       collectionView?.alwaysBounceVertical = true
       collectionView?.dataSource = self
+      collectionView?.delegate = self
       let avaliableCellNib = UINib(nibName: "AvaliableItemCell", bundle: nil)
       collectionView?.registerNib(avaliableCellNib, forCellWithReuseIdentifier: AvaliableItemCell.identifier)
       let reviewCellNib = UINib(nibName: "ReviewCell", bundle: nil)
@@ -52,6 +54,22 @@ class DashboardViewController: UIViewController, StoryboardInstantiable {
   override func viewDidLoad() {
     super.viewDidLoad()
     addBackground(BackgroundOptions.Dashboard.rawValue)
+    
+    let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+    loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
+    collectionView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+      // Add your logic here
+      // Do not forget to call dg_stopLoading() at the end
+      delay(4, closure: { () -> () in
+        self?.collectionView.dg_stopLoading()
+      })
+//      self?.collectionView.dg_stopLoading()
+      }, loadingView: loadingView)
+    let patternColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.85)//UIColor(patternImage: UIImage(named: "pattern")!)
+    collectionView.dg_setPullToRefreshFillColor(patternColor)
+    collectionView.dg_setPullToRefreshBackgroundColor(collectionView.backgroundColor!)
+    
+    collectionView.contentInset.top += 70// = UIEdgeInsets(top: 70, left: 0, bottom: 0, right: 0)
     
     flipVisibleCells()
     collectionView.reloadData()
@@ -99,6 +117,21 @@ extension DashboardViewController : UICollectionViewDataSource {
     }
     cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath)
     return cell
+  }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    switch section {
+    case 0:
+      if let stratchyLayout = collectionViewLayout as? StratchyHeaderLayout {
+        return stratchyLayout.stratchyHeaderSize
+      }
+      return CGSizeZero
+    default :
+      if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
+        return flowLayout.headerReferenceSize
+      }
+      return CGSizeZero
+    }
   }
   
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {

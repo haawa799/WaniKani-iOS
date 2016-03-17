@@ -17,7 +17,7 @@ PODS:
 DEPENDENCIES:
   - ACEDrawingView
   - Alamofire (~> 2.0)
-  - DGElasticPullToRefresh
+  - DGElasticPullToRefresh (from `https://github.com/gontovnik/DGElasticPullToRefresh`, branch `master`)
   - GCHelper (~> 0.2)
   - KanjiBezierPaths (from `https://github.com/haawa799/KanjiBezierPaths.git`, branch `master`)
   - NJKScrollFullScreen
@@ -29,6 +29,9 @@ DEPENDENCIES:
   - WaniKit
 
 EXTERNAL SOURCES:
+  DGElasticPullToRefresh:
+    :branch: master
+    :git: https://github.com/gontovnik/DGElasticPullToRefresh
   KanjiBezierPaths:
     :branch: master
     :git: https://github.com/haawa799/KanjiBezierPaths.git
@@ -37,6 +40,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/haawa799/StrokeDrawingView.git
 
 CHECKOUT OPTIONS:
+  DGElasticPullToRefresh:
+    :commit: f9609227855702d94c2c880e4ca058b631d4376f
+    :git: https://github.com/gontovnik/DGElasticPullToRefresh
   KanjiBezierPaths:
     :commit: f18e2e9f417fef4197b51bc658a17a7a10bda31d
     :git: https://github.com/haawa799/KanjiBezierPaths.git
@@ -59,6 +65,6 @@ SPEC CHECKSUMS:
   UIImageView-PlayGIF: 445c8b31b3a43271dd3d565d9c0c612fa59ae830
   WaniKit: 962d8647fccd66c347403c2a23d00a427f57284f
 
-PODFILE CHECKSUM: f1580fbce277cfd00339d5ea75c9481a307563c1
+PODFILE CHECKSUM: a1e9b84b2b8d9bf994f451b6574eb10f7c6a66f9
 
 COCOAPODS: 1.0.0.beta.4

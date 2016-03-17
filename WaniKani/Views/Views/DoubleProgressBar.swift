@@ -60,6 +60,10 @@ class DoubleProgressBar: UIControl {
   
   override func layoutSubviews() {
     super.layoutSubviews()
+    update()
+  }
+  
+  func update() {
     recalculatePathes()
     setNeedsDisplay()
   }
