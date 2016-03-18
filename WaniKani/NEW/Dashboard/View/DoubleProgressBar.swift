@@ -61,9 +61,9 @@ class DoubleProgressBar: UIControl {
   }
   
   // Subviews
-  private var inCircleLabel: UILabel!
-  private var topLabel: UILabel!
-  private var botLabel: UILabel!
+  private var inCircleLabel: LabelWithAdaptiveTextHeight!
+  private var topLabel: LabelWithAdaptiveTextHeight!
+  private var botLabel: LabelWithAdaptiveTextHeight!
   
   // Colors
   private struct DefaultColor {
@@ -158,10 +158,9 @@ extension DoubleProgressBar {
     let kof: CGFloat = 0.9
     
     let usualHeight = bounds.height * 0.75
-    let maxHeight = bounds.width * 0.2
     let maxDelta: CGFloat = 15.0
     
-    let height = min(usualHeight, maxHeight)
+    let height = usualHeight
     let radius = height * 0.5
     
     let angle: CGFloat = CGFloat(M_PI) * kof
@@ -195,21 +194,22 @@ extension DoubleProgressBar {
   
   private func insertSubviewsIfNeeded() {
     if inCircleLabel == nil {
-      inCircleLabel = UILabel(frame: CGRectZero)
+      inCircleLabel = LabelWithAdaptiveTextHeight(frame: CGRectZero)
+      inCircleLabel.heightKoefitient = 0.4
       inCircleLabel.text = "17"
       inCircleLabel.textAlignment = NSTextAlignment.Center
       inCircleLabel.backgroundColor = UIColor.clearColor()
       addSubview(inCircleLabel)
     }
     if topLabel == nil {
-      topLabel = UILabel(frame: CGRectZero)
-      topLabel.text = "20/29"
+      topLabel = LabelWithAdaptiveTextHeight(frame: CGRectZero)
+      topLabel.heightKoefitient = 0.6
       topLabel.backgroundColor = UIColor.clearColor()
       addSubview(topLabel)
     }
     if botLabel == nil {
-      botLabel = UILabel(frame: CGRectZero)
-      botLabel.text = "20/29"
+      botLabel = LabelWithAdaptiveTextHeight(frame: CGRectZero)
+      botLabel.heightKoefitient = 0.6
       botLabel.backgroundColor = UIColor.clearColor()
       addSubview(botLabel)
     }
@@ -227,13 +227,11 @@ extension DoubleProgressBar {
   }
   
   private func updateSubviewsFrames(margin: CGFloat, labelHeight: CGFloat, progresBarHeight: CGFloat) {
-    topLabel.sizeToFit()
-    let topLabelFrame = CGRect(x: margin, y: 0.5 * margin, width: topLabel.bounds.width, height: labelHeight)
+    let topLabelFrame = CGRect(x: margin, y: 0.5 * margin, width: 0.5 * bounds.width, height: labelHeight)
     topLabel.frame = topLabelFrame
     topLabel.textColor = textColor
     
-    botLabel.sizeToFit()
-    let botLabelFrame = CGRect(x: margin, y: bounds.height - 0.5 * margin - labelHeight, width: botLabel.bounds.width, height: labelHeight)
+    let botLabelFrame = CGRect(x: margin, y: bounds.height - 0.5 * margin - labelHeight, width: 0.5 * bounds.width, height: labelHeight)
     botLabel.frame = botLabelFrame
     botLabel.textColor = textColor
     

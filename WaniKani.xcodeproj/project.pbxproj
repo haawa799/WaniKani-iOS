@@ -66,6 +66,7 @@
 		43658C1C1C9BDE0300AA3F46 /* DoubleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43658C1B1C9BDE0300AA3F46 /* DoubleProgressBar.swift */; };
 		43658C1F1C9BE05700AA3F46 /* DoubleProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43658C1E1C9BE05700AA3F46 /* DoubleProgressViewModel.swift */; };
 		43658C211C9BE39800AA3F46 /* DoubleProgressLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43658C201C9BE39800AA3F46 /* DoubleProgressLevelModel.swift */; };
+		43658C231C9BF13D00AA3F46 /* LabelWithAdaptiveTextHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43658C221C9BF13D00AA3F46 /* LabelWithAdaptiveTextHeight.swift */; };
 		43686D621C77C81400043D54 /* DataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43686D5B1C77C81400043D54 /* DataKit.framework */; };
 		43686D631C77C81400043D54 /* DataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43686D5B1C77C81400043D54 /* DataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43686D6A1C77C82F00043D54 /* DataKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 43686D681C77C82F00043D54 /* DataKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -308,6 +309,7 @@
 		43658C1B1C9BDE0300AA3F46 /* DoubleProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleProgressBar.swift; sourceTree = "<group>"; };
 		43658C1E1C9BE05700AA3F46 /* DoubleProgressViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleProgressViewModel.swift; sourceTree = "<group>"; };
 		43658C201C9BE39800AA3F46 /* DoubleProgressLevelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleProgressLevelModel.swift; sourceTree = "<group>"; };
+		43658C221C9BF13D00AA3F46 /* LabelWithAdaptiveTextHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithAdaptiveTextHeight.swift; sourceTree = "<group>"; };
 		43686D5B1C77C81400043D54 /* DataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43686D681C77C82F00043D54 /* DataKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataKit.h; sourceTree = "<group>"; };
 		43686D691C77C82F00043D54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				43658C1B1C9BDE0300AA3F46 /* DoubleProgressBar.swift */,
+				43658C221C9BF13D00AA3F46 /* LabelWithAdaptiveTextHeight.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1345,6 +1348,7 @@
 				43BE27701C1B1188001A0DD7 /* NotificationCenterManager.swift in Sources */,
 				43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */,
 				437D7B531C9956B200CB93B1 /* Coordinator.swift in Sources */,
+				43658C231C9BF13D00AA3F46 /* LabelWithAdaptiveTextHeight.swift in Sources */,
 				433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */,
 				43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */,
 				43960D5B1C975195009AD9AB /* DashboardCoordinator.swift in Sources */,
