@@ -51,6 +51,7 @@
                                     <constraint firstAttribute="trailing" secondItem="CNC-Jt-E3M" secondAttribute="trailing" id="M9m-aT-MN3"/>
                                     <constraint firstItem="CNC-Jt-E3M" firstAttribute="leading" secondItem="eyr-Bq-PFo" secondAttribute="leading" id="WZg-j7-eAy"/>
                                     <constraint firstAttribute="bottom" secondItem="CNC-Jt-E3M" secondAttribute="bottom" id="grh-xl-aKH"/>
+                                    <constraint firstAttribute="height" constant="102" id="m40-wj-rp5"/>
                                     <constraint firstItem="CNC-Jt-E3M" firstAttribute="top" secondItem="eyr-Bq-PFo" secondAttribute="top" constant="20" symbolic="YES" id="xMT-ab-UZg"/>
                                 </constraints>
                                 <variation key="default">
@@ -95,6 +96,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="wZK-s2-byN"/>
                                 <exclude reference="8zt-DV-iNU"/>
                                 <exclude reference="DYa-BG-l1X"/>
                                 <exclude reference="JGl-kf-jnM"/>
@@ -112,6 +114,7 @@
                     <connections>
                         <outlet property="collectionView" destination="jZj-Be-2Zg" id="L0D-Ej-QsR"/>
                         <outlet property="doubleProgressBar" destination="5aa-H9-VSg" id="qXZ-vy-w8H"/>
+                        <outlet property="headerHeightConstraint" destination="m40-wj-rp5" id="bWI-9X-gbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZ0-M4-Otq" sceneMemberID="firstResponder"/>

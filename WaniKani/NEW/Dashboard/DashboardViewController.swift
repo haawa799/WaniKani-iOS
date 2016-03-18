@@ -14,6 +14,10 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
   var progressViewModel: DoubleProgressViewModel?
   var levelViewModel: DoubleProgressLevelModel?
   
+  private var isHeaderShrinked = false
+  
+  @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
+  
   @IBOutlet private weak var collectionView: UICollectionView! {
     didSet {
       collectionView?.alwaysBounceVertical = true
@@ -44,21 +48,6 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
       (cell as? FlippableView)?.flip(animations: {
         }, delay: NSTimeInterval(delayFromFirst))
     }
-  }
-  
-  override func viewWillLayoutSubviews() {
-    super.viewWillLayoutSubviews()
-    collectionView?.collectionViewLayout.invalidateLayout()
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    addBackground(BackgroundOptions.Dashboard.rawValue)
-    
-    addPullToRefresh()
-    
-    flipVisibleCells()
-    collectionView.reloadData()
   }
   
   func addPullToRefresh() {
@@ -93,13 +82,6 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
     return collectionView.collectionViewLayout as! DashboardLayout
   }
   
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    let top = self.topLayoutGuide.length
-    let bottom = self.bottomLayoutGuide.length
-    let newInsets = UIEdgeInsets(top: top, left: 0, bottom: bottom, right: 0)
-    self.collectionView.contentInset = newInsets
-  }
 }
 
 extension DashboardViewController : UICollectionViewDataSource {
@@ -155,4 +137,63 @@ extension DashboardViewController : UICollectionViewDataSource {
     }
     return header
   }
+}
+
+// MARK: - UIViewController
+extension DashboardViewController {
+  
+  override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    collectionView?.collectionViewLayout.invalidateLayout()
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    addBackground(BackgroundOptions.Dashboard.rawValue)
+    
+    addPullToRefresh()
+    
+    flipVisibleCells()
+    collectionView.reloadData()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    let top = self.topLayoutGuide.length
+    let bottom = self.bottomLayoutGuide.length
+    let newInsets = UIEdgeInsets(top: top, left: 0, bottom: bottom, right: 0)
+    self.collectionView.contentInset = newInsets
+    
+    let orientation = UIDevice.currentDevice().orientation.isLandscape
+    let sizeClass = self.view.traitCollection.verticalSizeClass
+    
+    print("isLanscape \(orientation)")
+    print("compact \(sizeClass == .Compact)")
+    
+    switch (isLandscape: orientation, sizeClass) {
+    case (isLandscape: true, UIUserInterfaceSizeClass.Compact): shrinkHeader()
+    default: unshrinkHeader()
+    }
+  }
+  
+}
+
+extension DashboardViewController {
+  
+  private func shrinkHeader() {
+    guard isHeaderShrinked == false else { return }
+    headerHeightConstraint.constant = 0
+    isHeaderShrinked = true
+    doubleProgressBar.hidden = true
+    hideTabBar(true)
+  }
+  
+  private func unshrinkHeader() {
+    guard isHeaderShrinked == true else { return }
+    headerHeightConstraint.constant = view.bounds.height * 0.15
+    isHeaderShrinked = false
+    doubleProgressBar.hidden = false
+    showTabBar(true)
+  }
+  
 }

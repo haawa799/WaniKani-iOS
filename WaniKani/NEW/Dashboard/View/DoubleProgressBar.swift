@@ -239,3 +239,27 @@ extension DoubleProgressBar {
     inCircleLabel.frame = rightSquare
   }
 }
+
+extension UIBezierPath {
+  
+  private func drawInView(bezier bezier: CAShapeLayer, view: UIView, strokeColor: UIColor, lineWidth: CGFloat, oldProgress: CGFloat, progress: CGFloat, animated: Bool) {
+    
+    bezier.removeAllAnimations()
+    
+    bezier.path = self.CGPath
+    bezier.strokeColor = strokeColor.CGColor
+    bezier.lineWidth = lineWidth
+    bezier.strokeStart = 0.0
+    bezier.strokeEnd = progress
+    bezier.fillColor = nil
+    bezier.lineJoin = kCALineJoinBevel
+    
+    if animated {
+      let animateStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
+      animateStrokeEnd.duration = 0
+      animateStrokeEnd.fromValue = progress
+      animateStrokeEnd.toValue = progress
+      bezier.addAnimation(animateStrokeEnd, forKey: "strokeEndAnimation")
+    }
+  }
+}

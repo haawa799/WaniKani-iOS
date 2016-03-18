@@ -21,8 +21,8 @@ class LabelWithAdaptiveTextHeight: UILabel {
   // Returns an UIFont that fits the new label's height.
   private func fontToFitHeight() -> UIFont {
     
-    var minFontSize: CGFloat = 4 // CGFloat 18
-    var maxFontSize: CGFloat = 67     // CGFloat 67
+    var minFontSize: CGFloat = 4
+    var maxFontSize: CGFloat = 67
     var fontSizeAverage: CGFloat = 0
     var textAndLabelHeightDiff: CGFloat = 0
     
