@@ -17,7 +17,6 @@
 		4311B32D1C4D2C8A00062CE8 /* KanjiSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */; };
 		431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 431A31311BFF59600080944E /* Fipps-Regular.otf */; };
 		431AC42E1C7A545F00CCB881 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AC42D1C7A545F00CCB881 /* DateExtensions.swift */; };
-		431B32F51C99997C00324323 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B32F41C99997C00324323 /* ProgressView.swift */; };
 		431B32F91C99A80700324323 /* LabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B32F81C99A80700324323 /* LabelExtensions.swift */; };
 		4322937A1C79D6480008F172 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432293791C79D6480008F172 /* DataManager.swift */; };
 		4322937C1C79DDFA0008F172 /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4322937B1C79DDFA0008F172 /* Communication.swift */; };
@@ -63,6 +62,10 @@
 		434DBC861C75BB3500426B4F /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434DBC851C75BB3500426B4F /* ComplicationController.swift */; };
 		434DBC881C75BB3500426B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434DBC871C75BB3500426B4F /* Assets.xcassets */; };
 		434DBC8C1C75BB3500426B4F /* WaniTimie.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 434DBC701C75BB3400426B4F /* WaniTimie.app */; };
+		43658C1A1C9B474F00AA3F46 /* DrawingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43658C191C9B474F00AA3F46 /* DrawingUtils.swift */; };
+		43658C1C1C9BDE0300AA3F46 /* DoubleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43658C1B1C9BDE0300AA3F46 /* DoubleProgressBar.swift */; };
+		43658C1F1C9BE05700AA3F46 /* DoubleProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43658C1E1C9BE05700AA3F46 /* DoubleProgressViewModel.swift */; };
+		43658C211C9BE39800AA3F46 /* DoubleProgressLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43658C201C9BE39800AA3F46 /* DoubleProgressLevelModel.swift */; };
 		43686D621C77C81400043D54 /* DataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43686D5B1C77C81400043D54 /* DataKit.framework */; };
 		43686D631C77C81400043D54 /* DataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43686D5B1C77C81400043D54 /* DataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43686D6A1C77C82F00043D54 /* DataKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 43686D681C77C82F00043D54 /* DataKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -120,9 +123,7 @@
 		43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */; };
 		43D506C21C22CFE40020F03B /* WaniKaniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D506C11C22CFE40020F03B /* WaniKaniUITests.swift */; };
 		43D506CA1C22D0250020F03B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D506C91C22D0250020F03B /* SnapshotHelper.swift */; };
-		43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E4567C1BBAD47A0043ECAE /* ProgressHeader.swift */; };
 		43E4567F1BBAD4A30043ECAE /* ProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E4567E1BBAD4A30043ECAE /* ProgressHeader.xib */; };
-		43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */; };
 		43E456831BBBD1A20043ECAE /* StratchyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456821BBBD1A20043ECAE /* StratchyLayout.swift */; };
 		43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456841BBC1FEF0043ECAE /* LevelInfoView.swift */; };
 		43E456871BBC1FFE0043ECAE /* LevelInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E456861BBC1FFE0043ECAE /* LevelInfoView.xib */; };
@@ -240,7 +241,6 @@
 		4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiSearch.swift; sourceTree = "<group>"; };
 		431A31311BFF59600080944E /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		431AC42D1C7A545F00CCB881 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		431B32F41C99997C00324323 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		431B32F81C99A80700324323 /* LabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtensions.swift; sourceTree = "<group>"; };
 		432293791C79D6480008F172 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4322937B1C79DDFA0008F172 /* Communication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Communication.swift; sourceTree = "<group>"; };
@@ -304,6 +304,10 @@
 		434DBC851C75BB3500426B4F /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		434DBC871C75BB3500426B4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		434DBC891C75BB3500426B4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43658C191C9B474F00AA3F46 /* DrawingUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingUtils.swift; sourceTree = "<group>"; };
+		43658C1B1C9BDE0300AA3F46 /* DoubleProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleProgressBar.swift; sourceTree = "<group>"; };
+		43658C1E1C9BE05700AA3F46 /* DoubleProgressViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleProgressViewModel.swift; sourceTree = "<group>"; };
+		43658C201C9BE39800AA3F46 /* DoubleProgressLevelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleProgressLevelModel.swift; sourceTree = "<group>"; };
 		43686D5B1C77C81400043D54 /* DataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43686D681C77C82F00043D54 /* DataKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataKit.h; sourceTree = "<group>"; };
 		43686D691C77C82F00043D54 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -376,7 +380,6 @@
 		43D748771BD7ADC200A11916 /* AwardsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardsManager.swift; sourceTree = "<group>"; };
 		43E4567C1BBAD47A0043ECAE /* ProgressHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHeader.swift; sourceTree = "<group>"; };
 		43E4567E1BBAD4A30043ECAE /* ProgressHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressHeader.xib; sourceTree = "<group>"; };
-		43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleProgressBar.swift; sourceTree = "<group>"; };
 		43E456821BBBD1A20043ECAE /* StratchyLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StratchyLayout.swift; sourceTree = "<group>"; };
 		43E456841BBC1FEF0043ECAE /* LevelInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelInfoView.swift; sourceTree = "<group>"; };
 		43E456861BBC1FFE0043ECAE /* LevelInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelInfoView.xib; sourceTree = "<group>"; };
@@ -477,7 +480,7 @@
 		431B32F31C99991000324323 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				431B32F41C99997C00324323 /* ProgressView.swift */,
+				43658C1B1C9BDE0300AA3F46 /* DoubleProgressBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,7 +529,6 @@
 				43B5F8AC1C0C84C900DA9893 /* DogeHintView.xib */,
 				432C072B1BB3272C0031B3B1 /* DogeHintView.swift */,
 				432C073A1BB338820031B3B1 /* SliceView.swift */,
-				43E456801BBAD5690043ECAE /* DoubleProgressBar.swift */,
 				43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */,
 				43F4EB031C4E58C400A25840 /* CanvasView.swift */,
 			);
@@ -720,6 +722,15 @@
 			path = "WaniTimie Extension";
 			sourceTree = "<group>";
 		};
+		43658C1D1C9BE03700AA3F46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				43658C1E1C9BE05700AA3F46 /* DoubleProgressViewModel.swift */,
+				43658C201C9BE39800AA3F46 /* DoubleProgressLevelModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		43686D5C1C77C81400043D54 /* DataKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -820,6 +831,7 @@
 		43960D4D1C975195009AD9AB /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				43658C1D1C9BE03700AA3F46 /* ViewModel */,
 				431B32F31C99991000324323 /* View */,
 				43960D4E1C975195009AD9AB /* DashboardCoordinator.swift */,
 				43960D4F1C975195009AD9AB /* DashboardViewController.storyboard */,
@@ -834,6 +846,7 @@
 				43960D561C975195009AD9AB /* ScreenBackgound.swift */,
 				43960D571C975195009AD9AB /* UIViewControllerUtils.swift */,
 				431B32F81C99A80700324323 /* LabelExtensions.swift */,
+				43658C191C9B474F00AA3F46 /* DrawingUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1302,11 +1315,13 @@
 			files = (
 				43960D631C975195009AD9AB /* UIViewControllerUtils.swift in Sources */,
 				43F4EB041C4E58C400A25840 /* CanvasView.swift in Sources */,
+				43658C211C9BE39800AA3F46 /* DoubleProgressLevelModel.swift in Sources */,
 				43A12D081C47B66500E18556 /* LevelData.swift in Sources */,
-				43E4567D1BBAD47A0043ECAE /* ProgressHeader.swift in Sources */,
 				433BEF831C76642B000596F4 /* RealmHelper.swift in Sources */,
 				432C07301BB3272C0031B3B1 /* ReviewCell.swift in Sources */,
+				43658C1C1C9BDE0300AA3F46 /* DoubleProgressBar.swift in Sources */,
 				431B32F91C99A80700324323 /* LabelExtensions.swift in Sources */,
+				43658C1F1C9BE05700AA3F46 /* DoubleProgressViewModel.swift in Sources */,
 				434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */,
 				43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */,
 				43B273CE1C4505A400B57D8B /* LevelsLayout.swift in Sources */,
@@ -1314,11 +1329,9 @@
 				43B273CB1C4409CC00B57D8B /* LevelCell.swift in Sources */,
 				432C072E1BB3272C0031B3B1 /* NextReviewCell.swift in Sources */,
 				4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */,
-				43E456811BBAD5690043ECAE /* DoubleProgressBar.swift in Sources */,
 				437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */,
 				437D7B521C9956B200CB93B1 /* ApplicationCoordinator.swift in Sources */,
 				437D7B511C9956B200CB93B1 /* AppDelegate.swift in Sources */,
-				431B32F51C99997C00324323 /* ProgressView.swift in Sources */,
 				432C073B1BB338820031B3B1 /* SliceView.swift in Sources */,
 				43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */,
 				432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */,
@@ -1350,6 +1363,7 @@
 				437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */,
 				432C07391BB32CF90031B3B1 /* SettingsLayout.swift in Sources */,
 				43E851B51BEBA6340030E52E /* CriticalItemsLayout.swift in Sources */,
+				43658C1A1C9B474F00AA3F46 /* DrawingUtils.swift in Sources */,
 				432C07341BB3272C0031B3B1 /* DashboardHeader.swift in Sources */,
 				43AC6C171C60F95000D8CA48 /* KeychainManager.swift in Sources */,
 				43B273C41C43DE2C00B57D8B /* LevelsBlockLayout.swift in Sources */,

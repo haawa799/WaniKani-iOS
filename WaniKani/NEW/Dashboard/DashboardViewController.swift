@@ -11,6 +11,9 @@ import DGElasticPullToRefresh
 
 class DashboardViewController: UIViewController, StoryboardInstantiable, UICollectionViewDelegate {
   
+  var progressViewModel: DoubleProgressViewModel?
+  var levelViewModel: DoubleProgressLevelModel?
+  
   @IBOutlet private weak var collectionView: UICollectionView! {
     didSet {
       collectionView?.alwaysBounceVertical = true
@@ -24,14 +27,11 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
       collectionView?.registerNib(nextReviewCellNib, forCellWithReuseIdentifier: NextReviewCell.identifier)
       let headerNib = UINib(nibName: "DashboardHeader", bundle: nil)
       collectionView?.registerNib(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier)
-      let progressHeaderNib = UINib(nibName: "ProgressHeader", bundle: nil)
-      collectionView?.registerNib(progressHeaderNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ProgressHeader.identifier)
     }
   }
   
-  @IBAction private func refresh() {
-//    DataFetchManager.sharedInstance.fetchAllData()
-  }
+  @IBOutlet weak var doubleProgressBar: DoubleProgressBar!
+  
   
   private func flipVisibleCells() {
     var delayFromFirst:Float = 0.0
@@ -55,24 +55,37 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
     super.viewDidLoad()
     addBackground(BackgroundOptions.Dashboard.rawValue)
     
+    addPullToRefresh()
+    
+    flipVisibleCells()
+    collectionView.reloadData()
+  }
+  
+  func addPullToRefresh() {
     let loadingView = DGElasticPullToRefreshLoadingViewCircle()
     loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
     collectionView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
       // Add your logic here
-      // Do not forget to call dg_stopLoading() at the end
-      delay(4, closure: { () -> () in
-        self?.collectionView.dg_stopLoading()
-      })
-//      self?.collectionView.dg_stopLoading()
+      self?.fetchNewData()
       }, loadingView: loadingView)
-    let patternColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.85)//UIColor(patternImage: UIImage(named: "pattern")!)
-    collectionView.dg_setPullToRefreshFillColor(patternColor)
-    collectionView.dg_setPullToRefreshBackgroundColor(collectionView.backgroundColor!)
+    let fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.85)
+    collectionView.dg_setPullToRefreshFillColor(fillColor)
+    collectionView.dg_setPullToRefreshBackgroundColor(UIColor.clearColor())
+  }
+  
+  func fetchNewData() {
+    delay(2, closure: { () -> () in
+      self.reloadAllData()
+      self.collectionView.dg_stopLoading()
+    })
+  }
+  
+  func reloadAllData() {
+    progressViewModel = DoubleProgressViewModel()
+    levelViewModel = DoubleProgressLevelModel()
     
-    collectionView.contentInset.top += 70// = UIEdgeInsets(top: 70, left: 0, bottom: 0, right: 0)
-    
-    flipVisibleCells()
-    collectionView.reloadData()
+    doubleProgressBar.setupProgress(progressViewModel)
+    doubleProgressBar.setupLevel(levelViewModel)
   }
   
   
@@ -138,7 +151,6 @@ extension DashboardViewController : UICollectionViewDataSource {
     
     var header: UICollectionReusableView
     switch indexPath.section {
-    case 0: header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: ProgressHeader.identifier, forIndexPath: indexPath)
     default: header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier, forIndexPath: indexPath)
     }
     return header

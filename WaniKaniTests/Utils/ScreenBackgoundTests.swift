@@ -11,7 +11,7 @@ import XCTest
 
 class ScreenBackgoundTests: XCTestCase {
   
-  let realImageName = "bg"
+  let realImageName = "setup_bg_blured"
   let fakeImageName = "fakeeee"
   
   var viewController: UIViewController!

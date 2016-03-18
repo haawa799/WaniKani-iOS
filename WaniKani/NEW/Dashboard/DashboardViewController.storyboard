@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-Bq-PFo" customClass="ProgressView" customModule="WaniKani" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-Bq-PFo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="102"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNC-Jt-E3M">
@@ -36,24 +36,17 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="topProgress">
                                                         <real key="value" value="0.40000000000000002"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZl-Al-fBI">
-                                                <rect key="frame" x="518" y="0.0" width="82" height="82"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="zZl-Al-fBI" secondAttribute="height" multiplier="1:1" id="B6a-Id-Hi6"/>
-                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="5aa-H9-VSg" secondAttribute="trailing" id="BsG-mI-um3"/>
                                             <constraint firstItem="5aa-H9-VSg" firstAttribute="leading" secondItem="CNC-Jt-E3M" secondAttribute="leading" id="FBU-QT-UJg"/>
-                                            <constraint firstAttribute="bottom" secondItem="zZl-Al-fBI" secondAttribute="bottom" id="NBl-wZ-rko"/>
-                                            <constraint firstAttribute="trailing" secondItem="zZl-Al-fBI" secondAttribute="trailing" id="NaI-zC-5qe"/>
                                             <constraint firstItem="5aa-H9-VSg" firstAttribute="top" secondItem="CNC-Jt-E3M" secondAttribute="top" id="cTv-ZP-frF"/>
-                                            <constraint firstItem="zZl-Al-fBI" firstAttribute="top" secondItem="CNC-Jt-E3M" secondAttribute="top" id="dWH-cS-pWz"/>
                                             <constraint firstAttribute="bottom" secondItem="5aa-H9-VSg" secondAttribute="bottom" id="fmm-mu-vvL"/>
                                         </constraints>
                                     </view>
@@ -71,9 +64,6 @@
                                         <exclude reference="Cbm-Bz-bAW"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <outlet property="doubleProgressBar" destination="5aa-H9-VSg" id="0kc-U3-1t1"/>
-                                </connections>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-Be-2Zg">
                                 <rect key="frame" x="0.0" y="102" width="600" height="498"/>
@@ -127,6 +117,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="jZj-Be-2Zg" id="L0D-Ej-QsR"/>
+                        <outlet property="doubleProgressBar" destination="5aa-H9-VSg" id="qXZ-vy-w8H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZ0-M4-Otq" sceneMemberID="firstResponder"/>
