@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D13b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -18,30 +18,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="401" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="yBC-pz-U1E">
-                                <rect key="frame" x="8" y="27" width="39.5" height="19.5"/>
+                                <rect key="frame" x="23" y="27" width="39.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfD-dk-mJ3">
-                                <rect key="frame" x="381" y="27" width="12" height="22"/>
+                                <rect key="frame" x="374" y="27" width="12" height="22"/>
                                 <state key="normal" image="disclosure">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cx-bG-HhE">
+                                <rect key="frame" x="317" y="27" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="yBC-pz-U1E" secondAttribute="centerY" id="3CI-VY-olF"/>
                             <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="pfD-dk-mJ3" secondAttribute="bottom" id="7nr-YK-vXt"/>
+                            <constraint firstItem="1Cx-bG-HhE" firstAttribute="centerY" secondItem="4bT-j3-dZm" secondAttribute="centerY" id="DjQ-SH-bhY"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1Cx-bG-HhE" secondAttribute="bottom" id="Hph-uT-ssq"/>
                             <constraint firstItem="pfD-dk-mJ3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4bT-j3-dZm" secondAttribute="topMargin" id="HrA-GM-uYW"/>
                             <constraint firstItem="pfD-dk-mJ3" firstAttribute="trailing" secondItem="4bT-j3-dZm" secondAttribute="trailingMargin" id="IZT-LK-azm"/>
+                            <constraint firstItem="pfD-dk-mJ3" firstAttribute="leading" secondItem="1Cx-bG-HhE" secondAttribute="trailing" constant="15" id="LbL-CS-KiM"/>
                             <constraint firstItem="yBC-pz-U1E" firstAttribute="leading" secondItem="4bT-j3-dZm" secondAttribute="leadingMargin" id="QTL-YJ-E7n"/>
+                            <constraint firstItem="1Cx-bG-HhE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4bT-j3-dZm" secondAttribute="top" id="SYn-c9-TkI"/>
+                            <constraint firstAttribute="trailing" secondItem="pfD-dk-mJ3" secondAttribute="trailing" constant="15" id="apO-m9-7oV"/>
                             <constraint firstAttribute="centerY" secondItem="pfD-dk-mJ3" secondAttribute="centerY" id="bwL-u3-9PM"/>
-                            <constraint firstItem="pfD-dk-mJ3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yBC-pz-U1E" secondAttribute="trailing" id="ezy-dB-qNC"/>
+                            <constraint firstItem="1Cx-bG-HhE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yBC-pz-U1E" secondAttribute="trailing" constant="15" id="gsi-rY-Tpk"/>
                             <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="yBC-pz-U1E" secondAttribute="bottom" id="hQD-yC-R7R"/>
+                            <constraint firstItem="yBC-pz-U1E" firstAttribute="leading" secondItem="4bT-j3-dZm" secondAttribute="leadingMargin" constant="15" id="oXv-iy-Kkq"/>
                             <constraint firstItem="yBC-pz-U1E" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4bT-j3-dZm" secondAttribute="topMargin" id="uqm-hT-nXE"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="QTL-YJ-E7n"/>
+                                <exclude reference="IZT-LK-azm"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -56,7 +74,8 @@
             <size key="customSize" width="401" height="75"/>
             <connections>
                 <outlet property="disclosureButton" destination="pfD-dk-mJ3" id="aeS-XM-X0P"/>
-                <outlet property="titleLabel" destination="yBC-pz-U1E" id="8EV-A3-68z"/>
+                <outlet property="leftLabel" destination="yBC-pz-U1E" id="uhh-t1-22Y"/>
+                <outlet property="rightLabel" destination="1Cx-bG-HhE" id="VXV-as-oAc"/>
             </connections>
             <point key="canvasLocation" x="337.5" y="216.5"/>
         </collectionViewCell>

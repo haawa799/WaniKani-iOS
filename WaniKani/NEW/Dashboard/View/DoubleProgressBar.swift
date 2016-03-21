@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol DoubleProgressBarProgressDataSource {
+protocol DoubleProgressBarProgressDataSource: ViewModel {
   var topTitle: String { get }
   var botTitle: String { get }
   var topProgressPercentage: CGFloat { get }
   var botProgressPercentage: CGFloat { get }
 }
 
-protocol DoubleProgressBarLevelDataSource {
+protocol DoubleProgressBarLevelDataSource: ViewModel {
   var levelString: String { get }
 }
 

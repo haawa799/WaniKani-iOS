@@ -13,6 +13,8 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
   
   var progressViewModel: DoubleProgressViewModel?
   var levelViewModel: DoubleProgressLevelModel?
+  var lessonsAvaliableViewModel: AvaliableItemCellViewModel?
+  var reviewsAvaliableViewModel: AvaliableItemCellViewModel?
   
   private var isHeaderShrinked = false
   
@@ -66,12 +68,16 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
     delay(2, closure: { () -> () in
       self.reloadAllData()
       self.collectionView.dg_stopLoading()
+      self.flipVisibleCells()
+      self.collectionView.reloadData()
     })
   }
   
   func reloadAllData() {
     progressViewModel = DoubleProgressViewModel()
     levelViewModel = DoubleProgressLevelModel()
+    lessonsAvaliableViewModel = AvaliableItemCellViewModel()
+    reviewsAvaliableViewModel = AvaliableItemCellViewModel()
     
     doubleProgressBar.setupProgress(progressViewModel)
     doubleProgressBar.setupLevel(levelViewModel)
@@ -105,28 +111,24 @@ extension DashboardViewController : UICollectionViewDataSource {
     var cell: UICollectionViewCell
     var identifier: String = ""
     switch (indexPath.section, indexPath.row) {
-    case (2, 0): identifier = NextReviewCell.identifier
     case (1, _): identifier = AvaliableItemCell.identifier
-    case (2, _): identifier = ReviewCell.identifier
+    case (2, _): identifier = AvaliableItemCell.identifier
     default: break
     }
     cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath)
+    if let viewModelSetupable = cell as? ViewModelSetupable {
+      switch (indexPath.section, indexPath.row) {
+      case (1, 0): viewModelSetupable.setupWithViewModel(lessonsAvaliableViewModel)
+      case (1, 1): viewModelSetupable.setupWithViewModel(reviewsAvaliableViewModel)
+      default: break
+      }
+    }
     return cell
   }
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-    switch section {
-    case 0:
-      if let stratchyLayout = collectionViewLayout as? StratchyHeaderLayout {
-        return stratchyLayout.stratchyHeaderSize
-      }
-      return CGSizeZero
-    default :
-      if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
-        return flowLayout.headerReferenceSize
-      }
-      return CGSizeZero
-    }
+    guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout where section != 0 else { return CGSizeZero }
+    return flowLayout.headerReferenceSize
   }
   
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -166,9 +168,6 @@ extension DashboardViewController {
     
     let orientation = UIDevice.currentDevice().orientation.isLandscape
     let sizeClass = self.view.traitCollection.verticalSizeClass
-    
-    print("isLanscape \(orientation)")
-    print("compact \(sizeClass == .Compact)")
     
     switch (isLandscape: orientation, sizeClass) {
     case (isLandscape: true, UIUserInterfaceSizeClass.Compact): shrinkHeader()
