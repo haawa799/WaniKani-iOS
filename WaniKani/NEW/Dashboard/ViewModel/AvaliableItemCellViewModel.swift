@@ -6,17 +6,25 @@
 //  Copyright © 2016 Andriy K. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct AvaliableItemCellViewModel: AvaliableItemCellDataSource {
+  
+  private let numberOfReviewsForMaxPower = 300
+  private let rightLabelColor: UIColor
   private let leftTitleString: String
   private let rightTitleString: String
   private let isDisclosureVisible: Bool
   
   init() {
+    
+    let numberOfReviews = 0
+    let power = min(CGFloat(numberOfReviews)/CGFloat(numberOfReviewsForMaxPower), 1)
+    rightLabelColor = UIColor.colorForPowerLevel(power)
+    
     leftTitleString = "Reviews"
-    rightTitleString = "163"
-    isDisclosureVisible = true
+    rightTitleString = "\(numberOfReviews)"
+    isDisclosureVisible = (numberOfReviews > 0)
   }
 }
 
@@ -29,6 +37,10 @@ extension AvaliableItemCellViewModel {
   
   var rightTitle: String {
     return rightTitleString
+  }
+  
+  var rightTextColor: UIColor {
+    return rightLabelColor
   }
   
   var disclosureVisible: Bool {

@@ -9,24 +9,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WaniKani.ReviewCell" id="HNi-1m-Ckv" customClass="ReviewCell" customModule="WaniKani" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReviewCell" id="HNi-1m-Ckv" customClass="ReviewCell" customModule="WaniKani" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="357" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="357" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="HDU-WU-2H1">
-                        <rect key="frame" x="277.5" y="25" width="71.5" height="19.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljt-cf-yBm">
-                        <rect key="frame" x="8" y="8" width="53" height="53"/>
+                        <rect key="frame" x="291" y="8" width="53" height="53"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoT-pp-q9E">
-                                <rect key="frame" x="17" y="16" width="19.5" height="20.5"/>
+                                <rect key="frame" x="17" y="16" width="19" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -42,19 +36,36 @@
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KoT-pp-q9E" secondAttribute="bottom" id="sdX-O7-PnV"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="HDU-WU-2H1">
+                        <rect key="frame" x="23" y="24" width="71.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="HDU-WU-2H1" firstAttribute="leading" secondItem="HNi-1m-Ckv" secondAttribute="leadingMargin" id="4no-nC-dbK"/>
                 <constraint firstItem="HDU-WU-2H1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ljt-cf-yBm" secondAttribute="trailing" constant="5" id="6aS-mC-yrx"/>
                 <constraint firstAttribute="bottomMargin" secondItem="ljt-cf-yBm" secondAttribute="bottom" id="MzC-hP-J0E"/>
                 <constraint firstAttribute="trailingMargin" secondItem="HDU-WU-2H1" secondAttribute="trailing" id="Ogj-VK-MAA"/>
                 <constraint firstItem="ljt-cf-yBm" firstAttribute="top" secondItem="HNi-1m-Ckv" secondAttribute="topMargin" id="PRx-aV-lWM"/>
+                <constraint firstItem="HDU-WU-2H1" firstAttribute="leading" secondItem="HNi-1m-Ckv" secondAttribute="leadingMargin" constant="15" id="TRD-hp-M15"/>
                 <constraint firstItem="ljt-cf-yBm" firstAttribute="leading" secondItem="HNi-1m-Ckv" secondAttribute="leadingMargin" id="bxp-6H-0A1"/>
                 <constraint firstAttribute="centerY" secondItem="HDU-WU-2H1" secondAttribute="centerY" id="ijp-7z-nks"/>
+                <constraint firstAttribute="trailingMargin" secondItem="ljt-cf-yBm" secondAttribute="trailing" constant="5" id="k4L-22-oNK"/>
             </constraints>
             <size key="customSize" width="357" height="69"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="4no-nC-dbK"/>
+                    <exclude reference="6aS-mC-yrx"/>
+                    <exclude reference="Ogj-VK-MAA"/>
+                    <exclude reference="bxp-6H-0A1"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="numberLabel" destination="KoT-pp-q9E" id="bFh-e0-miW"/>
                 <outlet property="titleLabel" destination="HDU-WU-2H1" id="z4T-cr-prK"/>

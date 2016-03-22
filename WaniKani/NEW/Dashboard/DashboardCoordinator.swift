@@ -32,16 +32,16 @@ public class DashboardCoordinator: Coordinator, DashboardViewControllerDelegate 
       CollectionViewSection(nil, []),
       
       // Section 1
-      CollectionViewSection(nil, [
+      CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Available") as ViewModel), DashboardHeader.identifier), [
         CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier),
         CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier)
         ]),
       
       // Section 2
-      CollectionViewSection(nil, [
-        CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier),
-        CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier),
-        CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier)
+      CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Reviews") as ViewModel), DashboardHeader.identifier), [
+        CollectionViewCellDataItem((LeftRightTitleViewModel() as ViewModel), ReviewCell.identifier),
+        CollectionViewCellDataItem((LeftRightTitleViewModel() as ViewModel), ReviewCell.identifier),
+        CollectionViewCellDataItem((LeftRightTitleViewModel() as ViewModel), ReviewCell.identifier)
         ])
     ]
     dashboardViewController.collectionViewModel = CollectionViewViewModel(sections: sections)

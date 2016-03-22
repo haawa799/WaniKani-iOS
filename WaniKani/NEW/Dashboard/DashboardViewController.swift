@@ -23,13 +23,13 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
       collectionView?.alwaysBounceVertical = true
       collectionView?.dataSource = self
       collectionView?.delegate = self
-      let avaliableCellNib = UINib(nibName: "AvaliableItemCell", bundle: nil)
+      let avaliableCellNib = UINib(nibName: AvaliableItemCell.nibName, bundle: nil)
       collectionView?.registerNib(avaliableCellNib, forCellWithReuseIdentifier: AvaliableItemCell.identifier)
-      let reviewCellNib = UINib(nibName: "ReviewCell", bundle: nil)
+      let reviewCellNib = UINib(nibName: ReviewCell.nibName, bundle: nil)
       collectionView?.registerNib(reviewCellNib, forCellWithReuseIdentifier: ReviewCell.identifier)
-      let nextReviewCellNib = UINib(nibName: "NextReviewCell", bundle: nil)
+      let nextReviewCellNib = UINib(nibName: NextReviewCell.nibName, bundle: nil)
       collectionView?.registerNib(nextReviewCellNib, forCellWithReuseIdentifier: NextReviewCell.identifier)
-      let headerNib = UINib(nibName: "DashboardHeader", bundle: nil)
+      let headerNib = UINib(nibName: DashboardHeader.nibName, bundle: nil)
       collectionView?.registerNib(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier)
     }
   }
@@ -70,23 +70,22 @@ extension DashboardViewController : UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     var cell: UICollectionViewCell!
     guard let item = collectionViewModel?.cellDataItemForIndexPath(indexPath) else { return cell }
-    
     cell = collectionView.dequeueReusableCellWithReuseIdentifier(item.reuseIdentifier, forIndexPath: indexPath)
     (cell as? ViewModelSetupable)?.setupWithViewModel(item.viewModel)
     return cell
   }
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-    guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout where section != 0 else { return CGSizeZero }
+    guard let _ = collectionViewModel?.headerItem(section) else { return CGSizeZero }
+    guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSizeZero }
     return flowLayout.headerReferenceSize
   }
   
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-    
-    var header: UICollectionReusableView
-    switch indexPath.section {
-    default: header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: DashboardHeader.identifier, forIndexPath: indexPath)
-    }
+    var header: UICollectionReusableView!
+    guard let item = collectionViewModel?.headerItem(indexPath.section) else { return header }
+    header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: item.reuseIdentifier, forIndexPath: indexPath)
+    (header as? ViewModelSetupable)?.setupWithViewModel(item.viewModel)
     return header
   }
 }

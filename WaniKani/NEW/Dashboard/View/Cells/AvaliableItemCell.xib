@@ -30,7 +30,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cx-bG-HhE">
-                                <rect key="frame" x="317" y="27" width="42" height="20.5"/>
+                                <rect key="frame" x="319" y="27" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -47,17 +47,23 @@
                             <constraint firstItem="pfD-dk-mJ3" firstAttribute="leading" secondItem="1Cx-bG-HhE" secondAttribute="trailing" constant="15" id="LbL-CS-KiM"/>
                             <constraint firstItem="yBC-pz-U1E" firstAttribute="leading" secondItem="4bT-j3-dZm" secondAttribute="leadingMargin" id="QTL-YJ-E7n"/>
                             <constraint firstItem="1Cx-bG-HhE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4bT-j3-dZm" secondAttribute="top" id="SYn-c9-TkI"/>
+                            <constraint firstAttribute="trailing" secondItem="pfD-dk-mJ3" secondAttribute="trailing" constant="15" id="T8f-Z8-7kZ"/>
                             <constraint firstAttribute="trailing" secondItem="pfD-dk-mJ3" secondAttribute="trailing" constant="15" id="apO-m9-7oV"/>
                             <constraint firstAttribute="centerY" secondItem="pfD-dk-mJ3" secondAttribute="centerY" id="bwL-u3-9PM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pfD-dk-mJ3" secondAttribute="trailing" id="giR-HU-Cvr"/>
                             <constraint firstItem="1Cx-bG-HhE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yBC-pz-U1E" secondAttribute="trailing" constant="15" id="gsi-rY-Tpk"/>
                             <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="yBC-pz-U1E" secondAttribute="bottom" id="hQD-yC-R7R"/>
                             <constraint firstItem="yBC-pz-U1E" firstAttribute="leading" secondItem="4bT-j3-dZm" secondAttribute="leadingMargin" constant="15" id="oXv-iy-Kkq"/>
                             <constraint firstItem="yBC-pz-U1E" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4bT-j3-dZm" secondAttribute="topMargin" id="uqm-hT-nXE"/>
+                            <constraint firstAttribute="trailing" secondItem="1Cx-bG-HhE" secondAttribute="trailing" constant="40" id="ySt-rj-c3Q"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="QTL-YJ-E7n"/>
                                 <exclude reference="IZT-LK-azm"/>
+                                <exclude reference="LbL-CS-KiM"/>
+                                <exclude reference="apO-m9-7oV"/>
+                                <exclude reference="giR-HU-Cvr"/>
                             </mask>
                         </variation>
                     </view>
@@ -76,6 +82,7 @@
                 <outlet property="disclosureButton" destination="pfD-dk-mJ3" id="aeS-XM-X0P"/>
                 <outlet property="leftLabel" destination="yBC-pz-U1E" id="uhh-t1-22Y"/>
                 <outlet property="rightLabel" destination="1Cx-bG-HhE" id="VXV-as-oAc"/>
+                <outlet property="rightLabelTrailingConstraint" destination="ySt-rj-c3Q" id="rfI-kn-Nwp"/>
             </connections>
             <point key="canvasLocation" x="337.5" y="216.5"/>
         </collectionViewCell>
