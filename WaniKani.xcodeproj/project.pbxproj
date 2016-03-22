@@ -97,6 +97,7 @@
 		437E131D1CA021F100083CD1 /* AvaliableItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E131B1CA021F100083CD1 /* AvaliableItemCell.swift */; };
 		437E131E1CA021F100083CD1 /* AvaliableItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437E131C1CA021F100083CD1 /* AvaliableItemCell.xib */; };
 		437E13201CA022F100083CD1 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E131F1CA022F100083CD1 /* ViewModel.swift */; };
+		437E13221CA0301400083CD1 /* CollectionViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E13211CA0301400083CD1 /* CollectionViewViewModel.swift */; };
 		43850CF41B9DB86F00DFF6DD /* fast_forward.js in Resources */ = {isa = PBXBuildFile; fileRef = 43850CF31B9DB86F00DFF6DD /* fast_forward.js */; };
 		43960D5B1C975195009AD9AB /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D4E1C975195009AD9AB /* DashboardCoordinator.swift */; };
 		43960D5C1C975195009AD9AB /* DashboardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43960D4F1C975195009AD9AB /* DashboardViewController.storyboard */; };
@@ -344,6 +345,7 @@
 		437E131B1CA021F100083CD1 /* AvaliableItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvaliableItemCell.swift; sourceTree = "<group>"; };
 		437E131C1CA021F100083CD1 /* AvaliableItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvaliableItemCell.xib; sourceTree = "<group>"; };
 		437E131F1CA022F100083CD1 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		437E13211CA0301400083CD1 /* CollectionViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewViewModel.swift; sourceTree = "<group>"; };
 		43850CF31B9DB86F00DFF6DD /* fast_forward.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fast_forward.js; path = ../Utils/fast_forward.js; sourceTree = "<group>"; };
 		43960D4E1C975195009AD9AB /* DashboardCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
 		43960D4F1C975195009AD9AB /* DashboardViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DashboardViewController.storyboard; sourceTree = "<group>"; };
@@ -734,6 +736,7 @@
 				43658C1E1C9BE05700AA3F46 /* DoubleProgressViewModel.swift */,
 				43658C201C9BE39800AA3F46 /* DoubleProgressLevelModel.swift */,
 				437E13181CA0200800083CD1 /* AvaliableItemCellViewModel.swift */,
+				437E13211CA0301400083CD1 /* CollectionViewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1373,6 +1376,7 @@
 				43E456831BBBD1A20043ECAE /* StratchyLayout.swift in Sources */,
 				4335B9BE1C19CA6B0011746D /* StudyQueue.swift in Sources */,
 				43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */,
+				437E13221CA0301400083CD1 /* CollectionViewViewModel.swift in Sources */,
 				43B273C11C43DC5D00B57D8B /* LevelsBlockCell.swift in Sources */,
 				43B273BC1C43BDCA00B57D8B /* DataTypePickerController.swift in Sources */,
 				43960D5D1C975195009AD9AB /* DashboardViewController.swift in Sources */,

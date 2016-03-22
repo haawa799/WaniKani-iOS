@@ -9,17 +9,15 @@
 import UIKit
 import DGElasticPullToRefresh
 
+protocol DashboardViewControllerDelegate: class {
+  func dashboardPullToRefreshAction()
+}
+
 class DashboardViewController: UIViewController, StoryboardInstantiable, UICollectionViewDelegate {
   
-  var progressViewModel: DoubleProgressViewModel?
-  var levelViewModel: DoubleProgressLevelModel?
-  var lessonsAvaliableViewModel: AvaliableItemCellViewModel?
-  var reviewsAvaliableViewModel: AvaliableItemCellViewModel?
-  
-  private var isHeaderShrinked = false
-  
+  // MARK: Outlets
+  @IBOutlet weak var doubleProgressBar: DoubleProgressBar!
   @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
-  
   @IBOutlet private weak var collectionView: UICollectionView! {
     didSet {
       collectionView?.alwaysBounceVertical = true
@@ -36,93 +34,45 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
     }
   }
   
-  @IBOutlet weak var doubleProgressBar: DoubleProgressBar!
-  
-  
-  private func flipVisibleCells() {
-    var delayFromFirst:Float = 0.0
-    let deltaTime:Float = 0.1
-    
-    let cells = self.collectionView.visibleCells()
-    
-    for cell in cells{
-      delayFromFirst += deltaTime
-      (cell as? FlippableView)?.flip(animations: {
-        }, delay: NSTimeInterval(delayFromFirst))
+  // MARK: Public API
+  weak var delegate: DashboardViewControllerDelegate?
+  var progressViewModel: DoubleProgressViewModel?
+  var levelViewModel: DoubleProgressLevelModel?
+  //
+  var collectionViewModel: CollectionViewViewModel? {
+    didSet {
+      guard let _ = collectionViewModel else { return }
+      reloadCollectionView()
     }
   }
   
-  func addPullToRefresh() {
-    let loadingView = DGElasticPullToRefreshLoadingViewCircle()
-    loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
-    collectionView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
-      // Add your logic here
-      self?.fetchNewData()
-      }, loadingView: loadingView)
-    let fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.85)
-    collectionView.dg_setPullToRefreshFillColor(fillColor)
-    collectionView.dg_setPullToRefreshBackgroundColor(UIColor.clearColor())
-  }
-  
-  func fetchNewData() {
-    delay(2, closure: { () -> () in
-      self.reloadAllData()
-      self.collectionView.dg_stopLoading()
-      self.flipVisibleCells()
-      self.collectionView.reloadData()
-    })
-  }
-  
-  func reloadAllData() {
-    progressViewModel = DoubleProgressViewModel()
-    levelViewModel = DoubleProgressLevelModel()
-    lessonsAvaliableViewModel = AvaliableItemCellViewModel()
-    reviewsAvaliableViewModel = AvaliableItemCellViewModel()
-    
-    doubleProgressBar.setupProgress(progressViewModel)
-    doubleProgressBar.setupLevel(levelViewModel)
-  }
-  
-  
+  // MARK: Private
+  private var isHeaderShrinked = false
+  private var isPulledDown = false
   private var stratchyLayout: DashboardLayout {
     return collectionView.collectionViewLayout as! DashboardLayout
   }
   
 }
 
+// MARK: - UICollectionViewDataSource
 extension DashboardViewController : UICollectionViewDataSource {
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-    return 3
+    guard let collectionViewModel = collectionViewModel else { return 0 }
+    return collectionViewModel.numberOfSections()
   }
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    switch section {
-    case 0: return 0
-    case 1: return 2
-    case 2: return 3
-    default: break
-    }
-    return 0
+    return collectionViewModel?.numberOfItemsInSection(section) ?? 0
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    var cell: UICollectionViewCell!
+    guard let item = collectionViewModel?.cellDataItemForIndexPath(indexPath) else { return cell }
     
-    var cell: UICollectionViewCell
-    var identifier: String = ""
-    switch (indexPath.section, indexPath.row) {
-    case (1, _): identifier = AvaliableItemCell.identifier
-    case (2, _): identifier = AvaliableItemCell.identifier
-    default: break
-    }
-    cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath)
-    if let viewModelSetupable = cell as? ViewModelSetupable {
-      switch (indexPath.section, indexPath.row) {
-      case (1, 0): viewModelSetupable.setupWithViewModel(lessonsAvaliableViewModel)
-      case (1, 1): viewModelSetupable.setupWithViewModel(reviewsAvaliableViewModel)
-      default: break
-      }
-    }
+    cell = collectionView.dequeueReusableCellWithReuseIdentifier(item.reuseIdentifier, forIndexPath: indexPath)
+    (cell as? ViewModelSetupable)?.setupWithViewModel(item.viewModel)
     return cell
   }
   
@@ -154,9 +104,6 @@ extension DashboardViewController {
     addBackground(BackgroundOptions.Dashboard.rawValue)
     
     addPullToRefresh()
-    
-    flipVisibleCells()
-    collectionView.reloadData()
   }
   
   override func viewDidLayoutSubviews() {
@@ -177,7 +124,39 @@ extension DashboardViewController {
   
 }
 
+// MARK: - Private functions
 extension DashboardViewController {
+  
+  private func addPullToRefresh() {
+    let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+    loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
+    collectionView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+      // Add your logic here
+      self?.isPulledDown = true
+      delay(2, closure: { () -> () in
+        self?.delegate?.dashboardPullToRefreshAction()
+      })
+      }, loadingView: loadingView)
+    let fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.85)
+    collectionView.dg_setPullToRefreshFillColor(fillColor)
+    collectionView.dg_setPullToRefreshBackgroundColor(UIColor.clearColor())
+  }
+  
+  private func reloadCollectionView() {
+    if isPulledDown == true {
+      collectionView.dg_stopLoading()
+      isPulledDown = false
+    }
+    flipVisibleCells()
+    collectionView?.reloadData()
+  }
+  
+  private func reloadAllData() {
+    progressViewModel = DoubleProgressViewModel()
+    levelViewModel = DoubleProgressLevelModel()
+    doubleProgressBar.setupProgress(progressViewModel)
+    doubleProgressBar.setupLevel(levelViewModel)
+  }
   
   private func shrinkHeader() {
     guard isHeaderShrinked == false else { return }
@@ -193,6 +172,17 @@ extension DashboardViewController {
     isHeaderShrinked = false
     doubleProgressBar.hidden = false
     showTabBar(true)
+  }
+  
+  private func flipVisibleCells() {
+    var delayFromFirst:Float = 0.0
+    let deltaTime:Float = 0.1
+    guard let cells = collectionView?.visibleCells() else { return }
+    for cell in cells{
+      delayFromFirst += deltaTime
+      (cell as? FlippableView)?.flip(animations: {
+        }, delay: NSTimeInterval(delayFromFirst))
+    }
   }
   
 }

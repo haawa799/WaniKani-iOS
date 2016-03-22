@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class DashboardCoordinator: Coordinator {
+public class DashboardCoordinator: Coordinator, DashboardViewControllerDelegate {
   
   let presenter: UINavigationController
   private let dashboardViewController: DashboardViewController
@@ -21,6 +21,38 @@ public class DashboardCoordinator: Coordinator {
   }
   
   func start() {
+    fetchNewData()
+    dashboardViewController.delegate = self
     presenter.pushViewController(dashboardViewController, animated: false)
   }
+  
+  func fetchNewData() {
+    let sections = [
+      // Section 0
+      CollectionViewSection(nil, []),
+      
+      // Section 1
+      CollectionViewSection(nil, [
+        CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier),
+        CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier)
+        ]),
+      
+      // Section 2
+      CollectionViewSection(nil, [
+        CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier),
+        CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier),
+        CollectionViewCellDataItem((AvaliableItemCellViewModel() as ViewModel), AvaliableItemCell.identifier)
+        ])
+    ]
+    dashboardViewController.collectionViewModel = CollectionViewViewModel(sections: sections)
+  }
+}
+
+// MARK: - DashboardViewControllerDelegate
+extension DashboardCoordinator {
+  
+  func dashboardPullToRefreshAction() {
+    fetchNewData()
+  }
+  
 }

@@ -31,11 +31,15 @@ extension UIBackgroundFetchResult: CustomStringConvertible {
 
 protocol SingleReuseIdentifier {
   static var identifier: String {get}
+  static var nibName: String {get}
 }
 
 extension SingleReuseIdentifier where Self: UICollectionReusableView {
   static var identifier: String {
-    return NSStringFromClass(Self)
+    return NSStringFromClass(Self).componentsSeparatedByString(".").last ?? ""
+  }
+  static var nibName: String {
+    return identifier
   }
 }
 
