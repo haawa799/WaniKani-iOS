@@ -52,6 +52,13 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
     }
   }
   
+  func endLoadingIfNeeded() {
+    if isPulledDown == true {
+      isPulledDown = false
+      collectionView.dg_stopLoading()
+    }
+  }
+  
   // MARK: Private
   private var isHeaderShrinked = false
   private var isPulledDown = false
@@ -148,10 +155,7 @@ extension DashboardViewController {
   }
   
   private func reloadCollectionView() {
-    if isPulledDown == true {
-      collectionView.dg_stopLoading()
-      isPulledDown = false
-    }
+    endLoadingIfNeeded()
     flipVisibleCells()
     collectionView?.reloadData()
   }

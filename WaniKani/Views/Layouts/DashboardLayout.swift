@@ -35,7 +35,7 @@ class DashboardLayout: UICollectionViewFlowLayout {
     let headerHeight = height * 0.5
     
     if let collectionView = collectionView, let numberOfSections = collectionView.dataSource?.numberOfSectionsInCollectionView!(collectionView) {
-      var usedHeight = headerHeight * CGFloat(numberOfSections)
+      var usedHeight = headerHeight * CGFloat(numberOfSections - 1)
       for i in 0...numberOfSections {
         if let numberOfCells = collectionView.dataSource?.collectionView(collectionView, numberOfItemsInSection: i) {
           usedHeight += height * CGFloat(numberOfCells)
@@ -43,7 +43,7 @@ class DashboardLayout: UICollectionViewFlowLayout {
       }
       
       let freeSpace = contentSize.height - usedHeight
-      let freeSpacePerSection = freeSpace / CGFloat(numberOfSections + 1)
+      let freeSpacePerSection = freeSpace / CGFloat(numberOfSections)
       
       headerReferenceSize = CGSize(width: width, height: headerHeight)
       itemSize = CGSize(width: width, height: height)

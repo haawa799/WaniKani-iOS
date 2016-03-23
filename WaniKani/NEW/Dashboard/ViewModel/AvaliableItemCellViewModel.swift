@@ -16,13 +16,13 @@ struct AvaliableItemCellViewModel: AvaliableItemCellDataSource {
   private let rightTitleString: String
   private let isDisclosureVisible: Bool
   
-  init() {
+  init(title: String, number: Int) {
     
-    let numberOfReviews = 0
+    let numberOfReviews = number
     let power = min(CGFloat(numberOfReviews)/CGFloat(numberOfReviewsForMaxPower), 1)
     rightLabelColor = UIColor.colorForPowerLevel(power)
     
-    leftTitleString = "Reviews"
+    leftTitleString = title
     rightTitleString = "\(numberOfReviews)"
     isDisclosureVisible = (numberOfReviews > 0)
   }

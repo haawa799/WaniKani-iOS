@@ -28,7 +28,8 @@ public class StudyQueue: Object {
 
 extension StudyQueue {
   
-  func updateWith(studyQueueInfo: StudyQueueInfo) {
+  func updateWith(studyQueueInfo: StudyQueueInfo?) {
+    guard let studyQueueInfo = studyQueueInfo else { return }
     lessonsAvaliable = studyQueueInfo.lessonsAvaliable ?? 0
     reviewsAvaliable = studyQueueInfo.reviewsAvaliable ?? 0
     nextReviewDate = studyQueueInfo.nextReviewDate ?? NSDate()
@@ -100,5 +101,29 @@ extension StudyQueue {
       nextReviewString = "~ \(years) year\(s)"
     }
     return (nextReviewString, hours)
+  }
+}
+
+extension CollectionViewViewModel {
+  
+  static func collectionViewModelWith(studyQueue studyQueue: StudyQueue) -> CollectionViewViewModel {
+    let sections = [
+      // Section 0
+      CollectionViewSection(nil, []),
+      
+      // Section 1
+      CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Available") as ViewModel), DashboardHeader.identifier), [
+        CollectionViewCellDataItem((AvaliableItemCellViewModel(title: "Lessons", number: studyQueue.lessonsAvaliable) as ViewModel), AvaliableItemCell.identifier),
+        CollectionViewCellDataItem((AvaliableItemCellViewModel(title: "Reviews", number: studyQueue.reviewsAvaliable) as ViewModel), AvaliableItemCell.identifier)
+        ]),
+      
+      // Section 2
+      CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Reviews") as ViewModel), DashboardHeader.identifier), [
+        CollectionViewCellDataItem((LeftRightTitleViewModel() as ViewModel), ReviewCell.identifier),
+        CollectionViewCellDataItem((LeftRightTitleViewModel() as ViewModel), ReviewCell.identifier),
+        CollectionViewCellDataItem((LeftRightTitleViewModel() as ViewModel), ReviewCell.identifier)
+        ])
+    ]
+    return CollectionViewViewModel(sections: sections)
   }
 }

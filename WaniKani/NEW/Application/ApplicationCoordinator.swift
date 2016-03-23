@@ -31,6 +31,7 @@ public class ApplicationCoordinator: Coordinator {
 // MARK: - Coordinator
 extension ApplicationCoordinator {
   func start() {
+    DataProvider.makeInitialPreperations()
     window.rootViewController = rootViewController
     dashboardCoordinator.start()
     window.makeKeyAndVisible()

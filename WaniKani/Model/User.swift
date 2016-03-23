@@ -47,19 +47,16 @@ extension User {
     updateUserWithUserInfo(userInfo)
   }
   
-  func updateUserWithUserInfo(userInfo: UserInfo) {
-    
+  func updateUserWithUserInfo(userInfo: UserInfo?) {
+    guard let userInfo = userInfo else { return }
     username = userInfo.username
     creationDate = userInfo.creationDate ?? NSDate()
-    
     gravatar = userInfo.gravatar ?? ""
     level = userInfo.level ?? 0
     title = userInfo.title ?? ""
-    
     about = userInfo.about ?? ""
     website = userInfo.website ?? ""
     twitter = userInfo.twitter ?? ""
-    
     topicsCount = userInfo.topicsCount ?? 0
     postsCount = userInfo.postsCount ?? 0
   }

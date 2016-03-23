@@ -2,13 +2,13 @@ PODS:
   - ACEDrawingView (1.3.7)
   - Alamofire (2.0.2)
   - DGElasticPullToRefresh (1.0.3)
-  - GCHelper (0.3)
+  - GCHelper (0.3.2)
   - NJKScrollFullScreen (0.2.6)
   - PermissionScope (1.0.2)
   - RESideMenu (4.0.7)
   - UICKeyChainStore (2.1.0)
   - UIImageView-PlayGIF (1.0.5)
-  - WaniKit (2.0.2)
+  - WaniKit (2.0.3)
 
 DEPENDENCIES:
   - ACEDrawingView
@@ -36,13 +36,13 @@ SPEC CHECKSUMS:
   ACEDrawingView: 325b5cd00125766c6df9b30aa3a7b68866d2ce16
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
-  GCHelper: 35d1e47f11be4249e13aafd3caf21c3359f03085
+  GCHelper: f8b582b6aea213cda16a13d9d30ec7a009b30192
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
   PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
   UIImageView-PlayGIF: 445c8b31b3a43271dd3d565d9c0c612fa59ae830
-  WaniKit: 962d8647fccd66c347403c2a23d00a427f57284f
+  WaniKit: 8a256d940fb613d6adedf6748a761fd26282b69b
 
 PODFILE CHECKSUM: 0e34b73782aaffae54f5fbfa01824596733b9696
 

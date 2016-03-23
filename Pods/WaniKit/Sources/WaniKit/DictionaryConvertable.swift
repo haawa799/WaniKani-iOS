@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DictionaryConvertable {
-  typealias T
+  associatedtype T
   static func entityFromDictionary(dict: NSDictionary) -> T?
 }
 

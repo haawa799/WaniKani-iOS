@@ -26,7 +26,8 @@ public class LevelProgression: Object {
 
 extension LevelProgression {
   
-  func updateWith(levelProgressInfo: LevelProgressionInfo) {
+  func updateWith(levelProgressInfo: LevelProgressionInfo?) {
+    guard let levelProgressInfo = levelProgressInfo else { return }
     radicalsProgress = levelProgressInfo.radicalsProgress ?? 0
     radicalsTotal = levelProgressInfo.radicalsTotal ?? 0
     kanjiProgress = levelProgressInfo.kanjiProgress ?? 0
