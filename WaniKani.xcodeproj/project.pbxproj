@@ -12,7 +12,6 @@
 		430D080F1C5F7A8B0097C72C /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430D080E1C5F7A8B0097C72C /* GameKit.framework */; };
 		43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B6A1C32A18B00B855F2 /* KanjiMetaDataView.swift */; };
 		43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B751C33F41C00B855F2 /* WebViewController.xib */; };
-		43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43101B781C33F64900B855F2 /* KanjiPracticeViewController.swift */; };
 		43101B7B1C33F64900B855F2 /* KanjiPracticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43101B791C33F64900B855F2 /* KanjiPracticeViewController.xib */; };
 		4311B32D1C4D2C8A00062CE8 /* KanjiSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4311B32C1C4D2C8A00062CE8 /* KanjiSearch.swift */; };
 		431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 431A31311BFF59600080944E /* Fipps-Regular.otf */; };
@@ -71,14 +70,8 @@
 		43686D9B1C77CB0800043D54 /* DataKitWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 43686D991C77CB0800043D54 /* DataKitWatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43686DAC1C78914B00043D54 /* KanjiMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43686DAB1C78914B00043D54 /* KanjiMainData.swift */; };
 		43686DAD1C78914E00043D54 /* KanjiMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43686DAB1C78914B00043D54 /* KanjiMainData.swift */; };
-		4375F00E1C50F98400A3895D /* SearchedKanjiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375F00D1C50F98400A3895D /* SearchedKanjiViewController.swift */; };
-		437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */; };
-		437A33CF1C326A8D007FE8F3 /* KanjiGraphicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33CE1C326A8D007FE8F3 /* KanjiGraphicInfo.swift */; };
+		437906051CA14C16009331DD /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437906041CA14C16009331DD /* DataProvider.swift */; };
 		437A33D11C326A9F007FE8F3 /* KanjiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A33D01C326A9F007FE8F3 /* KanjiCell.swift */; };
-		437D7B271C993AB400CB93B1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437D7B251C993AB400CB93B1 /* Realm.framework */; };
-		437D7B281C993AB400CB93B1 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 437D7B251C993AB400CB93B1 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		437D7B291C993AB400CB93B1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437D7B261C993AB400CB93B1 /* RealmSwift.framework */; };
-		437D7B2A1C993AB400CB93B1 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 437D7B261C993AB400CB93B1 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		437D7B461C99568200CB93B1 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D7B3C1C99568200CB93B1 /* AppDelegateTests.swift */; };
 		437D7B471C99568200CB93B1 /* ApplicationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D7B3D1C99568200CB93B1 /* ApplicationCoordinatorTests.swift */; };
 		437D7B481C99568200CB93B1 /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D7B3F1C99568200CB93B1 /* DashboardCoordinator.swift */; };
@@ -108,6 +101,12 @@
 		43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD05301BA05648000DBCBE /* UserScriptsSuit.swift */; };
 		43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */; };
 		43AFAFC61B8C96130016E55F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFAFC51B8C96130016E55F /* Utils.swift */; };
+		43B214941CA2894F00C024A3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B214921CA2894F00C024A3 /* Realm.framework */; };
+		43B214951CA2894F00C024A3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43B214921CA2894F00C024A3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		43B214961CA2894F00C024A3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B214931CA2894F00C024A3 /* RealmSwift.framework */; };
+		43B214971CA2894F00C024A3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43B214931CA2894F00C024A3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		43B2149A1CA2898600C024A3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B214921CA2894F00C024A3 /* Realm.framework */; };
+		43B2149B1CA2898600C024A3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B214931CA2894F00C024A3 /* RealmSwift.framework */; };
 		43B273BC1C43BDCA00B57D8B /* DataTypePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273BB1C43BDCA00B57D8B /* DataTypePickerController.swift */; };
 		43B273C11C43DC5D00B57D8B /* LevelsBlockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273BF1C43DC5D00B57D8B /* LevelsBlockCell.swift */; };
 		43B273C21C43DC5D00B57D8B /* LevelsBlockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B273C01C43DC5D00B57D8B /* LevelsBlockCell.xib */; };
@@ -134,8 +133,6 @@
 		43E456831BBBD1A20043ECAE /* StratchyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456821BBBD1A20043ECAE /* StratchyLayout.swift */; };
 		43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E456841BBC1FEF0043ECAE /* LevelInfoView.swift */; };
 		43E456871BBC1FFE0043ECAE /* LevelInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E456861BBC1FFE0043ECAE /* LevelInfoView.xib */; };
-		43E5DE4D1C99351B00EFF36A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E5DE4B1C99351B00EFF36A /* Realm.framework */; };
-		43E5DE4E1C99351B00EFF36A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E5DE4C1C99351B00EFF36A /* RealmSwift.framework */; };
 		43E851B51BEBA6340030E52E /* CriticalItemsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E851B41BEBA6340030E52E /* CriticalItemsLayout.swift */; };
 		43F4EB041C4E58C400A25840 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4EB031C4E58C400A25840 /* CanvasView.swift */; };
 /* End PBXBuildFile section */
@@ -214,9 +211,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				437D7B281C993AB400CB93B1 /* Realm.framework in Embed Frameworks */,
+				43B214951CA2894F00C024A3 /* Realm.framework in Embed Frameworks */,
 				43686D631C77C81400043D54 /* DataKit.framework in Embed Frameworks */,
-				437D7B2A1C993AB400CB93B1 /* RealmSwift.framework in Embed Frameworks */,
+				43B214971CA2894F00C024A3 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +318,7 @@
 		43686DAB1C78914B00043D54 /* KanjiMainData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiMainData.swift; sourceTree = "<group>"; };
 		4375F00D1C50F98400A3895D /* SearchedKanjiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedKanjiViewController.swift; sourceTree = "<group>"; };
 		4375F00F1C52765300A3895D /* UserActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityManager.swift; sourceTree = "<group>"; };
+		437906041CA14C16009331DD /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		437A33C81C3269EF007FE8F3 /* KanjiStrokesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiStrokesViewController.swift; sourceTree = "<group>"; };
 		437A33CA1C326A72007FE8F3 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		437A33CB1C326A72007FE8F3 /* LevelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelPickerViewController.swift; sourceTree = "<group>"; };
@@ -328,8 +326,6 @@
 		437A33D01C326A9F007FE8F3 /* KanjiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiCell.swift; sourceTree = "<group>"; };
 		437D7B191C9939A300CB93B1 /* WaniKaniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaniKaniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		437D7B1D1C9939A300CB93B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		437D7B251C993AB400CB93B1 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = frameworks/realm/ios/Realm.framework; sourceTree = "<group>"; };
-		437D7B261C993AB400CB93B1 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = frameworks/realm/ios/RealmSwift.framework; sourceTree = "<group>"; };
 		437D7B3C1C99568200CB93B1 /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		437D7B3D1C99568200CB93B1 /* ApplicationCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTests.swift; sourceTree = "<group>"; };
 		437D7B3F1C99568200CB93B1 /* DashboardCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
@@ -365,6 +361,10 @@
 		43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorfullTabBarController.swift; sourceTree = "<group>"; };
 		43AFAFC51B8C96130016E55F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		43AFAFC71B8CA1060016E55F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		43B2148E1CA2893700C024A3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		43B2148F1CA2893700C024A3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		43B214921CA2894F00C024A3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		43B214931CA2894F00C024A3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		43B273BB1C43BDCA00B57D8B /* DataTypePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTypePickerController.swift; sourceTree = "<group>"; };
 		43B273BD1C43DA4700B57D8B /* LevelBlocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelBlocksViewController.swift; sourceTree = "<group>"; };
 		43B273BF1C43DC5D00B57D8B /* LevelsBlockCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsBlockCell.swift; sourceTree = "<group>"; };
@@ -423,8 +423,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				437D7B271C993AB400CB93B1 /* Realm.framework in Frameworks */,
-				437D7B291C993AB400CB93B1 /* RealmSwift.framework in Frameworks */,
+				43B214941CA2894F00C024A3 /* Realm.framework in Frameworks */,
+				43B214961CA2894F00C024A3 /* RealmSwift.framework in Frameworks */,
 				43686D621C77C81400043D54 /* DataKit.framework in Frameworks */,
 				430D080F1C5F7A8B0097C72C /* GameKit.framework in Frameworks */,
 				38C08CF2BDDA4C56B303598C /* Pods_WaniKani.framework in Frameworks */,
@@ -443,8 +443,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43E5DE4D1C99351B00EFF36A /* Realm.framework in Frameworks */,
-				43E5DE4E1C99351B00EFF36A /* RealmSwift.framework in Frameworks */,
+				43B2149A1CA2898600C024A3 /* Realm.framework in Frameworks */,
+				43B2149B1CA2898600C024A3 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +475,8 @@
 		2481F23E0E9C1BDFB82D2F93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43B2148E1CA2893700C024A3 /* Realm.framework */,
+				43B2148F1CA2893700C024A3 /* RealmSwift.framework */,
 				43E5DE4B1C99351B00EFF36A /* Realm.framework */,
 				43E5DE4C1C99351B00EFF36A /* RealmSwift.framework */,
 				43E5DE491C9934B900EFF36A /* Realm.framework */,
@@ -638,8 +640,7 @@
 		433E27F71B79D5E900BBB45E = {
 			isa = PBXGroup;
 			children = (
-				437D7B251C993AB400CB93B1 /* Realm.framework */,
-				437D7B261C993AB400CB93B1 /* RealmSwift.framework */,
+				43B214981CA2897000C024A3 /* Realm */,
 				433E28021B79D5E900BBB45E /* WaniKani */,
 				437D7B1A1C9939A300CB93B1 /* WaniKaniTests */,
 				43D506C01C22CFE40020F03B /* WaniKaniUITests */,
@@ -829,6 +830,7 @@
 				437D7B4E1C9956B200CB93B1 /* AppDelegate.swift */,
 				437D7B4F1C9956B200CB93B1 /* ApplicationCoordinator.swift */,
 				437D7B501C9956B200CB93B1 /* Coordinator.swift */,
+				437906041CA14C16009331DD /* DataProvider.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -901,6 +903,23 @@
 				43CA140F1BC4FB6A00FBAD92 /* SettingsSuit.swift */,
 			);
 			path = "User scripts";
+			sourceTree = "<group>";
+		};
+		43B214981CA2897000C024A3 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				43B214991CA2897800C024A3 /* iOS */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
+		43B214991CA2897800C024A3 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				43B214921CA2894F00C024A3 /* Realm.framework */,
+				43B214931CA2894F00C024A3 /* RealmSwift.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		43C1B6DD1C78C65600563FBB /* Row controller */ = {
@@ -1377,8 +1396,6 @@
 				43101B6B1C32A18B00B855F2 /* KanjiMetaDataView.swift in Sources */,
 				432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */,
 				434673D81BDE53B80095A4A3 /* GameCenterViewController.swift in Sources */,
-				4375F00E1C50F98400A3895D /* SearchedKanjiViewController.swift in Sources */,
-				437A33CF1C326A8D007FE8F3 /* KanjiGraphicInfo.swift in Sources */,
 				4311B32D1C4D2C8A00062CE8 /* KanjiSearch.swift in Sources */,
 				4335B9BF1C19CA6B0011746D /* User.swift in Sources */,
 				432C07361BB3272C0031B3B1 /* AIFlatSwitch.swift in Sources */,
@@ -1389,7 +1406,6 @@
 				43E2EFE21CA133FB002AA89F /* ColorUtils.swift in Sources */,
 				43658C231C9BF13D00AA3F46 /* LabelWithAdaptiveTextHeight.swift in Sources */,
 				433E16591B8465D1007B7DE9 /* DashboardLayout.swift in Sources */,
-				43101B7A1C33F64900B855F2 /* KanjiPracticeViewController.swift in Sources */,
 				43960D5B1C975195009AD9AB /* DashboardCoordinator.swift in Sources */,
 				43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */,
 				43AFAFC61B8C96130016E55F /* Utils.swift in Sources */,
@@ -1400,12 +1416,12 @@
 				437E13221CA0301400083CD1 /* CollectionViewViewModel.swift in Sources */,
 				43B273C11C43DC5D00B57D8B /* LevelsBlockCell.swift in Sources */,
 				43B273BC1C43BDCA00B57D8B /* DataTypePickerController.swift in Sources */,
+				437906051CA14C16009331DD /* DataProvider.swift in Sources */,
 				43960D5D1C975195009AD9AB /* DashboardViewController.swift in Sources */,
 				437E13191CA0200800083CD1 /* AvaliableItemCellViewModel.swift in Sources */,
 				437E131D1CA021F100083CD1 /* AvaliableItemCell.swift in Sources */,
 				433BDC241BFB3BCC0025EB24 /* NotificationsSetupVC.swift in Sources */,
 				43AD05311BA05648000DBCBE /* UserScriptsSuit.swift in Sources */,
-				437A33C91C3269EF007FE8F3 /* KanjiStrokesViewController.swift in Sources */,
 				432C07391BB32CF90031B3B1 /* SettingsLayout.swift in Sources */,
 				43E851B51BEBA6340030E52E /* CriticalItemsLayout.swift in Sources */,
 				43658C1A1C9B474F00AA3F46 /* DrawingUtils.swift in Sources */,
@@ -1663,7 +1679,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WaniKani",
-					"$(PROJECT_DIR)/frameworks/realm/ios",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1675,13 +1691,9 @@
 					"-framework",
 					"\"ACEDrawingView\"",
 					"-framework",
-					"\"AWSQLiteDB\"",
-					"-framework",
 					"\"Alamofire\"",
 					"-framework",
 					"\"GCHelper\"",
-					"-framework",
-					"\"KanjiBezierPaths\"",
 					"-framework",
 					"\"NJKScrollFullScreen\"",
 					"-framework",
@@ -1692,8 +1704,6 @@
 					"\"Realm\"",
 					"-framework",
 					"\"RealmSwift\"",
-					"-framework",
-					"\"StrokeDrawingView\"",
 					"-framework",
 					"\"UICKeyChainStore\"",
 					"-framework",
@@ -1727,7 +1737,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WaniKani",
-					"$(PROJECT_DIR)/frameworks/realm/ios",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WaniKani/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1739,13 +1749,9 @@
 					"-framework",
 					"\"ACEDrawingView\"",
 					"-framework",
-					"\"AWSQLiteDB\"",
-					"-framework",
 					"\"Alamofire\"",
 					"-framework",
 					"\"GCHelper\"",
-					"-framework",
-					"\"KanjiBezierPaths\"",
 					"-framework",
 					"\"NJKScrollFullScreen\"",
 					"-framework",
@@ -1756,8 +1762,6 @@
 					"\"Realm\"",
 					"-framework",
 					"\"RealmSwift\"",
-					"-framework",
-					"\"StrokeDrawingView\"",
 					"-framework",
 					"\"UICKeyChainStore\"",
 					"-framework",
@@ -1787,9 +1791,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/frameworks",
 					"$(PROJECT_DIR)/WaniTimie",
-					Extension,
 					"$(PROJECT_DIR)/DataKitWatch",
 				);
 				INFOPLIST_FILE = "WaniTimie Extension/Info.plist";
@@ -1817,9 +1819,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/frameworks",
 					"$(PROJECT_DIR)/WaniTimie",
-					Extension,
 					"$(PROJECT_DIR)/DataKitWatch",
 				);
 				INFOPLIST_FILE = "WaniTimie Extension/Info.plist";
@@ -1904,7 +1904,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DataKitWatch",
 					"$(PROJECT_DIR)/WaniKani",
-					"$(PROJECT_DIR)/frameworks/realm/ios",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = DataKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1941,7 +1941,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DataKitWatch",
 					"$(PROJECT_DIR)/WaniKani",
-					"$(PROJECT_DIR)/frameworks/realm/ios",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = DataKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

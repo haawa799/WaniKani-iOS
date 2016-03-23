@@ -1,15 +1,11 @@
 PODS:
   - ACEDrawingView (1.3.7)
   - Alamofire (2.0.2)
-  - AWSQLiteDB (0.1.2)
   - DGElasticPullToRefresh (1.0.3)
   - GCHelper (0.3)
-  - KanjiBezierPaths (0.1.3):
-    - AWSQLiteDB
   - NJKScrollFullScreen (0.2.6)
   - PermissionScope (1.0.2)
   - RESideMenu (4.0.7)
-  - StrokeDrawingView (0.1.1)
   - UICKeyChainStore (2.1.0)
   - UIImageView-PlayGIF (1.0.5)
   - WaniKit (2.0.2)
@@ -19,11 +15,9 @@ DEPENDENCIES:
   - Alamofire (~> 2.0)
   - DGElasticPullToRefresh (from `https://github.com/gontovnik/DGElasticPullToRefresh`, branch `master`)
   - GCHelper (~> 0.2)
-  - KanjiBezierPaths (from `https://github.com/haawa799/KanjiBezierPaths.git`, branch `master`)
   - NJKScrollFullScreen
   - PermissionScope
   - RESideMenu
-  - StrokeDrawingView (from `https://github.com/haawa799/StrokeDrawingView.git`, branch `master`)
   - UICKeyChainStore
   - UIImageView-PlayGIF
   - WaniKit
@@ -32,39 +26,24 @@ EXTERNAL SOURCES:
   DGElasticPullToRefresh:
     :branch: master
     :git: https://github.com/gontovnik/DGElasticPullToRefresh
-  KanjiBezierPaths:
-    :branch: master
-    :git: https://github.com/haawa799/KanjiBezierPaths.git
-  StrokeDrawingView:
-    :branch: master
-    :git: https://github.com/haawa799/StrokeDrawingView.git
 
 CHECKOUT OPTIONS:
   DGElasticPullToRefresh:
     :commit: f9609227855702d94c2c880e4ca058b631d4376f
     :git: https://github.com/gontovnik/DGElasticPullToRefresh
-  KanjiBezierPaths:
-    :commit: f18e2e9f417fef4197b51bc658a17a7a10bda31d
-    :git: https://github.com/haawa799/KanjiBezierPaths.git
-  StrokeDrawingView:
-    :commit: 769b88a4e6dd2d190e35c74bee54d45dd8e80fa8
-    :git: https://github.com/haawa799/StrokeDrawingView.git
 
 SPEC CHECKSUMS:
   ACEDrawingView: 325b5cd00125766c6df9b30aa3a7b68866d2ce16
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
-  AWSQLiteDB: 233c76f09d185268b77102860e4435773e93dbc1
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   GCHelper: 35d1e47f11be4249e13aafd3caf21c3359f03085
-  KanjiBezierPaths: b2949705dbd1873649adaedef9f1a18e82d704f0
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
   PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
-  StrokeDrawingView: 5d26664a4391804118fbfc2b3d4a5235a0057749
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
   UIImageView-PlayGIF: 445c8b31b3a43271dd3d565d9c0c612fa59ae830
   WaniKit: 962d8647fccd66c347403c2a23d00a427f57284f
 
-PODFILE CHECKSUM: a1e9b84b2b8d9bf994f451b6574eb10f7c6a66f9
+PODFILE CHECKSUM: 0e34b73782aaffae54f5fbfa01824596733b9696
 
 COCOAPODS: 1.0.0.beta.4

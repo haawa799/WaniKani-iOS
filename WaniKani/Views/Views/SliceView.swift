@@ -23,7 +23,7 @@ class SliceView: UIView {
     if points.count > 0 {
       let point = points.first!
       CGPathMoveToPoint(p, nil, point.x, point.y)
-      for var i = 1; i < points.count; i++ {
+      for i in 1 ..< points.count {
         let point = points[i]
         CGPathAddLineToPoint(p, nil, point.x, point.y)
       }

@@ -21,12 +21,17 @@ public class DashboardCoordinator: Coordinator, DashboardViewControllerDelegate 
   }
   
   func start() {
-    fetchNewData()
+    fetchAllDashboardData()
     dashboardViewController.delegate = self
     presenter.pushViewController(dashboardViewController, animated: false)
   }
   
-  func fetchNewData() {
+}
+
+// MARK: - Dashboard data fetch
+extension DashboardCoordinator {
+  
+  private func fetchDashboardData() {
     let sections = [
       // Section 0
       CollectionViewSection(nil, []),
@@ -46,13 +51,24 @@ public class DashboardCoordinator: Coordinator, DashboardViewControllerDelegate 
     ]
     dashboardViewController.collectionViewModel = CollectionViewViewModel(sections: sections)
   }
+  
+  private func fetchProgressionData() {
+    let progressViewModel = DoubleProgressViewModel()
+    let levelViewModel = DoubleProgressLevelModel()
+    dashboardViewController.progressionData = (progressViewModel, levelViewModel)
+  }
+  
+  private func fetchAllDashboardData() {
+    fetchProgressionData()
+    fetchDashboardData()
+  }
 }
 
 // MARK: - DashboardViewControllerDelegate
 extension DashboardCoordinator {
   
   func dashboardPullToRefreshAction() {
-    fetchNewData()
+    fetchAllDashboardData()
   }
   
 }

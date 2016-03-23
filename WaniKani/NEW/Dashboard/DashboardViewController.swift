@@ -16,8 +16,12 @@ protocol DashboardViewControllerDelegate: class {
 class DashboardViewController: UIViewController, StoryboardInstantiable, UICollectionViewDelegate {
   
   // MARK: Outlets
-  @IBOutlet weak var doubleProgressBar: DoubleProgressBar!
   @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var doubleProgressBar: DoubleProgressBar! {
+    didSet {
+      self.reloadProgressBar()
+    }
+  }
   @IBOutlet private weak var collectionView: UICollectionView! {
     didSet {
       collectionView?.alwaysBounceVertical = true
@@ -36,9 +40,11 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
   
   // MARK: Public API
   weak var delegate: DashboardViewControllerDelegate?
-  var progressViewModel: DoubleProgressViewModel?
-  var levelViewModel: DoubleProgressLevelModel?
-  //
+  var progressionData: (progressViewModel: DoubleProgressViewModel, levelViewModel: DoubleProgressLevelModel)? {
+    didSet {
+      reloadProgressBar()
+    }
+  }
   var collectionViewModel: CollectionViewViewModel? {
     didSet {
       guard let _ = collectionViewModel else { return }
@@ -150,11 +156,10 @@ extension DashboardViewController {
     collectionView?.reloadData()
   }
   
-  private func reloadAllData() {
-    progressViewModel = DoubleProgressViewModel()
-    levelViewModel = DoubleProgressLevelModel()
-    doubleProgressBar.setupProgress(progressViewModel)
-    doubleProgressBar.setupLevel(levelViewModel)
+  private func reloadProgressBar() {
+    guard let progressionData = progressionData else { return }
+    doubleProgressBar?.setupProgress(progressionData.progressViewModel)
+    doubleProgressBar?.setupLevel(progressionData.levelViewModel)
   }
   
   private func shrinkHeader() {

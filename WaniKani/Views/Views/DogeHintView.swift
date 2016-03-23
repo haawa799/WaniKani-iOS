@@ -79,8 +79,8 @@ class DogeHintView: UIView {
     didSet {
       
       dogeImageView.image = UIImage(named: dogeImageFilename)
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didEnterBackground"), name: UIApplicationDidEnterBackgroundNotification, object: nil)
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("willEnterForeground"), name: UIApplicationWillEnterForegroundNotification, object: nil)
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DogeHintView.didEnterBackground), name: UIApplicationDidEnterBackgroundNotification, object: nil)
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DogeHintView.willEnterForeground), name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
   }
   

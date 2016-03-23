@@ -134,7 +134,7 @@ import UIKit
     
     self.setSelected(false, animated: false)
     
-    self.addTarget(self, action: "onTouchUpInside:", forControlEvents: UIControlEvents.TouchUpInside)
+    self.addTarget(self, action: #selector(AIFlatSwitch.onTouchUpInside(_:)), forControlEvents: UIControlEvents.TouchUpInside)
   }
   
   internal func onTouchUpInside(sender: AnyObject) {

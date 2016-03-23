@@ -1,6 +1,0 @@
-framework module StrokeDrawingView {
-  umbrella header "StrokeDrawingView-umbrella.h"
-
-  export *
-  module * { export * }
-}

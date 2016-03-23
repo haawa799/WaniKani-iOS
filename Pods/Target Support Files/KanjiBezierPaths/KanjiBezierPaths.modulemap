@@ -1,6 +1,0 @@
-framework module KanjiBezierPaths {
-  umbrella header "KanjiBezierPaths-umbrella.h"
-
-  export *
-  module * { export * }
-}

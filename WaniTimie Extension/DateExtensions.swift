@@ -208,7 +208,7 @@ extension Array {
     var ret = Array()
     
     var idx = s
-    for var i=0;i<count;i++  {
+    for _ in 0..<count {
       ret.append(self[idx])
       idx += inc
     }

@@ -22,12 +22,12 @@ class SetupStepViewController: UIViewController {
   
   private func setupNavigationButtons() {
     if needsNextButton() {
-      nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("nextStep"))
+      nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SetupStepViewController.nextStep))
       navigationItem.rightBarButtonItem = nextButton
     }
     
     if needsPreviousStep() {
-      previousButton = UIBarButtonItem(title: "Previous", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("previousStep"))
+      previousButton = UIBarButtonItem(title: "Previous", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SetupStepViewController.previousStep))
       navigationItem.leftBarButtonItem = previousButton
     } else {
       self.navigationItem.leftBarButtonItem = nil

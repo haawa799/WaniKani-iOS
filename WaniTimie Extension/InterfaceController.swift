@@ -36,7 +36,7 @@ extension InterfaceController {
   
   override func willActivate() {
     super.willActivate()
-    dataManager.registerObjectForNotification(self, selector: Selector("dataReceived"), notificationName: DataManager.Notification.currentLevelUpdate)
+    dataManager.registerObjectForNotification(self, selector: #selector(InterfaceController.dataReceived), notificationName: DataManager.Notification.currentLevelUpdate)
   }
   
   override func willDisappear() {
