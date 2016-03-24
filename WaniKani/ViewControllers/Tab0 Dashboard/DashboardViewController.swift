@@ -189,11 +189,13 @@ extension DashboardViewController {
     performSegueWithIdentifier("apiKeyPicker", sender: nil)
   }
   
-  func newStudyQueueData() {
+  func newStudyQueueData(animate: Bool) {
     stratchyHeader?.displayLoading = false
     loadedQueue = nil
     dispatch_async(dispatch_get_main_queue(), {
-      self.flipVisibleCells()
+      if animate {
+        self.flipVisibleCells()
+      }
       self.collectionView.reloadData()
     })
   }

@@ -44,20 +44,20 @@ extension DashboardCoordinator {
   
   private func fetchDashboardCollectionViewData() {
     dataProvider.fetchLastStoredStudyQ { (user, studyQueue) in
-      self.updateDashboardCollectionView(studyQueue)
+      self.updateDashboardCollectionView(studyQueue, isOld: true)
     }
     dataProvider.fetchNewStudyQ { (error) in
       fatalError()
     }
   }
   
-  private func updateDashboardCollectionView(studyQueue: StudyQueue?) {
+  private func updateDashboardCollectionView(studyQueue: StudyQueue?, isOld: Bool = false) {
     guard let studyQueue = studyQueue else {
       self.dashboardViewController.endLoadingIfNeeded()
       return
     }
     let viewModel = CollectionViewViewModel.collectionViewModelWith(studyQueue: studyQueue)
-    self.dashboardViewController.collectionViewModel = viewModel
+    self.dashboardViewController.freshCollectionViewModel(viewModel, isOld: isOld)
   }
   
   private func fetchProgressionData() {
@@ -84,8 +84,8 @@ extension DashboardCoordinator {
 // MARK: - New data notifications
 extension DashboardCoordinator {
   
-  @objc func newStudyQueue(studyQueue: AnyObject) {
-    guard let studyQueue = studyQueue as? StudyQueue else { return }
+  @objc func newStudyQueue(notification: NSNotification) {
+    guard let studyQueue = notification.object as? StudyQueue else { return }
     updateDashboardCollectionView(studyQueue)
   }
   

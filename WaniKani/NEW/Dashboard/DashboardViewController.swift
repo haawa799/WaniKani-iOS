@@ -45,11 +45,10 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
       reloadProgressBar()
     }
   }
-  var collectionViewModel: CollectionViewViewModel? {
-    didSet {
-      guard let _ = collectionViewModel else { return }
-      reloadCollectionView()
-    }
+  
+  func freshCollectionViewModel(collectionViewModel: CollectionViewViewModel?, isOld: Bool = false) {
+    self.collectionViewModel = collectionViewModel
+    reloadCollectionView((isOld==false))
   }
   
   func endLoadingIfNeeded() {
@@ -60,6 +59,7 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
   }
   
   // MARK: Private
+  private var collectionViewModel: CollectionViewViewModel?
   private var isHeaderShrinked = false
   private var isPulledDown = false
   private var stratchyLayout: DashboardLayout {
@@ -145,18 +145,18 @@ extension DashboardViewController {
     collectionView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
       // Add your logic here
       self?.isPulledDown = true
-      delay(2, closure: { () -> () in
-        self?.delegate?.dashboardPullToRefreshAction()
-      })
+      self?.delegate?.dashboardPullToRefreshAction()
       }, loadingView: loadingView)
     let fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.85)
     collectionView.dg_setPullToRefreshFillColor(fillColor)
     collectionView.dg_setPullToRefreshBackgroundColor(UIColor.clearColor())
   }
   
-  private func reloadCollectionView() {
+  private func reloadCollectionView(flipCells: Bool) {
     endLoadingIfNeeded()
-    flipVisibleCells()
+    if flipCells {
+      flipVisibleCells()
+    }
     collectionView?.reloadData()
   }
   
