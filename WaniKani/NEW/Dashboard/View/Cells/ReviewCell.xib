@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,26 +15,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="357" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljt-cf-yBm">
-                        <rect key="frame" x="291" y="8" width="53" height="53"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoT-pp-q9E">
-                                <rect key="frame" x="17" y="16" width="19" height="20"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="KoT-pp-q9E" secondAttribute="centerY" id="8p2-1n-SO9"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KoT-pp-q9E" secondAttribute="trailing" id="P8D-ev-4Zd"/>
-                            <constraint firstItem="KoT-pp-q9E" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ljt-cf-yBm" secondAttribute="top" id="cya-27-K2l"/>
-                            <constraint firstAttribute="centerX" secondItem="KoT-pp-q9E" secondAttribute="centerX" id="gQm-6S-8cW"/>
-                            <constraint firstItem="KoT-pp-q9E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ljt-cf-yBm" secondAttribute="leading" id="nlO-k0-jqq"/>
-                            <constraint firstAttribute="width" secondItem="ljt-cf-yBm" secondAttribute="height" multiplier="1:1" id="sU3-MF-F6I"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KoT-pp-q9E" secondAttribute="bottom" id="sdX-O7-PnV"/>
-                        </constraints>
-                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoT-pp-q9E">
+                        <rect key="frame" x="315" y="25" width="19" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="HDU-WU-2H1">
                         <rect key="frame" x="23" y="24" width="71.5" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -48,22 +32,22 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="HDU-WU-2H1" firstAttribute="leading" secondItem="HNi-1m-Ckv" secondAttribute="leadingMargin" id="4no-nC-dbK"/>
-                <constraint firstItem="HDU-WU-2H1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ljt-cf-yBm" secondAttribute="trailing" constant="5" id="6aS-mC-yrx"/>
-                <constraint firstAttribute="bottomMargin" secondItem="ljt-cf-yBm" secondAttribute="bottom" id="MzC-hP-J0E"/>
+                <constraint firstItem="KoT-pp-q9E" firstAttribute="centerY" secondItem="HNi-1m-Ckv" secondAttribute="centerY" id="Af3-lA-wfZ"/>
+                <constraint firstItem="KoT-pp-q9E" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HNi-1m-Ckv" secondAttribute="top" constant="10" id="Gi9-Nr-0Xc"/>
+                <constraint firstAttribute="trailingMargin" secondItem="KoT-pp-q9E" secondAttribute="trailing" constant="15" id="M9c-rV-dHZ"/>
                 <constraint firstAttribute="trailingMargin" secondItem="HDU-WU-2H1" secondAttribute="trailing" id="Ogj-VK-MAA"/>
-                <constraint firstItem="ljt-cf-yBm" firstAttribute="top" secondItem="HNi-1m-Ckv" secondAttribute="topMargin" id="PRx-aV-lWM"/>
                 <constraint firstItem="HDU-WU-2H1" firstAttribute="leading" secondItem="HNi-1m-Ckv" secondAttribute="leadingMargin" constant="15" id="TRD-hp-M15"/>
-                <constraint firstItem="ljt-cf-yBm" firstAttribute="leading" secondItem="HNi-1m-Ckv" secondAttribute="leadingMargin" id="bxp-6H-0A1"/>
+                <constraint firstAttribute="trailing" secondItem="KoT-pp-q9E" secondAttribute="trailing" constant="15" id="eym-S0-hMP"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KoT-pp-q9E" secondAttribute="bottom" constant="10" id="gv1-FY-seS"/>
                 <constraint firstAttribute="centerY" secondItem="HDU-WU-2H1" secondAttribute="centerY" id="ijp-7z-nks"/>
-                <constraint firstAttribute="trailingMargin" secondItem="ljt-cf-yBm" secondAttribute="trailing" constant="5" id="k4L-22-oNK"/>
+                <constraint firstItem="KoT-pp-q9E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HDU-WU-2H1" secondAttribute="trailing" constant="15" id="jhz-3v-QXh"/>
             </constraints>
             <size key="customSize" width="357" height="69"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="4no-nC-dbK"/>
-                    <exclude reference="6aS-mC-yrx"/>
                     <exclude reference="Ogj-VK-MAA"/>
-                    <exclude reference="bxp-6H-0A1"/>
+                    <exclude reference="eym-S0-hMP"/>
                 </mask>
             </variation>
             <connections>

@@ -53,7 +53,7 @@ extension StudyQueue {
     let flags: NSCalendarUnit = [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute]
     let components = calendar.components(flags, fromDate: NSDate(), toDate: nextReviewDate, options: [])
     
-    var nextReviewString = "Avaliable now!"
+    var nextReviewString = "今"
     
     let years = components.year
     let months = components.month
@@ -66,39 +66,31 @@ extension StudyQueue {
         if days <= 0 {
           if hours <= 0 {
             if minutes > 0 {
-              var s = "s"
-              if minutes == 1 {
-                s = ""
-              }
-              nextReviewString = "~ \(minutes) min\(s)"
+              nextReviewString = "\(minutes)min"
             }
           } else {
-            var s = "s"
-            if hours == 1 {
-              s = ""
-            }
-            nextReviewString = "~ \(hours) hour\(s)"
+            nextReviewString = "\(hours)h"
           }
         } else {
           var s = "s"
           if days == 1 {
             s = ""
           }
-          nextReviewString = "~ \(days) day\(s)"
+          nextReviewString = "\(days) day\(s)"
         }
       } else {
         var s = "s"
         if months == 1 {
           s = ""
         }
-        nextReviewString = "~ \(months) month\(s)"
+        nextReviewString = "\(months) month\(s)"
       }
     } else {
       var s = "s"
       if years == 1 {
         s = ""
       }
-      nextReviewString = "~ \(years) year\(s)"
+      nextReviewString = "\(years) year\(s)"
     }
     return (nextReviewString, hours)
   }
@@ -119,9 +111,9 @@ extension CollectionViewViewModel {
       
       // Section 2
       CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Reviews") as ViewModel), DashboardHeader.identifier), [
-        CollectionViewCellDataItem((LeftRightTitleViewModel() as ViewModel), ReviewCell.identifier),
-        CollectionViewCellDataItem((LeftRightTitleViewModel() as ViewModel), ReviewCell.identifier),
-        CollectionViewCellDataItem((LeftRightTitleViewModel() as ViewModel), ReviewCell.identifier)
+        CollectionViewCellDataItem((LeftRightTitleViewModel(left: "Next review",right: studyQueue.nextReviewWaitingData().string) as ViewModel), ReviewCell.identifier),
+        CollectionViewCellDataItem((LeftRightTitleViewModel(left: "Next hour",right: "\(studyQueue.reviewsNextHour)") as ViewModel), ReviewCell.identifier),
+        CollectionViewCellDataItem((LeftRightTitleViewModel(left: "Next day",right: "\(studyQueue.reviewsNextDay)") as ViewModel), ReviewCell.identifier)
         ])
     ]
     return CollectionViewViewModel(sections: sections)

@@ -17,11 +17,7 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
   
   // MARK: Outlets
   @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
-  @IBOutlet weak var doubleProgressBar: DoubleProgressBar! {
-    didSet {
-      self.reloadProgressBar()
-    }
-  }
+  @IBOutlet weak var doubleProgressBar: DoubleProgressBar!
   @IBOutlet private weak var collectionView: UICollectionView! {
     didSet {
       collectionView?.alwaysBounceVertical = true
@@ -40,15 +36,18 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
   
   // MARK: Public API
   weak var delegate: DashboardViewControllerDelegate?
-  var progressionData: (progressViewModel: DoubleProgressViewModel, levelViewModel: DoubleProgressLevelModel)? {
-    didSet {
-      reloadProgressBar()
-    }
-  }
   
   func freshCollectionViewModel(collectionViewModel: CollectionViewViewModel?, isOld: Bool = false) {
     self.collectionViewModel = collectionViewModel
     reloadCollectionView((isOld==false))
+  }
+  
+  func freshLevelProgressionViewModel(viewModel: DoubleProgressViewModel?) {
+    reloadProgressBarProgression(viewModel)
+  }
+  
+  func freshUserLevelViewModel(viewModel: DoubleProgressLevelModel?) {
+    reloadProgressBarUserLevel(viewModel)
   }
   
   func endLoadingIfNeeded() {
@@ -160,10 +159,14 @@ extension DashboardViewController {
     collectionView?.reloadData()
   }
   
-  private func reloadProgressBar() {
-    guard let progressionData = progressionData else { return }
-    doubleProgressBar?.setupProgress(progressionData.progressViewModel)
-    doubleProgressBar?.setupLevel(progressionData.levelViewModel)
+  private func reloadProgressBarProgression(viewModel: DoubleProgressViewModel?) {
+    guard let viewModel = viewModel else { return }
+    doubleProgressBar?.setupProgress(viewModel)
+  }
+  
+  private func reloadProgressBarUserLevel(viewModel: DoubleProgressLevelModel?) {
+    guard let viewModel = viewModel else { return }
+    doubleProgressBar?.setupLevel(viewModel)
   }
   
   private func shrinkHeader() {

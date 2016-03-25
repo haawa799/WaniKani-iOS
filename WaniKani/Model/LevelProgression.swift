@@ -17,7 +17,6 @@ public class LevelProgression: Object {
   private static let keyKanjiProgress = "kanji_progress"
   private static let keyKanjiTotal = "kanji_total"
   //
-  
   public dynamic var radicalsProgress: Int = 0
   public dynamic var radicalsTotal: Int = 0
   public dynamic var kanjiProgress: Int = 0

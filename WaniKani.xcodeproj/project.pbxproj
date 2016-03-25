@@ -114,6 +114,7 @@
 		43B273CB1C4409CC00B57D8B /* LevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273C91C4409CC00B57D8B /* LevelCell.swift */; };
 		43B273CC1C4409CC00B57D8B /* LevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B273CA1C4409CC00B57D8B /* LevelCell.xib */; };
 		43B273CE1C4505A400B57D8B /* LevelsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B273CD1C4505A400B57D8B /* LevelsLayout.swift */; };
+		43B3F9091CA5941C00905AF4 /* DashboardCoordinator+DashboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B3F9081CA5941C00905AF4 /* DashboardCoordinator+DashboardData.swift */; };
 		43B5F8AA1C0C84C900DA9893 /* DogeHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B5F8AC1C0C84C900DA9893 /* DogeHintView.xib */; };
 		43BE27701C1B1188001A0DD7 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE276F1C1B1188001A0DD7 /* NotificationCenterManager.swift */; };
 		43C012251C62265800E07303 /* 3dDoge.gif in Resources */ = {isa = PBXBuildFile; fileRef = 43C012241C62265800E07303 /* 3dDoge.gif */; };
@@ -373,6 +374,7 @@
 		43B273C91C4409CC00B57D8B /* LevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCell.swift; sourceTree = "<group>"; };
 		43B273CA1C4409CC00B57D8B /* LevelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelCell.xib; sourceTree = "<group>"; };
 		43B273CD1C4505A400B57D8B /* LevelsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelsLayout.swift; sourceTree = "<group>"; };
+		43B3F9081CA5941C00905AF4 /* DashboardCoordinator+DashboardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DashboardCoordinator+DashboardData.swift"; sourceTree = "<group>"; };
 		43B5F8AB1C0C84C900DA9893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DogeHintView.xib; sourceTree = "<group>"; };
 		43BE276F1C1B1188001A0DD7 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		43C012241C62265800E07303 /* 3dDoge.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3dDoge.gif; sourceTree = "<group>"; };
@@ -862,6 +864,7 @@
 				43658C1D1C9BE03700AA3F46 /* ViewModel */,
 				431B32F31C99991000324323 /* View */,
 				43960D4E1C975195009AD9AB /* DashboardCoordinator.swift */,
+				43B3F9081CA5941C00905AF4 /* DashboardCoordinator+DashboardData.swift */,
 				43960D4F1C975195009AD9AB /* DashboardViewController.storyboard */,
 				43960D501C975195009AD9AB /* DashboardViewController.swift */,
 			);
@@ -1372,6 +1375,7 @@
 				43960D631C975195009AD9AB /* UIViewControllerUtils.swift in Sources */,
 				43F4EB041C4E58C400A25840 /* CanvasView.swift in Sources */,
 				43658C211C9BE39800AA3F46 /* DoubleProgressLevelModel.swift in Sources */,
+				43B3F9091CA5941C00905AF4 /* DashboardCoordinator+DashboardData.swift in Sources */,
 				43A12D081C47B66500E18556 /* LevelData.swift in Sources */,
 				433BEF831C76642B000596F4 /* RealmHelper.swift in Sources */,
 				43658C1C1C9BDE0300AA3F46 /* DoubleProgressBar.swift in Sources */,

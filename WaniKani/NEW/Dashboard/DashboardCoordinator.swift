@@ -11,7 +11,7 @@ import UIKit
 public class DashboardCoordinator: Coordinator, DashboardViewControllerDelegate {
   
   let presenter: UINavigationController
-  private let dashboardViewController: DashboardViewController
+  let dashboardViewController: DashboardViewController
   let childrenCoordinators: [Coordinator]
   
   let dataProvider = DataProvider()
@@ -23,70 +23,22 @@ public class DashboardCoordinator: Coordinator, DashboardViewControllerDelegate 
   }
   
   deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self)
+    unregisterFromDataNotifications()
   }
   
   func start() {
-    
-    // New data notifications
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardCoordinator.newStudyQueue(_:)), name: DataProvider.NotificationName.NewStudyQueueReceivedNotification.rawValue, object: nil)
-    
-    // Fetch
-    fetchAllDashboardData()
+    registerForDataNotifications()
     dashboardViewController.delegate = self
     presenter.pushViewController(dashboardViewController, animated: false)
+    _ = dashboardViewController.view
+    fetchAllDashboardData()
   }
   
-}
-
-// MARK: - Dashboard data fetch
-extension DashboardCoordinator {
-  
-  private func fetchDashboardCollectionViewData() {
-    dataProvider.fetchLastStoredStudyQ { (user, studyQueue) in
-      self.updateDashboardCollectionView(studyQueue, isOld: true)
-    }
-    dataProvider.fetchNewStudyQ { (error) in
-      fatalError()
-    }
-  }
-  
-  private func updateDashboardCollectionView(studyQueue: StudyQueue?, isOld: Bool = false) {
-    guard let studyQueue = studyQueue else {
-      self.dashboardViewController.endLoadingIfNeeded()
-      return
-    }
-    let viewModel = CollectionViewViewModel.collectionViewModelWith(studyQueue: studyQueue)
-    self.dashboardViewController.freshCollectionViewModel(viewModel, isOld: isOld)
-  }
-  
-  private func fetchProgressionData() {
-    let progressViewModel = DoubleProgressViewModel()
-    let levelViewModel = DoubleProgressLevelModel()
-    dashboardViewController.progressionData = (progressViewModel, levelViewModel)
-  }
-  
-  private func fetchAllDashboardData() {
-    fetchProgressionData()
-    fetchDashboardCollectionViewData()
-  }
 }
 
 // MARK: - DashboardViewControllerDelegate
 extension DashboardCoordinator {
-  
   func dashboardPullToRefreshAction() {
     fetchAllDashboardData()
   }
-  
-}
-
-// MARK: - New data notifications
-extension DashboardCoordinator {
-  
-  @objc func newStudyQueue(notification: NSNotification) {
-    guard let studyQueue = notification.object as? StudyQueue else { return }
-    updateDashboardCollectionView(studyQueue)
-  }
-  
 }

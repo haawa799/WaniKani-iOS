@@ -74,6 +74,26 @@ extension DataProvider {
     }
   }
   
+  // MARK: User info
+  func fetchLastUserInfo(handler: StudyQueueBlock) {
+    let oldUser = realm.objects(User).first
+    let oldStudyQueue = oldUser?.studyQueue
+    handler(oldUser, oldStudyQueue)
+  }
+  
+  func fetchNewUserInfo(errorHandler: RequestErrorBlock) {
+    waniApiManager.fetchStudyQueue { (result) in
+      switch result {
+      case .Error(let error): errorHandler(error())
+      case .Response(let response):
+        let resp = response()
+        let userInfo = resp.userInfo
+        let studyQueueInfo = resp.studyQInfo
+        self.saveNewStudyQueueToRealm(userInfo, studyQueueInfo: studyQueueInfo)
+      }
+    }
+  }
+  
 }
 
 extension DataProvider {

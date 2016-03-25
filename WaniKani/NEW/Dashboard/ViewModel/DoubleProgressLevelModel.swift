@@ -12,8 +12,8 @@ struct DoubleProgressLevelModel: DoubleProgressBarLevelDataSource {
   
   private let levelStr: String
   
-  init() {
-    let level = 19
+  init(user: User) {
+    let level =  user.level
     levelStr = "\(level)"
   }
   

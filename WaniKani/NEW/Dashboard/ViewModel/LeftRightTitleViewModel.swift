@@ -12,9 +12,9 @@ struct LeftRightTitleViewModel: LeftRightTitleDatasource {
   private let leftTitleString: String
   private let rightTitleString: String
   
-  init() {
-    leftTitleString = "Next hour"
-    rightTitleString = "78"
+  init(left: String, right: String) {
+    leftTitleString = left
+    rightTitleString = right
   }
 }
 
