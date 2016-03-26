@@ -19,6 +19,8 @@ class DashboardLayout: UICollectionViewFlowLayout {
   
   override func prepareLayout() {
     
+    super.prepareLayout()
+    
     if originalBotIset == nil {
       originalBotIset = collectionView!.contentInset.bottom
     }
@@ -34,27 +36,27 @@ class DashboardLayout: UICollectionViewFlowLayout {
     
     let headerHeight = height * 0.5
     
-    if let collectionView = collectionView, let numberOfSections = collectionView.dataSource?.numberOfSectionsInCollectionView!(collectionView) {
-      var usedHeight = headerHeight * CGFloat(numberOfSections - 1)
-      for i in 0...numberOfSections {
-        if let numberOfCells = collectionView.dataSource?.collectionView(collectionView, numberOfItemsInSection: i) {
-          usedHeight += height * CGFloat(numberOfCells)
-        }
+    guard let collectionView = collectionView, let numberOfSections = collectionView.dataSource?.numberOfSectionsInCollectionView?(collectionView) else { return }
+    
+    var usedHeight = headerHeight * CGFloat(numberOfSections - 1)
+    for i in 0...numberOfSections {
+      if let numberOfCells = collectionView.dataSource?.collectionView(collectionView, numberOfItemsInSection: i) {
+        usedHeight += height * CGFloat(numberOfCells)
       }
-      
-      let freeSpace = contentSize.height - usedHeight
-      let freeSpacePerSection = freeSpace / CGFloat(numberOfSections)
-      
-      headerReferenceSize = CGSize(width: width, height: headerHeight)
-      itemSize = CGSize(width: width, height: height)
-      
-      sectionInset = UIEdgeInsets(top: 0, left: leftInset, bottom: freeSpacePerSection, right: rightInset)
-      minimumInteritemSpacing = defaultCellInset
-      minimumLineSpacing = rowsSpacing
-      
-      let insets = collectionView.contentInset
-      collectionView.contentInset = UIEdgeInsets(top: 0, left: insets.left, bottom: insets.bottom, right: insets.right)
     }
+    
+    let freeSpace = contentSize.height - usedHeight
+    let freeSpacePerSection = freeSpace / CGFloat(numberOfSections)
+    
+    headerReferenceSize = CGSize(width: width, height: headerHeight)
+    itemSize = CGSize(width: width, height: height)
+    
+    sectionInset = UIEdgeInsets(top: 0, left: leftInset, bottom: freeSpacePerSection, right: rightInset)
+    minimumInteritemSpacing = defaultCellInset
+    minimumLineSpacing = rowsSpacing
+    
+    let insets = collectionView.contentInset
+    collectionView.contentInset = UIEdgeInsets(top: 0, left: insets.left, bottom: insets.bottom, right: insets.right)
   }
   
   override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
