@@ -13,7 +13,7 @@ class DashboardLayout: UICollectionViewFlowLayout {
   let defaultCellInset: CGFloat = 7
   let rowsSpacing: CGFloat = 1
   let aspectRatio:CGFloat = 320/50
-  let maxHeight: CGFloat = 60
+  let maxHeight: CGFloat = 75
   
   var originalBotIset: CGFloat?
   
@@ -21,12 +21,19 @@ class DashboardLayout: UICollectionViewFlowLayout {
     
     super.prepareLayout()
     
+    guard let collectionView = collectionView else { return }
+    guard let datasource = collectionView.dataSource else { return }
+    
     if originalBotIset == nil {
-      originalBotIset = collectionView!.contentInset.bottom
+      originalBotIset = collectionView.contentInset.bottom
     }
     
-    let maxSide = max(collectionView!.bounds.size.width, collectionView!.bounds.size.height)
-    let contentSize = CGSize(width: collectionView!.bounds.size.width, height: maxSide - originalBotIset!)
+    let maxSide = max(collectionView.bounds.size.width, collectionView.bounds.size.height)
+    let minSide = min(collectionView.bounds.size.width, collectionView.bounds.size.height)
+    
+    let aspectRatio = maxSide / minSide
+    
+    let contentSize = CGSize(width: collectionView.bounds.size.width, height: /*maxSide*/collectionView.bounds.size.height - originalBotIset!)
     
     let leftInset = defaultCellInset
     let rightInset = defaultCellInset
@@ -36,7 +43,7 @@ class DashboardLayout: UICollectionViewFlowLayout {
     
     let headerHeight = height * 0.5
     
-    guard let collectionView = collectionView, let numberOfSections = collectionView.dataSource?.numberOfSectionsInCollectionView?(collectionView) else { return }
+    guard let numberOfSections = datasource.numberOfSectionsInCollectionView?(collectionView) else { return }
     
     var usedHeight = headerHeight * CGFloat(numberOfSections - 1)
     for i in 0...numberOfSections {
