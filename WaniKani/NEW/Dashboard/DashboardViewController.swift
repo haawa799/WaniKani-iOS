@@ -90,7 +90,7 @@ extension DashboardViewController : UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
     guard let _ = collectionViewModel?.headerItem(section) else { return CGSizeZero }
     guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSizeZero }
-    return CGSize(width: 20, height: 20)//flowLayout.headerReferenceSize
+    return flowLayout.headerReferenceSize
   }
   
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -98,6 +98,9 @@ extension DashboardViewController : UICollectionViewDataSource {
     guard let item = collectionViewModel?.headerItem(indexPath.section) else { return header }
     header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: item.reuseIdentifier, forIndexPath: indexPath)
     (header as? ViewModelSetupable)?.setupWithViewModel(item.viewModel)
+    guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return header }
+    let size = self.collectionView(collectionView, layout: flowLayout, referenceSizeForHeaderInSection: indexPath.section)
+    (header as? DashboardHeader)?.resize(size.width)
     return header
   }
 }
@@ -115,6 +118,9 @@ extension DashboardViewController {
     addBackground(BackgroundOptions.Dashboard.rawValue)
     
     addPullToRefresh()
+    
+    shrinkHeader()
+    unshrinkHeader()
   }
   
   override func viewDidLayoutSubviews() {
@@ -127,10 +133,12 @@ extension DashboardViewController {
     let orientation = UIDevice.currentDevice().orientation.isLandscape
     let sizeClass = self.view.traitCollection.verticalSizeClass
     
-//    switch (isLandscape: orientation, sizeClass) {
-//    case (isLandscape: true, UIUserInterfaceSizeClass.Compact): shrinkHeader()
-//    default: unshrinkHeader()
-//    }
+    switch (isLandscape: orientation, sizeClass) {
+    case (isLandscape: true, UIUserInterfaceSizeClass.Compact): shrinkHeader()
+    default: unshrinkHeader()
+    }
+    
+    collectionView.reloadData()
   }
   
 }

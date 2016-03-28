@@ -14,6 +14,8 @@ protocol SingleTitleViewModel: ViewModel {
 
 class DashboardHeader: UICollectionReusableView, SingleReuseIdentifier, ViewModelSetupable {
   
+  @IBOutlet weak var realHeaderWidthConstraint: NSLayoutConstraint!
+  @IBOutlet weak var realHeader: UIView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet private var coloredViews: [UIView]!
   
@@ -28,6 +30,10 @@ class DashboardHeader: UICollectionReusableView, SingleReuseIdentifier, ViewMode
   
   func setupWith(viewModel: SingleTitleViewModel) {
     titleLabel?.text = viewModel.title
+  }
+  
+  func resize(newWidth: CGFloat) {
+    realHeaderWidthConstraint.constant = newWidth
   }
 }
 

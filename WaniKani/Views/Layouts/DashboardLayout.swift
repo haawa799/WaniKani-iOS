@@ -10,7 +10,7 @@ import UIKit
 
 class DashboardLayout: UICollectionViewFlowLayout {
   
-  let defaultCellInset: CGFloat = 7
+  let defaultCellInset: CGFloat = 9
   let rowsSpacing: CGFloat = 1
   let aspectRatio: CGFloat = 320/50
   let minSpacing: CGFloat = 20
@@ -19,59 +19,8 @@ class DashboardLayout: UICollectionViewFlowLayout {
   
   var originalBotIset: CGFloat?
   
-//  override func prepareLayout() {
-//    
-//    super.prepareLayout()
-//    
-//    guard let collectionView = collectionView else { return }
-//    guard let datasource = collectionView.dataSource else { return }
-//    
-//    if originalBotIset == nil {
-//      originalBotIset = collectionView.contentInset.bottom
-//    }
-//    
-//    let maxSide = max(collectionView.bounds.size.width, collectionView.bounds.size.height)
-//    let minSide = min(collectionView.bounds.size.width, collectionView.bounds.size.height)
-//    
-//    let aspectRatio = maxSide / minSide
-//    print("aspectRatio: \(aspectRatio)")
-//    
-//    let contentSize = CGSize(width: collectionView.bounds.size.width, height: /*maxSide*/collectionView.bounds.size.height - originalBotIset!)
-//    
-//    let leftInset = defaultCellInset
-//    let rightInset = defaultCellInset
-//    
-//    let width = contentSize.width - (leftInset + rightInset)
-//    let height = min(width / aspectRatio, maxHeight)
-//    
-//    let headerHeight = height * 0.5
-//    
-//    guard let numberOfSections = datasource.numberOfSectionsInCollectionView?(collectionView) else { return }
-//    
-//    var usedHeight = headerHeight * CGFloat(numberOfSections - 1)
-//    for i in 0...numberOfSections {
-//      if let numberOfCells = collectionView.dataSource?.collectionView(collectionView, numberOfItemsInSection: i) {
-//        usedHeight += height * CGFloat(numberOfCells)
-//      }
-//    }
-//    
-//    let freeSpace = contentSize.height - usedHeight
-//    let freeSpacePerSection = freeSpace / CGFloat(numberOfSections)
-//    
-//    headerReferenceSize = CGSize(width: width, height: headerHeight)
-//    itemSize = CGSize(width: width, height: height)
-//    
-//    sectionInset = UIEdgeInsets(top: 0, left: leftInset, bottom: freeSpacePerSection, right: rightInset)
-//    minimumInteritemSpacing = defaultCellInset
-//    minimumLineSpacing = rowsSpacing
-//    
-//    let insets = collectionView.contentInset
-//    collectionView.contentInset = UIEdgeInsets(top: 0, left: insets.left, bottom: insets.bottom, right: insets.right)
-//  }
   
   override func prepareLayout() {
-    
-    
     
     guard let collectionView = collectionView else { return }
     guard let datasource = collectionView.dataSource else { return }
