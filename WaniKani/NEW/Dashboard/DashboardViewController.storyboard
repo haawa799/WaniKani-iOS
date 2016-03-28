@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kxs-gJ-Lru">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kxs-gJ-Lru">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -85,7 +85,7 @@
                             <constraint firstAttribute="bottom" secondItem="jZj-Be-2Zg" secondAttribute="bottom" id="RPn-VJ-tgd"/>
                             <constraint firstItem="eyr-Bq-PFo" firstAttribute="top" secondItem="9qV-25-cYy" secondAttribute="top" id="aJ2-Ky-OJP"/>
                             <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="eyr-Bq-PFo" secondAttribute="bottom" id="afJ-J6-zxI"/>
-                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="eyr-Bq-PFo" secondAttribute="bottom" id="alj-Rd-I0A"/>
+                            <constraint firstItem="jZj-Be-2Zg" firstAttribute="top" secondItem="eyr-Bq-PFo" secondAttribute="bottom" priority="750" id="alj-Rd-I0A"/>
                             <constraint firstItem="jZj-Be-2Zg" firstAttribute="leading" secondItem="9qV-25-cYy" secondAttribute="leadingMargin" id="bIK-2e-e5W"/>
                             <constraint firstItem="eyr-Bq-PFo" firstAttribute="leading" secondItem="9qV-25-cYy" secondAttribute="leading" id="cdF-RY-yI0"/>
                             <constraint firstItem="jZj-Be-2Zg" firstAttribute="leading" secondItem="9qV-25-cYy" secondAttribute="leading" id="kZi-Ks-SQG"/>

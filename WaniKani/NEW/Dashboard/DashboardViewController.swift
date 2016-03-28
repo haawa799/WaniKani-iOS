@@ -90,7 +90,7 @@ extension DashboardViewController : UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
     guard let _ = collectionViewModel?.headerItem(section) else { return CGSizeZero }
     guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSizeZero }
-    return flowLayout.headerReferenceSize
+    return CGSize(width: 20, height: 20)//flowLayout.headerReferenceSize
   }
   
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -127,10 +127,10 @@ extension DashboardViewController {
     let orientation = UIDevice.currentDevice().orientation.isLandscape
     let sizeClass = self.view.traitCollection.verticalSizeClass
     
-    switch (isLandscape: orientation, sizeClass) {
-    case (isLandscape: true, UIUserInterfaceSizeClass.Compact): shrinkHeader()
-    default: unshrinkHeader()
-    }
+//    switch (isLandscape: orientation, sizeClass) {
+//    case (isLandscape: true, UIUserInterfaceSizeClass.Compact): shrinkHeader()
+//    default: unshrinkHeader()
+//    }
   }
   
 }
