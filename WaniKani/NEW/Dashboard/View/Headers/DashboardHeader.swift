@@ -12,6 +12,16 @@ protocol SingleTitleViewModel: ViewModel {
   var title: String { get }
 }
 
+protocol DashboardHeaderDatasource: SingleTitleViewModel {
+  var bgColor: UIColor? { get }
+}
+
+extension DashboardHeaderDatasource {
+  var bgColor: UIColor? {
+    return ColorConstants.dashboardColor
+  }
+}
+
 class DashboardHeader: UICollectionReusableView, SingleReuseIdentifier, ViewModelSetupable {
   
   @IBOutlet weak var realHeaderWidthConstraint: NSLayoutConstraint!
@@ -19,7 +29,7 @@ class DashboardHeader: UICollectionReusableView, SingleReuseIdentifier, ViewMode
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet private var coloredViews: [UIView]!
   
-  var color: UIColor = UIColor(red:0.92, green:0.12, blue:0.39, alpha:1) {
+  var color: UIColor? = UIColor(red:0.92, green:0.12, blue:0.39, alpha:1) {
     didSet {
       guard let coloredViews = coloredViews else {return}
       for v in coloredViews {
@@ -28,8 +38,9 @@ class DashboardHeader: UICollectionReusableView, SingleReuseIdentifier, ViewMode
     }
   }
   
-  func setupWith(viewModel: SingleTitleViewModel) {
+  func setupWith(viewModel: DashboardHeaderDatasource) {
     titleLabel?.text = viewModel.title
+    color = viewModel.bgColor
   }
   
   func resize(newWidth: CGFloat) {
@@ -48,7 +59,7 @@ extension DashboardHeader {
 // MARK: - ViewModelSetupable
 extension DashboardHeader {
   func setupWithViewModel(viewModel: ViewModel?) {
-    guard let viewModel = viewModel as? SingleTitleViewModel else { return }
+    guard let viewModel = viewModel as? DashboardHeaderDatasource else { return }
     setupWith(viewModel)
   }
 }

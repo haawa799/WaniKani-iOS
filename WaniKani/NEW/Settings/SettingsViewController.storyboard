@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jHx-Hm-rFR">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="AzT-gl-iAN">
+            <objects>
+                <viewController id="jHx-Hm-rFR" customClass="SettingsViewController" customModule="WaniKani" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OAL-vl-q0j"/>
+                        <viewControllerLayoutGuide type="bottom" id="PCM-hD-sVk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pFN-kE-DEX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mis-9w-6Tb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.49803921569999998" green="0.81176470590000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dbC-J2-zGg" customClass="SettingsLayout" customModule="WaniKani" customModuleProvider="target">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mis-9w-6Tb" secondAttribute="bottom" id="1Uv-Ux-alA"/>
+                            <constraint firstItem="mis-9w-6Tb" firstAttribute="top" secondItem="pFN-kE-DEX" secondAttribute="top" id="1rT-2L-BVC"/>
+                            <constraint firstAttribute="trailing" secondItem="mis-9w-6Tb" secondAttribute="trailing" id="2jv-E8-UNS"/>
+                            <constraint firstItem="PCM-hD-sVk" firstAttribute="top" secondItem="mis-9w-6Tb" secondAttribute="bottom" id="8bF-vD-7ly"/>
+                            <constraint firstItem="mis-9w-6Tb" firstAttribute="leading" secondItem="pFN-kE-DEX" secondAttribute="leading" id="Sb6-pI-YFK"/>
+                            <constraint firstItem="mis-9w-6Tb" firstAttribute="top" secondItem="OAL-vl-q0j" secondAttribute="bottom" id="Z7O-7W-s6R"/>
+                            <constraint firstItem="mis-9w-6Tb" firstAttribute="top" secondItem="OAL-vl-q0j" secondAttribute="bottom" id="c9u-41-wbm"/>
+                            <constraint firstItem="mis-9w-6Tb" firstAttribute="top" secondItem="pFN-kE-DEX" secondAttribute="top" id="ecM-3n-TJF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ecM-3n-TJF"/>
+                                <exclude reference="c9u-41-wbm"/>
+                                <exclude reference="Z7O-7W-s6R"/>
+                                <exclude reference="8bF-vD-7ly"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="8wu-k2-YZn"/>
+                    <connections>
+                        <outlet property="collectionView" destination="mis-9w-6Tb" id="229-US-nHy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qv7-Ic-4Yq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2690" y="3554"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="settings" width="25" height="25"/>
+    </resources>
+</document>

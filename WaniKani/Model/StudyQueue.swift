@@ -99,18 +99,21 @@ extension StudyQueue {
 extension CollectionViewViewModel {
   
   static func collectionViewModelWith(studyQueue studyQueue: StudyQueue) -> CollectionViewViewModel {
+    
+    let color = ColorConstants.dashboardColor
+    
     let sections = [
       // Section 0
       CollectionViewSection(nil, []),
       
       // Section 1
-      CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Available") as ViewModel), DashboardHeader.identifier), [
+      CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Available", color: color) as ViewModel), DashboardHeader.identifier), [
         CollectionViewCellDataItem((AvaliableItemCellViewModel(title: "Lessons", number: studyQueue.lessonsAvaliable) as ViewModel), AvaliableItemCell.identifier),
         CollectionViewCellDataItem((AvaliableItemCellViewModel(title: "Reviews", number: studyQueue.reviewsAvaliable) as ViewModel), AvaliableItemCell.identifier)
         ]),
       
       // Section 2
-      CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Reviews") as ViewModel), DashboardHeader.identifier), [
+      CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Reviews", color: color) as ViewModel), DashboardHeader.identifier), [
         CollectionViewCellDataItem((LeftRightTitleViewModel(left: "Next review",right: studyQueue.nextReviewWaitingData().string) as ViewModel), ReviewCell.identifier),
         CollectionViewCellDataItem((LeftRightTitleViewModel(left: "Next hour",right: "\(studyQueue.reviewsNextHour)") as ViewModel), ReviewCell.identifier),
         CollectionViewCellDataItem((LeftRightTitleViewModel(left: "Next day",right: "\(studyQueue.reviewsNextDay)") as ViewModel), ReviewCell.identifier)

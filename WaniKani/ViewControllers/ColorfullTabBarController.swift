@@ -9,14 +9,15 @@
 import UIKit
 
 
+
+struct ColorConstants {
+  static let dashboardColor = UIColor(red:0.92, green:0.12, blue:0.39, alpha:1)
+  static let dataColor = UIColor(red:1, green:0.55, blue:0, alpha:1)
+  static let browserTintColor = UIColor(red:0.27, green:0.39, blue:0.87, alpha:1)
+  static let settingsTintColor = UIColor(red:0.5, green:0.81, blue:0.69, alpha:1)
+}
+
 class ColorfullTabBarController: UITabBarController, UITabBarControllerDelegate {
-  
-  private struct ColorConstants {
-    static let dashboardColor = UIColor(red:0.92, green:0.12, blue:0.39, alpha:1)
-    static let dataColor = UIColor(red:1, green:0.55, blue:0, alpha:1)
-    static let browserTintColor = UIColor(red:0.27, green:0.39, blue:0.87, alpha:1)
-    static let settingsTintColor = UIColor(red:0.5, green:0.81, blue:0.69, alpha:1)
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()

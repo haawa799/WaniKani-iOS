@@ -8,11 +8,15 @@
 
 import UIKit
 
+protocol SettingsScriptCellDataSource: SingleTitleViewModel {
+  var switchState: Bool { get }
+}
+
 protocol SettingsScriptCellDelegate: class {
   func scriptCellChangedState(cell: SettingsScriptCell ,state: Bool)
 }
 
-class SettingsScriptCell: UICollectionViewCell, FlippableView, SingleReuseIdentifier {
+class SettingsScriptCell: UICollectionViewCell, FlippableView, SingleReuseIdentifier, ViewModelSetupable {
   
   weak var delegate: SettingsScriptCellDelegate?
   
@@ -23,9 +27,18 @@ class SettingsScriptCell: UICollectionViewCell, FlippableView, SingleReuseIdenti
     delegate?.scriptCellChangedState(self, state: sender.selected)
   }
   
-  func setupWith(name name: String, initialState: Bool) {
-    titleLabel.text = name
-    flatSwitch.selected = initialState
+  func setupWith(dataSource: SettingsScriptCellDataSource) {
+    titleLabel.text = dataSource.title
+    flatSwitch.selected = dataSource.switchState
+  }
+  
+}
+
+extension SettingsScriptCell {
+  
+  func setupWithViewModel(viewModel: ViewModel?) {
+    guard let viewModel = viewModel as? SettingsScriptCellDataSource else { return }
+    setupWith(viewModel)
   }
   
 }

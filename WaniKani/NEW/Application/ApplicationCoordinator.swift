@@ -13,17 +13,23 @@ public class ApplicationCoordinator: Coordinator {
   private let dashboardNavigationController = UINavigationController()
   private let dashboardCoordinator: DashboardCoordinator
   
+  private let settingsNavigationController = UINavigationController()
+  private let settingsCoordinator: SettingsCoordinator
+  
   let window: UIWindow
-  let rootViewController = UITabBarController()
+  let rootViewController = ColorfullTabBarController()
   let childrenCoordinators: [Coordinator]
   
   init(window: UIWindow) {
     self.window = window
     dashboardNavigationController.navigationBarHidden = true
-    let viewControllers = [dashboardNavigationController]
+    settingsNavigationController.navigationBarHidden = true
+    let viewControllers = [dashboardNavigationController, settingsNavigationController]
     rootViewController.setViewControllers(viewControllers, animated: false)
     dashboardCoordinator = DashboardCoordinator(presenter: dashboardNavigationController)
-    childrenCoordinators = [dashboardCoordinator]
+    settingsCoordinator = SettingsCoordinator(presenter: settingsNavigationController)
+    
+    childrenCoordinators = [dashboardCoordinator, settingsCoordinator]
   }
   
 }
@@ -34,6 +40,7 @@ extension ApplicationCoordinator {
     DataProvider.makeInitialPreperations()
     window.rootViewController = rootViewController
     dashboardCoordinator.start()
+    settingsCoordinator.start()
     window.makeKeyAndVisible()
   }
 }
