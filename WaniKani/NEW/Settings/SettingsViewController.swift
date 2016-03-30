@@ -14,14 +14,9 @@ protocol SettingsViewControllerDelegate: class {
   func cellCheckboxStateChange(id: String, state: Bool)
 }
 
-class SettingsViewController: UIViewController, StoryboardInstantiable {
+class SettingsViewController: SingleTabViewController, StoryboardInstantiable {
   
   weak var delegate: SettingsViewControllerDelegate?
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    addBackground(BackgroundOptions.Dashboard.rawValue)
-  }
   
   @IBOutlet weak var collectionView: UICollectionView! {
     didSet {
@@ -42,7 +37,25 @@ class SettingsViewController: UIViewController, StoryboardInstantiable {
       collectionView?.reloadData()
     }
   }
+}
+
+
+// MARK: - UIViewController
+extension SettingsViewController {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    addBackground(BackgroundOptions.Dashboard.rawValue)
+  }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    collectionView.reloadData()
+  }
+  
+  override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    collectionView?.collectionViewLayout.invalidateLayout()
+  }
 }
 
 extension SettingsViewController: UICollectionViewDelegate {

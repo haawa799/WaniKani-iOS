@@ -26,6 +26,28 @@ private struct SettingsSuitSettings {
   static let shouldUseGCSetting: Setting = Setting(key: SettingSuitKey.shouldUseGameCenterKey, script: nil, description: "Use GameCenter")
   static let gameCenterDummySetting: Setting = Setting(key: SettingSuitKey.gameCenterKey, script: nil, description: "Game center")
   static let ignoreLessonsInIconCounter: Setting = Setting(key: SettingSuitKey.ignoreLessonsInIconBadgeKey, script: nil, description: "Ignore lessons in icon badge")
+  
+  static var userScriptsForReview: [UserScript] {
+    return [
+      ScriptSetting.fastForwardScript,
+      ScriptSetting.ignoreButtonScript,
+      ScriptSetting.smartResizingScript,
+      ScriptSetting.reorderScript,
+      ScriptSetting.scoreScript
+    ]
+  }
+  
+  static var allSettings: [Setting] {
+    return [
+      SettingsSuitSettings.fastForwardSetting,
+      SettingsSuitSettings.ignoreButtonSetting,
+      SettingsSuitSettings.reorderSetting,
+      SettingsSuitSettings.smartResizingSetting,
+      SettingsSuitSettings.hideStatusBarSetting,
+      SettingsSuitSettings.shouldUseGCSetting,
+      SettingsSuitSettings.ignoreLessonsInIconCounter
+    ]
+  }
 }
 
 struct SettingsSuit {
@@ -38,30 +60,10 @@ struct SettingsSuit {
     self.keychainManager = keychainManager
   }
   
-  private var userScriptsForReview: [UserScript] {
-    return [
-      ScriptSetting.fastForwardScript,
-      ScriptSetting.ignoreButtonScript,
-      ScriptSetting.smartResizingScript,
-      ScriptSetting.reorderScript,
-      ScriptSetting.scoreScript
-    ]
-  }
   
-  private var allSettings: [Setting] {
-    return [
-      SettingsSuitSettings.fastForwardSetting,
-      SettingsSuitSettings.ignoreButtonSetting,
-      SettingsSuitSettings.reorderSetting,
-      SettingsSuitSettings.smartResizingSetting,
-      SettingsSuitSettings.hideStatusBarSetting,
-      SettingsSuitSettings.shouldUseGCSetting,
-      SettingsSuitSettings.ignoreLessonsInIconCounter
-    ]
-  }
   
   private func settingWithID(id: String) -> Setting? {
-    let setting = allSettings.filter ({ $0.key.rawValue == id }).first
+    let setting = SettingsSuitSettings.allSettings.filter ({ $0.key.rawValue == id }).first
     return setting
   }
 }
@@ -73,6 +75,8 @@ extension SettingsSuit {
     let headerColor = ColorConstants.settingsTintColor
     let sections = [
       // Section 0
+      CollectionViewSection(nil, []),
+      // Section 1
       CollectionViewSection(CollectionViewCellDataItem((DashboardHeaderViewModel(title: "Scripts for Reviews", color: headerColor) as ViewModel), DashboardHeader.identifier), [
         CollectionViewCellDataItem((SettingsScriptCellViewModel(setting: SettingsSuitSettings.fastForwardSetting) as ViewModel), SettingsScriptCell.identifier),
         CollectionViewCellDataItem((SettingsScriptCellViewModel(setting: SettingsSuitSettings.ignoreButtonSetting) as ViewModel), SettingsScriptCell.identifier),
@@ -110,7 +114,7 @@ extension SettingsSuit {
     
     var scripts = [UserScript]()
     switch type {
-    case .Review: scripts = userScriptsForReview
+    case .Review: scripts = SettingsSuitSettings.userScriptsForReview
     case .Lesson: break
     }
     

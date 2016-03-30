@@ -13,7 +13,7 @@ protocol DashboardViewControllerDelegate: class {
   func dashboardPullToRefreshAction()
 }
 
-class DashboardViewController: UIViewController, StoryboardInstantiable, UICollectionViewDelegate {
+class DashboardViewController: SingleTabViewController, StoryboardInstantiable, UICollectionViewDelegate {
   
   // MARK: Outlets
   @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
@@ -67,6 +67,24 @@ class DashboardViewController: UIViewController, StoryboardInstantiable, UIColle
   
 }
 
+// MARK: - SingleTabViewController
+extension DashboardViewController {
+  
+  override func didShrink() {
+    super.didShrink()
+    doubleProgressBar.hidden = true
+    headerHeightConstraint.constant = 0
+  }
+  
+  override func didUnshrink() {
+    super.didUnshrink()
+    doubleProgressBar.hidden = false
+    headerHeightConstraint.constant = view.bounds.height * 0.15
+  }
+  
+}
+
+
 // MARK: - UICollectionViewDataSource
 extension DashboardViewController : UICollectionViewDataSource {
   
@@ -118,26 +136,13 @@ extension DashboardViewController {
     addBackground(BackgroundOptions.Dashboard.rawValue)
     
     addPullToRefresh()
-    
-    shrinkHeader()
-    unshrinkHeader()
   }
   
   override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
     let top = self.topLayoutGuide.length
     let bottom = self.bottomLayoutGuide.length
     let newInsets = UIEdgeInsets(top: top, left: 0, bottom: bottom, right: 0)
     self.collectionView.contentInset = newInsets
-    
-    let orientation = UIDevice.currentDevice().orientation.isLandscape
-    let sizeClass = self.view.traitCollection.verticalSizeClass
-    
-    switch (isLandscape: orientation, sizeClass) {
-    case (isLandscape: true, UIUserInterfaceSizeClass.Compact): shrinkHeader()
-    default: unshrinkHeader()
-    }
-    
     collectionView.reloadData()
   }
   
@@ -175,22 +180,6 @@ extension DashboardViewController {
   private func reloadProgressBarUserLevel(viewModel: DoubleProgressLevelModel?) {
     guard let viewModel = viewModel else { return }
     doubleProgressBar?.setupLevel(viewModel)
-  }
-  
-  private func shrinkHeader() {
-    guard isHeaderShrinked == false else { return }
-    headerHeightConstraint.constant = 0
-    isHeaderShrinked = true
-    doubleProgressBar.hidden = true
-    hideTabBar(true)
-  }
-  
-  private func unshrinkHeader() {
-    guard isHeaderShrinked == true else { return }
-    headerHeightConstraint.constant = view.bounds.height * 0.15
-    isHeaderShrinked = false
-    doubleProgressBar.hidden = false
-    showTabBar(true)
   }
   
   private func flipVisibleCells() {
