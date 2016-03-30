@@ -19,6 +19,8 @@ public class DashboardCoordinator: Coordinator, DashboardViewControllerDelegate 
   public init(presenter: UINavigationController) {
     self.presenter = presenter
     dashboardViewController = DashboardViewController.instantiateViewController()
+    let tabItem: UITabBarItem = UITabBarItem(title: "Dashboard", image: UIImage(named: "dashboard"), selectedImage: nil)
+    presenter.tabBarItem = tabItem
     childrenCoordinators = []
   }
   

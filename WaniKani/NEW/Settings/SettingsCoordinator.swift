@@ -21,6 +21,8 @@ public class SettingsCoordinator: Coordinator, SettingsViewControllerDelegate {
     self.presenter = presenter
     suit = SettingsSuit(userDefaults: NSUserDefaults.standardUserDefaults(), keychainManager: KeychainManager())
     settingsViewController = SettingsViewController.instantiateViewController()
+    let tabItem: UITabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "settings"), selectedImage: nil)
+    presenter.tabBarItem = tabItem
     childrenCoordinators = []
   }
   

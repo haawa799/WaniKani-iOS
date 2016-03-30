@@ -79,7 +79,7 @@ extension DashboardViewController {
   override func didUnshrink() {
     super.didUnshrink()
     doubleProgressBar.hidden = false
-    headerHeightConstraint.constant = view.bounds.height * 0.15
+    refreshProgressConstraint()
   }
   
 }
@@ -136,9 +136,11 @@ extension DashboardViewController {
     addBackground(BackgroundOptions.Dashboard.rawValue)
     
     addPullToRefresh()
+    refreshProgressConstraint()
   }
   
   override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
     let top = self.topLayoutGuide.length
     let bottom = self.bottomLayoutGuide.length
     let newInsets = UIEdgeInsets(top: top, left: 0, bottom: bottom, right: 0)
@@ -191,6 +193,10 @@ extension DashboardViewController {
       (cell as? FlippableView)?.flip(animations: {
         }, delay: NSTimeInterval(delayFromFirst))
     }
+  }
+  
+  func refreshProgressConstraint() {
+    headerHeightConstraint.constant = view.bounds.height * 0.15
   }
   
 }
