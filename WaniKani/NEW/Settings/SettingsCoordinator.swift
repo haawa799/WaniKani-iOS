@@ -8,27 +8,41 @@
 
 import UIKit
 
-public class SettingsCoordinator: Coordinator {
+public class SettingsCoordinator: Coordinator, SettingsViewControllerDelegate {
   
   let presenter: UINavigationController
   let settingsViewController: SettingsViewController
   let childrenCoordinators: [Coordinator]
+  let suit: SettingsSuit
   
   let dataProvider = DataProvider()
   
   public init(presenter: UINavigationController) {
     self.presenter = presenter
+    suit = SettingsSuit(userDefaults: NSUserDefaults.standardUserDefaults(), keychainManager: KeychainManager())
     settingsViewController = SettingsViewController.instantiateViewController()
     childrenCoordinators = []
   }
   
   
   func start() {
-    
-    let suit = SettingsSuit(userDefaults: NSUserDefaults.standardUserDefaults(), keychainManager: KeychainManager())
     let viewModel = suit.collectionViewViewModel
     presenter.pushViewController(settingsViewController, animated: false)
+    settingsViewController.delegate = self
     settingsViewController.collectionViewModel = viewModel
+  }
+  
+}
+
+// SettingsViewControllerDelegate
+extension SettingsCoordinator {
+  
+  func cellPressed(indexPath: NSIndexPath) {
+    print("indexPath: \(indexPath)")
+  }
+  
+  func cellCheckboxStateChange(id: String, state: Bool) {
+    suit.changeSetting(id, state: state)
   }
   
 }

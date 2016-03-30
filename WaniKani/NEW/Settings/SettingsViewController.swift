@@ -9,7 +9,14 @@
 import UIKit
 import GameKit
 
+protocol SettingsViewControllerDelegate: class {
+  func cellPressed(indexPath: NSIndexPath)
+  func cellCheckboxStateChange(id: String, state: Bool)
+}
+
 class SettingsViewController: UIViewController, StoryboardInstantiable {
+  
+  weak var delegate: SettingsViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -40,10 +47,7 @@ class SettingsViewController: UIViewController, StoryboardInstantiable {
 
 extension SettingsViewController: UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//    switch (indexPath.section, indexPath.row) {
-//    case (1, 2): AwardsManager.sharedInstance.showGameCenterViewController()
-//    default: break
-//    }
+    delegate?.cellPressed(indexPath)
   }
 }
 
@@ -62,6 +66,7 @@ extension SettingsViewController: UICollectionViewDataSource {
     var cell: UICollectionViewCell!
     guard let item = collectionViewModel?.cellDataItemForIndexPath(indexPath) else { return cell }
     cell = collectionView.dequeueReusableCellWithReuseIdentifier(item.reuseIdentifier, forIndexPath: indexPath)
+    (cell as? SettingsScriptCell)?.delegate = self
     (cell as? ViewModelSetupable)?.setupWithViewModel(item.viewModel)
     return cell
   }
@@ -87,6 +92,7 @@ extension SettingsViewController: UICollectionViewDataSource {
 extension SettingsViewController: SettingsScriptCellDelegate {
   
   func scriptCellChangedState(cell: SettingsScriptCell ,state: Bool) {
-    
+    guard let id = cell.id else { return }
+    delegate?.cellCheckboxStateChange(id, state: state)
   }
 }

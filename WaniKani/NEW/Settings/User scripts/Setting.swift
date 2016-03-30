@@ -12,8 +12,19 @@ protocol SettingsDelegate {
   func settingDidChange(setting: Setting)
 }
 
+enum SettingSuitKey: String {
+  case fastForwardEnabledKey = "fastForwardEnabledKey"
+  case ignoreButtonEnabledKey = "ignoreButtonEnabledKey"
+  case smartResizingEnabledKey = "smartResizingEnabledKey"
+  case reorderEnabledKey = "reorderEnabledKey"
+  case hideStatusBarKey = "hideStatusBarKey"
+  case gameCenterKey = "gameCenterKey"
+  case shouldUseGameCenterKey = "shouldUSeGameCenter"
+  case ignoreLessonsInIconBadgeKey = "ignoreLessonsInIconBadgeKey"
+}
+
 struct Setting: Equatable {
-  let key: String
+  let key: SettingSuitKey
   let script: UserScript?
   let description: String?
   
@@ -22,21 +33,21 @@ struct Setting: Equatable {
   var enabled: Bool = false {
     didSet {
       if enabled != oldValue {
-        NSUserDefaults.standardUserDefaults().setBool(enabled, forKey: key)
+        NSUserDefaults.standardUserDefaults().setBool(enabled, forKey: key.rawValue)
         NSUserDefaults.standardUserDefaults().synchronize()
         delegate?.settingDidChange(self)
       }
     }
   }
   
-  init(key: String, script: UserScript?, description: String?) {
+  init(key: SettingSuitKey, script: UserScript?, description: String?) {
     self.key = key
     self.description = description
     self.script = script
-    self.enabled = NSUserDefaults.standardUserDefaults().boolForKey(key)
+    self.enabled = NSUserDefaults.standardUserDefaults().boolForKey(key.rawValue)
   }
 }
 
 func ==(lhs: Setting, rhs: Setting) -> Bool {
-  return lhs.key == rhs.key
+  return lhs.key.rawValue == rhs.key.rawValue
 }

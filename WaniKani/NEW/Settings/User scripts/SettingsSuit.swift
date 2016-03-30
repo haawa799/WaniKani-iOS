@@ -8,17 +8,6 @@
 
 import UIKit
 
-private struct SettingSuitKeys {
-  static let fastForwardEnabledKey = "fastForwardEnabledKey"
-  static let ignoreButtonEnabledKey = "ignoreButtonEnabledKey"
-  static let smartResizingEnabledKey = "smartResizingEnabledKey"
-  static let reorderEnabledKey = "reorderEnabledKey"
-  static let hideStatusBarKey = "hideStatusBarKey"
-  static let gameCenterKey = "gameCenterKey"
-  static let shouldUseGameCenterKey = "shouldUSeGameCenter"
-  static let ignoreLessonsInIconBadgeKey = "ignoreLessonsInIconBadgeKey"
-}
-
 private struct ScriptSetting {
   static let fastForwardScript = UserScript(filename: "fast_forward", scriptName: "Fast forward")
   static let ignoreButtonScript = UserScript(filename: "ignore", scriptName: "Ignore button")
@@ -28,15 +17,15 @@ private struct ScriptSetting {
 }
 
 private struct SettingsSuitSettings {
-  static let fastForwardSetting: Setting = Setting(key: SettingSuitKeys.fastForwardEnabledKey, script: ScriptSetting.fastForwardScript, description: ScriptSetting.fastForwardScript.name)
-  static let ignoreButtonSetting: Setting = Setting(key: SettingSuitKeys.ignoreButtonEnabledKey, script: ScriptSetting.ignoreButtonScript, description: ScriptSetting.ignoreButtonScript.name)
-  static let reorderSetting: Setting = Setting(key: SettingSuitKeys.reorderEnabledKey, script: ScriptSetting.reorderScript, description: ScriptSetting.reorderScript.name)
-  static let smartResizingSetting: Setting = Setting(key: SettingSuitKeys.smartResizingEnabledKey, script: ScriptSetting.smartResizingScript, description: ScriptSetting.smartResizingScript.name)
+  static let fastForwardSetting: Setting = Setting(key: SettingSuitKey.fastForwardEnabledKey, script: ScriptSetting.fastForwardScript, description: ScriptSetting.fastForwardScript.name)
+  static let ignoreButtonSetting: Setting = Setting(key: SettingSuitKey.ignoreButtonEnabledKey, script: ScriptSetting.ignoreButtonScript, description: ScriptSetting.ignoreButtonScript.name)
+  static let reorderSetting: Setting = Setting(key: SettingSuitKey.reorderEnabledKey, script: ScriptSetting.reorderScript, description: ScriptSetting.reorderScript.name)
+  static let smartResizingSetting: Setting = Setting(key: SettingSuitKey.smartResizingEnabledKey, script: ScriptSetting.smartResizingScript, description: ScriptSetting.smartResizingScript.name)
   // === Second section ===================
-  static let hideStatusBarSetting: Setting = Setting(key: SettingSuitKeys.hideStatusBarKey, script: nil, description: "Status bar hidden on Reviews")
-  static let shouldUseGCSetting: Setting = Setting(key: SettingSuitKeys.shouldUseGameCenterKey, script: nil, description: "Use GameCenter")
-  static let gameCenterDummySetting: Setting = Setting(key: SettingSuitKeys.gameCenterKey, script: nil, description: "Game center")
-  static let ignoreLessonsInIconCounter: Setting = Setting(key: SettingSuitKeys.ignoreLessonsInIconBadgeKey, script: nil, description: "Ignore lessons in icon badge")
+  static let hideStatusBarSetting: Setting = Setting(key: SettingSuitKey.hideStatusBarKey, script: nil, description: "Status bar hidden on Reviews")
+  static let shouldUseGCSetting: Setting = Setting(key: SettingSuitKey.shouldUseGameCenterKey, script: nil, description: "Use GameCenter")
+  static let gameCenterDummySetting: Setting = Setting(key: SettingSuitKey.gameCenterKey, script: nil, description: "Game center")
+  static let ignoreLessonsInIconCounter: Setting = Setting(key: SettingSuitKey.ignoreLessonsInIconBadgeKey, script: nil, description: "Ignore lessons in icon badge")
 }
 
 struct SettingsSuit {
@@ -57,6 +46,23 @@ struct SettingsSuit {
       ScriptSetting.reorderScript,
       ScriptSetting.scoreScript
     ]
+  }
+  
+  private var allSettings: [Setting] {
+    return [
+      SettingsSuitSettings.fastForwardSetting,
+      SettingsSuitSettings.ignoreButtonSetting,
+      SettingsSuitSettings.reorderSetting,
+      SettingsSuitSettings.smartResizingSetting,
+      SettingsSuitSettings.hideStatusBarSetting,
+      SettingsSuitSettings.shouldUseGCSetting,
+      SettingsSuitSettings.ignoreLessonsInIconCounter
+    ]
+  }
+  
+  private func settingWithID(id: String) -> Setting? {
+    let setting = allSettings.filter ({ $0.key.rawValue == id }).first
+    return setting
   }
 }
 
@@ -93,6 +99,11 @@ extension SettingsSuit {
   
   var shouldUseGameCenter: Bool {
     return SettingsSuitSettings.shouldUseGCSetting.enabled
+  }
+  
+  func changeSetting(id: String, state: Bool) {
+    guard var setting = settingWithID(id) else { return }
+    setting.enabled = state
   }
   
   func applyUserScriptsToWebView(webView: UIWebView, type: WebSessionType) {

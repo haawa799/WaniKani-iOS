@@ -9,6 +9,7 @@
 import UIKit
 
 protocol SettingsScriptCellDataSource: SingleTitleViewModel {
+  var scriptID: String { get }
   var switchState: Bool { get }
 }
 
@@ -19,6 +20,7 @@ protocol SettingsScriptCellDelegate: class {
 class SettingsScriptCell: UICollectionViewCell, FlippableView, SingleReuseIdentifier, ViewModelSetupable {
   
   weak var delegate: SettingsScriptCellDelegate?
+  var id: String?
   
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var flatSwitch: AIFlatSwitch!
@@ -30,6 +32,7 @@ class SettingsScriptCell: UICollectionViewCell, FlippableView, SingleReuseIdenti
   func setupWith(dataSource: SettingsScriptCellDataSource) {
     titleLabel.text = dataSource.title
     flatSwitch.selected = dataSource.switchState
+    id = dataSource.scriptID
   }
   
 }
