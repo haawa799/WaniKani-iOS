@@ -12,7 +12,7 @@ public class DashboardCoordinator: Coordinator, DashboardViewControllerDelegate 
   
   let presenter: UINavigationController
   let dashboardViewController: DashboardViewController
-  let childrenCoordinators: [Coordinator]
+  var childrenCoordinators: [Coordinator]
   
   let dataProvider = DataProvider()
   
@@ -34,6 +34,13 @@ public class DashboardCoordinator: Coordinator, DashboardViewControllerDelegate 
     presenter.pushViewController(dashboardViewController, animated: false)
     _ = dashboardViewController.view
     fetchAllDashboardData()
+    
+    
+    delay(6) { 
+      let coordinator = ReviewCoordinator(presenter: self.presenter)
+      coordinator.start()
+      self.childrenCoordinators.append(coordinator)
+    }
   }
   
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenuContainerController: UIViewController {
+class SideMenuContainerController: UIViewController, StoryboardInstantiable {
   
   var webViewData: WebViewData? {
     didSet {
@@ -36,7 +36,7 @@ class SideMenuContainerController: UIViewController {
   }
   
   override func prefersStatusBarHidden() -> Bool {
-    return SettingsSuit.sharedInstance.hideStatusBarEnabled
+    return true//SettingsSuit.sharedInstance.hideStatusBarEnabled
   }
   
 }

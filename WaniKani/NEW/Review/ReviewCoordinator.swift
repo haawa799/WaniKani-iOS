@@ -15,7 +15,7 @@ public protocol ReviewCoordinatorDelegate: class {
 public class ReviewCoordinator: Coordinator {
   
   let presenter: UINavigationController
-  let reviewViewController: ReviewViewController
+  let reviewViewController: SideMenuContainerController
   let childrenCoordinators: [Coordinator]
   
   let dataProvider = DataProvider()
@@ -24,7 +24,7 @@ public class ReviewCoordinator: Coordinator {
   
   public init(presenter: UINavigationController) {
     self.presenter = presenter
-    reviewViewController = DashboardViewController.instantiateViewController()
+    reviewViewController = SideMenuContainerController.instantiateViewController()
     childrenCoordinators = []
   }
   

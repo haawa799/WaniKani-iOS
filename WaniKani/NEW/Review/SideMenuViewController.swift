@@ -73,7 +73,7 @@ extension SideMenuViewController: RESideMenuDelegate {
     })
     
     if let webViewData = webViewData {
-      appDelegate.fabricManager.postUserSwipedToKanjiPractice(webViewData.type)
+//      appDelegate.fabricManager.postUserSwipedToKanjiPractice(webViewData.type)
     }
   }
 }

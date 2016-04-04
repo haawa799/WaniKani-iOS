@@ -1,0 +1,35 @@
+{
+  "name": "AllKanjiBezierPath",
+  "version": "0.0.7",
+  "summary": "AllKanjiBezierPath - tool to get kanji strokes in form of UIBezierPath/NSBezierPath array",
+  "description": "AllKanjiBezierPath - tool to get kanji strokes in form of UIBezierPath/NSBezierPath array. I use it in WaniKani for iOS app/",
+  "homepage": "https://github.com/haawa799/AllKanjiBezierPath/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Andrew Kharchyshyn": "haawaplus@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/haawa799",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "tvos": "9.1"
+  },
+  "source": {
+    "git": "https://github.com/haawa799/AllKanjiBezierPath.git",
+    "tag": "0.0.7"
+  },
+  "source_files": [
+    "WaniKit",
+    "AllKanjiBezierPath/*.swift"
+  ],
+  "public_header_files": "AllKanjiBezierPath/*.h",
+  "requires_arc": true,
+  "dependencies": {
+    "SQLite.swift": [
+
+    ]
+  }
+}

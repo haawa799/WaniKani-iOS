@@ -26,6 +26,11 @@
 		432C07361BB3272C0031B3B1 /* AIFlatSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C072A1BB3272C0031B3B1 /* AIFlatSwitch.swift */; };
 		432C07371BB3272C0031B3B1 /* DogeHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C072B1BB3272C0031B3B1 /* DogeHintView.swift */; };
 		432C073B1BB338820031B3B1 /* SliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C073A1BB338820031B3B1 /* SliceView.swift */; };
+		4334AA5F1CB1A554007F96D1 /* KanjiPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334AA5B1CB1A554007F96D1 /* KanjiPracticeViewController.swift */; };
+		4334AA601CB1A554007F96D1 /* KanjiPracticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4334AA5C1CB1A554007F96D1 /* KanjiPracticeViewController.xib */; };
+		4334AA611CB1A554007F96D1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334AA5D1CB1A554007F96D1 /* WebViewController.swift */; };
+		4334AA621CB1A554007F96D1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4334AA5E1CB1A554007F96D1 /* WebViewController.xib */; };
+		4334AA641CB1A5A2007F96D1 /* KanjiGraphicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334AA631CB1A5A2007F96D1 /* KanjiGraphicInfo.swift */; };
 		4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9B71C19CA6B0011746D /* LevelProgression.swift */; };
 		4335B9BE1C19CA6B0011746D /* StudyQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9B91C19CA6B0011746D /* StudyQueue.swift */; };
 		4335B9BF1C19CA6B0011746D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335B9BA1C19CA6B0011746D /* User.swift */; };
@@ -112,8 +117,7 @@
 		43C1B6DF1C78C65600563FBB /* KanjiRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C1B6DE1C78C65600563FBB /* KanjiRowController.swift */; };
 		43CF8C1B1BB996C7009AA489 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */; };
 		43D3FAE11CAEBE4100FA7E2F /* ReviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3FAE01CAEBE4100FA7E2F /* ReviewCoordinator.swift */; };
-		43D3FAE31CAEBF6700FA7E2F /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3FAE21CAEBF6700FA7E2F /* ReviewViewController.swift */; };
-		43D3FAE51CAEBF8000FA7E2F /* ReviewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D3FAE41CAEBF8000FA7E2F /* ReviewViewController.storyboard */; };
+		43D3FAE51CAEBF8000FA7E2F /* SideMenuContainerController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D3FAE41CAEBF8000FA7E2F /* SideMenuContainerController.storyboard */; };
 		43D3FAE81CAEC07900FA7E2F /* SideMenuContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3FAE61CAEC07900FA7E2F /* SideMenuContainerController.swift */; };
 		43D3FAE91CAEC07900FA7E2F /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3FAE71CAEC07900FA7E2F /* SideMenuViewController.swift */; };
 		43D506C21C22CFE40020F03B /* WaniKaniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D506C11C22CFE40020F03B /* WaniKaniUITests.swift */; };
@@ -269,6 +273,11 @@
 		432C072A1BB3272C0031B3B1 /* AIFlatSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFlatSwitch.swift; sourceTree = "<group>"; };
 		432C072B1BB3272C0031B3B1 /* DogeHintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogeHintView.swift; sourceTree = "<group>"; };
 		432C073A1BB338820031B3B1 /* SliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliceView.swift; sourceTree = "<group>"; };
+		4334AA5B1CB1A554007F96D1 /* KanjiPracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiPracticeViewController.swift; sourceTree = "<group>"; };
+		4334AA5C1CB1A554007F96D1 /* KanjiPracticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KanjiPracticeViewController.xib; sourceTree = "<group>"; };
+		4334AA5D1CB1A554007F96D1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		4334AA5E1CB1A554007F96D1 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		4334AA631CB1A5A2007F96D1 /* KanjiGraphicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiGraphicInfo.swift; sourceTree = "<group>"; };
 		4334B6531C75FABE003F1C92 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../Downloads/realm-swift-0.98.1 2/ios/swift-2.1.1/Realm.framework"; sourceTree = "<group>"; };
 		4334B6541C75FABE003F1C92 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../Downloads/realm-swift-0.98.1 2/ios/swift-2.1.1/RealmSwift.framework"; sourceTree = "<group>"; };
 		4334B6651C75FDFF003F1C92 /* Kanji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Kanji.swift; path = ../WaniKani/Model/Kanji.swift; sourceTree = "<group>"; };
@@ -386,8 +395,7 @@
 		43C1B6DE1C78C65600563FBB /* KanjiRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiRowController.swift; sourceTree = "<group>"; };
 		43CF8C1A1BB996C7009AA489 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		43D3FAE01CAEBE4100FA7E2F /* ReviewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCoordinator.swift; sourceTree = "<group>"; };
-		43D3FAE21CAEBF6700FA7E2F /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
-		43D3FAE41CAEBF8000FA7E2F /* ReviewViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReviewViewController.storyboard; sourceTree = "<group>"; };
+		43D3FAE41CAEBF8000FA7E2F /* SideMenuContainerController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenuContainerController.storyboard; sourceTree = "<group>"; };
 		43D3FAE61CAEC07900FA7E2F /* SideMenuContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuContainerController.swift; sourceTree = "<group>"; };
 		43D3FAE71CAEC07900FA7E2F /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		43D506BF1C22CFE40020F03B /* WaniKaniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaniKaniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -954,11 +962,15 @@
 		43D3FADF1CAEBE2900FA7E2F /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				4334AA631CB1A5A2007F96D1 /* KanjiGraphicInfo.swift */,
+				4334AA5B1CB1A554007F96D1 /* KanjiPracticeViewController.swift */,
+				4334AA5C1CB1A554007F96D1 /* KanjiPracticeViewController.xib */,
+				4334AA5D1CB1A554007F96D1 /* WebViewController.swift */,
+				4334AA5E1CB1A554007F96D1 /* WebViewController.xib */,
 				43D3FAE01CAEBE4100FA7E2F /* ReviewCoordinator.swift */,
-				43D3FAE21CAEBF6700FA7E2F /* ReviewViewController.swift */,
 				43D3FAE61CAEC07900FA7E2F /* SideMenuContainerController.swift */,
 				43D3FAE71CAEC07900FA7E2F /* SideMenuViewController.swift */,
-				43D3FAE41CAEBF8000FA7E2F /* ReviewViewController.storyboard */,
+				43D3FAE41CAEBF8000FA7E2F /* SideMenuContainerController.storyboard */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -1326,6 +1338,7 @@
 				431A31321BFF59600080944E /* Fipps-Regular.otf in Resources */,
 				43C012271C62299100E07303 /* DogeSans-Regular.otf in Resources */,
 				432C072F1BB3272C0031B3B1 /* NextReviewCell.xib in Resources */,
+				4334AA601CB1A554007F96D1 /* KanjiPracticeViewController.xib in Resources */,
 				437E131E1CA021F100083CD1 /* AvaliableItemCell.xib in Resources */,
 				43101B771C33F41C00B855F2 /* WebViewController.xib in Resources */,
 				43B273C21C43DC5D00B57D8B /* LevelsBlockCell.xib in Resources */,
@@ -1336,6 +1349,7 @@
 				433E28101B79D5E900BBB45E /* LaunchScreen.xib in Resources */,
 				43E11A381CABD304008D21DE /* SettingsScriptCell.xib in Resources */,
 				43AABDA61BEB47BC00F2D5B8 /* WordCell.xib in Resources */,
+				4334AA621CB1A554007F96D1 /* WebViewController.xib in Resources */,
 				43E11A2D1CABD304008D21DE /* reorder.js in Resources */,
 				43960D5C1C975195009AD9AB /* DashboardViewController.storyboard in Resources */,
 				43B5F8AA1C0C84C900DA9893 /* DogeHintView.xib in Resources */,
@@ -1344,7 +1358,7 @@
 				43E4567F1BBAD4A30043ECAE /* ProgressHeader.xib in Resources */,
 				433E280D1B79D5E900BBB45E /* Images.xcassets in Resources */,
 				43B273CC1C4409CC00B57D8B /* LevelCell.xib in Resources */,
-				43D3FAE51CAEBF8000FA7E2F /* ReviewViewController.storyboard in Resources */,
+				43D3FAE51CAEBF8000FA7E2F /* SideMenuContainerController.storyboard in Resources */,
 				43E11A2F1CABD304008D21DE /* score.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1485,9 +1499,11 @@
 				43E11A331CABD304008D21DE /* UserScript.swift in Sources */,
 				43658C1C1C9BDE0300AA3F46 /* DoubleProgressBar.swift in Sources */,
 				431B32F91C99A80700324323 /* LabelExtensions.swift in Sources */,
+				4334AA5F1CB1A554007F96D1 /* KanjiPracticeViewController.swift in Sources */,
 				43658C1F1C9BE05700AA3F46 /* DoubleProgressViewModel.swift in Sources */,
 				434B00CC1C1D7F8E00ECCF20 /* RealmManager.swift in Sources */,
 				437E13201CA022F100083CD1 /* ViewModel.swift in Sources */,
+				4334AA611CB1A554007F96D1 /* WebViewController.swift in Sources */,
 				43E456851BBC1FEF0043ECAE /* LevelInfoView.swift in Sources */,
 				43E11A371CABD304008D21DE /* SettingsScriptCell.swift in Sources */,
 				43E2EFD51CA12244002AA89F /* LeftRightTitleViewModel.swift in Sources */,
@@ -1521,7 +1537,7 @@
 				43D3FAE11CAEBE4100FA7E2F /* ReviewCoordinator.swift in Sources */,
 				432C07361BB3272C0031B3B1 /* AIFlatSwitch.swift in Sources */,
 				43BE27701C1B1188001A0DD7 /* NotificationCenterManager.swift in Sources */,
-				43D3FAE31CAEBF6700FA7E2F /* ReviewViewController.swift in Sources */,
+				4334AA641CB1A5A2007F96D1 /* KanjiGraphicInfo.swift in Sources */,
 				43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */,
 				437D7B531C9956B200CB93B1 /* Coordinator.swift in Sources */,
 				43E2EFE21CA133FB002AA89F /* ColorUtils.swift in Sources */,
