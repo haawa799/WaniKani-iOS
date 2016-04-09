@@ -17,6 +17,7 @@ target 'WaniKani' do
   pod 'RESideMenu'
   pod 'ACEDrawingView'
   pod 'UIImageView-PlayGIF'
+  pod "Device", '~> 1.0.1'
 
   #my pods
   pod 'WaniKit'

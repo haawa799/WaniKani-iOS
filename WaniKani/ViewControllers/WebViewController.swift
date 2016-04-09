@@ -37,34 +37,7 @@ class WebViewController: UIViewController {
   
   //
   private var url: String?
-  private var type = WebSessionType.Lesson {
-    didSet {
-      submitButton?.title = buttonTitle
-    }
-  }
-  
-  private var buttonTitle: String {
-    var title = "End session"
-    if (type == .Review) && (SettingsSuit.sharedInstance.shouldUseGameCenter == true) {
-      title = "Submit to GameCenter"
-    }
-    return title
-  }
-  
-  private var newScoreEarned = 0
-  private var oldOffset: CGFloat?
-  
-  @IBOutlet weak var submitButton: UIBarButtonItem! {
-    didSet {
-      submitButton?.accessibilityIdentifier = "Submit"
-      submitButton?.title = buttonTitle
-    }
-  }
-  @IBOutlet weak var strokesButton: UIBarButtonItem! {
-    didSet {
-      strokesButton?.accessibilityIdentifier = "strokesButton"
-    }
-  }
+  private var type = WebSessionType.Lesson
   
   @IBOutlet weak var webView: UIWebView! {
     didSet {
@@ -73,15 +46,6 @@ class WebViewController: UIViewController {
       webView.delegate = self
       delegate?.webViewControllerBecomeReadyForLoad(self)
     }
-  }
-  @IBAction func cancelPressed(sender: AnyObject) {
-    checkForNewScore()
-    submitScore()
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  @IBAction func strokesPressed(sender: AnyObject) {
-    delegate?.strokesPressed()
   }
   
   override func prefersStatusBarHidden() -> Bool {

@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -22,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISJ-Mg-Rbf" customClass="AIFlatSwitch" customModule="WaniKani" customModuleProvider="target">
-                        <rect key="frame" x="262" y="8" width="42" height="42"/>
+                        <rect key="frame" x="254.5" y="4.5" width="49.5" height="49"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.49803921569999998" green="0.81176470590000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration" label="switch">
@@ -52,13 +53,25 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="ISJ-Mg-Rbf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="2w4-6d-dft"/>
                 <constraint firstItem="ISJ-Mg-Rbf" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailingMargin" id="3BY-s5-Eoq"/>
+                <constraint firstItem="ISJ-Mg-Rbf" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.85" id="MgO-Ii-gek"/>
+                <constraint firstAttribute="bottom" secondItem="ISJ-Mg-Rbf" secondAttribute="bottom" constant="2" id="R7N-FK-tvf"/>
                 <constraint firstItem="ISJ-Mg-Rbf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="bpR-V9-VkX"/>
                 <constraint firstItem="ISJ-Mg-Rbf" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottomMargin" id="dfG-dV-PND"/>
+                <constraint firstItem="ISJ-Mg-Rbf" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="e2K-sf-84k"/>
                 <constraint firstItem="3j5-Y0-aUF" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="pSd-HJ-Ev0"/>
                 <constraint firstItem="3j5-Y0-aUF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="q95-bU-CUK"/>
             </constraints>
             <size key="customSize" width="312" height="58"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2w4-6d-dft"/>
+                    <exclude reference="R7N-FK-tvf"/>
+                    <exclude reference="bpR-V9-VkX"/>
+                    <exclude reference="dfG-dV-PND"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="flatSwitch" destination="ISJ-Mg-Rbf" id="gNV-S4-dUJ"/>
                 <outlet property="titleLabel" destination="3j5-Y0-aUF" id="odN-T3-d0a"/>

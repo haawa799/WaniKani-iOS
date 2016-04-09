@@ -11,25 +11,27 @@ import RESideMenu
 import ACEDrawingView
 import StrokeDrawingView
 
-typealias WebViewData = (url: String, type: WebSessionType)
-
-class SideMenuViewController: RESideMenu {
+class ReviewViewController: RESideMenu {
   
-  var webViewData: WebViewData?
+  var type: WebSessionType?
   
-  private let webViewController = WebViewController(nibName: "WebViewController", bundle: nil)
-  private let kanjiPracticeController = KanjiPracticeViewController(nibName: "KanjiPracticeViewController", bundle: nil)
+  private var webViewController: WebViewController?
+  private var kanjiPracticeController: KanjiPracticeViewController?
+  
+  convenience init(type: WebSessionType, settingsSuit: SettingsSuit?) {
+    self.init()
+    
+    self.webViewController = WebViewController(nibName: "WebViewController", bundle: nil, settingsSuit: settingsSuit)
+    self.kanjiPracticeController = KanjiPracticeViewController(nibName: "KanjiPracticeViewController", bundle: nil)
+    self.type = type
+    self.rightMenuViewController = kanjiPracticeController
+    self.contentViewController = webViewController
+  }
   
   override func viewDidLoad() {
     
     delegate = self
-    
-    contentViewController = webViewController
-    webViewController.delegate = self
-    if webViewData?.type == .Review {
-      self.rightMenuViewController = self.kanjiPracticeController
-    }
-    CGAffineTransformIdentity
+    webViewController?.delegate = self
     
     super.viewDidLoad()
     
@@ -37,7 +39,7 @@ class SideMenuViewController: RESideMenu {
     contentViewController.view.backgroundColor = UIColor.clearColor()
     view.clipsToBounds = true
     
-    if webViewData?.type == .Review {
+    if type == .Review {
       delay(45) { () -> () in
         self.dumpAnimation()
       }
@@ -64,21 +66,21 @@ class SideMenuViewController: RESideMenu {
   }
 }
 
-extension SideMenuViewController: RESideMenuDelegate {
+extension ReviewViewController: RESideMenuDelegate {
   func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
-    guard let word = webViewController.character() where word.characters.count > 0 else { return }
+    guard let word = webViewController?.character() where word.characters.count > 0 else { return }
     
-    kanjiPracticeController.kanjiCharacters = word.characters.map({ (c) -> String in
+    kanjiPracticeController?.kanjiCharacters = word.characters.map({ (c) -> String in
       return "\(c)"
     })
     
-    if let webViewData = webViewData {
+//    if let webViewData = webViewData {
 //      appDelegate.fabricManager.postUserSwipedToKanjiPractice(webViewData.type)
-    }
+//    }
   }
 }
 
-extension SideMenuViewController {
+extension ReviewViewController {
   
   override func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
     
@@ -93,24 +95,10 @@ extension SideMenuViewController {
   }
 }
 
-extension SideMenuViewController: WebViewControllerDelegate {
-  
+extension ReviewViewController: WebViewControllerDelegate {
   func webViewControllerBecomeReadyForLoad(vc: WebViewController) {
     
-    guard let data = webViewData else { return }
-    vc.loadURL(data)
+    guard let type = type else { return }
+    vc.loadReviews(type)
   }
-  
-  func startShowingKanji() {
-    
-  }
-  
-  func endShowingKanji() {
-    
-  }
-  
-  func strokesPressed() {
-    presentRightMenuViewController()
-  }
-  
 }

@@ -9,4 +9,3 @@
 protocol Coordinator {
   func start()
 }
-

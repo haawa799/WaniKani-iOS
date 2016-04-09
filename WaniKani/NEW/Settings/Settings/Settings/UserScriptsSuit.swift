@@ -8,9 +8,17 @@
 
 import UIKit
 
-enum WebSessionType {
+public enum WebSessionType {
   case Lesson
   case Review
+  
+  var url: String {
+    switch self {
+      case .Lesson: return "https://www.wanikani.com/lesson/session"
+      case .Review: return "https://www.wanikani.com/review/session"
+    }
+  }
+  
 }
 
 class UserScriptsSuit: NSObject {

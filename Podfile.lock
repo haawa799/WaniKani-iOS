@@ -3,6 +3,7 @@ PODS:
   - Alamofire (2.0.2)
   - AllKanjiBezierPath (0.0.7):
     - SQLite.swift
+  - Device (1.0.1)
   - DGElasticPullToRefresh (1.0.3)
   - GCHelper (0.3.2)
   - NJKScrollFullScreen (0.2.6)
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - ACEDrawingView
   - Alamofire (~> 2.0)
   - AllKanjiBezierPath (from `https://github.com/haawa799/AllKanjiBezierPath.git`, branch `master`)
+  - Device (~> 1.0.1)
   - DGElasticPullToRefresh (from `https://github.com/gontovnik/DGElasticPullToRefresh`, branch `master`)
   - GCHelper (~> 0.2)
   - NJKScrollFullScreen
@@ -54,6 +56,7 @@ SPEC CHECKSUMS:
   ACEDrawingView: 325b5cd00125766c6df9b30aa3a7b68866d2ce16
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   AllKanjiBezierPath: 351efe13c64b6a770aace32e1d469cd838ac56a2
+  Device: 7ed5b87db148886e8c3cbcdde5dc997baddbe10b
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   GCHelper: f8b582b6aea213cda16a13d9d30ec7a009b30192
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
@@ -65,6 +68,6 @@ SPEC CHECKSUMS:
   UIImageView-PlayGIF: 445c8b31b3a43271dd3d565d9c0c612fa59ae830
   WaniKit: 8a256d940fb613d6adedf6748a761fd26282b69b
 
-PODFILE CHECKSUM: 499d3bdd18fc31464c654fae1d256307474dec70
+PODFILE CHECKSUM: ec69a507634c6c96646ca8be46301dd08ce1ad45
 
 COCOAPODS: 1.0.0.beta.4

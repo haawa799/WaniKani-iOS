@@ -42,6 +42,9 @@ public extension DashboardCoordinator {
       self.dashboardViewController.endLoadingIfNeeded()
       return
     }
+    canOpenReview = studyQueue.reviewsAvaliable > 0
+    canOpenLessons = studyQueue.lessonsAvaliable > 0
+    
     let viewModel = CollectionViewViewModel.collectionViewModelWith(studyQueue: studyQueue)
     self.dashboardViewController.freshCollectionViewModel(viewModel, isOld: isOld)
   }

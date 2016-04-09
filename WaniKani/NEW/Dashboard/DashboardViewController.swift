@@ -11,6 +11,7 @@ import DGElasticPullToRefresh
 
 protocol DashboardViewControllerDelegate: class {
   func dashboardPullToRefreshAction()
+  func didSelectCell(indexPath: NSIndexPath)
 }
 
 class DashboardViewController: SingleTabViewController, StoryboardInstantiable, UICollectionViewDelegate {
@@ -120,6 +121,10 @@ extension DashboardViewController : UICollectionViewDataSource {
     let size = self.collectionView(collectionView, layout: flowLayout, referenceSizeForHeaderInSection: indexPath.section)
     (header as? DashboardHeader)?.resize(size.width)
     return header
+  }
+  
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    delegate?.didSelectCell(indexPath)
   }
 }
 

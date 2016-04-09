@@ -9,28 +9,45 @@
 import UIKit
 
 public protocol ReviewCoordinatorDelegate: class {
-  func reviewCompleted()
+  func reviewCompleted(coordinator: ReviewCoordinator)
 }
 
-public class ReviewCoordinator: Coordinator {
+public class ReviewCoordinator: Coordinator, BottomBarContainerDelegate {
   
   let presenter: UINavigationController
-  let reviewViewController: SideMenuContainerController
+  let reviewViewController: BottomBarContainerViewController
+  let sideMenuController: ReviewViewController
+  
   let childrenCoordinators: [Coordinator]
   
   let dataProvider = DataProvider()
   
   weak var delegate: ReviewCoordinatorDelegate?
   
-  public init(presenter: UINavigationController) {
+  public init(presenter: UINavigationController, settingsSuit: SettingsSuit, type: WebSessionType) {
     self.presenter = presenter
-    reviewViewController = SideMenuContainerController.instantiateViewController()
+    reviewViewController = BottomBarContainerViewController.instantiateViewController()
+    sideMenuController = ReviewViewController(type: type, settingsSuit: settingsSuit)
     childrenCoordinators = []
   }
   
   func start() {
+    reviewViewController.delegate = self
     presenter.presentViewController(reviewViewController, animated: true, completion: nil)
+    reviewViewController.childViewController = sideMenuController
   }
   
+}
+
+public extension ReviewCoordinator {
+  func leftButtonPressed() {
+    presenter.dismissViewControllerAnimated(true) { 
+      self.delegate?.reviewCompleted(self)
+    }
+  }
+  
+  func rightButtonPressed() {
+    
+  }
 }
 

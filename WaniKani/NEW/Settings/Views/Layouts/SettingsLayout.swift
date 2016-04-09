@@ -56,7 +56,7 @@ class SettingsLayout: UICollectionViewFlowLayout {
     sectionInset = UIEdgeInsets(top: 0, left: leftInset, bottom: freeSpacePerSection, right: rightInset)
     minimumInteritemSpacing = defaultCellInset
     minimumLineSpacing = rowsSpacing
-    collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: insets.bottom, right: 0)
+    collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: freeSpacePerSection, right: 0)
     
     super.prepareLayout()
   }

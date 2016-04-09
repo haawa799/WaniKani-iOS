@@ -17,9 +17,9 @@ public class SettingsCoordinator: Coordinator, SettingsViewControllerDelegate {
   
   let dataProvider = DataProvider()
   
-  public init(presenter: UINavigationController) {
+  public init(presenter: UINavigationController, settingsSuit: SettingsSuit) {
     self.presenter = presenter
-    suit = SettingsSuit(userDefaults: NSUserDefaults.standardUserDefaults(), keychainManager: KeychainManager())
+    suit = settingsSuit
     settingsViewController = SettingsViewController.instantiateViewController()
     let tabItem: UITabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "settings"), selectedImage: nil)
     presenter.tabBarItem = tabItem

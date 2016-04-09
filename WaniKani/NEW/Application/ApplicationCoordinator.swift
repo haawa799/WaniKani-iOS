@@ -10,6 +10,8 @@ import UIKit
 
 public class ApplicationCoordinator: Coordinator {
   
+  private let applicationSettingsSuit = SettingsSuit(userDefaults: NSUserDefaults.standardUserDefaults(), keychainManager: KeychainManager())
+  
   private let dashboardNavigationController = UINavigationController()
   private let dashboardCoordinator: DashboardCoordinator
   
@@ -26,8 +28,8 @@ public class ApplicationCoordinator: Coordinator {
     settingsNavigationController.navigationBarHidden = true
     let viewControllers = [dashboardNavigationController, settingsNavigationController]
     rootViewController.setViewControllers(viewControllers, animated: false)
-    dashboardCoordinator = DashboardCoordinator(presenter: dashboardNavigationController)
-    settingsCoordinator = SettingsCoordinator(presenter: settingsNavigationController)
+    dashboardCoordinator = DashboardCoordinator(presenter: dashboardNavigationController, settingsSuit: applicationSettingsSuit)
+    settingsCoordinator = SettingsCoordinator(presenter: settingsNavigationController, settingsSuit: applicationSettingsSuit)
     
     childrenCoordinators = [dashboardCoordinator, settingsCoordinator]
   }

@@ -1,12 +1,13 @@
 //
 //  Utils.swift
-//  
+//
 //
 //  Created by Andriy K. on 8/25/15.
 //
 //
 
 import UIKit
+import Device
 
 let hideSubscribitionsSkript = "$('a[href=\"/account/subscription\"]').remove();document.getElementsByClassName('upgrade')[0].remove();document.getElementsByClassName('newbie')[0].remove();"
 
@@ -69,21 +70,37 @@ func optimalReviewMetrics(statusBarHidden: Bool) -> (height: Int, width: Int, sc
   }
   let width = Int(screenSize.width)
   
-  let model = PhoneModel.myModel()
+  let model = Device.size()
   
+  var keyboardHeight = 0
   switch model {
-  case .iPhone6Plus :
-    height -= 271
+  case .Screen5_5Inch :
+    keyboardHeight = 271
+    height -= keyboardHeight
     scale = 250
-  case .iPhone6 :
-     height -= 258
-     scale = 250
-  case .iPhone5 :
-     height -= 253
-     scale = 220
-  case .iPhone4 :
-     height = 50
-     scale = 100
+  case .Screen4_7Inch :
+    keyboardHeight = 258
+    height -= keyboardHeight
+    scale = 250
+  case .Screen4Inch :
+    keyboardHeight = 258
+    height -= keyboardHeight
+    scale = 220
+  case .Screen3_5Inch :
+    height = 50
+    scale = 100
+  case .Screen7_9Inch, .Screen9_7Inch, .Screen12_9Inch:
+    
+    if UIDevice.currentDevice().orientation == .Portrait {
+      keyboardHeight = 350
+    } else {
+      keyboardHeight = 455
+    }
+    height -= keyboardHeight
+    scale = 100
+    
+  case .UnknownSize:
+    break
   }
   
   return (height, width, scale)
@@ -114,25 +131,3 @@ extension UIView {
   }
 }
 
-
-enum PhoneModel {
-  case iPhone4
-  case iPhone5
-  case iPhone6
-  case iPhone6Plus
-  
-  static func myModel() -> PhoneModel {
-    let screenSize: CGRect = UIScreen.mainScreen().bounds
-    switch screenSize.height {
-    case 736 :
-      return .iPhone6Plus
-    case 667 :
-      return .iPhone6
-    case 568 :
-      return .iPhone5
-    case 480 :
-      return iPhone4
-    default : return iPhone6
-    }
-  }
-}

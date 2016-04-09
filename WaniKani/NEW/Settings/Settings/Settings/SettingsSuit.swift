@@ -14,9 +14,22 @@ private struct ScriptSetting {
   static let smartResizingScript = UserScript(filename: "resize", scriptName: "Smart resize")
   static let reorderScript = UserScript(filename: "reorder", scriptName: "Reorder script")
   static let scoreScript = UserScript(filename: "score", scriptName: "Score script")
+  
+  static func resizingScriptForCurrentMetrics(statusBarHidden: Bool) -> UserScript {
+    var resizingScriptCopy = ScriptSetting.smartResizingScript
+    resizingScriptCopy.modifyScript({ (script) -> (String) in
+      let metrics = optimalReviewMetrics(statusBarHidden)
+      var s = script.stringByReplacingOccurrencesOfString("HHH", withString: "\(metrics.height)")
+      s = s.stringByReplacingOccurrencesOfString("WWW", withString: "\(metrics.width)")
+      s = s.stringByReplacingOccurrencesOfString("FFF", withString: "\(metrics.scale)")
+      return s
+    })
+    return resizingScriptCopy
+  }
 }
 
 private struct SettingsSuitSettings {
+  
   static let fastForwardSetting: Setting = Setting(key: SettingSuitKey.fastForwardEnabledKey, script: ScriptSetting.fastForwardScript, description: ScriptSetting.fastForwardScript.name)
   static let ignoreButtonSetting: Setting = Setting(key: SettingSuitKey.ignoreButtonEnabledKey, script: ScriptSetting.ignoreButtonScript, description: ScriptSetting.ignoreButtonScript.name)
   static let reorderSetting: Setting = Setting(key: SettingSuitKey.reorderEnabledKey, script: ScriptSetting.reorderScript, description: ScriptSetting.reorderScript.name)
@@ -28,13 +41,13 @@ private struct SettingsSuitSettings {
   static let ignoreLessonsInIconCounter: Setting = Setting(key: SettingSuitKey.ignoreLessonsInIconBadgeKey, script: nil, description: "Ignore lessons in icon badge")
   
   static var userScriptsForReview: [UserScript] {
-    return [
-      ScriptSetting.fastForwardScript,
-      ScriptSetting.ignoreButtonScript,
-      ScriptSetting.smartResizingScript,
-      ScriptSetting.reorderScript,
-      ScriptSetting.scoreScript
-    ]
+    var scripts = [UserScript]()
+    if fastForwardSetting.enabled == true { scripts.append(ScriptSetting.fastForwardScript) }
+    if ignoreButtonSetting.enabled == true { scripts.append(ScriptSetting.ignoreButtonScript) }
+    if reorderSetting.enabled == true { scripts.append(ScriptSetting.reorderScript) }
+    scripts.append(ScriptSetting.scoreScript)
+    if smartResizingSetting.enabled == true { ScriptSetting.resizingScriptForCurrentMetrics(hideStatusBarSetting.enabled) }
+    return scripts
   }
   
   static var allSettings: [Setting] {
@@ -50,7 +63,7 @@ private struct SettingsSuitSettings {
   }
 }
 
-struct SettingsSuit {
+public struct SettingsSuit {
   
   private let userDefaults: NSUserDefaults
   private let keychainManager: KeychainManager
@@ -108,6 +121,12 @@ extension SettingsSuit {
   func changeSetting(id: String, state: Bool) {
     guard var setting = settingWithID(id) else { return }
     setting.enabled = state
+  }
+  
+  func applyResizingScriptsToWebView(webView: UIWebView, type: WebSessionType) {
+    guard type == .Review else { return }
+    let script = ScriptSetting.resizingScriptForCurrentMetrics(SettingsSuitSettings.hideStatusBarSetting.enabled)
+    webView.stringByEvaluatingJavaScriptFromString(script.script)
   }
   
   func applyUserScriptsToWebView(webView: UIWebView, type: WebSessionType) {
