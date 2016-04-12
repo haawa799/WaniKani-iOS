@@ -15,16 +15,11 @@ protocol BottomBarContainerDelegate: class {
 
 class BottomBarContainerViewController: UIViewController, StoryboardInstantiable {
   
-  @IBAction func leftButtonPressed(sender: UIBarButtonItem) {
-    delegate?.leftButtonPressed()
-  }
-  
-  @IBAction func rightButtonPressed(sender: UIBarButtonItem) {
-    delegate?.rightButtonPressed()
-  }
-  
-  
+  @IBOutlet weak var barHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var containerView: UIView!
+  @IBOutlet weak var toolBar: UIToolbar!
+  
+  weak var delegate: BottomBarContainerDelegate?
   
   var childViewController: UIViewController? {
     didSet {
@@ -35,40 +30,48 @@ class BottomBarContainerViewController: UIViewController, StoryboardInstantiable
     }
   }
   
-  weak var delegate: BottomBarContainerDelegate?
+}
+
+
+// MARK: - UIViewController
+extension BottomBarContainerViewController {
   
-//  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//    super.prepareForSegue(segue, sender: sender)
-//    
-//    if let vc = segue.destinationViewController as? SideMenuViewController {
-//      self.sideMenuController = vc
-//    }
-//  }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.showToolbar(false)
+  }
   
   override func prefersStatusBarHidden() -> Bool {
-    return true//SettingsSuit.sharedInstance.hideStatusBarEnabled
+    return false//SettingsSuit.sharedInstance.hideStatusBarEnabled
   }
   
 }
 
-//extension BottomBarContainerViewController {
-//  
-//  override func viewDidLoad() {
-//    super.viewDidLoad()
-////    UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
-//  }
-//  
-////  override func shouldAutorotate() -> Bool {
-////    // Lock autorotate
-////    return false
-////  }
-//  
-//  override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-//    return UIInterfaceOrientationMask.Portrait
-//  }
-//  
-//  override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-//    return UIInterfaceOrientation.Portrait
-//  }
-//  
-//}
+
+// MARK: - Actions
+extension BottomBarContainerViewController {
+  
+  @IBAction func leftButtonPressed(sender: UIBarButtonItem) {
+    delegate?.leftButtonPressed()
+  }
+  
+  @IBAction func rightButtonPressed(sender: UIBarButtonItem) {
+    delegate?.rightButtonPressed()
+  }
+  
+}
+
+
+// MARK: - Show hide bottom bar
+extension BottomBarContainerViewController {
+  
+  func showBar() {
+    toolBar.hidden = false
+  }
+  
+  func hideBar() {
+    toolBar.hidden = true
+  }
+  
+}

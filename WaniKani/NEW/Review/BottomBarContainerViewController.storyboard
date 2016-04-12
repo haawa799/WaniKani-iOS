@@ -22,6 +22,9 @@
                             </containerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HqY-6u-XdJ">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gr3-ye-Flw"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="Left" style="plain" id="dTr-WC-gJg" userLabel="Left">
                                         <connections>
@@ -56,7 +59,9 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="barHeightConstraint" destination="gr3-ye-Flw" id="9DK-lj-g8Q"/>
                         <outlet property="containerView" destination="p4M-AW-kII" id="UkB-jq-ISg"/>
+                        <outlet property="toolBar" destination="HqY-6u-XdJ" id="USn-uO-suU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaN-0B-NDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,9 +11,16 @@ import RESideMenu
 import ACEDrawingView
 import StrokeDrawingView
 
+protocol ReviewViewControllerDelegate: class {
+  func didShowMenu()
+  func didColapseMenu()
+}
+
 class ReviewViewController: RESideMenu {
   
   var type: WebSessionType?
+  weak var reviewDelegate: ReviewViewControllerDelegate?
+  
   
   private var webViewController: WebViewController?
   private var kanjiPracticeController: KanjiPracticeViewController?
@@ -34,6 +41,9 @@ class ReviewViewController: RESideMenu {
     webViewController?.delegate = self
     
     super.viewDidLoad()
+    
+    contentViewInLandscapeOffsetCenterX = 100
+    contentViewInPortraitOffsetCenterX = 50
     
     backgroundImage = UIImage(named: "strokes_bg")
     contentViewController.view.backgroundColor = UIColor.clearColor()
@@ -67,17 +77,23 @@ class ReviewViewController: RESideMenu {
 }
 
 extension ReviewViewController: RESideMenuDelegate {
-  func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
-    guard let word = webViewController?.character() where word.characters.count > 0 else { return }
+  
+  func sideMenu(sideMenu: RESideMenu!, didRecognizePanGesture recognizer: UIPanGestureRecognizer!) {
     
-    kanjiPracticeController?.kanjiCharacters = word.characters.map({ (c) -> String in
-      return "\(c)"
-    })
-    
-//    if let webViewData = webViewData {
-//      appDelegate.fabricManager.postUserSwipedToKanjiPractice(webViewData.type)
-//    }
   }
+  func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
+    
+  }
+  func sideMenu(sideMenu: RESideMenu!, didShowMenuViewController menuViewController: UIViewController!) {
+    
+  }
+  func sideMenu(sideMenu: RESideMenu!, willHideMenuViewController menuViewController: UIViewController!) {
+    
+  }
+  func sideMenu(sideMenu: RESideMenu!, didHideMenuViewController menuViewController: UIViewController!) {
+    reviewDelegate?.didColapseMenu()
+  }
+  
 }
 
 extension ReviewViewController {

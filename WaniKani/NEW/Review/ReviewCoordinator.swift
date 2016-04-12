@@ -12,29 +12,32 @@ public protocol ReviewCoordinatorDelegate: class {
   func reviewCompleted(coordinator: ReviewCoordinator)
 }
 
-public class ReviewCoordinator: Coordinator, BottomBarContainerDelegate {
+public class ReviewCoordinator: NSObject, Coordinator, BottomBarContainerDelegate {
   
   let presenter: UINavigationController
-  let reviewViewController: BottomBarContainerViewController
+  let containerViewController: BottomBarContainerViewController
   let sideMenuController: ReviewViewController
   
   let childrenCoordinators: [Coordinator]
   
   let dataProvider = DataProvider()
   
+  private var sideMenuVisible = false
+  
   weak var delegate: ReviewCoordinatorDelegate?
   
   public init(presenter: UINavigationController, settingsSuit: SettingsSuit, type: WebSessionType) {
     self.presenter = presenter
-    reviewViewController = BottomBarContainerViewController.instantiateViewController()
+    containerViewController = BottomBarContainerViewController.instantiateViewController()
     sideMenuController = ReviewViewController(type: type, settingsSuit: settingsSuit)
     childrenCoordinators = []
   }
   
   func start() {
-    reviewViewController.delegate = self
-    presenter.presentViewController(reviewViewController, animated: true, completion: nil)
-    reviewViewController.childViewController = sideMenuController
+    containerViewController.delegate = self
+    sideMenuController.delegate = self
+    presenter.presentViewController(containerViewController, animated: true, completion: nil)
+    containerViewController.childViewController = sideMenuController
   }
   
 }
@@ -47,7 +50,28 @@ public extension ReviewCoordinator {
   }
   
   func rightButtonPressed() {
+    if sideMenuVisible == true {
+      sideMenuController.hideMenuViewController()
+      sideMenuVisible = false
+      showBar()
+    } else {
+      sideMenuController.presentRightMenuViewController()
+      sideMenuVisible = true
+      hideBar()
+    }
     
   }
+}
+
+public extension ReviewCoordinator {
+  
+  func hideBar() {
+    containerViewController.hideBar()
+  }
+  
+  func showBar() {
+    containerViewController.showBar()
+  }
+  
 }
 

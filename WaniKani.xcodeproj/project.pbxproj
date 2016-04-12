@@ -89,6 +89,7 @@
 		43960D621C975195009AD9AB /* ScreenBackgound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D561C975195009AD9AB /* ScreenBackgound.swift */; };
 		43960D631C975195009AD9AB /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43960D571C975195009AD9AB /* UIViewControllerUtils.swift */; };
 		43A12D081C47B66500E18556 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A12D071C47B66500E18556 /* LevelData.swift */; };
+		43A2013E1CBAC2CD00087614 /* ReviewCoordinator+SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A2013D1CBAC2CD00087614 /* ReviewCoordinator+SideMenu.swift */; };
 		43AABDA51BEB47BC00F2D5B8 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */; };
 		43AABDA61BEB47BC00F2D5B8 /* WordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */; };
 		43AD05331BA078A8000DBCBE /* ColorfullTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD05321BA078A8000DBCBE /* ColorfullTabBarController.swift */; };
@@ -363,6 +364,7 @@
 		43960D561C975195009AD9AB /* ScreenBackgound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenBackgound.swift; sourceTree = "<group>"; };
 		43960D571C975195009AD9AB /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		43A12D071C47B66500E18556 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		43A2013D1CBAC2CD00087614 /* ReviewCoordinator+SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReviewCoordinator+SideMenu.swift"; sourceTree = "<group>"; };
 		43A667901C7461D70072614B /* WaniKani.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WaniKani.entitlements; sourceTree = "<group>"; };
 		43AABDA31BEB47BC00F2D5B8 /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 		43AABDA41BEB47BC00F2D5B8 /* WordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordCell.xib; sourceTree = "<group>"; };
@@ -971,6 +973,7 @@
 				4334AA5D1CB1A554007F96D1 /* WebViewController.swift */,
 				4334AA5E1CB1A554007F96D1 /* WebViewController.xib */,
 				43D3FAE01CAEBE4100FA7E2F /* ReviewCoordinator.swift */,
+				43A2013D1CBAC2CD00087614 /* ReviewCoordinator+SideMenu.swift */,
 				43D3FAE61CAEC07900FA7E2F /* BottomBarContainerViewController.swift */,
 				43D3FAE71CAEC07900FA7E2F /* ReviewViewController.swift */,
 				43D3FAE41CAEBF8000FA7E2F /* BottomBarContainerViewController.storyboard */,
@@ -1516,6 +1519,7 @@
 				43B273CE1C4505A400B57D8B /* LevelsLayout.swift in Sources */,
 				433BDC261BFB407F0025EB24 /* SetupStepViewController.swift in Sources */,
 				43B273CB1C4409CC00B57D8B /* LevelCell.swift in Sources */,
+				43A2013E1CBAC2CD00087614 /* ReviewCoordinator+SideMenu.swift in Sources */,
 				432C072E1BB3272C0031B3B1 /* NextReviewCell.swift in Sources */,
 				43E11A391CABD304008D21DE /* GameCenterCellViewModel.swift in Sources */,
 				4335B9BC1C19CA6B0011746D /* LevelProgression.swift in Sources */,
