@@ -52,7 +52,7 @@ extension StudyQueue {
     let flags: NSCalendarUnit = [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute]
     let components = calendar.components(flags, fromDate: NSDate(), toDate: nextReviewDate, options: [])
     
-    var nextReviewString = "Avaliable now!"
+    var nextReviewString = "Available now!"
     
     let years = components.year
     let months = components.month
