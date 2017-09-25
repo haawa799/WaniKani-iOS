@@ -1,12 +1,13 @@
 
 
-[![Build Status](https://www.bitrise.io/app/f239dd7cb0f88557.svg?token=CGKNLjMOWmO_jit_I8AM4Q&branch=master)](https://www.bitrise.io/app/f239dd7cb0f88557)
 [![License](https://img.shields.io/badge/license-GNU-green.svg?style=flat)](https://github.com/haawa799/WaniKani-iOS/blob/master/LICENSE)
 [![Twitter: @haawa799](https://img.shields.io/badge/contact-@haawa799-blue.svg?style=flat)](https://twitter.com/haawa799)
 
 # WaniKani
 
 ![](http://cl.ly/16022v122G0y/Untitled%204.png)
+
+### ❗️This Repo is out of date, the latest AppStore app was build from [this repo](https://github.com/haawa799/-WaniKani2)
 
 --------------------------------
 ### Want to get all latest features ASAP? This app needs beta testers! [Sign up page.](https://wanikani-ios.herokuapp.com)
